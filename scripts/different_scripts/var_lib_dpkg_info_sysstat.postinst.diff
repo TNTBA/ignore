@@ -1,0 +1,148 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/sysstat.postinst	2019-04-06 03:18:26.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/sysstat.postinst	2022-12-04 16:23:25.000000000 -0500
+@@ -1,5 +1,5 @@
+ #! /bin/sh
+-# vim:ts=4:et
++# vim:ts=4:et:sw=4
+ 
+ set -e
+ 
+@@ -18,7 +18,7 @@
+     fi
+ 
+     # Generate temporary files
+-    def_file=`tempfile -p sstat -s .def`
++    def_file=`mktemp -t sstatXXXXXXXXX.def`
+ 
+     # Fill new temporary default file
+     cat > "$def_file" << EOF
+@@ -44,10 +44,47 @@
+     rm -f "$def_file"
+ }
+ 
++manage_systemd_services()
++{
++    ENABLED="$1"
++    all_services='sysstat-collect.timer sysstat-summary.timer sysstat.service'
++    num_all_services=3
++
++    # deb-systemd-helper does not have the --now option
++    sysctl='/bin/systemctl'
++    num_disabled=0
++
++    [ -x "$sysctl" ] && [ -d /run/systemd/system ] || return 0
++
++    for service in $all_services; do
++        "$sysctl" --quiet is-enabled "$service" || num_disabled=$(expr $num_disabled + 1)
++    done
++
++    if [ $num_disabled != 0 ] && [ $num_disabled !=  $num_all_services ]; then
++        # Do not override local administator choice to enable only some of systemd files
++        return 0
++    fi
++
++    [ $num_disabled = 0 ] && is_enabled="true" || is_enabled="false"
++    [ "$ENABLED" != "$is_enabled" ] || return 0
++
++    [ "$ENABLED" = "true" ] && enable_arg="enable" || enable_arg="disable"
++
++    for service in $all_services; do
++        case $service in
++            *.timer) options="--now" ;;
++            *)       options=""      ;;
++        esac
++
++        "$sysctl" "$enable_arg" $options "$service" >/dev/null 2>&1 || true
++    done
++}
++
+ ### Main ###
+ 
+ . /usr/share/debconf/confmodule
+ 
++ENABLED=""
+ if [ "$1" = "configure" ] ; then
+     if dpkg --compare-versions "$2" lt-nl "$S_VERSION"; then
+         RET=""
+@@ -77,28 +114,55 @@
+                             --slave /usr/share/man/man1/sar.1.gz sar.1.gz \
+                             /usr/share/man/man1/sar.sysstat.1.gz
+     fi
+-
+-
+-    # execute sa1 in a subshell not to clobber the postinst script with potentially
+-    # unsafe values from "$DEFAULT"
+-    if [ "$ENABLED" = "true" ] && [ -x /usr/lib/sysstat/sa1 ] ; then
+-        ( set +e ; /usr/lib/sysstat/sa1 1 1 )&
+-    fi
+ fi
+ 
+-# Automatically added by dh_installdeb/12.1.1
++# Automatically added by dh_installdeb/13.11.1
+ dpkg-maintscript-helper rm_conffile /etc/profile.d/sysstat.sh 11.7.3\~ sysstat -- "$@"
+ # End automatically added section
+-# Automatically added by dh_installinit/12.1.1
++# Automatically added by dh_installinit/13.11.1
+ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+ 	if [ -x "/etc/init.d/sysstat" ]; then
+ 		update-rc.d sysstat defaults >/dev/null || exit 1
+ 	fi
+ fi
+ # End automatically added section
+-# Automatically added by dh_installsystemd/12.1.1
++# Automatically added by dh_installsystemd/13.11.1
++if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
++	# The following line should be removed in trixie or trixie+1
++	deb-systemd-helper unmask 'sysstat-collect.timer' >/dev/null || true
++
++	# was-enabled defaults to true, so new installations run enable.
++	if deb-systemd-helper --quiet was-enabled 'sysstat-collect.timer'; then
++		# Enables the unit on first installation, creates new
++		# symlinks on upgrades if the unit file has changed.
++		deb-systemd-helper enable 'sysstat-collect.timer' >/dev/null || true
++	else
++		# Update the statefile to add new symlinks (if any), which need to be
++		# cleaned up on purge. Also remove old symlinks.
++		deb-systemd-helper update-state 'sysstat-collect.timer' >/dev/null || true
++	fi
++fi
++# End automatically added section
++# Automatically added by dh_installsystemd/13.11.1
+ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+-	# This will only remove masks created by d-s-h on package removal.
++	# The following line should be removed in trixie or trixie+1
++	deb-systemd-helper unmask 'sysstat-summary.timer' >/dev/null || true
++
++	# was-enabled defaults to true, so new installations run enable.
++	if deb-systemd-helper --quiet was-enabled 'sysstat-summary.timer'; then
++		# Enables the unit on first installation, creates new
++		# symlinks on upgrades if the unit file has changed.
++		deb-systemd-helper enable 'sysstat-summary.timer' >/dev/null || true
++	else
++		# Update the statefile to add new symlinks (if any), which need to be
++		# cleaned up on purge. Also remove old symlinks.
++		deb-systemd-helper update-state 'sysstat-summary.timer' >/dev/null || true
++	fi
++fi
++# End automatically added section
++# Automatically added by dh_installsystemd/13.11.1
++if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
++	# The following line should be removed in trixie or trixie+1
+ 	deb-systemd-helper unmask 'sysstat.service' >/dev/null || true
+ 
+ 	# was-enabled defaults to true, so new installations run enable.
+@@ -115,4 +179,14 @@
+ # End automatically added section
+ 
+ 
++if [ "$1" = "configure" ] && [ -n "$ENABLED" ]; then
++    manage_systemd_services "$ENABLED"
++
++    # execute sa1 in a subshell not to clobber the postinst script with potentially
++    # unsafe values from "$DEFAULT"
++    if [ "$ENABLED" = "true" ] && [ -x /usr/lib/sysstat/sa1 ] ; then
++        ( set +e ; /usr/lib/sysstat/sa1 1 1 )&
++    fi
++fi
++
+ exit 0

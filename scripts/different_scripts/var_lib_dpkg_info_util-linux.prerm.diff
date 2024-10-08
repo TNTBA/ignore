@@ -1,0 +1,20 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/util-linux.prerm	2019-01-10 03:30:43.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/util-linux.prerm	2024-03-28 05:52:12.000000000 -0400
+@@ -11,9 +11,14 @@
+ 
+ esac
+ 
+-# Automatically added by dh_installsystemd/12
+-if [ -d /run/systemd/system ] && [ "$1" = remove ]; then
+-	deb-systemd-invoke stop 'fstrim.service' 'fstrim.timer' >/dev/null || true
++# Automatically added by dh_installsystemd/13.11.4
++if [ -z "${DPKG_ROOT:-}" ] && [ "$1" = remove ] && [ -d /run/systemd/system ] ; then
++	deb-systemd-invoke stop 'fstrim.service' >/dev/null || true
++fi
++# End automatically added section
++# Automatically added by dh_installsystemd/13.11.4
++if [ -z "${DPKG_ROOT:-}" ] && [ "$1" = remove ] && [ -d /run/systemd/system ] ; then
++	deb-systemd-invoke stop 'fstrim.timer' >/dev/null || true
+ fi
+ # End automatically added section
+ 

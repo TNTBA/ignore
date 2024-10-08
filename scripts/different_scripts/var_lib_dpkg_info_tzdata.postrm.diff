@@ -1,0 +1,33 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/tzdata.postrm	2022-06-10 14:21:38.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/tzdata.postrm	2024-02-03 13:56:08.000000000 -0500
+@@ -3,10 +3,28 @@
+ 
+ # Remove /etc/localtime on purge
+ if [ "$1" = "purge" ]; then
+-    rm -f /etc/localtime
++	rm -f /etc/localtime /etc/timezone
+ fi
+ 
+-# Automatically added by dh_installdebconf/12.1.1
++# Automatically added by dh_installdeb/13.11.4
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/Africa ../Africa 2022g-1\~ -- "$@"
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/America ../America 2022g-1\~ -- "$@"
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/Antarctica ../Antarctica 2022g-1\~ -- "$@"
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/Arctic ../Arctic 2022g-1\~ -- "$@"
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/Asia ../Asia 2022g-1\~ -- "$@"
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/Atlantic ../Atlantic 2022g-1\~ -- "$@"
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/Australia ../Australia 2022g-1\~ -- "$@"
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/Brazil ../Brazil 2022g-1\~ -- "$@"
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/Canada ../Canada 2022g-1\~ -- "$@"
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/Chile ../Chile 2022g-1\~ -- "$@"
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/Etc ../Etc 2022g-1\~ -- "$@"
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/Europe ../Europe 2022g-1\~ -- "$@"
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/Indian ../Indian 2022g-1\~ -- "$@"
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/Mexico ../Mexico 2022g-1\~ -- "$@"
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/Pacific ../Pacific 2022g-1\~ -- "$@"
++dpkg-maintscript-helper dir_to_symlink /usr/share/zoneinfo/posix/US ../US 2022g-1\~ -- "$@"
++# End automatically added section
++# Automatically added by dh_installdebconf/13.11.4
+ if [ "$1" = purge ] && [ -e /usr/share/debconf/confmodule ]; then
+ 	. /usr/share/debconf/confmodule
+ 	db_purge

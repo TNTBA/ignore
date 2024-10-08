@@ -1,0 +1,21 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/zsh.postinst	2022-02-13 13:16:43.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/zsh.postinst	2024-03-29 16:02:56.000000000 -0400
+@@ -12,9 +12,6 @@
+ 
+ case "$1" in
+     (configure)
+-        add-shell /bin/zsh
+-        add-shell /usr/bin/zsh
+-
+ 	# New hardcoded symlinks which unfortunately can't be shipped inside
+ 	# the package itself since some people want to merge /bin and /usr/bin
+ 	# against FHS and all Unix tradition.
+@@ -31,7 +28,7 @@
+     ;;
+ esac
+ 
+-# Automatically added by dh_installdeb/12.1.1
++# Automatically added by dh_installdeb/13.11.4
+ dpkg-maintscript-helper symlink_to_dir /usr/share/doc/zsh zsh-common 5.0.7-3 -- "$@"
+ # End automatically added section
+ 

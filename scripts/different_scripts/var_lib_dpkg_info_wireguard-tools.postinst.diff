@@ -1,0 +1,10 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/wireguard-tools.postinst	2020-09-15 19:33:53.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/wireguard-tools.postinst	2022-09-18 21:46:33.000000000 -0400
+@@ -1,6 +1,6 @@
+ #!/bin/sh
+ set -e
+-# Automatically added by dh_installsystemd/12.1.1
++# Automatically added by dh_installsystemd/13.9.1
+ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+ 	if [ -d /run/systemd/system ]; then
+ 		systemctl --system daemon-reload >/dev/null || true

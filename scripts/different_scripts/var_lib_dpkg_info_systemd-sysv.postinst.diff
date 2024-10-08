@@ -1,0 +1,14 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/systemd-sysv.postinst	2021-07-08 09:03:45.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/systemd-sysv.postinst	2024-06-16 05:44:31.000000000 -0400
+@@ -1,9 +1,10 @@
+ #!/bin/sh
++
+ set -e
+ 
+ # update grub on first install, so that the alternative init system boot
+ # entries get updated
+-if [ "$1" = configure ] && [ -z "$2" ] && [ -e /boot/grub/grub.cfg ] && which update-grub >/dev/null 2>&1; then
++if [ "$1" = configure ] && [ -z "$2" ] && [ -e /boot/grub/grub.cfg ] && command -v update-grub >/dev/null; then
+     update-grub || true
+ fi
+ 

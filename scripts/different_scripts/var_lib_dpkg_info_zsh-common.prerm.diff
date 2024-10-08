@@ -1,0 +1,14 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/zsh-common.prerm	2022-02-13 13:16:43.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/zsh-common.prerm	2023-02-04 19:37:45.000000000 -0500
+@@ -1,9 +1,9 @@
+ #!/bin/sh
+ set -e
+-# Automatically added by dh_installdeb/12.1.1
++# Automatically added by dh_installdeb/13.11.4
+ dpkg-maintscript-helper symlink_to_dir /usr/share/doc/zsh zsh-common 5.0.7-3 -- "$@"
+ # End automatically added section
+-# Automatically added by dh_usrlocal/12.1.1
++# Automatically added by dh_usrlocal/13.11.4
+ (
+ 	while read dir; do
+ 		rmdir "$dir" 2>/dev/null || true

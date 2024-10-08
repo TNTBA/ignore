@@ -1,0 +1,31 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/systemd.prerm	2021-07-08 09:03:45.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/systemd.prerm	2024-06-16 05:44:31.000000000 -0400
+@@ -1,4 +1,4 @@
+-#! /bin/sh
++#!/bin/sh
+ 
+ set -e
+ 
+@@ -12,17 +12,10 @@
+     exit 1
+ fi
+ 
+-# Automatically added by dh_installdeb/12.1.1
+-dpkg-maintscript-helper rm_conffile /etc/X11/xinit/xinitrc.d/50-systemd-user.sh 228-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/systemd/bootchart.conf 230-1\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.hostname1.conf 233-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.locale1.conf 233-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.login1.conf 233-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.machine1.conf 228-5\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.network1.conf 233-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.resolve1.conf 233-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.systemd1.conf 233-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.timedate1.conf 233-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.systemd-shim.conf 239-15\~ systemd-shim -- "$@"
++# Automatically added by dh_installdeb/13.11.4
++dpkg-maintscript-helper rm_conffile /etc/dhcp/dhclient-exit-hooks.d/timesyncd 245.4-2\~ -- "$@"
++dpkg-maintscript-helper rm_conffile /etc/systemd/timesyncd.conf 245.4-2\~ -- "$@"
++dpkg-maintscript-helper rm_conffile /etc/pam.d/systemd-user 247\~rc2-3\~ -- "$@"
++dpkg-maintscript-helper rm_conffile /etc/systemd/resolved.conf 251.3-2\~ -- "$@"
+ # End automatically added section
+ 

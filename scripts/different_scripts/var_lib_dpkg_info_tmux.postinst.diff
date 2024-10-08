@@ -1,0 +1,18 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/tmux.postinst	2019-02-10 11:14:02.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/tmux.postinst	2022-10-31 12:55:13.000000000 -0400
+@@ -2,13 +2,8 @@
+ 
+ set -e
+ 
+-if [ "$1" = "configure" ]; then
+-    if [ -z "$2" ] || dpkg --compare-versions "$2" lt "1.5-3"; then
+-	add-shell /usr/bin/tmux
+-    fi
++if [ "$1" = "configure" ] && [ -z "$2" ]; then
++    add-shell /usr/bin/tmux
+ fi
+ 
+-# Automatically added by dh_installdeb/12
+-dpkg-maintscript-helper rm_conffile /etc/init.d/tmux-cleanup 1.4-6 -- "$@"
+-# End automatically added section
+ 

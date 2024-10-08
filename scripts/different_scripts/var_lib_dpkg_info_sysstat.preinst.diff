@@ -1,0 +1,14 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/sysstat.preinst	2019-04-06 03:18:26.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/sysstat.preinst	2022-12-04 16:23:25.000000000 -0500
+@@ -1,5 +1,10 @@
+ #!/bin/sh
+ set -e
+-# Automatically added by dh_installdeb/12.1.1
++# Automatically added by dh_installdeb/13.11.1
+ dpkg-maintscript-helper rm_conffile /etc/profile.d/sysstat.sh 11.7.3\~ sysstat -- "$@"
+ # End automatically added section
++# Automatically added by dh_installinit/13.11.1
++if [ "$1" = "install" ] && [ -n "$2" ] && [ -e "/etc/init.d/sysstat" ] ; then
++	chmod +x "/etc/init.d/sysstat" >/dev/null || true
++fi
++# End automatically added section

@@ -1,0 +1,43 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/systemd.postrm	2021-07-08 09:03:45.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/systemd.postrm	2024-06-16 05:44:31.000000000 -0400
+@@ -9,6 +9,7 @@
+         rm -f /etc/systemd/system/multi-user.target.wants/remote-fs.target
+         rm -f /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service
+         rm -f /etc/systemd/system/dbus-org.freedesktop.timesync1.service
++        rm -f /etc/systemd/system/sysinit.target.wants/systemd-pstore.service
+         rmdir --ignore-fail-on-non-empty /etc/systemd/system/getty.target.wants 2> /dev/null || true
+         rmdir --ignore-fail-on-non-empty /etc/systemd/system/multi-user.target.wants 2> /dev/null || true
+         rmdir --ignore-fail-on-non-empty /etc/systemd/system/sysinit.target.wants 2> /dev/null || true
+@@ -18,23 +19,19 @@
+ 
+         rm -rf /var/lib/systemd/backlight/
+         rm -rf /var/lib/systemd/rfkill/
++        rm -rf /var/lib/systemd/timesync/
+ 
+-        rm -f /var/lib/systemd/clock
+         rm -f /var/lib/systemd/random-seed
++
++        rm -f /var/log/README
++        rmdir --ignore-fail-on-non-empty /var/log/journal 2> /dev/null || true
+     ;;
+ esac
+ 
+-# Automatically added by dh_installdeb/12.1.1
+-dpkg-maintscript-helper rm_conffile /etc/X11/xinit/xinitrc.d/50-systemd-user.sh 228-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/systemd/bootchart.conf 230-1\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.hostname1.conf 233-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.locale1.conf 233-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.login1.conf 233-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.machine1.conf 228-5\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.network1.conf 233-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.resolve1.conf 233-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.systemd1.conf 233-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.timedate1.conf 233-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.systemd-shim.conf 239-15\~ systemd-shim -- "$@"
++# Automatically added by dh_installdeb/13.11.4
++dpkg-maintscript-helper rm_conffile /etc/dhcp/dhclient-exit-hooks.d/timesyncd 245.4-2\~ -- "$@"
++dpkg-maintscript-helper rm_conffile /etc/systemd/timesyncd.conf 245.4-2\~ -- "$@"
++dpkg-maintscript-helper rm_conffile /etc/pam.d/systemd-user 247\~rc2-3\~ -- "$@"
++dpkg-maintscript-helper rm_conffile /etc/systemd/resolved.conf 251.3-2\~ -- "$@"
+ # End automatically added section
+ 

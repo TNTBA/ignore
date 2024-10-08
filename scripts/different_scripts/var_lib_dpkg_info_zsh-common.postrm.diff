@@ -1,0 +1,16 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/zsh-common.postrm	2022-02-13 13:16:43.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/zsh-common.postrm	2023-02-04 19:37:45.000000000 -0500
+@@ -6,10 +6,10 @@
+     rmdir -p /usr/local/share/zsh/site-functions || true
+ fi
+ 
+-# Automatically added by dh_installdeb/12.1.1
++# Automatically added by dh_installdeb/13.11.4
+ dpkg-maintscript-helper symlink_to_dir /usr/share/doc/zsh zsh-common 5.0.7-3 -- "$@"
+ # End automatically added section
+-# Automatically added by dh_installmenu/12.1.1
+-if [ -x "`which update-menus 2>/dev/null`" ]; then update-menus ; fi
++# Automatically added by dh_installmenu/13.11.4
++if [ -x "`command -v update-menus`" ] && [ -x "$DPKG_ROOT`command -v update-menus`" ]; then update-menus ; fi
+ # End automatically added section
+ 

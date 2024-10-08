@@ -1,0 +1,45 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/sysstat.postrm	2019-04-06 03:18:26.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/sysstat.postrm	2022-12-04 16:23:25.000000000 -0500
+@@ -14,29 +14,30 @@
+     which ucfr >/dev/null && ucfr --purge "$PACKAGE" "$DEFAULT"
+ fi
+ 
+-# Automatically added by dh_installinit/12.1.1
+-if [ "$1" = "purge" ] ; then
++# Automatically added by dh_installinit/13.11.1
++if [ "$1" = "remove" ] && [ -x "/etc/init.d/sysstat" ] ; then
++	chmod -x "/etc/init.d/sysstat" >/dev/null || true
++fi
++if [ -z "${DPKG_ROOT:-}" ] && [ "$1" = "purge" ] ; then
+ 	update-rc.d sysstat remove >/dev/null
+ fi
+ # End automatically added section
+-# Automatically added by dh_installdeb/12.1.1
++# Automatically added by dh_installdeb/13.11.1
+ dpkg-maintscript-helper rm_conffile /etc/profile.d/sysstat.sh 11.7.3\~ sysstat -- "$@"
+ # End automatically added section
+-# Automatically added by dh_installsystemd/12.1.1
+-if [ "$1" = "remove" ]; then
+-	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+-		deb-systemd-helper mask 'sysstat.service' >/dev/null || true
+-	fi
++# Automatically added by dh_installsystemd/13.11.1
++if [ "$1" = remove ] && [ -d /run/systemd/system ] ; then
++	systemctl --system daemon-reload >/dev/null || true
+ fi
+-
++# End automatically added section
++# Automatically added by dh_installsystemd/13.11.1
+ if [ "$1" = "purge" ]; then
+ 	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+-		deb-systemd-helper purge 'sysstat.service' >/dev/null || true
+-		deb-systemd-helper unmask 'sysstat.service' >/dev/null || true
++		deb-systemd-helper purge 'sysstat-collect.timer' 'sysstat-summary.timer' 'sysstat.service' >/dev/null || true
+ 	fi
+ fi
+ # End automatically added section
+-# Automatically added by dh_installdebconf/12.1.1
++# Automatically added by dh_installdebconf/13.11.1
+ if [ "$1" = purge ] && [ -e /usr/share/debconf/confmodule ]; then
+ 	. /usr/share/debconf/confmodule
+ 	db_purge

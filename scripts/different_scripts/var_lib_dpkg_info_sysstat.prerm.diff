@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/sysstat.prerm	2019-04-06 03:18:26.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/sysstat.prerm	2022-12-04 16:23:25.000000000 -0500
+@@ -5,7 +5,7 @@
+ [ "$1" != "upgrade" ] && update-alternatives --remove sar /usr/bin/sar.sysstat
+ 
+ 
+-# Automatically added by dh_installdeb/12.1.1
++# Automatically added by dh_installdeb/13.11.1
+ dpkg-maintscript-helper rm_conffile /etc/profile.d/sysstat.sh 11.7.3\~ sysstat -- "$@"
+ # End automatically added section
+ 

@@ -1,0 +1,27 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/wpasupplicant.postrm	2021-04-16 09:07:06.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/wpasupplicant.postrm	2024-08-05 15:07:00.000000000 -0400
+@@ -1,21 +1,14 @@
+ #!/bin/sh
+ set -e
+-# Automatically added by dh_installsystemd/12.1.1
+-if [ -d /run/systemd/system ]; then
++# Automatically added by dh_installsystemd/13.11.4
++if [ "$1" = remove ] && [ -d /run/systemd/system ] ; then
+ 	systemctl --system daemon-reload >/dev/null || true
+ fi
+ # End automatically added section
+-# Automatically added by dh_installsystemd/12.1.1
+-if [ "$1" = "remove" ]; then
+-	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+-		deb-systemd-helper mask 'wpa_supplicant.service' >/dev/null || true
+-	fi
+-fi
+-
++# Automatically added by dh_installsystemd/13.11.4
+ if [ "$1" = "purge" ]; then
+ 	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+ 		deb-systemd-helper purge 'wpa_supplicant.service' >/dev/null || true
+-		deb-systemd-helper unmask 'wpa_supplicant.service' >/dev/null || true
+ 	fi
+ fi
+ # End automatically added section

@@ -1,0 +1,10 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/tmux.preinst	2019-02-10 11:14:02.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/tmux.preinst	2022-10-31 12:55:13.000000000 -0400
+@@ -7,7 +7,4 @@
+     update-rc.d -f tmux-cleanup remove >/dev/null
+ fi
+ 
+-# Automatically added by dh_installdeb/12
+-dpkg-maintscript-helper rm_conffile /etc/init.d/tmux-cleanup 1.4-6 -- "$@"
+-# End automatically added section
+ 
