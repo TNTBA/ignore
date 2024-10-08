@@ -1,0 +1,19 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/kbd.postrm	2018-07-28 11:58:59.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/kbd.postrm	2023-03-23 04:54:17.000000000 -0400
+@@ -12,16 +12,6 @@
+         ;;
+ esac
+ 
+-# see kbd.preinst for why this is conditional.
+-if [ ! -e /etc/kbd/config ] && [ ! -e /etc/kbd/remap ]; then
+-    dpkg-maintscript-helper rm_conffile \
+-            /etc/kbd/config 2.0.3-2~ kbd -- "$@"
+-    dpkg-maintscript-helper rm_conffile \
+-            /etc/kbd/remap 2.0.3-2~ kbd -- "$@"
+-    dpkg-maintscript-helper rm_conffile \
+-            /etc/init.d/kbd 2.0.3-2~ kbd -- "$@"
+-fi
+-
+ 
+ 
+ # vim:sw=4:sts=4:et:

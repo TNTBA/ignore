@@ -1,0 +1,10 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/iproute2.postrm	2020-12-03 13:42:49.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/iproute2.postrm	2023-05-22 09:19:52.000000000 -0400
+@@ -1,6 +1,6 @@
+ #!/bin/sh
+ set -e
+-# Automatically added by dh_installdebconf/12.1.1
++# Automatically added by dh_installdebconf/13.11.4
+ if [ "$1" = purge ] && [ -e /usr/share/debconf/confmodule ]; then
+ 	. /usr/share/debconf/confmodule
+ 	db_purge

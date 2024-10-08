@@ -1,0 +1,69 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/console-setup-linux.postrm	2019-08-15 10:11:30.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/console-setup-linux.postrm	2023-05-21 17:30:42.000000000 -0400
+@@ -1,50 +1,42 @@
+ #!/bin/sh
+ set -e
+-# Automatically added by dh_installinit/12.1.1
+-if [ "$1" = "purge" ] ; then
++# Automatically added by dh_installinit/13.11.4
++if [ "$1" = "remove" ] && [ -x "/etc/init.d/console-setup.sh" ] ; then
++	chmod -x "/etc/init.d/console-setup.sh" >/dev/null || true
++fi
++if [ -z "${DPKG_ROOT:-}" ] && [ "$1" = "purge" ] ; then
+ 	update-rc.d console-setup.sh remove >/dev/null
+ fi
+ # End automatically added section
+-# Automatically added by dh_installinit/12.1.1
+-if [ "$1" = "purge" ] ; then
++# Automatically added by dh_installinit/13.11.4
++if [ "$1" = "remove" ] && [ -x "/etc/init.d/keyboard-setup.sh" ] ; then
++	chmod -x "/etc/init.d/keyboard-setup.sh" >/dev/null || true
++fi
++if [ -z "${DPKG_ROOT:-}" ] && [ "$1" = "purge" ] ; then
+ 	update-rc.d keyboard-setup.sh remove >/dev/null
+ fi
+ # End automatically added section
+-# Automatically added by dh_systemd_start/12.1.1
+-if [ -d /run/systemd/system ]; then
++# Automatically added by dh_systemd_start/13.11.4
++if [ "$1" = remove ] && [ -d /run/systemd/system ] ; then
+ 	systemctl --system daemon-reload >/dev/null || true
+ fi
+ # End automatically added section
+-# Automatically added by dh_systemd_start/12.1.1
+-if [ -d /run/systemd/system ]; then
++# Automatically added by dh_systemd_start/13.11.4
++if [ "$1" = remove ] && [ -d /run/systemd/system ] ; then
+ 	systemctl --system daemon-reload >/dev/null || true
+ fi
+ # End automatically added section
+-# Automatically added by dh_systemd_enable/12.1.1
+-if [ "$1" = "remove" ]; then
+-	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+-		deb-systemd-helper mask 'console-setup.service' 'keyboard-setup.service' >/dev/null || true
+-	fi
+-fi
+-
++# Automatically added by dh_systemd_enable/13.11.4
+ if [ "$1" = "purge" ]; then
+ 	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+ 		deb-systemd-helper purge 'console-setup.service' 'keyboard-setup.service' >/dev/null || true
+-		deb-systemd-helper unmask 'console-setup.service' 'keyboard-setup.service' >/dev/null || true
+ 	fi
+ fi
+ # End automatically added section
+-# Automatically added by dh_systemd_enable/12.1.1
+-if [ "$1" = "remove" ]; then
+-	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+-		deb-systemd-helper mask 'keyboard-setup.service' >/dev/null || true
+-	fi
+-fi
+-
++# Automatically added by dh_systemd_enable/13.11.4
+ if [ "$1" = "purge" ]; then
+ 	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+ 		deb-systemd-helper purge 'keyboard-setup.service' >/dev/null || true
+-		deb-systemd-helper unmask 'keyboard-setup.service' >/dev/null || true
+ 	fi
+ fi
+ # End automatically added section

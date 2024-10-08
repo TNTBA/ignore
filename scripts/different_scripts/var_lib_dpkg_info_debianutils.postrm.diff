@@ -1,0 +1,27 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/debianutils.postrm	2015-04-26 11:13:56.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/debianutils.postrm	2023-07-28 19:46:35.000000000 -0400
+@@ -3,18 +3,12 @@
+ set -e
+ 
+ case "$1" in
+-    remove|disappear)
+-    if which update-mime >/dev/null;
+-    then
+-            update-mime
+-    fi
+-    if test -L /usr/bin/which; then
+-	    rm /usr/bin/which
+-    fi
+-        ;;
+-    upgrade|failed-upgrade|purge|abort-install|abort-upgrade)
+-        ;;
+-    *)
++    (purge)
++	rm -f "${DPKG_ROOT:-}/etc/shells" "${DPKG_ROOT:-}/var/lib/shells.state"
++    ;;
++    (remove|disappear|upgrade|failed-upgrade|abort-install|abort-upgrade)
++    ;;
++    (*)
+         echo "postrm called with unknown argument \`$1'" >&2
+         exit 1
+     ;;

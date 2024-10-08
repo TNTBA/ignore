@@ -1,0 +1,12 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/cracklib-runtime.preinst	2018-12-31 06:04:32.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/cracklib-runtime.preinst	2023-01-31 09:57:22.000000000 -0500
+@@ -36,6 +36,9 @@
+     fi
+ esac
+ 
++# Automatically added by dh_installdeb/13.11.4
++dpkg-maintscript-helper rm_conffile /etc/cron.daily/cracklib-runtime 2.9.6-5\~ cracklib-runtime -- "$@"
++# End automatically added section
+ 
+ 
+ exit 0

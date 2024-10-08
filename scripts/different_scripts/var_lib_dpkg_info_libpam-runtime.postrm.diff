@@ -1,0 +1,22 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/libpam-runtime.postrm	2019-02-14 02:08:47.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/libpam-runtime.postrm	2023-09-21 16:55:12.000000000 -0400
+@@ -2,13 +2,15 @@
+ 
+ if [ "$1" = "purge" ]; then
+ 	rm -f /etc/pam.d/common-auth /etc/pam.d/common-account \
+-	      /etc/pam.d/common-session /etc/pam.d/common-password
++	      /etc/pam.d/common-session /etc/pam.d/common-password \
++	      /etc/pam.d/common-session-noninteractive
+ 	rm -f /var/lib/pam/auth /var/lib/pam/account /var/lib/pam/session \
+-	      /var/lib/pam/password /var/lib/pam/seen
+-	rmdir --ignore-fail-on-non-empty /var/lib/pam
++	      /var/lib/pam/password /var/lib/pam/seen \
++	      /var/lib/pam/session-noninteractive
++	rmdir --ignore-fail-on-non-empty /var/lib/pam ||true
+ fi
+ 
+-# Automatically added by dh_installdebconf/12.1
++# Automatically added by dh_installdebconf/13.11.4
+ if [ "$1" = purge ] && [ -e /usr/share/debconf/confmodule ]; then
+ 	. /usr/share/debconf/confmodule
+ 	db_purge

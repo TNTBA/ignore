@@ -1,0 +1,24 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/dash.prerm	2019-01-17 14:08:32.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/dash.prerm	2023-01-05 08:20:48.000000000 -0500
+@@ -13,21 +13,9 @@
+ 	fi
+ }
+ 
+-remove_shell() {
+-	if ! type remove-shell > /dev/null 2>&1; then
+-		return
+-	fi
+-
+-	remove-shell /bin/dash
+-}
+-
+ if [ "$1" = remove ] || [ "$1" = deconfigure ]; then
+ 	remove_divert /bin/sh
+ 	remove_divert /usr/share/man/man1/sh.1.gz
+ fi
+ 
+-if [ "$1" = remove ]; then
+-	remove_shell
+-fi
+-
+ 

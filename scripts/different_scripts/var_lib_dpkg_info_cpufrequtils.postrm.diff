@@ -1,0 +1,22 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/cpufrequtils.postrm	2018-12-30 17:29:38.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/cpufrequtils.postrm	2020-05-03 23:20:06.000000000 -0400
+@@ -1,16 +1,16 @@
+ #!/bin/sh
+ set -e
+-# Automatically added by dh_installinit/12
++# Automatically added by dh_installinit/13
+ if [ "$1" = "purge" ] ; then
+ 	update-rc.d cpufrequtils remove >/dev/null
+ fi
+ # End automatically added section
+-# Automatically added by dh_installinit/12
++# Automatically added by dh_installinit/13
+ if [ "$1" = "purge" ] ; then
+ 	update-rc.d loadcpufreq remove >/dev/null
+ fi
+ # End automatically added section
+-# Automatically added by dh_installdebconf/12
++# Automatically added by dh_installdebconf/13
+ if [ "$1" = purge ] && [ -e /usr/share/debconf/confmodule ]; then
+ 	. /usr/share/debconf/confmodule
+ 	db_purge

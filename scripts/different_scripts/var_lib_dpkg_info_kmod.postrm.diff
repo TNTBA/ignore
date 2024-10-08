@@ -1,0 +1,16 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/kmod.postrm	2019-02-09 18:00:31.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/kmod.postrm	2022-12-09 19:02:24.000000000 -0500
+@@ -6,8 +6,11 @@
+   ;;
+ esac
+ 
+-# Automatically added by dh_installinit/12
+-if [ "$1" = "purge" ] ; then
++# Automatically added by dh_installinit/13.11.1
++if [ "$1" = "remove" ] && [ -x "/etc/init.d/kmod" ] ; then
++	chmod -x "/etc/init.d/kmod" >/dev/null || true
++fi
++if [ -z "${DPKG_ROOT:-}" ] && [ "$1" = "purge" ] ; then
+ 	update-rc.d kmod remove >/dev/null
+ fi
+ # End automatically added section

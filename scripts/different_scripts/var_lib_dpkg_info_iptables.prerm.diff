@@ -1,0 +1,29 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/iptables.prerm	2019-03-01 07:28:35.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/iptables.prerm	2023-01-16 08:44:37.000000000 -0500
+@@ -11,16 +11,18 @@
+     update-alternatives --remove ebtables /usr/sbin/ebtables-nft
+ fi
+ 
+-# compat symlinks for /sbin -> /usr/sbin move, to be dropped in buster+1
++# remove compat symlinks for /sbin -> /usr/sbin move
++# This piece of code can be dropped eventually, when we are confident user
++# systems are left in a consistent state.
+ if [ "$1" = "remove" ] ; then
+-	LIST="/sbin/iptables
+-	     /sbin/iptables-save
+-	     /sbin/iptables-restore
+-	     /sbin/ip6tables
+-	     /sbin/ip6tables-save
+-	     /sbin/ip6tables-restore"
++	LIST="iptables
++	     iptables-save
++	     iptables-restore
++	     ip6tables
++	     ip6tables-save
++	     ip6tables-restore"
+ 
+-	for i in $LIST ; do
++	for i in /sbin/$LIST ; do
+ 		if [ -L "$i" ] ; then
+ 			rm $i
+ 		fi

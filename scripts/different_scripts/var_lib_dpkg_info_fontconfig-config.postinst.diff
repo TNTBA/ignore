@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/fontconfig-config.postinst	2018-11-05 15:42:38.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/fontconfig-config.postinst	2023-01-31 17:24:08.000000000 -0500
+@@ -156,7 +156,7 @@
+     rmdir --ignore-fail-on-non-empty /etc/fonts.conf.d
+ fi
+ 
+-# Automatically added by dh_installdeb/11.5.1
++# Automatically added by dh_installdeb/13.11.4
+ dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/10-autohint.conf 2.10 -- "$@"
+ dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/10-no-sub-pixel.conf 2.10 -- "$@"
+ dpkg-maintscript-helper rm_conffile /etc/fonts/conf.avail/10-sub-pixel-bgr.conf 2.10 -- "$@"

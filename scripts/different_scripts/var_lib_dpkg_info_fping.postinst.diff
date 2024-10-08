@@ -1,0 +1,15 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/fping.postinst	2019-02-19 17:27:56.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/fping.postinst	2022-02-06 19:56:59.000000000 -0500
+@@ -14,9 +14,10 @@
+                     else
+                         echo "A local statoverride for /usr/bin/fping already exists. Not trying to fix anything." 1>&2
+                     fi
++               else
++                    echo "WARNING: Making /usr/bin/fping setuid instead. Use dpkg-statoverride(1) to change that if you're unhappy with it." 1>&2
++                    dpkg-statoverride --update --add root root 4755 /usr/bin/fping
+                 fi
+-                echo "WARNING: Making /usr/bin/fping setuid instead. Use dpkg-statoverride(1) to change that if you're unhappy with it." 1>&2
+-                dpkg-statoverride --update --add root root 4755 /usr/bin/fping
+             fi
+         fi
+     ;;

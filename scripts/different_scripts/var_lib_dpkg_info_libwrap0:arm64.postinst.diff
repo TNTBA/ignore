@@ -1,0 +1,17 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/libwrap0:arm64.postinst	2019-02-17 19:54:18.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/libwrap0:arm64.postinst	2022-12-27 20:39:26.000000000 -0500
+@@ -43,14 +43,6 @@
+     configure)
+     create_hosts_files
+     ;;
+-
+-    abort-upgrade|abort-remove|abort-deconfigure)
+-    ;;
+-
+-    *)
+-    echo "postinst called with unknown argument '$1'" >&2
+-    exit 1
+-    ;;
+ esac
+ 
+ 

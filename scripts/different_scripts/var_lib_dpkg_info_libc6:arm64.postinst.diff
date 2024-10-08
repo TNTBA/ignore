@@ -1,0 +1,128 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/libc6:arm64.postinst	2022-03-15 18:48:49.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/libc6:arm64.postinst	2024-04-30 17:07:28.000000000 -0400
+@@ -1,6 +1,5 @@
+ #!/bin/sh
+ set -e
+-export LC_ALL=C
+ 
+ type=$1
+ preversion=$2
+@@ -16,9 +15,6 @@
+ 
+ if [ "$type" = "configure" ]
+ then
+-    # We don't use a registry anymore, remove the old file
+-    rm -f /etc/ld.so.hwcappkgs
+- 
+     # /etc/ld.so.nohwcap code:
+         # Handle upgrades when libc-opt package has been installed.
+     # When a /etc/ld.so.nohwcap file exists, ld.so only use libraries
+@@ -29,9 +25,9 @@
+     # all optimized packages. Due to multiarch, this has to be done
+     # independently of the architecture of the package.
+     all_upgraded=yes
+-    for pkg in libc6.1-alphaev67 libc6-xen ; do
++    for pkg in libc6.1-alphaev67 ; do
+         ver=$(dpkg-query -l $pkg 2>/dev/null | sed -e '/^[a-z][a-z]\s/!d;/^.[nc]/d;' -e "s/^..\s\+$pkg[0-9a-z:]*\s\+//;s/\s.*//g")
+-        if [ -n "$ver" ] && [ "$ver" != "2.28-10+deb10u1" ]; then
++        if [ -n "$ver" ] && [ "$ver" != "2.36-9+deb12u7" ]; then
+             all_upgraded=no
+         fi
+     done
+@@ -40,29 +36,41 @@
+     # one, we could remove /etc/ld.so.nohwcap. Otherwise, it will be removed
+     # when all optimized packages are upgraded or removed.
+     if [ "$all_upgraded" = yes ] ; then
+-        rm -f /etc/ld.so.nohwcap
++        rm -f "$DPKG_ROOT/etc/ld.so.nohwcap"
+     fi
+ 
++fi
+ 
++if [ "$type" = configure ]
++then
+     # Load debconf module if available
+     if [ -f /usr/share/debconf/confmodule ] ; then
+ 	. /usr/share/debconf/confmodule
+     fi
+ 
+-    if [ -n "$preversion" ] && [ -x "$(which ischroot)" ] && ! ischroot; then
+-	if dpkg --compare-versions "$preversion" lt 2.28; then
++    # Only change LC_ALL after loading debconf to ensure the debconf templates
++    # are properly localized.
++    export LC_ALL=C
++
++    if [ -n "$preversion" ] && [ -x "$(command -v ischroot)" ] && ! ischroot; then
++	if dpkg --compare-versions "$preversion" lt 2.36; then
+ 	    check="apache2.2-common apache apache-ssl apache-perl autofs at"
+ 	    check="$check boa cucipop courier-authdaemon cron cups exim"
+ 	    check="$check exim4-base dovecot-common cucipop incron lprng lpr"
+ 	    check="$check lpr-ppd mysql-server nis openbsd-inetd"
+-	    check="$check openldapd postgresql-common proftpd postfix postfix-tls"
+-	    check="$check rsync samba sasl2-bin slapd smail sendmail snmpd ssh"
+-	    check="$check spamassassin vsftpd wu-ftpd wu-ftpd-academ wwwoffle"
++	    check="$check openldapd openssh-server postgresql-common proftpd"
++	    check="$check postfix postfix-tls rsync samba sasl2-bin slapd"
++	    check="$check smail sendmail snmpd spamassassin vsftpd"
++	    check="$check wu-ftpd wu-ftpd-academ wwwoffle"
+ 	    check="$check webmin dropbear gdm"
+ 	    # NSS services check: 
+ 	    	    echo -n "Checking for services that may need to be restarted..."
+-	    # Only get the ones that are installed, and configured
+-	    check=$(dpkg -s $check 2> /dev/null | egrep '^Package:|^Status:' | awk '{if ($1 ~ /^Package:/) { package=$2 } else if ($0 ~ /^Status: .* installed$/) { print package }}')
++	    # Only get the ones that are installed, of the same architecture
++	    # as libc (or arch all) and configured. Restart openssh-server even
++	    # if only half-configured to continue accepting new connections
++	    # during the upgrade.
++	    check=$(dpkg-query -W -f='${binary:Package} ${Status} ${Architecture}\n' $check 2> /dev/null | \
++			grep -E "(^openssh-server .* unpacked|installed) (all|${DPKG_MAINTSCRIPT_ARCH})$" | sed 's/[: ].*//')
+ 	    # some init scripts don't match the package names
+ 	    check=$(echo $check | \
+ 		    sed -e's/\bapache2.2-common\b/apache2/g' \
+@@ -72,6 +80,7 @@
+ 			-e's/\blpr\b/lpd/g' \
+ 			-e's/\blpr-ppd\b/lpd-ppd/g' \
+ 			-e's/\bmysql-server\b/mysql/g' \
++			-e's/\bopenssh-server\b/ssh/g' \
+ 			-e's/\bsasl2-bin\b/saslauthd/g' \
+ 			-e's/\bsamba\b/smbd/g' \
+ 			-e's/\bpostgresql-common\b/postgresql/g' \
+@@ -194,7 +203,7 @@
+ 	    else
+ 		echo "Nothing to restart."
+ 	    fi
+-	fi # end upgrading and $preversion lt 2.28
++	fi # end upgrading and $preversion lt 2.36
+     fi # Upgrading
+ 
+     # Restart init.  Currently handles chroots, systemd and upstart, and
+@@ -204,16 +213,21 @@
+     if ischroot 2>/dev/null; then
+         # Don't bother trying to re-exec init from a chroot:
+         TELINIT=no
++    elif [ -n "${DPKG_ROOT:-}" ]; then
++        # Do not re-exec init if we are operating on a chroot from outside:
++        TELINIT=no
+     elif [ -d /run/systemd/system ]; then
+-        # Skip if systemd is the active PID 1, since systemd doesn't
+-        # need a reexec for a clean shutdown
++        # Restart systemd on upgrade, but carefully.
++        # The restart is wanted because of LP: #1942276 and Bug: #993821
++        # The care is needed because of https://bugs.debian.org/753725
++        # (if systemd --help fails the system might still be quite broken but
++        # that seems better than the kernel panic that results if systemd
++        # cannot reexec itself).
+         TELINIT=no
+-    elif [ -x "`which initctl`" ]; then
+-        UPSTART=$(initctl version 2>/dev/null | awk '/upstart/ {print $3}' | tr -d ')')
+-        if dpkg --compare-versions "$UPSTART" lt-nl 1.6.1; then
+-            # This is an old upstart that can't re-exec statefully:
+-            TELINIT=no
+-            touch /var/run/init.upgraded
++        if systemd --help >/dev/null 2>/dev/null; then
++            systemctl daemon-reexec
++        else
++            echo "Error: Could not restart systemd, systemd binary not working" >&2
+         fi
+     fi
+     if [ "$TELINIT" = "yes" ]; then

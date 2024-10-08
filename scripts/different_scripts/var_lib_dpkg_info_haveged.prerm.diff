@@ -1,0 +1,18 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/haveged.prerm	2019-04-19 12:29:05.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/haveged.prerm	2022-10-15 15:11:46.000000000 -0400
+@@ -1,7 +1,12 @@
+ #!/bin/sh
+ set -e
+-# Automatically added by dh_installinit/12.1.1
+-if [ -x "/etc/init.d/haveged" ]; then
+-	invoke-rc.d haveged stop || exit 1
++# Automatically added by dh_installsystemd/13.10
++if [ -z "${DPKG_ROOT:-}" ] && [ "$1" = remove ] && [ -d /run/systemd/system ] ; then
++	deb-systemd-invoke stop 'haveged.service' >/dev/null || true
++fi
++# End automatically added section
++# Automatically added by dh_installinit/13.10
++if [ -z "${DPKG_ROOT:-}" ] && [ "$1" = remove ] && [ -x "/etc/init.d/haveged" ] ; then
++	invoke-rc.d --skip-systemd-native haveged stop || exit 1
+ fi
+ # End automatically added section
