@@ -1,0 +1,12 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/sbin/dpkg-reconfigure	2021-10-01 05:39:27.000000000 -0400
++++ /media/mks/armbi_root/usr/sbin/dpkg-reconfigure	2023-01-08 16:50:51.000000000 -0500
+@@ -105,7 +105,8 @@
+ 	}
+ 
+ 	foreach my $info (['prerm',    'upgrade',     $version],
+-		          ['config',   'reconfigure', $version],
++			  ['preinst',  'upgrade',     $version],
++			  ['config',   'reconfigure', $version],
+ 			  ['postinst', 'configure',   $version]) {
+ 		my $script=shift @$info;
+ 		my $path_script=$control_path->($script);

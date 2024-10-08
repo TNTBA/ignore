@@ -1,0 +1,37 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/lib/sysstat/debian-sa1	2019-04-06 03:18:26.000000000 -0400
++++ /media/mks/armbi_root/usr/lib/sysstat/debian-sa1	2022-12-04 16:23:25.000000000 -0500
+@@ -1,25 +1,21 @@
+ #!/bin/sh
+ # vim:ts=2:et
+-# Debian sa1 helper which is run from cron.d job, not to needlessly 
++# Debian sa1 helper which is run from cron.d job, not to needlessly
+ # fill logs (see Bug#499461).
+ 
+ set -e
+ 
+-# Global variables:
+-#
+-#  our configuration file
++# Skip in favour of systemd timer
++[ ! -d /run/systemd/system ] || exit 0
++
++# Our configuration file
+ DEFAULT=/etc/default/sysstat
+-#  default setting, overriden in the above file
++# Default setting, overridden in the above file
+ ENABLED=false
+ 
+ # Read defaults file
+-if [ -r "$DEFAULT" ]; then 
+-  . "$DEFAULT"
+-fi
+-
+-if [ "true" = "$ENABLED" ]; then
+-  exec /usr/lib/sysstat/sa1 "$@"
+-fi
++[ ! -r "$DEFAULT" ] || . "$DEFAULT"
+ 
+-exit 0
++[ "$ENABLED" = "true" ] || exit 0
+ 
++exec /usr/lib/sysstat/sa1 "$@"

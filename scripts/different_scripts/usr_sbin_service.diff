@@ -1,0 +1,47 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/sbin/service	2018-12-03 18:10:03.000000000 -0500
++++ /media/mks/armbi_root/usr/sbin/service	2022-09-17 21:53:19.000000000 -0400
+@@ -41,7 +41,7 @@
+ 	return 1
+ }
+ 
+-VERSION="`basename $0` ver. 1.56+nmu1"
++VERSION="`basename $0` ver. 1.65.2"
+ USAGE="Usage: `basename $0` < option > | --status-all | \
+ [ service_name [ command | --full-restart ] ]"
+ SERVICE=
+@@ -83,7 +83,7 @@
+ 		    && [ -x "${SERVICEDIR}/${SERVICE}" ]; then
+                         out=$(env -i LANG="$LANG" LANGUAGE="$LANGUAGE" LC_CTYPE="$LC_CTYPE" LC_NUMERIC="$LC_NUMERIC" LC_TIME="$LC_TIME" LC_COLLATE="$LC_COLLATE" LC_MONETARY="$LC_MONETARY" LC_MESSAGES="$LC_MESSAGES" LC_PAPER="$LC_PAPER" LC_NAME="$LC_NAME" LC_ADDRESS="$LC_ADDRESS" LC_TELEPHONE="$LC_TELEPHONE" LC_MEASUREMENT="$LC_MEASUREMENT" LC_IDENTIFICATION="$LC_IDENTIFICATION" LC_ALL="$LC_ALL" PATH="$PATH" TERM="$TERM" "$SERVICEDIR/$SERVICE" status 2>&1)
+                         retval=$?
+-                        if echo "$out" | egrep -iq "usage:"; then
++                        if echo "$out" | grep -Fiq "usage:"; then
+                           #printf " %s %-60s %s\n" "[?]" "$SERVICE:" "unknown" 1>&2
+                           echo " [ ? ]  $SERVICE" 1>&2
+                           continue
+@@ -161,14 +161,6 @@
+ if [ -n "$is_systemd" ]
+ then
+    UNIT="${SERVICE%.sh}.service"
+-   # avoid deadlocks during bootup and shutdown from units/hooks
+-   # which call "invoke-rc.d service reload" and similar, since
+-   # the synchronous wait plus systemd's normal behaviour of
+-   # transactionally processing all dependencies first easily
+-   # causes dependency loops
+-   if ! systemctl --quiet is-active multi-user.target; then
+-       sctl_args="--job-mode=ignore-dependencies"
+-   fi
+ 
+    case "${ACTION}" in
+       restart|status|try-restart)
+@@ -188,6 +180,11 @@
+       ;;
+       reload)
+          _canreload="$(systemctl -p CanReload show ${UNIT} 2>/dev/null)"
++         # Don't block on reload requests during bootup and shutdown
++         # from units/hooks and simply schedule the task.
++         if ! systemctl --quiet is-system-running; then
++              sctl_args="--no-block"
++         fi
+          if [ "$_canreload" = "CanReload=no" ]; then
+             # The reload action falls back to the sysv init script just in case
+             # the systemd service file does not (yet) support reload for a

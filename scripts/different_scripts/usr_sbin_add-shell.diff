@@ -1,0 +1,57 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/sbin/add-shell	2019-01-21 16:12:11.000000000 -0500
++++ /media/mks/armbi_root/usr/sbin/add-shell	2023-07-28 19:46:35.000000000 -0400
+@@ -2,19 +2,22 @@
+ 
+ if test $# -eq 0
+ then
+-        echo usage: $0 shellname [shellname ...]
++        echo "usage: $0 shellname [shellname ...]"
+         exit 1
+ fi
+ 
+-file=/etc/shells
++file="$DPKG_ROOT/etc/shells"
+ # I want this to be GUARANTEED to be on the same filesystem as $file
+-tmpfile=${file}.tmp
++tmpfile="${file}.tmp"
+ 
+ set -o noclobber
+ 
+-trap "rm -f $tmpfile" EXIT
++cleanup() {
++	rm -f "$tmpfile"
++}
++trap cleanup EXIT
+ 
+-if ! awk '{print}' $file > $tmpfile
++if ! cat "$file" > "$tmpfile"
+ then
+         cat 1>&2 <<EOF
+ Either another instance of $0 is running, or it was previously interrupted.
+@@ -25,20 +28,20 @@
+ 
+ for i
+ do
+-        REALDIR="$(dirname $(realpath -m $i))/$(basename $i)"
++        REALDIR="$(dirname "$(realpath -m "$i")")/$(basename "$i")"
+         for j in "$i" "$REALDIR"
+         do
+-                if ! grep -q "^${j}$" $tmpfile
++                if ! grep -q "^${j}$" "$tmpfile"
+                 then
+-                        echo $j >> $tmpfile
++                        echo "$j" >> "$tmpfile"
+                 fi
+         done
+ done
+ 
+-chmod --reference=$file $tmpfile
+-chown --reference=$file $tmpfile
++chmod --reference="${file}" "${tmpfile}" || chmod $(stat -c %a "${file}") "${tmpfile}"
++chown --reference="${file}" "${tmpfile}" || chown $(stat -c %U "${file}") "${tmpfile}"
+ 
+-mv $tmpfile $file
++mv -Z "${tmpfile}" "${file}" || mv "${tmpfile}" "${file}"
+ 
+ trap "" EXIT
+ exit 0

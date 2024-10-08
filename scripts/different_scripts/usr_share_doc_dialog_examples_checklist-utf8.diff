@@ -1,0 +1,17 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/doc/dialog/examples/checklist-utf8	2010-01-13 05:20:03.000000000 -0500
++++ /media/mks/armbi_root/usr/share/doc/dialog/examples/checklist-utf8	2020-11-25 19:03:58.000000000 -0500
+@@ -1,5 +1,5 @@
+ #! /bin/sh
+-# $Id: checklist-utf8,v 1.12 2010/01/13 10:20:03 tom Exp $
++# $Id: checklist-utf8,v 1.13 2020/11/26 00:03:58 tom Exp $
+ 
+ . ./setup-vars
+ 
+@@ -25,6 +25,6 @@
+ 	"ＦＩＳＨ"	 "Cats like ＦＩＳＨ." On \
+ 	"ＬＥＭＯＮ"	 "You ＫＮＯＷ how it ＴＡＳＴＥＳ." on 2> $tempfile
+ 
+-retval=$?
++returncode=$?
+ 
+ . ./report-tempfile

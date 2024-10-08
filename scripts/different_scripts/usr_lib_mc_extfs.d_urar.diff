@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/lib/mc/extfs.d/urar	2019-01-18 08:10:34.000000000 -0500
++++ /media/mks/armbi_root/usr/lib/mc/extfs.d/urar	2023-02-14 07:56:55.000000000 -0500
+@@ -113,7 +113,7 @@
+ 
+ mcrarfs_list ()
+ {
+-    [ x$UNRAR_VERSION = x5 ] && mcrar5fs_list "$@" || mcrar4fs_list "$@"
++    [ x$UNRAR_VERSION = x6 -o x$UNRAR_VERSION = x5 ] && mcrar5fs_list "$@" || mcrar4fs_list "$@"
+ }
+ 
+ mcrarfs_copyin ()

@@ -1,0 +1,36 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/doc/dialog/examples/form2	2010-01-13 05:53:11.000000000 -0500
++++ /media/mks/armbi_root/usr/share/doc/dialog/examples/form2	2020-11-25 19:33:02.000000000 -0500
+@@ -1,5 +1,5 @@
+ #! /bin/sh
+-# $Id: form2,v 1.9 2010/01/13 10:53:11 tom Exp $
++# $Id: form2,v 1.12 2020/11/26 00:33:02 tom Exp $
+ 
+ . ./setup-vars
+ 
+@@ -16,7 +16,7 @@
+ while test $returncode != 1 && test $returncode != 250
+ do
+ exec 3>&1
+-value=`$DIALOG --ok-label "Submit" \
++returntext=`$DIALOG --ok-label "Submit" \
+ 	  --backtitle "$backtitle" "$@" \
+ 	  --form "Here is a possible piece of a configuration program." \
+ 0 0 10 \
+@@ -52,7 +52,7 @@
+ returncode=$?
+ exec 3>&-
+ 
+-show=`echo "$value" |sed -e 's/^/	/'`
++show=`echo "$returntext" |sed -e 's/^/	/'`
+ 
+ 	case $returncode in
+ 	$DIALOG_CANCEL)
+@@ -77,7 +77,7 @@
+ $show" 0 0
+ 		;;
+ 	*)
+-		echo "Return code was $returncode"
++		. ./report-button
+ 		exit
+ 		;;
+ 	esac

@@ -1,0 +1,12 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/lib/mc/extfs.d/deb	2019-01-18 08:10:34.000000000 -0500
++++ /media/mks/armbi_root/usr/lib/mc/extfs.d/deb	2023-02-14 07:56:55.000000000 -0500
+@@ -68,6 +68,9 @@
+ 			}
+ 			
+ 			$path=$_[$pathindex++];
++			# remove leading ./
++			$path=~s/^\.\///;
++			next if ($path eq '');
+ 			$arrow=$_[$pathindex++];
+ 			$link=$_[$pathindex++];
+ 			$link2=$_[$pathindex++];

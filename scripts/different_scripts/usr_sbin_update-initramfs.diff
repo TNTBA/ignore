@@ -1,0 +1,98 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/sbin/update-initramfs	2019-07-27 18:30:25.000000000 -0400
++++ /media/mks/armbi_root/usr/sbin/update-initramfs	2022-04-10 15:59:31.000000000 -0400
+@@ -1,6 +1,5 @@
+ #!/bin/sh
+ 
+-STATEDIR=/var/lib/initramfs-tools
+ BOOTDIR=/boot
+ CONF=/etc/initramfs-tools/update-initramfs.conf
+ mode=""
+@@ -12,26 +11,12 @@
+ 
+ [ -r ${CONF} ] && . ${CONF}
+ 
+-case "$DPKG_MAINTSCRIPT_PACKAGE" in
+-linux-image-*)
+-	if [ -z "$INITRAMFS_TOOLS_KERNEL_HOOK" ]; then
+-		# kernel maintainer script called us directly; ignore
+-		# it and let the hook script handle it instead
+-		echo "update-initramfs: deferring update (hook will be called later)"
++if [ -n "$DPKG_MAINTSCRIPT_PACKAGE" ] && [ $# = 1 ] && [ "$1" = -u ]; then
++	if dpkg-trigger --no-await update-initramfs; then
++		echo "update-initramfs: deferring update (trigger activated)"
+ 		exit 0
+ 	fi
+-	;;
+-?*)
+-	if	   [ $# = 1 ]						\
+-		&& [ x"$1" = x-u ]
+-	then
+-		if dpkg-trigger --no-await update-initramfs; then
+-			echo "update-initramfs: deferring update (trigger activated)"
+-			exit 0
+-		fi
+-	fi
+-	;;
+-esac
++fi
+ 
+ usage()
+ {
+@@ -156,7 +141,6 @@
+ 	# shellcheck disable=SC2086
+ 	if mkinitramfs ${OPTS} "${initramfs}.new" "${version}"; then
+ 		mv -f "${initramfs}.new" "${initramfs}"
+-		set_sha1
+ 		# Guard against an unclean shutdown
+ 		sync -f "${initramfs}"
+ 	else
+@@ -173,23 +157,12 @@
+ {
+ 	# invoke policy conformant bootloader hooks
+ 	if [ -d /etc/initramfs/post-update.d/ ]; then
+-		run-parts --arg=${version} --arg=${initramfs} \
++		run-parts --arg="${version}" --arg="${initramfs}" \
+ 			/etc/initramfs/post-update.d/
+ 		return 0
+ 	fi
+ }
+ 
+-# Note that this must overwrite so that updates work.
+-set_sha1()
+-{
+-	sha1sum "${initramfs}" > "${STATEDIR}/${version}"
+-}
+-
+-delete_sha1()
+-{
+-	rm -f "${STATEDIR}/${version}"
+-}
+-
+ # ro /boot is not modified
+ ro_boot_check()
+ {
+@@ -317,8 +290,6 @@
+ 
+ 	echo "update-initramfs: Deleting ${initramfs}"
+ 
+-	delete_sha1
+-
+ 	rm -f "${initramfs}" "${initramfs}.bak"
+ }
+ 
+@@ -388,7 +359,14 @@
+ 
+ if [ "${version}" = "all" ] \
+ 	|| { [ "${update_initramfs}" = "all" ] && [ -z "${version}" ]; }; then
+-	get_sorted_versions
++	case "${mode}" in
++	c)
++		version_list="$(linux-version list)"
++		;;
++	d | u)
++		get_sorted_versions
++		;;
++	esac
+ 	if [ -z "${version_list}" ]; then
+ 		verbose "Nothing to do, exiting."
+ 		exit 0

@@ -1,0 +1,43 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/sbin/update-ca-certificates	2021-01-28 07:01:43.000000000 -0500
++++ /media/mks/armbi_root/usr/sbin/update-ca-certificates	2023-03-11 03:47:05.000000000 -0500
+@@ -80,9 +80,9 @@
+ 
+ # Helper files.  (Some of them are not simple arrays because we spawn
+ # subshells later on.)
+-TEMPBUNDLE="$(mktemp -t "${CERTBUNDLE}.tmp.XXXXXX")"
+-ADDED="$(mktemp -t "ca-certificates.tmp.XXXXXX")"
+-REMOVED="$(mktemp -t "ca-certificates.tmp.XXXXXX")"
++TEMPBUNDLE="${ETCCERTSDIR}/${CERTBUNDLE}.new"
++ADDED="$(mktemp -p "${TMPDIR:-/tmp}" "ca-certificates.tmp.XXXXXX")"
++REMOVED="$(mktemp -p "${TMPDIR:-/tmp}" "ca-certificates.tmp.XXXXXX")"
+ 
+ # Adds a certificate to the list of trusted ones.  This includes a symlink
+ # in /etc/ssl/certs to the certificate file and its inclusion into the
+@@ -164,8 +164,6 @@
+   done
+ fi
+ 
+-rm -f "$CERTBUNDLE"
+-
+ ADDED_CNT=$(wc -l < "$ADDED")
+ REMOVED_CNT=$(wc -l < "$REMOVED")
+ 
+@@ -189,10 +187,14 @@
+   fi
+ fi
+ 
+-chmod 0644 "$TEMPBUNDLE"
+-mv -f "$TEMPBUNDLE" "$CERTBUNDLE"
+-# Restore proper SELinux label after moving the file
+-[ -x /sbin/restorecon ] && /sbin/restorecon "$CERTBUNDLE" >/dev/null 2>&1
++# chmod and mv only if TEMPBUNDLE exists or install may fail, #996005
++if [ -f "$TEMPBUNDLE" ]
++then
++  chmod 0644 "$TEMPBUNDLE"
++  mv -f "$TEMPBUNDLE" "$CERTBUNDLE"
++  # Restore proper SELinux label after moving the file
++  [ -x /sbin/restorecon ] && /sbin/restorecon "$CERTBUNDLE" >/dev/null 2>&1
++fi
+ 
+ echo "$ADDED_CNT added, $REMOVED_CNT removed; done."
+ 

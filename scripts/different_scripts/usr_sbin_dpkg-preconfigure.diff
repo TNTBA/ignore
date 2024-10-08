@@ -1,0 +1,46 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/sbin/dpkg-preconfigure	2021-10-01 05:39:27.000000000 -0400
++++ /media/mks/armbi_root/usr/sbin/dpkg-preconfigure	2023-01-08 16:50:51.000000000 -0500
+@@ -6,6 +6,7 @@
+ BEGIN {
+ 	eval qq{
+ 		use strict;
++		use File::Path qw(make_path remove_tree);
+ 		use FileHandle;
+ 		use Debconf::Log qw(:all);
+ 		use Debconf::Db;
+@@ -68,6 +69,10 @@
+ 	exit 0;
+ }
+ 
++my $tempdir='/var/cache/debconf/tmp.ci';
++remove_tree($tempdir, { safe => 1, keep_root => 1 });
++make_path($tempdir);
++
+ my ($package, $version, $template, $config);
+ unless (open(INFO, "-|")) {
+ 	my $command_max=20000; # LINUX SPECIFIC!!
+@@ -85,7 +90,7 @@
+ 			push @collect, $deb;
+ 		}
+ 		else {
+-			if (system("apt-extracttemplates", @collect) != 0) {
++			if (system("apt-extracttemplates", "--tempdir", $tempdir, @collect) != 0) {
+ 				print STDERR sprintf("debconf: ".gettext("apt-extracttemplates failed: %s")."\n",$!);
+ 			}
+ 			if ($show_progress) {
+@@ -97,7 +102,7 @@
+ 			$len=$static_len + length($deb) + 1;
+ 		}
+ 	}
+-	if (system("apt-extracttemplates", @collect) != 0) {
++	if (system("apt-extracttemplates", "--tempdir", $tempdir, @collect) != 0) {
+ 		print STDERR sprintf("debconf: ".gettext("apt-extracttemplates failed: %s")."\n",$!);
+ 	}
+ 	if ($show_progress) {
+@@ -151,4 +156,6 @@
+ 
+ Debconf::Db->save;
+ 
++remove_tree($tempdir, { safe => 1, keep_root => 1 });
++
+ 

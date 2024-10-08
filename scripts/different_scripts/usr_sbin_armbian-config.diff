@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/sbin/armbian-config	2022-06-23 02:36:27.000000000 -0400
++++ /media/mks/armbi_root/usr/sbin/armbian-config	2023-10-13 15:20:07.000000000 -0400
+@@ -23,7 +23,7 @@
+ #
+ # check for internet connection to install dependencies
+ #
+-wget -q --spider http://github.com
++wget -q -t 1 --timeout=5 --spider http://github.com
+ if [[ $? -ne 0 ]]; then
+ 	read -n 1 -s -p "Warning: Configuration cannot work properly without a working internet connection. \
+ 	Press CTRL C to stop or any key to ignore and continue."

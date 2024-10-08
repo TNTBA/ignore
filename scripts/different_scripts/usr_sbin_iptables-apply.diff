@@ -1,0 +1,10 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/sbin/iptables-apply	2019-03-01 07:28:35.000000000 -0500
++++ /media/mks/armbi_root/usr/sbin/iptables-apply	2023-01-12 05:27:35.000000000 -0500
+@@ -231,7 +231,6 @@
+ 		"$RUNCMD" &
+ 		CMD_PID=$!
+ 		( sleep "$TIMEOUT"; kill "$CMD_PID" 2>/dev/null; exit 0 ) &
+-		CMDTIMEOUT_PID=$!
+ 		if ! wait "$CMD_PID"; then
+ 			echo "failed."
+ 			echo "Error: unknown error running command: $RUNCMD" >&2

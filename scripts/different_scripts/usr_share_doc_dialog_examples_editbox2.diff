@@ -1,0 +1,17 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/doc/dialog/examples/editbox2	2010-01-13 05:20:03.000000000 -0500
++++ /media/mks/armbi_root/usr/share/doc/dialog/examples/editbox2	2020-11-25 19:03:58.000000000 -0500
+@@ -1,5 +1,5 @@
+ #!/bin/sh
+-# $Id: editbox2,v 1.7 2010/01/13 10:20:03 tom Exp $
++# $Id: editbox2,v 1.8 2020/11/26 00:03:58 tom Exp $
+ # example with extra- and help-buttons
+ 
+ . ./setup-vars
+@@ -40,6 +40,6 @@
+ 	--extra-button \
+ 	--help-button \
+ 	--fixed-font "$@" --editbox $input 0 0 2>$output
+-retval=$?
++returncode=$?
+ 
+ . ./report-edit

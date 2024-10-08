@@ -1,0 +1,13 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/lib/udev/bridge-network-interface	2019-01-16 03:58:07.000000000 -0500
++++ /media/mks/armbi_root/usr/lib/udev/bridge-network-interface	2023-01-25 16:11:52.000000000 -0500
+@@ -30,6 +30,10 @@
+ 				create_vlan_port
+ 				if [ -d /sys/class/net/$port ]; then
+ 					ifup --allow auto $i
++					if [ -e /proc/sys/net/ipv6/conf/$port ]; then ip link set $port addrgenmode none;fi
++					if [ "$(ifquery "$i"|sed -n -e's/^bridge[_-]hw: //p')" = "$port" ]; then
++						ip link set dev "$i" address "$(ip link show dev "$port" 2>/dev/null|sed -n "s|.*link/ether \([^ ]*\) brd.*|\1|p")"
++					fi
+ 					brctl addif $i $port && ip link set dev $port up
+ 				fi
+ 				break

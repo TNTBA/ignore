@@ -1,0 +1,15 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/lib/mc/ext.d/image.sh	2019-01-18 08:10:34.000000000 -0500
++++ /media/mks/armbi_root/usr/lib/mc/ext.d/image.sh	2023-02-14 07:56:55.000000000 -0500
+@@ -40,6 +40,12 @@
+         ;;
+     *)
+         if [ -n "$DISPLAY" ]; then
++            if which geeqie >/dev/null 2>&1; then
++                (geeqie "${MC_EXT_FILENAME}" &)
++            else
++                (gqview "${MC_EXT_FILENAME}" &)
++            fi
++        elif which see >/dev/null 2>&1; then
+             (see "${MC_EXT_FILENAME}" &)
+         else
+             (zgv "${MC_EXT_FILENAME}" &)
