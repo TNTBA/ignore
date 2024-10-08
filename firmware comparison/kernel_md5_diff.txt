@@ -1,0 +1,4 @@
+1c1
+< d658a25d18b0b42659103121181f6123  /media/mks/BOOT/Image
+---
+> e36c308eddfb04fa69c9298f8e45ef06  /media/mks/armbi_boot/Image
