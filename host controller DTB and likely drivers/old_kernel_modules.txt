@@ -1,0 +1,2 @@
+/media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/lib/modules/5.16.20-rockchip64/kernel/drivers/net/wireless/bcmdhd.ko
+/media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/lib/modules/5.16.20-rockchip64/kernel/drivers/net/wireless/8188gu.ko
