@@ -1,0 +1,20 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/kiauh/scripts/ui/main_menu.sh	2023-12-15 01:08:34.865257048 -0500
++++ /media/mks/armbi_root/home/mks/kiauh/scripts/ui/main_menu.sh	2024-08-07 08:40:02.248796315 -0400
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env bash
+ 
+ #=======================================================================#
+-# Copyright (C) 2020 - 2023 Dominik Willner <th33xitus@gmail.com>       #
++# Copyright (C) 2020 - 2024 Dominik Willner <th33xitus@gmail.com>       #
+ #                                                                       #
+ # This file is part of KIAUH - Klipper Installation And Update Helper   #
+ # https://github.com/dw-0/kiauh                                         #
+@@ -28,6 +28,8 @@
+   echo -e "|                  |           Obico: $(print_status "moonraker_obico")|"
+   echo -e "|                  |  OctoEverywhere: $(print_status "octoeverywhere")|"
+   echo -e "|                  |     Mobileraker: $(print_status "mobileraker")|"
++  echo -e "|                  |         OctoApp: $(print_status "octoapp")|"
++  echo -e "|                  |        Spoolman: $(print_status "spoolman")|"
+   echo -e "|                  |                                    |"
+   echo -e "|                  |       Octoprint: $(print_status "octoprint")|"
+   hr

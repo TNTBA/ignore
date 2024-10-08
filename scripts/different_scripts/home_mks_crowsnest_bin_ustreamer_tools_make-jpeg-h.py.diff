@@ -1,0 +1,70 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/crowsnest/bin/ustreamer/tools/make-jpeg-h.py	2023-12-15 01:51:35.166398159 -0500
++++ /media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/tools/make-jpeg-h.py	2023-12-13 12:53:30.179536930 -0500
+@@ -1,9 +1,9 @@
+ #!/usr/bin/env -S python3 -B
+ # ========================================================================== #
+ #                                                                            #
+-#    uStreamer - Lightweight and fast MJPG-HTTP streamer.                    #
++#    uStreamer - Lightweight and fast MJPEG-HTTP streamer.                   #
+ #                                                                            #
+-#    Copyright (C) 2018-2021  Maxim Devaev <mdevaev@gmail.com>               #
++#    Copyright (C) 2018-2023  Maxim Devaev <mdevaev@gmail.com>               #
+ #                                                                            #
+ #    This program is free software: you can redistribute it and/or modify    #
+ #    it under the terms of the GNU General Public License as published by    #
+@@ -26,13 +26,11 @@
+ import io
+ import struct
+ 
+-from typing import Tuple
+-
+ import common
+ 
+ 
+ # =====
+-def _get_jpeg_size(data: bytes) -> Tuple[int, int]:
++def _get_jpeg_size(data: bytes) -> tuple[int, int]:
+     # https://sheep.horse/2013/9/finding_the_dimensions_of_a_jpeg_file_in_python.html
+ 
+     stream = io.BytesIO(data)
+@@ -67,28 +65,28 @@
+     h_path = os.path.basename(c_path[:-2]) + ".h"
+     name = sys.argv[3]
+ 
+-    with open(jpeg_path, "rb") as jpeg_file:
+-        jpeg_data = jpeg_file.read()
++    with open(jpeg_path, "rb") as file:
++        data = file.read()
+ 
+-    (width, height) = _get_jpeg_size(jpeg_data)
++    (width, height) = _get_jpeg_size(data)
+ 
+-    jpeg_data_text = "{\n\t" + ",\n\t".join(
++    data_text = "{\n\t" + ",\n\t".join(
+         ", ".join(
+             f"0x{ch:02X}"
+-            for ch in jpeg_data[index:index + 20]
++            for ch in data[index:index + 20]
+         )
+-        for index in range(0, len(jpeg_data), 20)
++        for index in range(0, len(data), 20)
+     ) + ",\n}"
+ 
+     text = f"{common.C_PREPEND}\n"
+     text += f"#include \"{h_path}\"\n\n\n"
+-    text += f"const unsigned {name}_JPEG_WIDTH = {width};\n"
+-    text += f"const unsigned {name}_JPEG_HEIGHT = {height};\n\n"
+-    text += f"const size_t {name}_JPEG_DATA_SIZE = {len(jpeg_data)};\n"
+-    text += f"const uint8_t {name}_JPEG_DATA[] = {jpeg_data_text};\n"
++    text += f"const unsigned US_{name}_JPEG_WIDTH = {width};\n"
++    text += f"const unsigned US_{name}_JPEG_HEIGHT = {height};\n\n"
++    text += f"const size_t US_{name}_JPEG_DATA_SIZE = {len(data)};\n"
++    text += f"const uint8_t US_{name}_JPEG_DATA[] = {data_text};\n"
+ 
+-    with open(c_path, "w") as c_file:
+-        c_file.write(text)
++    with open(c_path, "w") as file:
++        file.write(text)
+ 
+ 
+ # =====

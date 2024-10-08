@@ -1,0 +1,47 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/crowsnest/libs/v4l2_control.sh	2023-12-15 01:50:44.410398135 -0500
++++ /media/mks/armbi_root/home/mks/crowsnest/libs/v4l2_control.sh	2024-08-07 08:44:43.329744697 -0400
+@@ -16,7 +16,7 @@
+ # shellcheck enable=require-variable-braces
+ 
+ # Exit upon Errors
+-set -eE
++set -Ee
+ 
+ function v4l2_control {
+     v4c_log_msg() {
+@@ -36,7 +36,7 @@
+                 v4c_log_msg "Device: [cam ${cam}]"
+                 v4c_log_msg "Options: ${v4l2ctl}"
+                 # Split options to array
+-                IFS=',' read -ra opt < <(echo "${v4l2ctl}"); unset IFS
++                IFS="," read -ra opt < <(echo "${v4l2ctl}" | tr -d " "); unset IFS
+                 # loop through options
+                 for param in "${opt[@]}"; do
+                     # parameter available for device
+@@ -116,7 +116,7 @@
+ 
+     function main {
+         local cur_val conf_val device
+-        for cam in $(configured_cams); do
++        for cam in ${1}; do
+             device="$(get_param "cam ${cam}" device)"
+             cur_val="$(get_current_value "${device}")"
+             conf_val="$(get_conf_value "${cam}")"
+@@ -133,7 +133,7 @@
+     }
+ 
+ ### MAIN
+-main
++main "${1}"
+ 
+ }
+ 
+@@ -154,7 +154,7 @@
+     for cam in $(configured_cams); do
+         dev="$(get_param "cam ${cam}" device)"
+         v4l2ctl="$(get_param "cam ${cam}" v4l2ctl)"
+-        if [ "${dev}" = "$(dev_is_raspicam)" ]; then
++        if [ "${dev}" = "$(dev_is_legacy)" ]; then
+             if [ -z "${v4l2ctl}" ] ||
+             [ "$(grep -c "video_bitrate" <<< "${v4l2ctl}")" == "0" ]; then
+                 set_bitrate "${dev}"

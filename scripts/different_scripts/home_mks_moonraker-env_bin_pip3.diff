@@ -1,0 +1,15 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/moonraker-env/bin/pip3	2022-07-25 05:54:28.415059523 -0400
++++ /media/mks/armbi_root/home/mks/moonraker-env/bin/pip3	2023-12-13 12:37:11.409887892 -0500
+@@ -1,10 +1,8 @@
+-#!/home/mks/moonraker-env/bin/python3
++#!/home/mks/moonraker-env/bin/python
+ # -*- coding: utf-8 -*-
+ import re
+ import sys
+-
+ from pip._internal.cli.main import main
+-
+ if __name__ == '__main__':
+-    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
++    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+     sys.exit(main())

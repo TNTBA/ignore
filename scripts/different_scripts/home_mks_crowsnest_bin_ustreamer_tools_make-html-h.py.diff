@@ -1,0 +1,44 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/crowsnest/bin/ustreamer/tools/make-html-h.py	2023-12-15 01:51:35.166398159 -0500
++++ /media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/tools/make-html-h.py	2023-12-13 12:53:30.175536851 -0500
+@@ -1,9 +1,9 @@
+ #!/usr/bin/env -S python3 -B
+ # ========================================================================== #
+ #                                                                            #
+-#    uStreamer - Lightweight and fast MJPG-HTTP streamer.                    #
++#    uStreamer - Lightweight and fast MJPEG-HTTP streamer.                   #
+ #                                                                            #
+-#    Copyright (C) 2018-2021  Maxim Devaev <mdevaev@gmail.com>               #
++#    Copyright (C) 2018-2023  Maxim Devaev <mdevaev@gmail.com>               #
+ #                                                                            #
+ #    This program is free software: you can redistribute it and/or modify    #
+ #    it under the terms of the GNU General Public License as published by    #
+@@ -36,12 +36,12 @@
+     h_path = os.path.basename(c_path[:-2] + ".h")
+     name = sys.argv[3]
+ 
+-    with open(html_path, "r") as html_file:
+-        html = html_file.read()
++    with open(html_path, "r") as file:
++        html = file.read()
+ 
+     html = html.strip()
+     html = html.replace("\"", "\\\"")
+-    html = html.replace("%VERSION%", "\" VERSION \"")
++    html = html.replace("%VERSION%", "\" US_VERSION \"")
+     html = textwrap.indent(html, "\t", (lambda line: True))
+     html = "\n".join(
+         (f"{line} \\" if line.strip() else f"{line}\\")
+@@ -49,10 +49,10 @@
+     )
+ 
+     text = f"{common.C_PREPEND}\n#include \"{h_path}\"\n\n\n"
+-    text += f"const char *const HTML_{name}_PAGE = \" \\\n{html}\n\";\n"
++    text += f"const char *const US_HTML_{name}_PAGE = \" \\\n{html}\n\";\n"
+ 
+-    with open(c_path, "w") as c_file:
+-        c_file.write(text)
++    with open(c_path, "w") as file:
++        file.write(text)
+ 
+ 
+ # =====

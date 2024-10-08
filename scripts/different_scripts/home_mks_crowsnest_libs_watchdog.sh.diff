@@ -1,0 +1,17 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/crowsnest/libs/watchdog.sh	2023-12-15 01:50:44.410398135 -0500
++++ /media/mks/armbi_root/home/mks/crowsnest/libs/watchdog.sh	2023-12-13 12:52:43.242616419 -0500
+@@ -64,10 +64,12 @@
+     for i in $(get_conf_devices); do
+         cc="$(crudini --get "${CROWSNEST_CFG}" "cam ${i}" "device" \
+         | awk '{print $1}')"
+-        if [ "$(available "${cc}")" -ne 0 ] && [ "$(is_lost "${cc}")" -ne 0 ]; then
++        if [[ ! "${cc}" =~ "/base/soc" ]] &&
++        [[ "$(available "${cc}")" -ne 0 ]] && [[ "$(is_lost "${cc}")" -ne 0 ]]; then
+             log_msg "WATCHDOG: Lost Device: '${cc}'"
+             lost_dev "${cc}"
+-        elif [ "$(is_lost "${cc}")" -eq 0 ] && [ "$(available "${cc}")" -eq 0 ]; then
++        elif [[ ! "${cc}" =~ "/base/soc" ]] &&
++        [[ "$(is_lost "${cc}")" -eq 0 ]] && [[ "$(available "${cc}")" -eq 0 ]]; then
+             log_msg "WATCHDOG: Device '${cc}' returned."
+             returned_dev "${cc}"
+         fi

@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/kiauh/scripts/ui/advanced_menu.sh	2023-12-15 01:08:34.865257048 -0500
++++ /media/mks/armbi_root/home/mks/kiauh/scripts/ui/advanced_menu.sh	2024-08-07 08:40:02.248796315 -0400
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env bash
+ 
+ #=======================================================================#
+-# Copyright (C) 2020 - 2023 Dominik Willner <th33xitus@gmail.com>       #
++# Copyright (C) 2020 - 2024 Dominik Willner <th33xitus@gmail.com>       #
+ #                                                                       #
+ # This file is part of KIAUH - Klipper Installation And Update Helper   #
+ # https://github.com/dw-0/kiauh                                         #

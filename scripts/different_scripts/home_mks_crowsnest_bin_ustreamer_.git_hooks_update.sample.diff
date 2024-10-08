@@ -1,0 +1,28 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/crowsnest/bin/ustreamer/.git/hooks/update.sample	2023-12-15 01:51:27.850398156 -0500
++++ /media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/.git/hooks/update.sample	2023-12-13 12:53:29.031514415 -0500
+@@ -43,11 +43,11 @@
+ fi
+ 
+ # --- Config
+-allowunannotated=$(git config --bool hooks.allowunannotated)
+-allowdeletebranch=$(git config --bool hooks.allowdeletebranch)
+-denycreatebranch=$(git config --bool hooks.denycreatebranch)
+-allowdeletetag=$(git config --bool hooks.allowdeletetag)
+-allowmodifytag=$(git config --bool hooks.allowmodifytag)
++allowunannotated=$(git config --type=bool hooks.allowunannotated)
++allowdeletebranch=$(git config --type=bool hooks.allowdeletebranch)
++denycreatebranch=$(git config --type=bool hooks.denycreatebranch)
++allowdeletetag=$(git config --type=bool hooks.allowdeletetag)
++allowmodifytag=$(git config --type=bool hooks.allowmodifytag)
+ 
+ # check for no description
+ projectdesc=$(sed -e '1q' "$GIT_DIR/description")
+@@ -60,7 +60,7 @@
+ 
+ # --- Check types
+ # if $newrev is 0000...0000, it's a commit to delete a ref.
+-zero="0000000000000000000000000000000000000000"
++zero=$(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
+ if [ "$newrev" = "$zero" ]; then
+ 	newrev_type=delete
+ else

@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/crowsnest/.git/hooks/pre-commit.sample	2023-12-15 01:50:10.570398119 -0500
++++ /media/mks/armbi_root/home/mks/crowsnest/.git/hooks/pre-commit.sample	2023-12-13 12:52:41.494582137 -0500
+@@ -16,7 +16,7 @@
+ fi
+ 
+ # If you want to allow non-ASCII filenames set this variable to true.
+-allownonascii=$(git config --bool hooks.allownonascii)
++allownonascii=$(git config --type=bool hooks.allownonascii)
+ 
+ # Redirect output to stderr.
+ exec 1>&2

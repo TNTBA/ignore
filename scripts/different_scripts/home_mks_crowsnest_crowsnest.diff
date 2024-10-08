@@ -1,0 +1,72 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/crowsnest/crowsnest	2023-12-15 01:50:44.406398135 -0500
++++ /media/mks/armbi_root/home/mks/crowsnest/crowsnest	2023-12-13 12:52:43.238616341 -0500
+@@ -20,18 +20,18 @@
+ BASE_CN_PATH="$(dirname "$(readlink -f "${0}")")"
+ 
+ ## Import Librarys
+-# shellcheck source-path=SCRIPTDIR/libs/
+-source "${BASE_CN_PATH}/libs/configparser.sh"
+-source "${BASE_CN_PATH}/libs/core.sh"
+-source "${BASE_CN_PATH}/libs/hwhandler.sh"
+-source "${BASE_CN_PATH}/libs/init_stream.sh"
+-source "${BASE_CN_PATH}/libs/logging.sh"
+-source "${BASE_CN_PATH}/libs/messages.sh"
+-source "${BASE_CN_PATH}/libs/rtspsimple.sh"
+-source "${BASE_CN_PATH}/libs/ustreamer.sh"
+-source "${BASE_CN_PATH}/libs/v4l2_control.sh"
+-source "${BASE_CN_PATH}/libs/versioncontrol.sh"
+-source "${BASE_CN_PATH}/libs/watchdog.sh"
++# shellcheck source-path=SCRIPTDIR/../libs/
++. "${BASE_CN_PATH}/libs/camera-streamer.sh"
++. "${BASE_CN_PATH}/libs/configparser.sh"
++. "${BASE_CN_PATH}/libs/core.sh"
++. "${BASE_CN_PATH}/libs/hwhandler.sh"
++. "${BASE_CN_PATH}/libs/init_stream.sh"
++. "${BASE_CN_PATH}/libs/logging.sh"
++. "${BASE_CN_PATH}/libs/messages.sh"
++. "${BASE_CN_PATH}/libs/ustreamer.sh"
++. "${BASE_CN_PATH}/libs/v4l2_control.sh"
++. "${BASE_CN_PATH}/libs/versioncontrol.sh"
++. "${BASE_CN_PATH}/libs/watchdog.sh"
+ 
+ #### MAIN
+ ## Args given?
+@@ -41,7 +41,7 @@
+ fi
+ 
+ ## Parse Args
+-while getopts ":vhc:" arg; do
++while getopts ":vhc:s:d" arg; do
+     case "${arg}" in
+         v )
+             echo -e "\ncrowsnest Version: $(self_version)\n"
+@@ -55,6 +55,18 @@
+             check_cfg "${OPTARG}"
+             export CROWSNEST_CFG="${OPTARG}"
+         ;;
++        s )
++            if [[ "$(awk '{print $1}' /proc/uptime | cut -d '.' -f 1)" -lt "120" ]]; then
++                if [[ "${OPTARG}" ]]; then
++                    sleep "${OPTARG}"
++                else
++                    sleep 5
++                fi
++            fi
++        ;;
++        d )
++            set -x
++        ;;
+         \?)
+             wrong_args_msg
+             exit 1
+@@ -64,10 +76,7 @@
+ 
+ init_logging
+ initial_check
+-v4l2_control
+-blockyfix
+ construct_streamer
+-brokenfocus
+ 
+ ## Loop and Watchdog
+ ## In this case watchdog acts more like a "cable defect detector"

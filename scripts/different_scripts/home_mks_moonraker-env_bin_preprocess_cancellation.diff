@@ -1,0 +1,8 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/moonraker-env/bin/preprocess_cancellation	2022-07-25 05:57:27.404081013 -0400
++++ /media/mks/armbi_root/home/mks/moonraker-env/bin/preprocess_cancellation	2024-08-07 08:44:20.413335292 -0400
+@@ -1,4 +1,4 @@
+-#!/home/mks/moonraker-env/bin/python3
++#!/home/mks/moonraker-env/bin/python
+ # -*- coding: utf-8 -*-
+ import re
+ import sys

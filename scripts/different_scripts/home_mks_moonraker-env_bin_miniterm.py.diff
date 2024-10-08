@@ -1,0 +1,8 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/moonraker-env/bin/miniterm.py	2022-07-25 05:57:22.032052248 -0400
++++ /media/mks/armbi_root/home/mks/moonraker-env/bin/miniterm.py	2023-12-13 12:43:31.349819897 -0500
+@@ -1,4 +1,4 @@
+-#!/home/mks/moonraker-env/bin/python3
++#!/home/mks/moonraker-env/bin/python
+ #
+ # Very simple serial terminal
+ #

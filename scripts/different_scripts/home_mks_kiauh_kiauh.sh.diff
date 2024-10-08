@@ -1,0 +1,19 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/kiauh/kiauh.sh	2023-12-15 01:08:34.841257048 -0500
++++ /media/mks/armbi_root/home/mks/kiauh/kiauh.sh	2024-08-07 08:40:02.232796016 -0400
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env bash
+ 
+ #=======================================================================#
+-# Copyright (C) 2020 - 2023 Dominik Willner <th33xitus@gmail.com>       #
++# Copyright (C) 2020 - 2024 Dominik Willner <th33xitus@gmail.com>       #
+ #                                                                       #
+ # This file is part of KIAUH - Klipper Installation And Update Helper   #
+ # https://github.com/dw-0/kiauh                                         #
+@@ -81,6 +81,7 @@
+   done
+ }
+ 
++check_if_ratos
+ check_euid
+ init_logfile
+ set_globals

@@ -1,0 +1,97 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/crowsnest/libs/logging.sh	2023-12-15 01:50:44.410398135 -0500
++++ /media/mks/armbi_root/home/mks/crowsnest/libs/logging.sh	2024-08-07 08:44:43.325744626 -0400
+@@ -61,8 +61,8 @@
+     local msg prefix
+     msg="${1}"
+     prefix="$(date +'[%D %T]') crowsnest:"
+-    echo -e "${prefix} ${msg}" | tr -s ' ' | tee -a "${CROWSNEST_LOG_PATH}" 2>&1
+-    echo -e "${msg}" | logger -t crowsnest
++    printf "%s %s\n" "${prefix}" "${msg}" >> "${CROWSNEST_LOG_PATH}"
++    printf "%s\n" "${msg}"
+ }
+ 
+ #call '| log_output "<prefix>"'
+@@ -73,36 +73,48 @@
+         if [[ "${CROWSNEST_LOG_LEVEL}" = "debug" ]]; then
+             log_msg "${prefix}: ${line}"
+         fi
+-        if [[ -n "${line}" ]]; then
+-            # needed to prettify ustreamers output
+-            echo "${line//^--/ustreamer}" | logger -t crowsnest
+-        fi
+     done
+ }
+ 
+ function print_cfg {
+     local prefix
+-    prefix="\t\t"
++    prefix="$(date +'[%D %T]') crowsnest:"
+     log_msg "INFO: Print Configfile: '${CROWSNEST_CFG}'"
+     (sed '/^#.*/d;/./,$!d' | cut -d'#' -f1) < "${CROWSNEST_CFG}" | \
+     while read -r line; do
+-        log_msg "${prefix}${line}"
++        printf "%s\t\t%s\n" "${prefix}" "${line}" >> "${CROWSNEST_LOG_PATH}"
++        printf "\t\t%s\n" "${line}"
+     done
+ }
+ 
+ function print_cams {
+-    local csi raspicam total v4l
++    local device total v4l
+     v4l="$(find /dev/v4l/by-id/ -iname "*index0" 2> /dev/null | wc -l)"
+-    csi="$(find /dev/v4l/by-path/ -iname "*csi*index0" 2> /dev/null | wc -l)"
+-    total="$((v4l+$(detect_raspicam)+csi))"
+-    if [[ "${total}" -eq 0 ]]; then
++    libcamera="$(detect_libcamera)"
++    legacy="$(detect_legacy)"
++    total="$((v4l+libcamera+legacy))"
++    if [ "${total}" -eq 0 ]; then
+         log_msg "ERROR: No usable Devices Found. Stopping $(basename "${0}")."
+         exit 1
+     else
+         log_msg "INFO: Found ${total} total available Device(s)"
+     fi
+-    if [[ "$(detect_raspicam)" -ne 0 ]]; then
+-        raspicam="$(v4l2-ctl --list-devices |  grep -A1 -e 'mmal' | \
++    if [[ "${libcamera}" -ne 0 ]]; then
++        if [[ "$(is_pi5)" = "1" ]]; then
++            log_msg "================================================================"
++            log_msg " WARN: 'libcamera' devices are currently not supported on Pi 5! "
++            log_msg "================================================================"
++        fi
++        for device in $(get_libcamera_path); do
++            log_msg "Detected 'libcamera' device -> ${device}"
++        done
++        if [[ "$(is_pi5)" = "0" ]]; then
++            list_picam_resolution
++            list_picam_controls
++        fi
++    fi
++    if [[ "${legacy}" -ne 0 ]]; then
++        raspicam="$(v4l2-ctl --list-devices | grep -A1 -e 'mmal' | \
+         awk 'NR==2 {print $1}')"
+         log_msg "Detected 'Raspicam' Device -> ${raspicam}"
+         if [[ ! "${CROWSNEST_LOG_LEVEL}" = "quiet" ]]; then
+@@ -113,9 +125,6 @@
+     if [[ -d "/dev/v4l/by-id/" ]]; then
+         detect_avail_cams
+     fi
+-    if [[ -d "/dev/v4l/by-path" ]]; then
+-        detect_avail_csi
+-    fi
+ }
+ 
+ function print_host {
+@@ -156,12 +165,3 @@
+         log_msg "Host Info: Diskspace (avail. / total): ${disksize}"
+     fi
+ }
+-
+-function debug_msg {
+-    local prefix
+-    prefix="Develop -- DEBUG:"
+-    while read -r msg; do
+-        log_msg "${prefix} ${msg}"
+-        echo -e "${msg}" | logger -t crowsnest
+-    done <<< "${1}"
+-}
