@@ -1,0 +1,1796 @@
+/media/mks/armbi_root/etc/init.d/screen-cleanup: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/cron: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/rng-tools-debian: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/alsa-utils: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/keyboard-setup.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/kmod: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/plymouth-log: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/plymouth: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/iperf3: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/sudo: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/x11-common: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/udev: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/openvpn: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/sysfsutils: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/nginx: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/chrony: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/networking: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/rpcbind: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/fake-hwclock: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/hwclock.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/loadcpufreq: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/unattended-upgrades: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/dbus: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/etc/init.d/console-setup.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/rsync: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/haveged: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/ssh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/sysstat: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/nfs-common: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/cpufrequtils: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/smartmontools: POSIX shell script, ISO-8859 text executable
+/media/mks/armbi_root/etc/init.d/vnstat: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/init.d/procps: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/update-motd.d/41-armbian-config: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/etc/update-motd.d/30-armbian-sysinfo: Bourne-Again shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/etc/update-motd.d/40-armbian-updates: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/etc/update-motd.d/92-unattended-upgrades: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/update-motd.d/10-armbian-header: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/etc/update-motd.d/98-armbian-autoreboot-warn: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/etc/update-motd.d/35-armbian-tips: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/etc/sv/ssh/log/run: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/sv/ssh/finish: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/sv/ssh/run: a /usr/bin/env /lib/runit/invoke-run script, ASCII text executable
+/media/mks/armbi_root/etc/rc.local: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/dhcp/dhclient-exit-hooks.d/zzz_avahi-autoipd: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/dhcp/dhclient-enter-hooks.d/avahi-autoipd: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/initramfs-tools/hooks/bootsplash.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/NetworkManager/dispatcher.d/01-ifupdown: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/security/namespace.init: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/openvpn/update-resolv-conf: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/etc/wpa_supplicant/action_wpa.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/wpa_supplicant/ifupdown.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/genpass/genpass-apple: a /usr/bin/env zsh script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/genpass/genpass-xkcd: a /usr/bin/env zsh script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/genpass/genpass-monkey: a /usr/bin/env zsh script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/history-substring-search/update-from-upstream.zsh: a /usr/bin/env zsh script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/zsh-navigation-tools/doc/install.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/zsh-navigation-tools/doc/generate_single_file: Paul Falstad's zsh script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/zsh-navigation-tools/doc/znt-tmux.zsh: a /usr/bin/env zsh script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/shell-proxy/ssh-proxy.py: Python script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/shell-proxy/proxy.py: Python script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/shell-proxy/ssh-agent.py: Python script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/gitfast/update: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/colored-man-pages/nroff: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/iterm2/update: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/emacs/emacsclient.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/evalcache/.git/hooks/prepare-commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/evalcache/.git/hooks/pre-applypatch.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/evalcache/.git/hooks/commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/evalcache/.git/hooks/push-to-checkout.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/evalcache/.git/hooks/post-update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/evalcache/.git/hooks/update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/evalcache/.git/hooks/pre-push.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/evalcache/.git/hooks/fsmonitor-watchman.sample: Perl script text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/evalcache/.git/hooks/pre-merge-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/evalcache/.git/hooks/pre-rebase.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/evalcache/.git/hooks/pre-receive.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/evalcache/.git/hooks/pre-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/evalcache/.git/hooks/applypatch-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/plugins/scd/scd: Paul Falstad's zsh script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/.git/hooks/prepare-commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/.git/hooks/pre-applypatch.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/.git/hooks/commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/.git/hooks/push-to-checkout.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/.git/hooks/post-update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/.git/hooks/update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/.git/hooks/pre-push.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/.git/hooks/fsmonitor-watchman.sample: Perl script text executable
+/media/mks/armbi_root/etc/oh-my-zsh/.git/hooks/pre-merge-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/.git/hooks/pre-rebase.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/.git/hooks/pre-receive.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/.git/hooks/pre-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/.git/hooks/applypatch-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/oh-my-zsh/tools/install.sh: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/etc/oh-my-zsh/tools/theme_chooser.sh: Paul Falstad's zsh script, Unicode text, UTF-8 text executable, with very long lines (382), with escape sequences
+/media/mks/armbi_root/etc/oh-my-zsh/tools/upgrade.sh: a /usr/bin/env zsh script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/etc/oh-my-zsh/tools/changelog.sh: a /usr/bin/env zsh script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/etc/network/if-pre-up.d/ethtool: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-pre-up.d/wireless-tools: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-pre-up.d/ifenslave: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-pre-up.d/vlan: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-down.d/resolved: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-down.d/avahi-autoipd: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-down.d/openvpn: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-post-down.d/wireless-tools: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-post-down.d/ifenslave: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-post-down.d/vlan: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-post-down.d/chrony: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-up.d/ip: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-up.d/resolved: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-up.d/avahi-autoipd: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-up.d/ethtool: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-up.d/openvpn: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-up.d/ifenslave: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/network/if-up.d/chrony: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/mc/edit.indent.rc: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/console-setup/cached_setup_terminal.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/console-setup/cached_setup_keyboard.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/console-setup/cached_setup_font.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/pm/sleep.d/10_unattended-upgrades-hibernate: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/cron.daily/dpkg: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/cron.daily/aptitude: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/cron.daily/armbian-ram-logging: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/cron.daily/apt-compat: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/cron.daily/man-db: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/cron.daily/logrotate: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/cron.daily/sysstat: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/cron.daily/debsums: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/cron.hourly/fake-hwclock: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/initramfs/post-update.d/99-uboot: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/cron.weekly/man-db: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/cron.weekly/armbian-quotes: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/etc/cron.weekly/debsums: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/ppp/ip-down.d/chrony: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/ppp/ip-up.d/chrony: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/X11/Xsession: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/X11/Xreset: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/avahi/avahi-autoipd.action: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/cron.monthly/debsums: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/smartmontools/run.d/10mail: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/etc/kernel/install.d/dkms: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/kernel/header_postinst.d/dkms: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/kernel/postrm.d/initramfs-tools: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/kernel/postrm.d/xx-initramfs-cleanup: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/kernel/prerm.d/dkms: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/kernel/postinst.d/initramfs-tools: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/kernel/postinst.d/xx-initramfs-cleanup: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/kernel/postinst.d/unattended-upgrades: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/etc/kernel/postinst.d/dkms: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/ncurses6-config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/debconf-loadtemplate: Perl script text executable
+/media/mks/armbi_root/usr/bin/ucf: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/pod2html: Perl script text executable
+/media/mks/armbi_root/usr/bin/dpkg-buildpackage: Perl script text executable
+/media/mks/armbi_root/usr/bin/debconf-mergetemplate: Perl script text executable
+/media/mks/armbi_root/usr/bin/nroff: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dpkg-gensymbols: Perl script text executable
+/media/mks/armbi_root/usr/bin/unicode_start: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/znew: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/f2py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/bin/zsh5: Paul Falstad's zsh script, ASCII text executable
+/media/mks/armbi_root/usr/bin/setupcon: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/bin/automake-1.16: Perl script text executable
+/media/mks/armbi_root/usr/bin/pythran-config: Python script, ASCII text executable
+/media/mks/armbi_root/usr/bin/aarch64-linux-gnu-python3.11-config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/rsync-ssl: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dpkg-name: Perl script text executable
+/media/mks/armbi_root/usr/bin/debconf-communicate: Perl script text executable
+/media/mks/armbi_root/usr/bin/splain: Perl script text executable
+/media/mks/armbi_root/usr/bin/script: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=b50b7631d4343dc3f1435f6578bcba71ad0055aa, for GNU/Linux 3.7.0, stripped
+/media/mks/armbi_root/usr/bin/dpkg-checkbuilddeps: Perl script text executable
+/media/mks/armbi_root/usr/bin/shasum.bundled: Perl script text executable
+/media/mks/armbi_root/usr/bin/pygettext3.11: Python script, ISO-8859 text executable
+/media/mks/armbi_root/usr/bin/dpkg-scanpackages: Perl script text executable
+/media/mks/armbi_root/usr/bin/autoupdate: Perl script text executable
+/media/mks/armbi_root/usr/bin/fgrep: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dh_installxmlcatalogs: Perl script text executable
+/media/mks/armbi_root/usr/bin/linux-update-symlinks: Perl script text executable
+/media/mks/armbi_root/usr/bin/debconf-getlang: Perl script text executable
+/media/mks/armbi_root/usr/bin/crudini: Python script, ASCII text executable
+/media/mks/armbi_root/usr/bin/expect_passmass: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/deb-systemd-invoke: Perl script text executable
+/media/mks/armbi_root/usr/bin/zgrep: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/findrule: Perl script text executable
+/media/mks/armbi_root/usr/bin/gzexe: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/pod2text: Perl script text executable
+/media/mks/armbi_root/usr/bin/armbianmonitor: Bourne-Again shell script, Unicode text, UTF-8 text executable, with very long lines (305)
+/media/mks/armbi_root/usr/bin/aptitude-run-state-bundle: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/linux-version: Perl script text executable
+/media/mks/armbi_root/usr/bin/debconf-set-selections: Perl script text executable
+/media/mks/armbi_root/usr/bin/ucfq: Perl script text executable
+/media/mks/armbi_root/usr/bin/expect_kibitz: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/usb-devices: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/debconf-apt-progress: Perl script text executable
+/media/mks/armbi_root/usr/bin/perldoc: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/debconf-escape: Perl script text executable
+/media/mks/armbi_root/usr/bin/deb-systemd-helper: Perl script text executable
+/media/mks/armbi_root/usr/bin/bashbug: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/lesspipe: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/py3clean: Python script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/bin/zforce: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/instmodsh: Perl script text executable
+/media/mks/armbi_root/usr/bin/aptitude-create-state-bundle: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/pydoc3.11: Python script, ASCII text executable
+/media/mks/armbi_root/usr/bin/ptargrep: Perl script text executable
+/media/mks/armbi_root/usr/bin/scriptreplay: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=77cfe1bbec51f448119f379df964e85a39096023, for GNU/Linux 3.7.0, stripped
+/media/mks/armbi_root/usr/bin/autoreconf: Perl script text executable
+/media/mks/armbi_root/usr/bin/pod2man: Perl script text executable
+/media/mks/armbi_root/usr/bin/ckbcomp: Perl script text executable
+/media/mks/armbi_root/usr/bin/expect_autopasswd: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/decode-vaio: Perl script text executable
+/media/mks/armbi_root/usr/bin/piconv: Perl script text executable
+/media/mks/armbi_root/usr/bin/pl2pm: Perl script text executable
+/media/mks/armbi_root/usr/bin/ifnames: Perl script text executable
+/media/mks/armbi_root/usr/bin/migrate-pubring-from-classic-gpg: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/c99-gcc: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/ddcmon: Perl script text executable
+/media/mks/armbi_root/usr/bin/zmore: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/rrsync: Python script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dpkg-source: Perl script text executable
+/media/mks/armbi_root/usr/bin/autoheader: Perl script text executable
+/media/mks/armbi_root/usr/bin/xzmore: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/ptardiff: Perl script text executable
+/media/mks/armbi_root/usr/bin/xzless: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/bzgrep: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dpkg-scansources: Perl script text executable
+/media/mks/armbi_root/usr/bin/bison.yacc: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/uncompress: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dpkg-vendor: Perl script text executable
+/media/mks/armbi_root/usr/bin/ucfr: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dh_bash-completion: Perl script text executable
+/media/mks/armbi_root/usr/bin/expect_rlogin-cwd: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/expect_rftp: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/unattended-upgrade: Python script, ASCII text executable
+/media/mks/armbi_root/usr/bin/sensible-browser: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/neqn: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/neofetch: Bourne-Again shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/bin/dh_numpy3: Perl script text executable
+/media/mks/armbi_root/usr/bin/markdown-it: Python script, ASCII text executable
+/media/mks/armbi_root/usr/bin/autoscan: Perl script text executable
+/media/mks/armbi_root/usr/bin/prove: Perl script text executable
+/media/mks/armbi_root/usr/bin/zcmp: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/autoconf: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/h2ph: Perl script text executable
+/media/mks/armbi_root/usr/bin/expect_timed-read: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/sensible-editor: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/xsubpp: Perl script text executable
+/media/mks/armbi_root/usr/bin/sensible-pager: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dpkg-shlibdeps: Perl script text executable
+/media/mks/armbi_root/usr/bin/libusb-config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/zfgrep: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dpkg-genchanges: Perl script text executable
+/media/mks/armbi_root/usr/bin/debconf: Perl script text executable
+/media/mks/armbi_root/usr/bin/expect_tkpasswd: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dh_python3-ply: Perl script text executable
+/media/mks/armbi_root/usr/bin/expect_autoexpect: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/ssh-argv0: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/zdiff: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/perlbug: Perl script text executable
+/media/mks/armbi_root/usr/bin/expect_xkibitz: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/shasum: Perl script text executable
+/media/mks/armbi_root/usr/bin/lspgpot: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/wg-quick: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/aarch64-linux-gnu-gp-display-html: Perl script text executable
+/media/mks/armbi_root/usr/bin/py3compile: Python script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/bin/dpkg-architecture: Perl script text executable
+/media/mks/armbi_root/usr/bin/expect_ftp-rfc: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dpkg-distaddfile: Perl script text executable
+/media/mks/armbi_root/usr/bin/apt-file: Perl script text executable
+/media/mks/armbi_root/usr/bin/debconf-show: Perl script text executable
+/media/mks/armbi_root/usr/bin/dh_autotools-dev_restoreconfig: Perl script text executable
+/media/mks/armbi_root/usr/bin/aptitude-changelog-parser: Perl script text executable
+/media/mks/armbi_root/usr/bin/expect_timed-run: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/routel: Python script, ASCII text executable
+/media/mks/armbi_root/usr/bin/autom4te: Perl script text executable
+/media/mks/armbi_root/usr/bin/zipgrep: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/perlivp: Perl script text executable
+/media/mks/armbi_root/usr/bin/bzmore: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/expect_cryptdir: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/ssh-copy-id: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/bin/dpkg-genbuildinfo: Perl script text executable
+/media/mks/armbi_root/usr/bin/tv_grab_file: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/xzdiff: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/gpg-zip: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/expect_tknewsbiff: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/perlthanks: Perl script text executable
+/media/mks/armbi_root/usr/bin/expect_xpstat: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/f2py3: Python script, ASCII text executable
+/media/mks/armbi_root/usr/bin/lcf: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/gunzip: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/streamzip: Perl script text executable
+/media/mks/armbi_root/usr/bin/json_pp: Perl script text executable
+/media/mks/armbi_root/usr/bin/egrep: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dtdiff: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/podchecker: Perl script text executable
+/media/mks/armbi_root/usr/bin/dpkg-mergechangelogs: Perl script text executable
+/media/mks/armbi_root/usr/bin/lsinitramfs: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/virtualenv: Python script, ASCII text executable
+/media/mks/armbi_root/usr/bin/zcat: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/which.debianutils: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/ldd: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/bzdiff: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/pythran: Python script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dpkg-gencontrol: Perl script text executable
+/media/mks/armbi_root/usr/bin/aclocal-1.16: Perl script text executable
+/media/mks/armbi_root/usr/bin/ncursesw6-config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/rgrep: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dh_autotools-dev_updateconfig: Perl script text executable
+/media/mks/armbi_root/usr/bin/figlist: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/enc2xs: Perl script text executable
+/media/mks/armbi_root/usr/bin/select-editor: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/modeline2fb: Perl script text executable
+/media/mks/armbi_root/usr/bin/tzselect: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/linux-check-removal: Perl script text executable
+/media/mks/armbi_root/usr/bin/grog: Perl script text executable
+/media/mks/armbi_root/usr/bin/zegrep: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/debconf-copydb: Perl script text executable
+/media/mks/armbi_root/usr/bin/showfigfonts: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/unmkinitramfs: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/expect_weather: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/f2py3.11: Python script, ASCII text executable
+/media/mks/armbi_root/usr/bin/unicode_stop: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/c89-gcc: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/bzexe: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/pygmentize: Python script, ASCII text executable
+/media/mks/armbi_root/usr/bin/regexp-assemble: Perl script text executable
+/media/mks/armbi_root/usr/bin/xzgrep: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dpkg-realpath: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/bin/mk_modmap: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/decode-edid: Perl script text executable
+/media/mks/armbi_root/usr/bin/corelist: Perl script text executable
+/media/mks/armbi_root/usr/bin/expect_lpunlock: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/h2xs: Perl script text executable
+/media/mks/armbi_root/usr/bin/nocache: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/avr-man: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dpkg-maintscript-helper: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/bin/scriptlive: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=3a273f183bae3080d3c8b1cedcba210dd31635b3, for GNU/Linux 3.7.0, stripped
+/media/mks/armbi_root/usr/bin/apt-key: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/bin/encguess: Perl script text executable
+/media/mks/armbi_root/usr/bin/cpan: Perl script text executable
+/media/mks/armbi_root/usr/bin/debsums: Perl script text executable
+/media/mks/armbi_root/usr/bin/decode-dimms: Perl script text executable
+/media/mks/armbi_root/usr/bin/expect_multixterm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/expect_dislocate: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dpkg-buildflags: Perl script text executable
+/media/mks/armbi_root/usr/bin/c_rehash: Perl script text executable
+/media/mks/armbi_root/usr/bin/expect_mkpasswd: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/lsb_release: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/make-first-existing-target: Perl script text executable
+/media/mks/armbi_root/usr/bin/zless: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/ptar: Perl script text executable
+/media/mks/armbi_root/usr/bin/zipdetails: Perl script text executable
+/media/mks/armbi_root/usr/bin/kernel-install: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/bin/expect_decryptdir: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/savelog: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/expect_unbuffer: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/bin/dfuse-pack: Python script, ASCII text executable, with very long lines (310)
+/media/mks/armbi_root/usr/bin/dpkg-parsechangelog: Perl script text executable
+/media/mks/armbi_root/usr/bin/libnetcfg: Perl script text executable
+/media/mks/armbi_root/usr/bin/wireguard-manager: Bourne-Again shell script, ASCII text executable, with very long lines (709)
+/media/mks/armbi_root/usr/bin/add-apt-repository: Python script, ASCII text executable
+/media/mks/armbi_root/usr/bin/rdebsums: Perl script text executable
+/media/mks/armbi_root/usr/bin/pod2usage: Perl script text executable
+/media/mks/armbi_root/usr/bin/cpan5.36-aarch64-linux-gnu: Perl script text executable
+/media/mks/armbi_root/usr/bin/debconf-get-selections: Perl script text executable
+/media/mks/armbi_root/usr/lib/openssh/agent-launch: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/openssh/ssh-session-cleanup: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/git-core/git-merge-octopus: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/git-core/git-subtree: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/git-core/git-merge-one-file: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/git-core/git-filter-branch: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/git-core/git-quiltimport: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/git-core/git-submodule: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/git-core/git-add--interactive: Perl script text executable
+/media/mks/armbi_root/usr/lib/git-core/git-difftool--helper: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/git-core/git-mergetool: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/git-core/git-merge-resolve: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/git-core/git-instaweb: POSIX shell script, ASCII text executable, with very long lines (470)
+/media/mks/armbi_root/usr/lib/git-core/git-bisect: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/git-core/git-request-pull: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/git-core/git-web--browse: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/aarch64-linux-gnu/e2fsprogs/e2scrub_fail: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/aarch64-linux-gnu/e2fsprogs/e2scrub_all_cron: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/quopri.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/pdb.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/pydoc.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/trace.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/config-3.11-aarch64-linux-gnu/install-sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/config-3.11-aarch64-linux-gnu/python-config.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/config-3.11-aarch64-linux-gnu/makesetup: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/encodings/rot_13.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/webbrowser.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/tarfile.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/lib2to3/pgen2/token.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/tabnanny.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/smtplib.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/base64.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/cgi.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/cProfile.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/timeit.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/test/regrtest.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/uu.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/smtpd.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/platform.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3.11/profile.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/software-properties/software-properties-dbus: Python script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/lib/linux-image-6.1.67-current-rockchip64/rockchip/overlay/rockchip-fixup.scr: u-boot legacy uImage, , Linux/ARM 64-bit, Script File (Not compressed), 2634 bytes, Mon Dec 11 09:41:01 2023, Load Address: 00000000, Entry Point: 00000000, Header CRC: 0X839244BD, Data CRC: 0X172CF753
+/media/mks/armbi_root/usr/lib/dpkg/methods/apt/setup: Perl script text executable
+/media/mks/armbi_root/usr/lib/dpkg/methods/apt/install: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/dpkg/methods/apt/update: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/pm-utils/sleep.d/60_wpa_supplicant: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/pm-utils/power.d/95hdparm-apm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/systemd/user-environment-generators/90gpg-agent: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/systemd/system-generators/openvpn-generator: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/systemd/systemd-sysv-install: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/systemd/system-sleep/sysstat.sleep: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/systemd/system-sleep/unattended-upgrades: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/systemd/system-sleep/hdparm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/NetworkManager/dispatcher.d/20-chrony-onoffline: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/NetworkManager/dispatcher.d/20-chrony-dhcp: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/runit-helper/runit-helper: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/python3/dist-packages/scipy/stats/tests/test_distributions.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/udev/hwclock-set: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/udev/ifupdown-hotplug: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/udev/hdparm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/udev/bridge-network-interface: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/apt/apt.systemd.daily: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-hardware-monitor: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-zram-config: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-truncate-logs: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-firstrun-config: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-resize-filesystem: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-firstrun: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-ramlog: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-audio-config: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-led-state-restore.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-apt-updates: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-led-state-save.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-firstlogin: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-check-battery-shutdown: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-allwinner-battery: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-hardware-optimization: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-live-patch: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/armbian/armbian-common: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/init/init-d-script: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/usrmerge/convert-usrmerge: Perl script text executable
+/media/mks/armbi_root/usr/lib/usrmerge/convert-etc-shells: Perl script text executable
+/media/mks/armbi_root/usr/lib/ifupdown/wait-online.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/ifupdown/settle-dad.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/ifupdown/wait-for-ll6.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/uwim: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/deb: Perl script text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/uarj: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/debd: Perl script text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/mailfs: Perl script text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/patchfs: Perl script text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/rpm: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/audio: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/rpms+: Perl script text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/apt+: Perl script text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/deba: Perl script text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/ualz: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/bpp: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/u7z: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/ulha: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/uzoo: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/uace: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/urar: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/ulib: Perl script text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/hp48+: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/uar: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/dpkg+: Perl script text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/changesetfs: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/ucab: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/unar: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/uc1541: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/s3+: Python script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/patchsetfs: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/lslR: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/iso9660: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/uarc: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/a+: Perl script text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/gitfs+: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/uha: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/trpm: POSIX shell script, ISO-8859 text executable
+/media/mks/armbi_root/usr/lib/mc/extfs.d/uzip: Perl script text executable
+/media/mks/armbi_root/usr/lib/mc/ext.d/image.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/ext.d/misc.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/ext.d/archive.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/ext.d/web.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/ext.d/package.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/ext.d/text.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/ext.d/video.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/ext.d/doc.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/mc/ext.d/sound.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/rsyslog/rsyslog-rotate: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/gcc/avr/5.4.0/install-tools/mkinstalldirs: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/gcc/arm-none-eabi/12.2.1/install-tools/fixinc.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/gcc/arm-none-eabi/12.2.1/install-tools/mkheaders: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/gcc/arm-none-eabi/12.2.1/install-tools/mkinstalldirs: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/console-setup/keyboard-setup.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/console-setup/console-setup.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/bridge-utils/bridge-utils.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/bridge-utils/ifupdown.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/sysstat/debian-sa1: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/sysstat/sa1: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/sysstat/sa2: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/dkms/dkms-autopkgtest: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/dkms/dkms_autoinstaller: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/dkms/common.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/ssl/misc/CA.pl: Perl script text executable
+/media/mks/armbi_root/usr/lib/ssl/misc/tsget.pl: Perl script text executable
+/media/mks/armbi_root/usr/lib/kernel/install.d/50-depmod.install: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/kernel/install.d/85-initrd.install: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/lib/kernel/install.d/90-loaderentry.install: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/libexec/plymouth/plymouth-populate-initrd: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/libexec/plymouth/plymouth-generate-initrd: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/libexec/plymouth/plymouth-update-initrd: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/libexec/dpkg/dpkg-db-backup: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/libexec/chrony/chrony-helper: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/rpcctl: Python script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/pam-auth-update: Perl script text executable
+/media/mks/armbi_root/usr/sbin/iptables-apply: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/update-xmlcatalog: Perl script text executable
+/media/mks/armbi_root/usr/sbin/addgnupghome: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/update-initramfs: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/dpkg-preconfigure: Perl script text executable
+/media/mks/armbi_root/usr/sbin/dpkg-reconfigure: Perl script text executable
+/media/mks/armbi_root/usr/sbin/tarcat: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/armbian-config: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/update-locale: Perl script text executable
+/media/mks/armbi_root/usr/sbin/adduser: Perl script text executable
+/media/mks/armbi_root/usr/sbin/update-cracklib: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/update-ca-certificates: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/pam_namespace_helper: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/mount.ubifs: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/applygnupgdefaults: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/ddbr: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/service: POSIX shell script, ASCII text executable, with very long lines (459)
+/media/mks/armbi_root/usr/sbin/fsck.btrfs: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/armbian-add-overlay: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/cracklib-format: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/add-shell: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/update-shells: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/blkdeactivate: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/softy: Bourne-Again shell script, Unicode text, UTF-8 text executable, with very long lines (666)
+/media/mks/armbi_root/usr/sbin/update-pciids: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/i2c-stub-from-dump: Perl script text executable
+/media/mks/armbi_root/usr/sbin/armbian-install: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/invoke-rc.d: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/update-catalog: Perl script text executable
+/media/mks/armbi_root/usr/sbin/wpa_action: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/flash_eraseall: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/mountstats: Python script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/vconfig: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/nfsiostat: Python script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/installkernel: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/start-statd: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/pam_getenv: Perl script text executable
+/media/mks/armbi_root/usr/sbin/fake-hwclock: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/iotop-py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/create-cracklib-dict: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/plymouth-set-default-theme: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/dpkg-fsys-usrunmess: Perl script text executable
+/media/mks/armbi_root/usr/sbin/validlocale: Perl script text executable
+/media/mks/armbi_root/usr/sbin/locale-gen: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/alsabat-test: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/remove-shell: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/update-rc.d: Perl script text executable
+/media/mks/armbi_root/usr/sbin/e2scrub_all: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/mkinitramfs: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/install-sgmlcatalog: Perl script text executable
+/media/mks/armbi_root/usr/sbin/e2scrub: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/alsa-info: Bourne-Again shell script, ASCII text executable, with very long lines (385)
+/media/mks/armbi_root/usr/sbin/deluser: Perl script text executable
+/media/mks/armbi_root/usr/sbin/update-smart-drivedb: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/dkms: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/sbin/shadowconfig: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/git-core/contrib/hooks/pre-auto-gc-battery: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/git-core/contrib/hooks/post-receive-email: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/git-core/contrib/hooks/setgitperms.perl: Perl script text executable
+/media/mks/armbi_root/usr/share/git-core/contrib/hooks/update-paranoid: Perl script text executable
+/media/mks/armbi_root/usr/share/git-core/templates/hooks/prepare-commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/git-core/templates/hooks/pre-applypatch.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/git-core/templates/hooks/commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/git-core/templates/hooks/push-to-checkout.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/git-core/templates/hooks/post-update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/git-core/templates/hooks/update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/git-core/templates/hooks/pre-push.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/git-core/templates/hooks/fsmonitor-watchman.sample: Perl script text executable
+/media/mks/armbi_root/usr/share/git-core/templates/hooks/pre-merge-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/git-core/templates/hooks/pre-rebase.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/git-core/templates/hooks/pre-receive.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/git-core/templates/hooks/pre-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/git-core/templates/hooks/applypatch-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/ucf/ucf_helper_functions.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/automake-1.16/ar-lib: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/automake-1.16/install-sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/automake-1.16/py-compile: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/automake-1.16/test-driver: POSIX shell script, ASCII text executable, with escape sequences
+/media/mks/armbi_root/usr/share/automake-1.16/depcomp: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/automake-1.16/missing: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/automake-1.16/mkinstalldirs: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/automake-1.16/mdate-sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/automake-1.16/tap-driver.sh: POSIX shell script, ASCII text executable, with escape sequences
+/media/mks/armbi_root/usr/share/automake-1.16/compile: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/automake-1.16/ylwrap: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/misc/config.sub: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/misc/config.guess: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/testsuite: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_19: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_05: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_14: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_04: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_20: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_06: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_11: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_17: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_01: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_18: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_13: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_03: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_10: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_15: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_12: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_16: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_07: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_02: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_08: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/ucf/examples/ucf_helper_functions/tests/test_09: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/sgml-base/examples/postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/sgml-base/examples/prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/sgml-base/examples/postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/zsh-common/examples/Misc/lete2ctl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/zsh-common/examples/Misc/globtests.ksh: Paul Falstad's zsh script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/zsh-common/examples/Misc/globtests: Paul Falstad's zsh script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/zsh-common/examples/Misc/c2z: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/wireguard-tools/examples/ncat-client-server/client.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/wireguard-tools/examples/ncat-client-server/server.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/wireguard-tools/examples/ncat-client-server/client-quick.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/wireguard-tools/examples/dns-hatchet/apply.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/wireguard-tools/examples/synergy/synergy-client.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/wireguard-tools/examples/synergy/synergy-server.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/wireguard-tools/examples/json/wg-json: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/wireguard-tools/examples/reresolve-dns/reresolve-dns.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/wireguard-tools/examples/extract-handshakes/extract-handshakes.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/lsof/examples/big_brother.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/lsof/examples/list_NULf.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/lsof/examples/watch_a_file.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/lsof/examples/idrlogin.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/lsof/examples/sort_res.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/lsof/examples/xusers.awk: awk script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/lsof/examples/count_pf.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/lsof/examples/shared.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/lsof/examples/identd.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/lsof/examples/list_fields.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/ca-certificates/examples/ca-certificates-local/debian/rules: a /usr/bin/make -f script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/adduser/examples/adduser.local: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/figlet/examples/moolets: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/password: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/radiolist10: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/timebox-stdout: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/yesno: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/menubox11: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/inputbox3: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/editbox: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/timebox: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/menubox: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/inputmenu3: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/yesno3: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/checklist-utf8: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/gauge2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/inputmenu-stdout: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/fselect2-stdout: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/inputbox2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/editbox-utf8: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/textbox2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/menubox1: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/inputbox5: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/editbox2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/password1: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/password2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/mixedgauge: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/timebox2-stdout: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/calendar: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/menubox3: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/textbox: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/inputbox6-utf8: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/calendar2-stdout: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/timebox2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/infobox: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/pause: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/menubox-utf8: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/mixedform2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/msgbox1: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/form2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/inputmenu4: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/fselect1-stdout: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/form1: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/checklist10: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/inputbox1: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/gauge0-input-fd: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/yesno2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/msgbox: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/infobox4: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/msgbox4-eucjp: POSIX shell script, ISO-8859 text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/inputmenu2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/menubox2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/inputbox: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/calendar2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/fselect-stdout: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/inputbox7: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/mixedform: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/menubox5: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/infobox3: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/infobox2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/radiolist: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/msgbox2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/inputmenu1: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/fselect1: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/gauge: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/menubox4: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/msgbox4-utf8: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/checklist: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/inputbox4: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/menubox10: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/fselect2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/calendar-stdout: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/dialog/examples/fselect: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/python3-libgpiod/examples/gpiofind.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/python3-libgpiod/examples/gpioset.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/python3-libgpiod/examples/gpiomon.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/python3-libgpiod/examples/gpiodetect.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/python3-libgpiod/examples/gpioinfo.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/python3-libgpiod/examples/gpioget.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/libapt-pkg-perl/examples/apt-cache: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/libapt-pkg-perl/examples/apt-version: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/libapt-pkg-perl/examples/apt-config: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/openvpn/examples/sample-keys/gen-sample-keys.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/openvpn/examples/sample-config-files/office.up: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/openvpn/examples/sample-config-files/openvpn-shutdown.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/openvpn/examples/sample-config-files/openvpn-startup.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/openvpn/examples/sample-config-files/firewall.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/openvpn/examples/sample-config-files/home.up: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/openvpn/examples/sample-scripts/totpauth.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/openvpn/examples/sample-scripts/auth-pam.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/openvpn/examples/sample-scripts/bridge-start: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/openvpn/examples/sample-scripts/ucn.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/openvpn/examples/sample-scripts/bridge-stop: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/openvpn/examples/sample-scripts/verify-cn: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/xml-core/examples/foo.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/xml-core/examples/foo.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/xml-core/examples/foo.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/libproc-processtable-perl/examples/pswait: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/libproc-processtable-perl/examples/ppt_profile_plot.R: a /usr/bin/env Rscript script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/libproc-processtable-perl/examples/ppt_profile.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/apt-file/examples/apt-file-2-update.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/python3-yaml/examples/yaml-highlight/yaml_hl.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/libregexp-assemble-perl/examples/track-5.10: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/libregexp-assemble-perl/examples/assemble: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/libregexp-assemble-perl/examples/stress-test.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/libregexp-assemble-perl/examples/ircwatcher: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/libregexp-assemble-perl/examples/debugging: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/libregexp-assemble-perl/examples/hostmatch/hostmatch: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/libregexp-assemble-perl/examples/fee: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/libregexp-assemble-perl/examples/tld: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/libregexp-assemble-perl/examples/roman: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/libregexp-assemble-perl/examples/naive: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/mawk/examples/qsort.awk: a /usr/bin/mawk -f script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/mawk/examples/gdecl.awk: a /usr/bin/mawk -f script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/mawk/examples/eatc.awk: a /usr/bin/mawk -f script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/mawk/examples/hcal: a /usr/bin/mawk -We script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/mawk/examples/nocomment.awk: a /usr/bin/mawk -f script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/mawk/examples/decl.awk: awk script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/mawk/examples/primes.awk: a /usr/bin/mawk -f script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/mawk/examples/deps.awk: a /usr/bin/mawk -f script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/mawk/examples/ct_length.awk: a /usr/bin/mawk -f script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/mawk/examples/hical: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/iozone3/examples/iozone_visualizer.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/iozone3/examples/report.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/iozone3/examples/gengnuplot.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/sysstat/examples/sargraph: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/sysstat/examples/irqstat: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/sysstat/examples/irqtop: Perl script text executable
+/media/mks/armbi_root/usr/share/doc/sysstat/examples/sargraph2: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/smartmontools/examples/Example5: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/smartmontools/examples/Example6: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/smartmontools/examples/Example3: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/smartmontools/examples/Example7: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/smartmontools/examples/Example1: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/smartmontools/examples/Example2: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/smartmontools/examples/Example8: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/doc/smartmontools/examples/Example4: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/apport/package-hooks/dkms_packages.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/apport/package-hooks/source_sudo.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/scripts/init-top/keymap: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/scripts/init-top/udev: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/scripts/init-top/blacklist: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/scripts/init-top/all_generic_ide: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/scripts/init-premount/plymouth: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/scripts/local-premount/ntfs_3g: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/scripts/local-premount/btrfs: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/scripts/local-premount/resume: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/scripts/init-bottom/plymouth: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/scripts/init-bottom/udev: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/scripts/panic/plymouth: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/scripts/local-bottom/ntfs_3g: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/hooks/fsck: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/hooks/kmod: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/hooks/plymouth: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/hooks/keymap: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/hooks/dmsetup: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/hooks/udev: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/hooks/klibc-utils: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/hooks/ntfs_3g: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/hooks/thermal: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/hooks/btrfs: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/hooks/resume: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/hooks/fuse: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/initramfs-tools/init: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/cron/script: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/zsh-common: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/dpkg: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/systemd/script: Bourne-Again shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/share/bug/initramfs-tools/script: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/fonts-cantarell/script: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/aptitude: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/dpkg-dev: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/udev/script: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/usr/share/bug/apt/script: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/libcryptsetup12: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/ifupdown: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/screen: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/logrotate/script: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/zsh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/fping: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/nfs-common/script: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/bug/libdpkg-perl: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/gitweb/gitweb.cgi: Perl script text executable
+/media/mks/armbi_root/usr/share/python3/py3versions.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/python3/runtime.d/command-not-found.rtupdate: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/python3/runtime.d/public_modules.rtremove: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/python3/runtime.d/public_modules.rtinstall: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/f3/f3write.h2w: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/f3/log-f3wr: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/netplan/netplan.script: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/man-db/chconfig: Perl script text executable
+/media/mks/armbi_root/usr/share/openvpn/verify-cn: Perl script text executable
+/media/mks/armbi_root/usr/share/autoconf/build-aux/install-sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/autoconf/build-aux/config.sub: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/autoconf/build-aux/config.guess: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/sensible-utils/bin/gettext: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/debconf/fix_db.pl: Perl script text executable
+/media/mks/armbi_root/usr/share/debconf/frontend: Perl script text executable
+/media/mks/armbi_root/usr/share/groff/1.22.4/font/devps/generate/afmname: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/apt-file/is-cache-empty: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/console-setup/kbdnames-maker: Perl script text executable
+/media/mks/armbi_root/usr/share/PackageKit/helpers/test_spawn/search-name.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/unattended-upgrades/unattended-upgrade-shutdown: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/unattended-upgrades/update-motd-unattended-upgrades: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/rsync/scripts/cull-options: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/rsync/scripts/lsh: Perl script text executable
+/media/mks/armbi_root/usr/share/rsync/scripts/file-attr-restore: Perl script text executable
+/media/mks/armbi_root/usr/share/rsync/scripts/files-to-excludes: Perl script text executable
+/media/mks/armbi_root/usr/share/rsync/scripts/rsync-no-vanished: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/rsync/scripts/rsyncstats: Perl script text executable
+/media/mks/armbi_root/usr/share/rsync/scripts/logfilter: Perl script text executable
+/media/mks/armbi_root/usr/share/rsync/scripts/git-set-file-times: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/rsync/scripts/atomic-rsync: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/rsync/scripts/mnt-excl: Perl script text executable
+/media/mks/armbi_root/usr/share/rsync/scripts/cvs2includes: Perl script text executable
+/media/mks/armbi_root/usr/share/rsync/scripts/munge-symlinks: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/zsh/functions/VCS_Info/test-repo-git-rebase-merge: Paul Falstad's zsh script, ASCII text executable
+/media/mks/armbi_root/usr/share/zsh/functions/VCS_Info/test-repo-git-rebase-apply: Paul Falstad's zsh script, ASCII text executable
+/media/mks/armbi_root/usr/share/zsh/functions/Calendar/calendar_add: Paul Falstad's zsh script, ASCII text executable
+/media/mks/armbi_root/usr/share/zsh/functions/Misc/zkbd: Paul Falstad's zsh script, ASCII text executable
+/media/mks/armbi_root/usr/share/zsh/functions/Misc/run-help-ip: Paul Falstad's zsh script, ASCII text executable
+/media/mks/armbi_root/usr/share/zsh/functions/Misc/sticky-note: Paul Falstad's zsh script, ASCII text executable
+/media/mks/armbi_root/usr/share/zsh/functions/Misc/zed: Paul Falstad's zsh script, ASCII text executable
+/media/mks/armbi_root/usr/share/zsh/functions/Misc/checkmail: Paul Falstad's zsh script, ASCII text executable
+/media/mks/armbi_root/usr/share/zsh/functions/Misc/harden: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/zsh/functions/Misc/run-help: Paul Falstad's zsh script, ASCII text executable
+/media/mks/armbi_root/usr/share/zsh/functions/Misc/zcalc: Paul Falstad's zsh script, ASCII text executable
+/media/mks/armbi_root/usr/share/command-not-found/cnf-update-db: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/command-not-found/command-not-found: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/nfs-common/nfsconvert.py: Python script, ASCII text executable
+/media/mks/armbi_root/usr/share/keyutils/request-key-debug.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/smartmontools/smartd-runner: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/smartmontools/smartd_warning.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/usr/share/libgcrypt20/clean-up-unmanaged-libraries: a /bin/dash script, ASCII text executable
+/media/mks/armbi_root/home/mks/Klipper-Adaptive-Meshing-Purging/.git/hooks/prepare-commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/Klipper-Adaptive-Meshing-Purging/.git/hooks/pre-applypatch.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/Klipper-Adaptive-Meshing-Purging/.git/hooks/commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/Klipper-Adaptive-Meshing-Purging/.git/hooks/push-to-checkout.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/Klipper-Adaptive-Meshing-Purging/.git/hooks/post-update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/Klipper-Adaptive-Meshing-Purging/.git/hooks/update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/Klipper-Adaptive-Meshing-Purging/.git/hooks/pre-push.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/Klipper-Adaptive-Meshing-Purging/.git/hooks/fsmonitor-watchman.sample: Perl script text executable
+/media/mks/armbi_root/home/mks/Klipper-Adaptive-Meshing-Purging/.git/hooks/pre-merge-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/Klipper-Adaptive-Meshing-Purging/.git/hooks/pre-rebase.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/Klipper-Adaptive-Meshing-Purging/.git/hooks/pre-receive.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/Klipper-Adaptive-Meshing-Purging/.git/hooks/pre-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/Klipper-Adaptive-Meshing-Purging/.git/hooks/applypatch-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper_tmc_autotune/install.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper_tmc_autotune/.git/hooks/prepare-commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper_tmc_autotune/.git/hooks/pre-applypatch.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper_tmc_autotune/.git/hooks/commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper_tmc_autotune/.git/hooks/push-to-checkout.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper_tmc_autotune/.git/hooks/post-update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper_tmc_autotune/.git/hooks/update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper_tmc_autotune/.git/hooks/pre-push.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper_tmc_autotune/.git/hooks/fsmonitor-watchman.sample: Perl script text executable
+/media/mks/armbi_root/home/mks/klipper_tmc_autotune/.git/hooks/pre-merge-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper_tmc_autotune/.git/hooks/pre-rebase.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper_tmc_autotune/.git/hooks/pre-receive.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper_tmc_autotune/.git/hooks/pre-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper_tmc_autotune/.git/hooks/applypatch-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker-env/bin/pip3: a /home/mks/mobileraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker-env/bin/normalizer: a /home/mks/mobileraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker-env/bin/pip3.11: a /home/mks/mobileraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker-env/bin/wheel: a /home/mks/mobileraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker-env/bin/pip-3.11: a /home/mks/mobileraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker-env/bin/wheel-3.11: a /home/mks/mobileraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker-env/bin/pip: a /home/mks/mobileraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker-env/bin/wheel3: a /home/mks/mobileraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker-env/bin/coloredlogs: a /home/mks/mobileraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker-env/bin/wheel3.11: a /home/mks/mobileraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker-env/bin/humanfriendly: a /home/mks/mobileraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/scripts/rollback.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/scripts/upload_log.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/scripts/backup.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/scripts/ui/general_ui.sh: Bourne-Again shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/home/mks/kiauh/scripts/ui/update_menu.sh: Bourne-Again shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/home/mks/kiauh/scripts/ui/backup_menu.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/scripts/ui/install_menu.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/scripts/ui/remove_menu.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/scripts/ui/main_menu.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/scripts/ui/advanced_menu.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/scripts/ui/settings_menu.sh: Bourne-Again shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/home/mks/kiauh/kiauh.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/resources/gcode_shell_command.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/resources/autocommit.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/.git/hooks/prepare-commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/.git/hooks/pre-applypatch.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/.git/hooks/commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/.git/hooks/push-to-checkout.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/.git/hooks/post-update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/.git/hooks/update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/.git/hooks/pre-push.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/.git/hooks/fsmonitor-watchman.sample: Perl script text executable
+/media/mks/armbi_root/home/mks/kiauh/.git/hooks/pre-merge-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/.git/hooks/pre-rebase.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/.git/hooks/pre-receive.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/.git/hooks/pre-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/kiauh/.git/hooks/applypatch-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/fluidd-config/.git/hooks/prepare-commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/fluidd-config/.git/hooks/pre-applypatch.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/fluidd-config/.git/hooks/commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/fluidd-config/.git/hooks/push-to-checkout.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/fluidd-config/.git/hooks/post-update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/fluidd-config/.git/hooks/update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/fluidd-config/.git/hooks/pre-push.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/fluidd-config/.git/hooks/fsmonitor-watchman.sample: Perl script text executable
+/media/mks/armbi_root/home/mks/fluidd-config/.git/hooks/pre-merge-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/fluidd-config/.git/hooks/pre-rebase.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/fluidd-config/.git/hooks/pre-receive.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/fluidd-config/.git/hooks/pre-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/fluidd-config/.git/hooks/applypatch-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/scripts/pk-enum-convertor.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/scripts/set-policykit-rules.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/scripts/tag-release.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/scripts/sudo_fix.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/scripts/install-moonraker.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/scripts/make_sysdeps.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/scripts/sync_dependencies.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/scripts/finish-upgrade.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/scripts/data-path-fix.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/scripts/fetch-apikey.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/scripts/backup-database.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/scripts/build-zip-release.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/scripts/restore-database.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/scripts/uninstall-moonraker.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/moonraker/server.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/moonraker/moonraker.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/.git/hooks/prepare-commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/.git/hooks/pre-applypatch.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/.git/hooks/commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/.git/hooks/push-to-checkout.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/.git/hooks/post-update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/.git/hooks/update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/.git/hooks/pre-push.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/.git/hooks/fsmonitor-watchman.sample: Perl script text executable
+/media/mks/armbi_root/home/mks/moonraker/.git/hooks/pre-merge-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/.git/hooks/pre-rebase.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/.git/hooks/pre-receive.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/.git/hooks/pre-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker/.git/hooks/applypatch-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/graph_accelerometer.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/whconsole.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/graph_shaper.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/check_whitespace.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/ci-install.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/dump_mcu.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/motan/data_logger.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/motan/motan_graph.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/klipper-pru-start.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/install-ubuntu-22.04.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/flash_usb.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/update_mks_robin.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/install-arch.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/check_whitespace.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/install-ubuntu-18.04.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/install-debian.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/ci-build.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/klipper-start.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/update_chitu.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/logextract.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/flash-linux.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/graph_extruder.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/stepstats.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/install-centos.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/flash-ar100.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/check-gcc.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/avrsim.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/graph_motion.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/checkstack.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/parsecandump.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/flash-pru.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/graphstats.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/flash-sdcard.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/graph_mesh.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/install-beaglebone.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/klipper-uninstall.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/graph_temp_sensor.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/calibrate_shaper.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/scripts/install-octopi.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/docs/_klipper3d/build-translations.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/lib/rp2040/boot_stage2/pad_checksum: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/lib/kconfiglib/menuconfig.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/lib/kconfiglib/genconfig.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/lib/kconfiglib/olddefconfig.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/lib/canboot/flash_can.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/klippy/parsedump.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/klippy/console.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/.git/hooks/prepare-commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/.git/hooks/pre-applypatch.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/.git/hooks/commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/.git/hooks/push-to-checkout.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/.git/hooks/post-update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/.git/hooks/update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/.git/hooks/pre-push.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/.git/hooks/fsmonitor-watchman.sample: Perl script text executable
+/media/mks/armbi_root/home/mks/klipper/.git/hooks/pre-merge-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/.git/hooks/pre-rebase.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/.git/hooks/pre-receive.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/.git/hooks/pre-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klipper/.git/hooks/applypatch-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/bin/pip3: a /home/mks/klippy-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/bin/f2py: a /home/mks/klippy-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/bin/can_logger.py: a /home/mks/klippy-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/bin/can_player.py: a /home/mks/klippy-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/bin/miniterm.py: a /home/mks/klippy-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/bin/pip3.11: a /home/mks/klippy-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/bin/wheel: a /home/mks/klippy-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/bin/wheel-3.11: a /home/mks/klippy-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/bin/can_viewer.py: a /home/mks/klippy-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/bin/pip: a /home/mks/klippy-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/bin/wheel3: a /home/mks/klippy-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/bin/wheel3.11: a /home/mks/klippy-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/lib/python3.11/site-packages/numpy/f2py/rules.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/lib/python3.11/site-packages/numpy/f2py/crackfortran.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/lib/python3.11/site-packages/numpy/f2py/f2py2e.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/klippy-env/lib/python3.11/site-packages/numpy/testing/print_coercion_tables.py: Python script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/home/mks/klippy-env/lib/python3.11/site-packages/numpy/testing/setup.py: Python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker-env/bin/pip3: a /home/mks/moonraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker-env/bin/miniterm.py: a /home/mks/moonraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker-env/bin/normalizer: a /home/mks/moonraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker-env/bin/pip3.11: a /home/mks/moonraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker-env/bin/wheel: a /home/mks/moonraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker-env/bin/preprocess_cancellation: a /home/mks/moonraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker-env/bin/wheel-3.11: a /home/mks/moonraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker-env/bin/distro: a /home/mks/moonraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker-env/bin/apprise: a /home/mks/moonraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker-env/bin/markdown_py: a /home/mks/moonraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker-env/bin/pip: a /home/mks/moonraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker-env/bin/wheel3: a /home/mks/moonraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/moonraker-env/bin/wheel3.11: a /home/mks/moonraker-env/bin/python script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/img-config/crowsnest-lag-fix.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/img-config/adb-automount.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/img-config/base_image_configuration.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/img-config/rpi-mcu-install.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/img-config/power_monitor.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/img-config/usb-storage-automount.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/img-config/set-printer-model.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/OpenOrangeStorm.sh: Bourne-Again shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/.git/hooks/prepare-commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/.git/hooks/pre-applypatch.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/.git/hooks/commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/.git/hooks/push-to-checkout.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/.git/hooks/post-update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/.git/hooks/update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/.git/hooks/pre-push.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/.git/hooks/fsmonitor-watchman.sample: Perl script text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/.git/hooks/pre-merge-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/.git/hooks/pre-rebase.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/.git/hooks/pre-receive.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/.git/hooks/pre-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/OpenOrangeStorm/.git/hooks/applypatch-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/build.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/pkg/docker/entry.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/.git/hooks/prepare-commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/.git/hooks/pre-applypatch.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/.git/hooks/commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/.git/hooks/push-to-checkout.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/.git/hooks/post-update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/.git/hooks/update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/.git/hooks/pre-push.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/.git/hooks/fsmonitor-watchman.sample: Perl script text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/.git/hooks/pre-merge-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/.git/hooks/pre-rebase.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/.git/hooks/pre-receive.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/.git/hooks/pre-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/.git/hooks/applypatch-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/tools/make-ico-h.py: a /usr/bin/env -S python3 -B script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/tools/make-html-h.py: a /usr/bin/env -S python3 -B script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/bin/ustreamer/tools/make-jpeg-h.py: a /usr/bin/env -S python3 -B script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/libs/v4l2_control.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/libs/ustreamer.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/libs/hwhandler.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/libs/logging.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/libs/watchdog.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/libs/core.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/libs/camera-streamer.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/libs/messages.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/libs/init_stream.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/libs/configparser.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/crowsnest: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/.git/hooks/prepare-commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/.git/hooks/pre-applypatch.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/.git/hooks/commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/.git/hooks/push-to-checkout.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/.git/hooks/post-update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/.git/hooks/update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/.git/hooks/pre-push.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/.git/hooks/fsmonitor-watchman.sample: Perl script text executable
+/media/mks/armbi_root/home/mks/crowsnest/.git/hooks/pre-merge-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/.git/hooks/pre-rebase.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/.git/hooks/pre-receive.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/.git/hooks/pre-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/.git/hooks/applypatch-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/tools/install.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/tools/dev-helper.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/tools/test_install.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/tools/libs/update_manager.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/tools/libs/core.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/tools/libs/config.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/tools/libs/messages.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/tools/libs/build_apps.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/tools/libs/set_gpumem.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/tools/libs/interactive.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/tools/configure.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/crowsnest/tools/uninstall.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/scripts/install.sh: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/scripts/remove-mobileraker-companion.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/scripts/fix-log-location.sh: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/.git/hooks/prepare-commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/.git/hooks/pre-applypatch.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/.git/hooks/commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/.git/hooks/push-to-checkout.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/.git/hooks/post-update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/.git/hooks/update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/.git/hooks/pre-push.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/.git/hooks/fsmonitor-watchman.sample: Perl script text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/.git/hooks/pre-merge-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/.git/hooks/pre-rebase.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/.git/hooks/pre-receive.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/.git/hooks/pre-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mobileraker_companion/.git/hooks/applypatch-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mainsail-config/.git/hooks/prepare-commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mainsail-config/.git/hooks/pre-applypatch.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mainsail-config/.git/hooks/commit-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mainsail-config/.git/hooks/push-to-checkout.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mainsail-config/.git/hooks/post-update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mainsail-config/.git/hooks/update.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mainsail-config/.git/hooks/pre-push.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mainsail-config/.git/hooks/fsmonitor-watchman.sample: Perl script text executable
+/media/mks/armbi_root/home/mks/mainsail-config/.git/hooks/pre-merge-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mainsail-config/.git/hooks/pre-rebase.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mainsail-config/.git/hooks/pre-receive.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mainsail-config/.git/hooks/pre-commit.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/home/mks/mainsail-config/.git/hooks/applypatch-msg.sample: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-apt.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cracklib-runtime.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/ntfs-3g.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/procps.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/rsyslog.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/base-passwd.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/util-linux.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/zsh.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-gast.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/login.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/man-db.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/usrmerge.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sudo.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/zsh.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cron.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libcrypt-dev:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sgml-base.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/bash-completion.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fontconfig-config.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/openssh-server.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/nano.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/bison.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-pygments.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/haveged.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/git.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/debianutils.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/linux-dtb-current-rockchip64.postinst: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-pythran.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fontconfig-config.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/nfs-common.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/nfs-common.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libatlas-base-dev:arm64.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sysfsutils.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-contourpy.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-distro.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/psmisc.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/iperf3.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/locales.config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-virtualenv.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/ntfs-3g.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/bash-completion.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-tk:arm64.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/smartmontools.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/smartmontools.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/pkgconf:arm64.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/network-manager.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/apt.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-wadllib.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libglib2.0-0:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/console-setup-linux.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/xml-core.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/tcl8.6.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/g++.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/perl.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-lazr.restfulclient.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/usrmerge.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cron.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/e2fsprogs.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/ca-certificates.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/linux-image-current-rockchip64.postrm: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-fs.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-lz4.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-ufolib2.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/polkitd.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/debian-archive-keyring.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/keyboard-configuration.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/figlet.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/udev.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libpython3.11-minimal:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dbus.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dbus-daemon.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/openvpn.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/hdparm.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libopenblas0-pthread:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libcrypt-dev:arm64.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/git.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/xml-core.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-software-properties.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/nginx.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/x11-common.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/apt.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cracklib-runtime.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sysstat.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/flex.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dmsetup.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/gcc.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/e2fsprogs.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sysfsutils.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libc6:arm64.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/rpcbind.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/openssh-client.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/logrotate.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-decorator.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/ifupdown.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/linux-image-current-rockchip64.postinst: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-tz.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/polkitd.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-distro.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/armbian-bsp-cli-znp-k1-current.postinst: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/rsync.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/git.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-gi.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/locales.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/parted.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/wireless-regdb.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/console-setup-linux.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/x11-common.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/passwd.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/e2fsprogs.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/screen.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-mdurl.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/linux-base.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dkms.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/zsh-common.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-tz.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/debian-archive-keyring.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-lazr.restfulclient.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/perl-base.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/armbian-zsh.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/readline-common.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/openvpn.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/perl-base.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fuse3.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/initramfs-tools.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-apt.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sysfsutils.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-blinker.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/systemd.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-lib2to3.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/smartmontools.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-beniget.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libnewlib-arm-none-eabi.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/debianutils.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cron.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-jwt.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cron-daemon-common.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-dateutil.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/systemd-sysv.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/udev.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sysstat.config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libnss-myhostname:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/less.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/netbase.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/command-not-found.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sgml-base.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-oauthlib.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/nginx-common.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/gpg-agent.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cpio.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-cryptography.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cracklib-runtime.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/netbase.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/unzip.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/network-manager.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-jwt.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-ufolib2.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/ca-certificates.config: POSIX shell script, Unicode text, UTF-8 text executable, with very long lines (5658)
+/media/mks/armbi_root/var/lib/dpkg/info/login.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/debconf-utils.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fbset.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-lib2to3.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/debconf.config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3.11-minimal.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-pkg-resources.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/udev.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/mc.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/passwd.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/less.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/debconf.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/ucf.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/openssh-client.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cpio.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-attr.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/readline-common.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/hdparm.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/iperf3.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libpam-runtime.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/network-manager.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/adduser.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-platformdirs.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dbus.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/unattended-upgrades.config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libdigest-sha-perl.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-oauthlib.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/rpcbind.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-six.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-pyparsing.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-httplib2.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libblas3:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/plymouth-themes.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-wadllib.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/alsa-utils.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/parted.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/polkitd.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/screen.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-distlib.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sysstat.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/openssh-client.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/avahi-autoipd.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/vnstat.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/zsh-common.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/unzip.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/software-properties-common.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-mdurl.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libpython3.11-minimal:arm64.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/nfs-common.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/passwd.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sudo.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sysstat.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/iotop.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/gcc.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/debsums.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/zsh-common.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/plymouth.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/bash.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/perl.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-minimal.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-fs.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/smartmontools.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cron.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/ifupdown.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/rsyslog.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libglib2.0-0:arm64.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/tzdata.config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libgssapi-krb5-2:arm64.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cracklib-runtime.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-numpy.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/systemd.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/xz-utils.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dbus.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fontconfig-config.config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dash.postinst: a /bin/dash script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/software-properties-common.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libnewlib-dev.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/figlet.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/ca-certificates.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libopenblas-pthread-dev:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/openssl.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cpufrequtils.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libpam-modules:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-markdown-it.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-kiwisolver.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-rich.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3.11-minimal.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/tzdata.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fontconfig.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-dateutil.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/rpcbind.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/tar.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/pciutils.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/mc.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-pil.imagetk:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-fonttools.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-sympy.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fonts-cantarell.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libwrap0:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/armbian-plymouth-theme.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/debian-archive-keyring.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fontconfig-config.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-ply.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/logrotate.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/util-linux-extra.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/vnstat.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dpkg.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/base-passwd.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/iproute2.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-brotli.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fonts-cantarell.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/kmod.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/pciutils.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/procps.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-distlib.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-appdirs.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/pciutils.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/i2c-tools.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/iperf3.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/command-not-found.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/kbd.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dirmngr.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/debianutils.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/keyboard-configuration.config: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/var/lib/dpkg/info/zsh-common.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/console-setup.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-attr.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libnewlib-arm-none-eabi.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-markdown-it.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/keyboard-configuration.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-scipy.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/nginx-common.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/bash.prerm: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libatlas3-base:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libpam-modules:arm64.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/iproute2.config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/iptables.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/mawk.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/login.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libnewlib-dev.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/systemd.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3.11-minimal.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/command-not-found.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dash.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libblas3:arm64.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/debian-archive-keyring.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-iniparse.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-gi.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/bc.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/iperf3.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/unattended-upgrades.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/packagekit.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-sympy.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/tmux.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-kiwisolver.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/tzdata.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/unattended-upgrades.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/debsums.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sgml-base.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-tk:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/bc.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/chrony.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dirmngr.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/openvpn.config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-brotli.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libpam-modules:arm64.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-numpy.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/openvpn.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/gpg-agent.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/rng-tools-debian.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/unattended-upgrades.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sudo.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cpp.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/perl.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/linux-image-current-rockchip64.preinst: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/initramfs-tools-core.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libc-bin.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/packagekit.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libblas3:arm64.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/wireless-tools.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/locales.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libcrypt-dev:arm64.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-decorator.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/adduser.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/alsa-utils.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/xz-utils.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/pinentry-curses.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/wpasupplicant.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-lazr.uri.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/rng-tools-debian.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cpp.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/liblapack3:arm64.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/ucf.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3.11-minimal.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/console-setup.config: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-packaging.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-rich.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dbus-system-bus-common.postinst: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/var/lib/dpkg/info/apt-file.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/plymouth.preinst: POSIX shell script, ASCII text executable, with very long lines (403)
+/media/mks/armbi_root/var/lib/dpkg/info/g++.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/mc.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/rng-tools-debian.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-httplib2.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/locales.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/automake.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/vnstat.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/armbian-plymouth-theme.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/linux-base.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/wpasupplicant.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/aptitude.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libatlas-base-dev:arm64.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-yaml.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/hdparm.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libpython3.11-minimal:arm64.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/bash.postinst: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/perl-base.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/bash-completion.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-matplotlib.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/network-manager-openvpn.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libdigest-sha-perl.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fontconfig.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/rsyslog.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libsensors5:arm64.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-virtualenv.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/perl-base.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/vnstat.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fonts-cantarell.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/iotop.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/zsh.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/tar.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dbus.postinst: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/var/lib/dpkg/info/nginx-common.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/nginx-common.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/initramfs-tools.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/klibc-utils.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-platformdirs.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/apt.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/armbian-bsp-cli-znp-k1-current.postrm: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/aptitude.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-software-properties.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dbus-daemon.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/usrmerge.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-cryptography.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/linux-image-current-rockchip64.prerm: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/passwd.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libgstreamer1.0-0:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-distro-info.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/network-manager-openvpn.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/usrmerge.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/toilet.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/avahi-autoipd.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/openvpn.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/pinentry-curses.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/kbd.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-lxml:arm64.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libgssapi-krb5-2:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fuse3.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/base-passwd.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-scipy.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/coreutils.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sudo.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-dbus.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/parted.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dirmngr.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/rpcbind.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libjs-jquery.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libopenblas-pthread-dev:arm64.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/base-files.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libpam-systemd:arm64.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/plymouth.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libatlas-base-dev:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/login.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-six.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/mc.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/man-db.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dirmngr.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/nginx.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-mpmath.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cpufrequtils.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libatlas3-base:arm64.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/avahi-autoipd.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/nfs-common.postinst: POSIX shell script, ASCII text executable, with very long lines (301)
+/media/mks/armbi_root/var/lib/dpkg/info/python3-pyparsing.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/procps.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/screen.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-dbus.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/logrotate.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libpam-systemd:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libcrypt-dev:arm64.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/e2fsprogs.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/flex.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/util-linux-extra.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/wireguard-tools.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/chrony.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-pil:arm64.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/perl.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/iperf3.config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libc6:arm64.preinst: POSIX shell script, Unicode text, UTF-8 text executable
+/media/mks/armbi_root/var/lib/dpkg/info/git.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/apt.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/iptables.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/util-linux.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/bsdextrautils.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-packaging.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fake-hwclock.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/bison.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/tmux.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/wireguard-tools.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dpkg.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-lazr.uri.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fonts-cantarell.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libpam-runtime.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/pkg-config:arm64.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/xml-core.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/kmod.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-filelock.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-pythran.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-cycler.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/ifupdown.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/haveged.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libgcrypt20:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-filelock.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-iniparse.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libstdc++6:arm64.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/parted.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-pil.imagetk:arm64.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/initramfs-tools-core.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/liblapack3:arm64.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fake-hwclock.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/initramfs-tools.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/udev.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/polkitd.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-beniget.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/automake.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dkms.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/mawk.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-pygments.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-distro-info.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/iproute2.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/openssh-server.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/keyboard-configuration.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/tzdata.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/linux-dtb-current-rockchip64.preinst: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/alsa-utils.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fping.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/ucf.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/openssh-server.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/armbian-plymouth-theme.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-blinker.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/util-linux.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-lxml:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/ifupdown.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sysstat.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-mpmath.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/tmux.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/alsa-utils.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libatlas3-base:arm64.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/psmisc.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/console-setup-linux.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/tzdata.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/man-db.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-sympy.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/rsync.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/hdparm.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-distutils.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/wpasupplicant.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/procps.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3.11.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-matplotlib.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libwrap0:arm64.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-pkg-resources.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libjs-jquery.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fake-hwclock.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libopenblas0-pthread:arm64.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/xml-core.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/liblapack3:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libnss-myhostname:arm64.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-lz4.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/rsync.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/kmod.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/crudini.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/chrony.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libpam0g:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libjs-jquery.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/bridge-utils.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/network-manager.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libjs-jquery.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/wireless-regdb.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-contourpy.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3.11.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/fontconfig-config.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libc6:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/wireguard-tools.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libnss-myhostname:arm64.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/util-linux-extra.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dash.prerm: a /bin/dash script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sysfsutils.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-distutils.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/aptitude.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/sgml-base.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libpam-runtime.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/less.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/wireless-tools.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-minimal.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-pil:arm64.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/man-db.config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/systemd.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/automake.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libnewt0.52:arm64.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/openssh-client.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/initramfs-tools.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dkms.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/chrony.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/rsync.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libpython3.11-stdlib:arm64.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/openssh-server.config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/haveged.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/coreutils.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dkms.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/apt-file.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/rsyslog.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cpufrequtils.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-fonttools.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/bison.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/nano.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/cron-daemon-common.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/dpkg.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-cycler.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-yaml.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/toilet.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/nginx-common.config: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/openssh-server.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/plymouth-themes.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/haveged.preinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-ply.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/console-setup.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-appdirs.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/crudini.prerm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/armbian-bsp-cli-znp-k1-current.preinst: Bourne-Again shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/python3-gast.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/x11-common.postinst: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/libpam0g:arm64.postrm: POSIX shell script, ASCII text executable
+/media/mks/armbi_root/var/lib/dpkg/info/zsh.preinst: POSIX shell script, ASCII text executable
