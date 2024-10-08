@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/git-core/templates/hooks/pre-commit.sample	2023-02-23 10:14:14.000000000 -0500
++++ /media/mks/armbi_root/usr/share/git-core/templates/hooks/pre-commit.sample	2023-02-28 04:25:32.000000000 -0500
+@@ -16,7 +16,7 @@
+ fi
+ 
+ # If you want to allow non-ASCII filenames set this variable to true.
+-allownonascii=$(git config --bool hooks.allownonascii)
++allownonascii=$(git config --type=bool hooks.allownonascii)
+ 
+ # Redirect output to stderr.
+ exec 1>&2

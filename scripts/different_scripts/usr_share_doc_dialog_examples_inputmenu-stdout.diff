@@ -1,0 +1,40 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/doc/dialog/examples/inputmenu-stdout	2012-07-06 14:11:12.000000000 -0400
++++ /media/mks/armbi_root/usr/share/doc/dialog/examples/inputmenu-stdout	2020-11-25 19:30:01.000000000 -0500
+@@ -1,5 +1,5 @@
+ #! /bin/sh
+-# $Id: inputmenu-stdout,v 1.13 2012/07/06 18:11:12 tom Exp $
++# $Id: inputmenu-stdout,v 1.17 2020/11/26 00:30:01 tom Exp $
+ # 2002 - written by Tobias Rittweiler <tobrit@freebits.de>
+ 
+ . ./setup-vars
+@@ -9,8 +9,8 @@
+ gid=`id|sed -e 's/^.*gid=//' -e 's/(.*//'`
+ home="$HOME"
+ 
+-while [ ${returncode:-99} -ne 1 -a ${returncode:-99} -ne 250 ]; do
+-	value=`$DIALOG \
++while [ "${returncode:-99}" -ne 1 ] && [ "${returncode:-99}" -ne 250 ]; do
++	returntext=`$DIALOG \
+ 		--stdout --clear --ok-label "Create" \
+ 		--backtitle "An Example for the use of --inputmenu:" "$@" \
+ 		--inputmenu "Originally I designed --inputmenu for a \
+@@ -42,7 +42,7 @@
+ 				$user" 10 40
+ 		;;
+ 	$DIALOG_EXTRA)
+-		value=`echo "$value" | sed -e 's/^RENAMED //'`
++		value=`echo "$returntext" | sed -e 's/^RENAMED //'`
+ 		tag=`echo "$value" | sed -e 's/:.*//'`
+ 		item=`echo "$value" | sed -e 's/^[^:]*:[ 	][ 	]*//'`
+ 
+@@ -54,8 +54,8 @@
+ 		esac
+ 		;;
+ 
+-	$DIALOG_ESC)
+-		echo "ESC pressed."
++	*)
++		. ./report-button
+ 		break
+ 		;;
+ 

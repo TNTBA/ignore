@@ -1,0 +1,174 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/smartmontools/smartd_warning.sh	2018-10-15 16:03:35.000000000 -0400
++++ /media/mks/armbi_root/usr/share/smartmontools/smartd_warning.sh	2022-10-15 20:09:15.000000000 -0400
+@@ -2,27 +2,21 @@
+ #
+ # smartd warning script
+ #
+-# Home page of code is: http://www.smartmontools.org
++# Home page of code is: https://www.smartmontools.org
+ #
+-# Copyright (C) 2012-16 Christian Franke
++# Copyright (C) 2012-21 Christian Franke
+ #
+-# This program is free software; you can redistribute it and/or modify
+-# it under the terms of the GNU General Public License as published by
+-# the Free Software Foundation; either version 2, or (at your option)
+-# any later version.
++# SPDX-License-Identifier: GPL-2.0-or-later
+ #
+-# You should have received a copy of the GNU General Public License
+-# (for example COPYING); If not, see <http://www.gnu.org/licenses/>.
+-#
+-# $Id: smartd_warning.sh.in 4351 2016-10-17 18:53:40Z chrfranke $
++# $Id: smartd_warning.sh.in 5238 2021-10-23 10:22:01Z chrfranke $
+ #
+ 
+ set -e
+ 
+ # Set by config.status
+-export PATH="/usr/bin:/bin"
++export PATH="/usr/local/bin:/usr/bin:/bin"
+ PACKAGE="smartmontools"
+-VERSION="6.6"
++VERSION="7.3"
+ prefix="/usr"
+ sysconfdir="/etc"
+ smartdscriptdir="/usr/share/smartmontools"
+@@ -45,7 +39,7 @@
+ 
+ Usage:
+   export SMARTD_MAILER='Path to external script, empty for "$os_mailer"'
+-  export SMARTD_ADDRESS='Space separated mail adresses, empty if none'
++  export SMARTD_ADDRESS='Space separated mail addresses, empty if none'
+   export SMARTD_MESSAGE='Error Message'
+   export SMARTD_FAILTYPE='Type of failure, "EMailTest" for tests'
+   export SMARTD_TFIRST='Date of first message sent, empty if none'
+@@ -67,7 +61,7 @@
+ fi
+ 
+ # Get host and domain names
+-for cmd in 'hostname' 'echo "[Unknown]"'; do
++for cmd in 'hostname' 'uname -n' 'echo "[Unknown]"'; do
+   hostname=`eval $cmd 2>/dev/null` || continue
+   test -n "$hostname" || continue
+   break
+@@ -126,64 +120,82 @@
+   fi
+ `
+ 
++# Check whether a message line begins with the default 'mail' command escape char '~'.
++# Heuristically detect dangerous command escapes for possible other escape characters.
++esc=`echo "$fullmessage" | sed -n -e '/^~/p' -e '/^[^ 0-9A-Za-z][[:space:]]*[!:<r|][[:space:]]/p'`
++if [ -n "$esc" ]; then
++  echo "$0: Security: Message contains possible 'mail' command escape" >&2
++  exit 1
++fi
++
+ # Export message with trailing newline
+ export SMARTD_FULLMESSAGE="$fullmessage
+ "
+ 
+ # Run plugin scripts if requested
+-if test -n "$plugindir"; then
+- case " $SMARTD_ADDRESS" in
++unset SMARTD_ADDRESS_ORIG
++case " $SMARTD_ADDRESS" in
+   *\ @*)
+-    if [ -n "$dryrun" ]; then
+-      echo "export SMARTD_SUBJECT='$SMARTD_SUBJECT'"
+-      echo "export SMARTD_FULLMESSAGE='$SMARTD_FULLMESSAGE'"
+-    fi
+-
+-    # Run ALL scripts if requested
+-    case " $SMARTD_ADDRESS " in
+-      *\ @ALL\ *)
+-        for cmd in "$plugindir"/*; do
+-          if [ -f "$cmd" ] && [ -x "$cmd" ]; then
+-            if [ -n "$dryrun" ]; then
+-              echo "$cmd </dev/null"
+-            else
+-              "$cmd" </dev/null
+-            fi
+-          fi
+-        done
+-        ;;
+-    esac
+-
+-    # Run selected scripts
+-    addrs=$SMARTD_ADDRESS
++    # Collect and remove plugin names from SMARTD_ADDRESS
++    export SMARTD_ADDRESS_ORIG=$SMARTD_ADDRESS
+     SMARTD_ADDRESS=
+-    for ad in $addrs; do
++    plugins=
++    for ad in $SMARTD_ADDRESS_ORIG; do
+       case $ad in
+         @ALL)
++          if [ -n "$plugindir" ]; then
++            for cmd in "$plugindir"/*; do
++              if [ -f "$cmd" ] && [ -x "$cmd" ]; then
++                plugins="${plugins}${plugins:+ }${cmd##*/}"
++              fi
++            done
++          fi
+           ;;
+         @?*)
+-          cmd="$plugindir/${ad#@}"
+-          if [ -f "$cmd" ] && [ -x "$cmd" ]; then
+-            if [ -n "$dryrun" ]; then
+-              echo "$cmd </dev/null"
+-            else
+-              "$cmd" </dev/null
+-            fi
+-          elif [ ! -e "$cmd" ]; then
+-            echo "$cmd: Not found" >&2
++          if [ -n "$plugindir" ]; then
++            plugins="${plugins}${plugins:+ }${ad#@}"
+           fi
+           ;;
+         *)
+-          SMARTD_ADDRESS="${SMARTD_ADDRESS:+ }$ad"
++          SMARTD_ADDRESS="${SMARTD_ADDRESS}${SMARTD_ADDRESS:+ }$ad"
+           ;;
+       esac
+     done
+ 
++    # Run all scripts
++    if [ -n "$plugins" ]; then
++      if [ -n "$dryrun" ]; then
++        echo "export SMARTD_ADDRESS='$SMARTD_ADDRESS'"
++        echo "export SMARTD_ADDRESS_ORIG='$SMARTD_ADDRESS_ORIG'"
++        echo "export SMARTD_SUBJECT='$SMARTD_SUBJECT'"
++        echo "export SMARTD_FULLMESSAGE='$SMARTD_FULLMESSAGE'"
++      fi
++      for p in $plugins; do
++        cmd="$plugindir/$p"
++        if [ -f "$cmd" ]; then
++          if [ -x "$cmd" ]; then
++            if [ -n "$dryrun" ]; then
++              echo "$cmd </dev/null"
++            else
++              rc=0
++              "$cmd" </dev/null || rc=$?
++              if [ $rc != 0 ]; then
++                echo "$cmd: exit $rc" >&2
++                exit $rc
++              fi
++            fi
++          fi
++        else
++          echo "$cmd: not found" >&2
++          exit 1
++        fi
++      done
++    fi
++
+     # Send email to remaining addresses
+     test -n "$SMARTD_ADDRESS" || exit 0
+     ;;
+- esac
+-fi
++esac
+ 
+ # Send mail or run command
+ if [ -n "$SMARTD_ADDRESS" ]; then

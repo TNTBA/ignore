@@ -1,0 +1,23 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/initramfs-tools/hooks/btrfs	2019-02-09 08:43:54.000000000 -0500
++++ /media/mks/armbi_root/usr/share/initramfs-tools/hooks/btrfs	2023-02-28 18:17:49.000000000 -0500
+@@ -23,10 +23,16 @@
+ 	copy_exec /bin/btrfs /bin
+ 	if [ ! -x /usr/share/initramfs-tools/hooks/fsck ] && [ ! -x /etc/initramfs-tools/hooks/fsck ]
+ 	then
+-	    copy_exec /bin/fsck.btrfs /bin
++	    copy_exec /sbin/fsck.btrfs /sbin
+ 	fi
+-	LIBC_DIR=$(ldd /bin/btrfs | sed -nr 's#.* => (/lib.*)/libc\.so\.[0-9.-]+ \(0x[[:xdigit:]]+\)$#\1#p')
+-	find -L "$LIBC_DIR" -maxdepth 1 -name 'libgcc_s.*' -type f | while read so; do
+-		copy_exec "$so"
++
++	# Copy udev rules, which udev no longer does
++	for UDEV_RULE in 64-btrfs.rules 64-btrfs-dm.rules; do
++	  for rules_folder in /lib/udev/rules.d /etc/udev/rules.d; do
++	    if [ -f $rules_folder/$UDEV_RULE ]; then
++	      mkdir -p $DESTDIR$rules_folder
++	      cp $rules_folder/$UDEV_RULE $DESTDIR$rules_folder/$UDEV_RULE
++	    fi
++	  done
+ 	done
+ fi

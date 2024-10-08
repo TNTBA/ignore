@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/initramfs-tools/hooks/fuse	2020-04-22 15:38:47.000000000 -0400
++++ /media/mks/armbi_root/usr/share/initramfs-tools/hooks/fuse	2023-04-18 17:07:15.000000000 -0400
+@@ -17,7 +17,7 @@
+ 
+ . /usr/share/initramfs-tools/hook-functions
+ 
+-copy_exec /sbin/mount.fuse /sbin
++copy_exec /sbin/mount.fuse3 /sbin
+ 
+ manual_add_modules fuse
+ 

@@ -1,0 +1,33 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/zsh/functions/Misc/run-help	2022-02-13 13:16:43.000000000 -0500
++++ /media/mks/armbi_root/usr/share/zsh/functions/Misc/run-help	2023-02-04 19:37:45.000000000 -0500
+@@ -10,7 +10,7 @@
+ 
+ emulate -RL zsh
+ 
+-local HELPDIR=${HELPDIR:-/usr/share/zsh/help}
++local HELPDIR="${HELPDIR:-/usr/share/zsh/help}"
+ 
+ [[ $1 == "." ]] && 1="dot"
+ [[ $1 == ":" ]] && 1="colon"
+@@ -101,12 +101,15 @@
+ 		builtin getln cmd_args
+ 		builtin print -z "$cmd_args"
+ 		cmd_args=( ${(z)cmd_args} )
+-		# Discard environment assignments, etc.
+-		while [[ $cmd_args[1] != ${run_help_orig_cmd:-$1} ]]
+-		do
+-		    shift cmd_args || return 1
+-		done
+-		eval "run-help-$1:t ${(q@)cmd_args[2,-1]}"
++
++                # Discard the command itself & everything before it.
++                shift $cmd_args[(i)${run_help_orig_cmd:-$1}] cmd_args ||
++                    return
++
++                # Discard options, parameter assignments & paths.
++                cmd_args=( ${cmd_args[@]:#([-+]*|*=*|*/*|\~*)} )
++
++                eval "run-help-$1:t ${(@q)cmd_args}"
+ 	    else
+ 		POSIXLY_CORRECT=1 man $@:t
+ 	    fi

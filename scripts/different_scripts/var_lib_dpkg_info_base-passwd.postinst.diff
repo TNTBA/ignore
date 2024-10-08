@@ -1,0 +1,72 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/base-passwd.postinst	2019-02-10 14:10:55.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/base-passwd.postinst	2022-09-20 06:22:51.000000000 -0400
+@@ -5,6 +5,7 @@
+ # Load the debconf confmodule if it is available.  It may not be because this
+ # package is essential and therefore can't depend on debconf directly.
+ if [ -f /usr/share/debconf/confmodule ]; then
++	# shellcheck disable=SC1091
+ 	. /usr/share/debconf/confmodule
+ fi
+ 
+@@ -17,12 +18,12 @@
+ 	fi
+ 
+ 	while : ; do
+-		echo -n "$1 "
+-		read a || true
++		printf '%s ' "$1"
++		read -r a || true
+ 		if [ "$a" = "" ] ; then
+ 			a="y"
+ 		fi
+-		a=`echo $a | tr A-Z a-z`
++		a=$(echo $a | tr '[:upper:]' '[:lower:]')
+ 		if [ "$a" = "y" ] || [ "$a" = "n" ] ; then
+ 			break
+ 		fi
+@@ -55,12 +56,12 @@
+     exit 0
+ fi
+ 
+-if [ ! -e /etc/passwd ] ; then
+-	cp /usr/share/base-passwd/passwd.master /etc/passwd
++if [ ! -e "$DPKG_ROOT/etc/passwd" ] ; then
++	cp "$DPKG_ROOT/usr/share/base-passwd/passwd.master" "$DPKG_ROOT/etc/passwd"
+ fi
+ 
+-if [ ! -e /etc/group ] ; then
+-	cp /usr/share/base-passwd/group.master /etc/group
++if [ ! -e "$DPKG_ROOT/etc/group" ] ; then
++	cp "$DPKG_ROOT/usr/share/base-passwd/group.master" "$DPKG_ROOT/etc/group"
+ fi
+ 
+ if [ "$2" = "3.2.2" ] && [ -f /etc/passwd.org ] ; then
+@@ -81,8 +82,8 @@
+ 	fi
+ fi
+ 
+-tmp=`tempfile`
+-if ! update-passwd --dry-run > $tmp ; then
++tmp=$(mktemp)
++if [ -n "$2" ] && ! update-passwd --dry-run > "$tmp" ; then
+ 	if [ -f /usr/share/debconf/confmodule ] ; then
+ 		db_version 2.0
+ 		update-passwd --verbose
+@@ -100,7 +101,7 @@
+ 
+ EOF
+ 
+-		cat $tmp
++		cat "$tmp"
+ 		cat <<EOF
+ 
+ It is highly recommended that you allow update-passwd to make these changes
+@@ -126,7 +127,7 @@
+ 	fi
+ fi
+ 
+-rm -f $tmp
++rm -f "$tmp"
+ 
+ if [ "$changes" -gt 0 ] ; then
+ 	if searchpath nscd; then

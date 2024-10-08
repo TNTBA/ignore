@@ -1,0 +1,17 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/doc/python3-libgpiod/examples/gpiodetect.py	2018-11-09 03:31:22.000000000 -0500
++++ /media/mks/armbi_root/usr/share/doc/python3-libgpiod/examples/gpiodetect.py	2021-03-22 08:25:56.000000000 -0400
+@@ -11,8 +11,9 @@
+ 
+ import gpiod
+ 
+-for chip in gpiod.ChipIter():
+-    print('{} [{}] ({} lines)'.format(chip.name(),
+-                                      chip.label(),
+-                                      chip.num_lines()))
+-    chip.close()
++if __name__ == '__main__':
++    for chip in gpiod.ChipIter():
++        print('{} [{}] ({} lines)'.format(chip.name(),
++                                          chip.label(),
++                                          chip.num_lines()))
++        chip.close()

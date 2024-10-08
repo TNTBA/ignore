@@ -1,0 +1,17 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/doc/dialog/examples/msgbox	2010-01-13 05:35:13.000000000 -0500
++++ /media/mks/armbi_root/usr/share/doc/dialog/examples/msgbox	2020-11-25 19:03:58.000000000 -0500
+@@ -1,5 +1,5 @@
+ #!/bin/sh
+-# $Id: msgbox,v 1.7 2010/01/13 10:35:13 tom Exp $
++# $Id: msgbox,v 1.8 2020/11/26 00:03:58 tom Exp $
+ 
+ . ./setup-vars
+ 
+@@ -8,6 +8,6 @@
+                   display any message you like. The box will remain until \
+                   you press the ENTER key." 10 41
+ 
+-retval=$?
++returncode=$?
+ 
+ . ./report-button

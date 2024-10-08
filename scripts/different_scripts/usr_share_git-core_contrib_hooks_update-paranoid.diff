@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/git-core/contrib/hooks/update-paranoid	2018-12-14 23:24:55.000000000 -0500
++++ /media/mks/armbi_root/usr/share/git-core/contrib/hooks/update-paranoid	2023-02-07 17:45:28.000000000 -0500
+@@ -49,7 +49,7 @@
+ Repository sections are matched on the basename of the repository
+ (after removing the .git suffix).
+ 
+-The opcode abbrevations are:
++The opcode abbreviations are:
+ 
+   C: create new ref
+   D: delete existing ref

@@ -1,0 +1,32 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/initramfs-tools/hooks/fsck	2019-02-05 22:48:49.000000000 -0500
++++ /media/mks/armbi_root/usr/share/initramfs-tools/hooks/fsck	2022-06-20 10:06:08.000000000 -0400
+@@ -47,7 +47,7 @@
+ 	eval "$(_read_fstab_entry "$1")"
+ 
+ 	# Not found by default.
+-	if [ "$1" = "$MNT_DIR" ] && [ "$MNT_PASS" != 0 ]; then
++	if [ "$1" = "$MNT_DIR" ]; then
+ 		# Ignore filesystem type for /, as it is not available and
+ 		# therefore never used at boot time
+ 		if [ "${MNT_DIR}" = "/" ] || [ "${MNT_TYPE}" = "auto" ]; then
+@@ -64,8 +64,18 @@
+ }
+ 
+ get_fsck_types() {
+-	get_fsck_type_fstab /    root
+-	get_fsck_type_fstab /usr /usr
++	if [ "${FSTYPE:-auto}" = auto ]; then
++		get_fsck_type_fstab /    root
++		get_fsck_type_fstab /usr usr
++	else
++		local IFS=,
++		local fstype
++		set -f
++		for fstype in $FSTYPE; do
++			echo "$fstype"
++		done
++		set +f
++	fi
+ }
+ 
+ case $1 in

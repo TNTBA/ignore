@@ -1,0 +1,13 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/zsh/functions/Misc/run-help-ip	2022-02-13 13:16:43.000000000 -0500
++++ /media/mks/armbi_root/usr/share/zsh/functions/Misc/run-help-ip	2023-02-04 19:37:45.000000000 -0500
+@@ -14,10 +14,6 @@
+     return
+ fi
+ 
+-while [[ $# != 0 && $1 == -* ]]; do
+-    shift
+-done
+-
+ case $1 in
+     (addrl*) man ip-addrlabel ;;
+     (a*) man ip-address ;;

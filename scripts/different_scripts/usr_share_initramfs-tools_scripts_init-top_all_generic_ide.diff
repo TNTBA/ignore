@@ -1,0 +1,16 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/initramfs-tools/scripts/init-top/all_generic_ide	2019-02-05 22:48:49.000000000 -0500
++++ /media/mks/armbi_root/usr/share/initramfs-tools/scripts/init-top/all_generic_ide	2022-04-10 15:59:31.000000000 -0400
+@@ -17,11 +17,11 @@
+ for x in $(cat /proc/cmdline); do
+ 	case ${x} in
+ 	all_generic_ide)
+-		modprobe ata_generic all_generic_ide=1
++		/sbin/modprobe ata_generic all_generic_ide=1
+ 		;;
+ 	all_generic_ide=*)
+ 		if [ -n "${x#all_generic_ide=}" ]; then
+-			modprobe ata_generic all_generic_ide=1
++			/sbin/modprobe ata_generic all_generic_ide=1
+ 		fi
+ 		;;
+ 	esac

@@ -1,0 +1,7 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/initramfs-tools/scripts/init-bottom/udev	2021-07-08 09:00:48.000000000 -0400
++++ /media/mks/armbi_root/usr/share/initramfs-tools/scripts/init-bottom/udev	2024-06-16 05:44:13.000000000 -0400
+@@ -26,4 +26,3 @@
+     rm -rf /dev
+ fi
+ ln -s "${rootmnt}/dev" /dev
+-

@@ -1,0 +1,15 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/initramfs-tools/hooks/kmod	2019-02-09 18:00:31.000000000 -0500
++++ /media/mks/armbi_root/usr/share/initramfs-tools/hooks/kmod	2022-12-09 17:58:43.000000000 -0500
+@@ -7,10 +7,10 @@
+ . /usr/share/initramfs-tools/hook-functions
+ 
+ copy_exec /bin/kmod
+-cp -a /sbin/modprobe /sbin/rmmod "$DESTDIR/sbin/"
++cp -aZ /sbin/modprobe /sbin/rmmod "$DESTDIR/sbin/"
+ 
+ mkdir -p "$DESTDIR/lib/modprobe.d/"
+ if [ "$(echo /lib/modprobe.d/*)" != "/lib/modprobe.d/*" ]; then
+-  cp -a /lib/modprobe.d/* "$DESTDIR/lib/modprobe.d/"
++  cp -aZ /lib/modprobe.d/* "$DESTDIR/lib/modprobe.d/"
+ fi
+ 

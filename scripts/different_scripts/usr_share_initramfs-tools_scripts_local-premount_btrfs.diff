@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/initramfs-tools/scripts/local-premount/btrfs	2019-02-09 08:43:54.000000000 -0500
++++ /media/mks/armbi_root/usr/share/initramfs-tools/scripts/local-premount/btrfs	2023-02-28 18:17:49.000000000 -0500
+@@ -18,7 +18,7 @@
+ 
+ if [ -x /bin/btrfs ]
+ then
+-	modprobe btrfs
++	modprobe btrfs ||:
+ 	# If asked to be quiet, show only errors
+ 	[ "${quiet}" = "y" ] && exec >/dev/null
+ 	/bin/btrfs device scan

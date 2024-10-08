@@ -1,0 +1,18 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/doc/python3-libgpiod/examples/gpiofind.py	2018-11-09 03:31:22.000000000 -0500
++++ /media/mks/armbi_root/usr/share/doc/python3-libgpiod/examples/gpiofind.py	2021-03-22 08:25:56.000000000 -0400
+@@ -12,9 +12,10 @@
+ import gpiod
+ import sys
+ 
+-line = gpiod.find_line(sys.argv[1])
+-if line is None:
+-    sys.exit(1)
++if __name__ == '__main__':
++    line = gpiod.find_line(sys.argv[1])
++    if line is None:
++        sys.exit(1)
+ 
+-print('{} {}'.format(line.owner().name(), line.offset()))
+-line.owner().close()
++    print('{} {}'.format(line.owner().name(), line.offset()))
++    line.owner().close()

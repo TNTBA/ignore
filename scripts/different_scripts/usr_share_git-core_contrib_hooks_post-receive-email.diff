@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/git-core/contrib/hooks/post-receive-email	2018-12-14 23:24:55.000000000 -0500
++++ /media/mks/armbi_root/usr/share/git-core/contrib/hooks/post-receive-email	2023-02-07 17:45:28.000000000 -0500
+@@ -329,7 +329,7 @@
+ 	#
+ 	#  git rev-parse --not --all | grep -v $(git rev-parse $refname)
+ 	#
+-	# Get's us to something pretty safe (apart from the small time
++	# Gets us to something pretty safe (apart from the small time
+ 	# between refname being read, and git rev-parse running - for that,
+ 	# I give up)
+ 	#

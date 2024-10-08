@@ -1,0 +1,13 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/aptitude.postinst	2019-02-13 19:51:08.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/aptitude.postinst	2022-08-05 23:45:53.000000000 -0400
+@@ -17,8 +17,8 @@
+     --install /usr/bin/aptitude aptitude /usr/bin/aptitude-curses 30 $slaves
+ fi
+ 
+-# Automatically added by dh_installmenu/12.1
+-if [ "$1" = "configure" ] && [ -x "`which update-menus 2>/dev/null`" ]; then
++# Automatically added by dh_installmenu/13.8
++if [ "$1" = "configure" ] && [ -x "`command -v update-menus`" ] && [ -x "$DPKG_ROOT`command -v update-menus`" ]; then
+ 	update-menus
+ fi
+ # End automatically added section

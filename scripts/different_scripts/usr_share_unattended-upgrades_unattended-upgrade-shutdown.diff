@@ -1,0 +1,33 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/share/unattended-upgrades/unattended-upgrade-shutdown	2019-06-08 10:59:45.000000000 -0400
++++ /media/mks/armbi_root/usr/share/unattended-upgrades/unattended-upgrade-shutdown	2022-12-31 15:59:00.000000000 -0500
+@@ -43,7 +43,8 @@
+ except ImportError:
+     pass
+ 
+-from optparse import OptionParser
++from optparse import OptionParser, Values
++Values  # pyflakes
+ from gettext import gettext as _
+ from threading import Event
+ 
+@@ -67,8 +68,9 @@
+ def do_plymouth(msg):
+     # type: (str) -> None
+     if os.path.exists("/bin/plymouth"):
+-        logging.debug("Running plymouth --text")
+-        subprocess.call(["/bin/plymouth", "message", "--text", msg])
++        for line in msg.split("\n"):
++            logging.debug("Running plymouth --text")
++            subprocess.call(["/bin/plymouth", "message", "--text", line])
+ 
+ 
+ def log_msg(msg, level=logging.WARN):
+@@ -119,7 +121,7 @@
+ class UnattendedUpgradesShutdown():
+ 
+     def __init__(self, options):
+-        # type: (Options) -> None
++        # type: (Values) -> None
+         self.options = options
+         self.max_delay = options.delay * 60
+         self.iter_timer_set = False
