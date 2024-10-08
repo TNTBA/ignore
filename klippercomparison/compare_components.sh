@@ -2,6 +2,7 @@
 
 # Define paths
 OLD_FIRMWARE_ROOT="/media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067"
+OLD_COMPONENTS_DIR="$OLD_FIRMWARE_ROOT/home/mks"
 DOWNLOAD_DIR="$HOME/firmware_comparison/downloads"
 COMPARISON_DIR="$HOME/firmware_comparison/comparisons"
 LOG_FILE="$HOME/firmware_comparison/comparison_log.txt"
@@ -41,30 +42,21 @@ for component in "${components[@]}"; do
   echo "Processing $component..." | tee -a "$LOG_FILE"
 
   # Check if the component is included in the old firmware
-  if [ -d "$OLD_FIRMWARE_ROOT/$component" ] || [ -d "$OLD_FIRMWARE_ROOT/home/$component" ] || [ -d "$OLD_FIRMWARE_ROOT/opt/$component" ]; then
+  if [ -d "$OLD_COMPONENTS_DIR/$component" ]; then
     echo "$component is included in the old firmware." | tee -a "$LOG_FILE"
     included="yes"
-    # Set the path to the old component
-    if [ -d "$OLD_FIRMWARE_ROOT/$component" ]; then
-      OLD_COMPONENT_PATH="$OLD_FIRMWARE_ROOT/$component"
-    elif [ -d "$OLD_FIRMWARE_ROOT/home/$component" ]; then
-      OLD_COMPONENT_PATH="$OLD_FIRMWARE_ROOT/home/$component"
-    elif [ -d "$OLD_FIRMWARE_ROOT/opt/$component" ]; then
-      OLD_COMPONENT_PATH="$OLD_FIRMWARE_ROOT/opt/$component"
-    else
-      OLD_COMPONENT_PATH=""
-    fi
+    OLD_COMPONENT_PATH="$OLD_COMPONENTS_DIR/$component"
   else
     echo "$component is not included in the old firmware." | tee -a "$LOG_FILE"
     included="no"
     OLD_COMPONENT_PATH=""
   fi
 
-  # Only proceed if the component is included or explicitly requested
+  # Proceed if the component is included or explicitly requested
   if [ "$included" == "yes" ] || [[ "$component" == "canboot" || "$component" == "crowsnest" || "$component" == "fluidd" || "$component" == "kiauh" || "$component" == "klippy-env" || "$component" == "moonraker-env" ]]; then
     # Download the current version
     if [[ "$component" == "klippy-env" || "$component" == "moonraker-env" ]]; then
-      # For virtual environments, we need to create them
+      # For virtual environments, set up the environment
       echo "Setting up virtual environment for $component..." | tee -a "$LOG_FILE"
       # Ensure python3-venv is installed
       sudo apt-get install -y python3-venv
@@ -119,4 +111,3 @@ done
 
 echo "Component comparison completed." | tee -a "$LOG_FILE"
 echo "Check the '$COMPARISON_DIR' directory for differences and '$LOG_FILE' for the log."
-
