@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the root directory of the old firmware
-OLD_ROOT="/path/to/old/firmware/root"
+OLD_ROOT="/media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067"
 
 # Output file
 OUTPUT_FILE="hooks_found.txt"
