@@ -53,7 +53,7 @@ for component in "${components[@]}"; do
   fi
 
   # Proceed if the component is included or explicitly requested
-  if [ "$included" == "yes" ] || [[ "$component" == "canboot" || "$component" == "crowsnest" || "$component" == "fluidd" || "$component" == "kiauh" || "$component" == "klippy-env" || "$component" == "moonraker-env" ]]; then
+  if [[ "$included" == "yes" ]] || [[ "$component" == "canboot" || "$component" == "crowsnest" || "$component" == "fluidd" || "$component" == "kiauh" || "$component" == "klippy-env" || "$component" == "moonraker-env" ]]; then
     # Download the current version
     if [[ "$component" == "klippy-env" || "$component" == "moonraker-env" ]]; then
       # For virtual environments, set up the environment
@@ -90,7 +90,7 @@ for component in "${components[@]}"; do
     fi
 
     # Compare with old firmware if included
-    if [ "$included" == "yes" ] && [ -n "$OLD_COMPONENT_PATH" ]; then
+    if [[ "$included" == "yes" ]] && [ -n "$OLD_COMPONENT_PATH" ]; then
       echo "Comparing $component..." | tee -a "$LOG_FILE"
       diff -urN "$OLD_COMPONENT_PATH" "$DOWNLOAD_DIR/$component" > "$COMPARISON_DIR/${component}_diff.txt"
       if [ -s "$COMPARISON_DIR/${component}_diff.txt" ]; then
