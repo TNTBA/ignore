@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the mount point
-MOUNT_POINT="/mnt/old_firmware"
+MOUNT_POINT="/media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067"
 
 # Ensure dtc is installed
 if ! command -v dtc &> /dev/null; then
