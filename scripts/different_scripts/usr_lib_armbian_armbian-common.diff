@@ -1,0 +1,26 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/lib/armbian/armbian-common	2022-07-21 02:19:01.000000000 -0400
++++ /media/mks/armbi_root/usr/lib/armbian/armbian-common	2023-12-12 11:04:09.000000000 -0500
+@@ -31,7 +31,7 @@
+ }
+ 
+ 
+-# set fixed IP address from first randomly assigned one. If nothing is deteceted, generate one.
++# set fixed IP address from first randomly assigned one. If nothing is detected, generate one.
+ set_fixed_mac ()
+ {
+ 	if [ -n "$(command -v nmcli)" ]; then
+@@ -47,10 +47,10 @@
+ 	[[ -z $MACADDR ]] && get_random_mac
+ 
+ 	if [[ -n "$(command -v nmcli)" && -n $UUID ]]; then
+-		nmcli connection modify $UUID ethernet.cloned-mac-address $MACADDR
+-		nmcli connection modify $UUID -ethernet.mac-address ""
+-		nmcli connection down $UUID >/dev/null 2>&1
+-		nmcli connection up $UUID >/dev/null 2>&1
++		nmcli connection modify "$UUID" ethernet.cloned-mac-address "$MACADDR"
++		nmcli connection modify "$UUID" -ethernet.mac-address ""
++		nmcli connection down "$UUID" >/dev/null 2>&1
++		nmcli connection up "$UUID" >/dev/null 2>&1
+ 	elif [[ -f /etc/systemd/network/$DEVNAME.network ]]; then
+ 		if ! grep '^ *MACAddress=' /etc/systemd/network/$DEVNAME.network > /dev/null; then
+ 			sed -i "s/#MACAddress=/MACAddress=$MACADDR/g" /etc/systemd/network/$DEVNAME.network

@@ -1,0 +1,96 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/ucfr	2018-12-14 03:51:14.000000000 -0500
++++ /media/mks/armbi_root/usr/bin/ucfr	2023-01-27 08:29:51.000000000 -0500
+@@ -1,4 +1,4 @@
+-#! /bin/bash
++#!/bin/sh
+ #                               -*- Mode: Sh -*-
+ # ucfr ---
+ # Author           : Manoj Srivastava ( srivasta@glaurung.internal.golden-gryphon.com )
+@@ -59,7 +59,7 @@
+         fi
+         exit 0;
+     fi
+-    old_pkg=$(egrep "[[:space:]]${real_conf_file_re}$" "$statedir/registry" | \
++    old_pkg=$(grep -E "[[:space:]]${real_conf_file_re}$" "$statedir/registry" | \
+         awk '{print $1;}' );
+     if [ "$pkg" != "$old_pkg"  ]; then
+         echo >&2 "ucfr: Association belongs to $old_pkg, not $pkg";
+@@ -87,11 +87,11 @@
+     if [ "X$docmd" = "XYES" ]; then
+ 	set +e
+ 	if [ "X$VERBOSE" != "X" ]; then
+-	    echo "egrep -v [[:space:]]${real_conf_file_re}$ $statedir/registry >\\"
++	    echo "grep -Ev [[:space:]]${real_conf_file_re}$ $statedir/registry >\\"
+             echo "	$statedir/registry.tmp || true";
+ 	fi
+-	#echo "egrep -v [[:space:]]${real_conf_file_re}$ $statedir/registry"
+-	egrep -v "[[:space:]]${real_conf_file_re}$" "$statedir/registry" > \
++	#echo "grep -Ev [[:space:]]${real_conf_file_re}$ $statedir/registry"
++	grep -Ev "[[:space:]]${real_conf_file_re}$" "$statedir/registry" > \
+ 	    "$statedir/registry.tmp" || true;
+ 	if [ "X$docmd" = "XYES" ]; then
+ 	    mv -f "$statedir/registry.tmp"  "$statedir/registry"
+@@ -108,14 +108,22 @@
+         exit 6;
+     fi
+     if [ "$count" -eq 1 ]; then
+-        old_pkg=$(egrep "[[:space:]]${real_conf_file_re}$" "$statedir/registry" | \
++        old_pkg=$(grep -E "[[:space:]]${real_conf_file_re}$" "$statedir/registry" | \
+             awk '{print $1;}' );
+ 
+         if [ "$pkg" != "$old_pkg" ]; then
+-            if [ "X$FORCE" = "X" ]; then
+-                echo >&2 "$progname: Attempt from package $pkg  to take ${real_conf_file} away from package $old_pkg";
+-                echo >&2 "ucfr: Aborting.";
+-                exit 4;
++            divert_package=$(dpkg-divert --listpackage "$conf_file")
++            if [ -n "$divert_package" ]; then
++                if [ "X$VERBOSE" != "X" ]; then
++                    echo >&2 "$progname: Package $pkg will not take away diverted ${conf_file} from package $divert_package";
++                fi
++                exit 0;
++            else
++                if [ "X$FORCE" = "X" ]; then
++                    echo >&2 "$progname: Attempt from package $pkg  to take ${real_conf_file} away from package $old_pkg";
++                    echo >&2 "ucfr: Aborting.";
++                    exit 4;
++                fi
+             fi
+         else
+             if [ "X$VERBOSE" != "X" ]; then
+@@ -144,18 +152,18 @@
+     if [ "X$docmd" = "XYES" ]; then
+ 	set +e
+ 	if [ "X$VERBOSE" != "X" ]; then
+-	    echo "egrep -v \"[[:space:]]${real_conf_file_re}$\" \"$statedir/registry\"  \\"
++	    echo "grep -Ev \"[[:space:]]${real_conf_file_re}$\" \"$statedir/registry\"  \\"
+             echo "	$statedir/registry.tmp || true"
+ 	    echo "echo \"$pkg 	 $real_conf_file\" >> \"$statedir/registry.tmp\""
+ 	    echo "mv -f  $statedir/registry.tmp $statedir/registry"
+ 	fi
+-	egrep -v "[[:space:]]${real_conf_file_re}$" "$statedir/registry" > \
++	grep -Ev "[[:space:]]${real_conf_file_re}$" "$statedir/registry" > \
+ 	    "$statedir/registry.tmp" || true;
+ 	echo "$pkg 	 $real_conf_file" >>   "$statedir/registry.tmp";
+ 	mv -f "$statedir/registry.tmp"  "$statedir/registry"
+ 	set -e
+     else
+-	echo "egrep -v \"[[:space:]]${real_conf_file_re}$\" \"$statedir/registry\"  \\"
++	echo "grep -Ev \"[[:space:]]${real_conf_file_re}$\" \"$statedir/registry\"  \\"
+         echo "	$statedir/registry.tmp || true"
+ 	echo "echo \"$pkg 	 $real_conf_file\" >> \"$statedir/registry.tmp\""
+ 	echo "mv -f  $statedir/registry.tmp $statedir/registry"
+@@ -318,11 +326,11 @@
+ fi
+ 
+ # sanity check
+-count=$(egrep --count "[[:space:]]${real_conf_file_re}$" "$statedir/registry") || true
++count=$(grep -E --count "[[:space:]]${real_conf_file_re}$" "$statedir/registry") || true
+ 
+ if [ "$count" -ge 2 ]; then
+     echo >&2 "$progname: Corrupt registry: Duplicate entries for ${conf_file}";
+-    egrep "[[:space:]]${real_conf_file_re}$" "$statedir/registry";
++    grep -E "[[:space:]]${real_conf_file_re}$" "$statedir/registry";
+     exit "$count";
+ fi
+ 

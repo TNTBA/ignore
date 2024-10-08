@@ -1,0 +1,34 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/lib/kernel/install.d/85-initrd.install	2021-07-08 09:00:48.000000000 -0400
++++ /media/mks/armbi_root/usr/lib/kernel/install.d/85-initrd.install	2024-06-16 05:44:13.000000000 -0400
+@@ -5,23 +5,20 @@
+ 
+ COMMAND="$1"
+ KERNEL_VERSION="$2"
+-BOOT_DIR_ABS="$3"
+ 
+ INITRD_SRC="/boot/initrd.img-$KERNEL_VERSION"
+-INITRD_DEST="$BOOT_DIR_ABS/initrd"
+ 
+-if [ "$COMMAND" = remove ]; then
+-    rm -f "$INITRD_DEST"
+-    exit 0
+-fi
++[ "$COMMAND" = add ] || exit 0
+ 
+-if [ "$COMMAND" != add ]; then
+-    echo "Invalid command $COMMAND" >&2
+-    exit 1
++if [ "$#" -ge 5 ]; then
++    # Explicit initrd paths were passed, fall through to default 90-loaderentry.install handling;
++    # we'd be either injecting an unwanted image or, worse, overriding a user-provided one
++    exit 0
+ fi
+ 
+-if [ -e "$INITRD_SRC" ];then
+-    cp "$INITRD_SRC" "$INITRD_DEST"
++if [ -e "$INITRD_SRC" ]; then
++    [ "$KERNEL_INSTALL_VERBOSE" -gt 0 ] && echo "Installing '$INITRD_SRC'"
++    ln -fs "$INITRD_SRC" "$KERNEL_INSTALL_STAGING_AREA"
+ else
+     echo "$INITRD_SRC does not exist, not installing an initrd"
+ fi

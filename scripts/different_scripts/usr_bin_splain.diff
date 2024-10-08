@@ -1,0 +1,59 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/splain	2020-07-21 15:27:00.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/splain	2023-11-25 15:59:54.000000000 -0500
+@@ -1,6 +1,6 @@
+ #!/usr/bin/perl
+     eval 'exec /usr/bin/perl -S $0 ${1+"$@"}'
+-	if $running_under_some_shell;
++	if 0; # ^ Run only under a shell
+ 
+ BEGIN { pop @INC if $INC[-1] eq '.' }
+ 
+@@ -77,7 +77,7 @@
+ 
+ =head2 The I<splain> Program
+ 
+-While apparently a whole nuther program, I<splain> is actually nothing
++Another program, I<splain> is actually nothing
+ more than a link to the (executable) F<diagnostics.pm> module, as well as
+ a link to the F<diagnostics.pod> documentation.  The B<-v> flag is like
+ the C<use diagnostics -verbose> directive.
+@@ -191,7 +191,7 @@
+ use Carp;
+ $Carp::Internal{__PACKAGE__.""}++;
+ 
+-our $VERSION = '1.36';
++our $VERSION = '1.39';
+ our $DEBUG;
+ our $VERBOSE;
+ our $PRETTY;
+@@ -270,6 +270,8 @@
+     'lt'	=>	'<',	#   left chevron, less-than
+     'gt'	=>	'>',	#   right chevron, greater-than
+     'quot'	=>	'"',	#   double quote
++    'sol'	=>	'/',	#   forward slash / solidus
++    'verbar'    =>	'|',	#   vertical bar
+ 
+     "Aacute"	=>	"A\\*'",	#   capital A, acute accent
+     # etc
+@@ -281,8 +283,11 @@
+     'lt'	=>	'<',	#   left chevron, less-than
+     'gt'	=>	'>',	#   right chevron, greater-than
+     'quot'	=>	'"',	#   double quote
++    'sol'	=>	'/',	#   Forward slash / solidus
++    'verbar'    =>	'|',	#   vertical bar
+ 
+-    "Aacute"	=>	"\xC1"	#   capital A, acute accent
++    #                           #   capital A, acute accent
++    "Aacute"	=>	chr utf8::unicode_to_native(0xC1)
+ 
+     # etc
+ );
+@@ -292,6 +297,8 @@
+     'lt'	=>	'<',	#   left chevron, less-than
+     'gt'	=>	'>',	#   right chevron, greater-than
+     'quot'	=>	'"',	#   double quote
++    'sol'	=>	'/',	#   Forward slash / solidus
++    'verbar'    =>	'|',	#   vertical bar
+ 
+     "Aacute"	=>	"A"	#   capital A, acute accent
+     # etc

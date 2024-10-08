@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/ssh-argv0	2020-01-31 15:55:34.000000000 -0500
++++ /media/mks/armbi_root/usr/bin/ssh-argv0	2023-12-19 07:55:09.000000000 -0500
+@@ -1,7 +1,7 @@
+ #! /bin/sh
+ set -e
+ 
+-# Copyright (c) 2001 Jonathan Amery.
++# Copyright (c) 2001 Natalie Amery.
+ #
+ # Redistribution and use in source and binary forms, with or without
+ # modification, are permitted provided that the following conditions

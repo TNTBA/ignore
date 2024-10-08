@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/unmkinitramfs	2019-07-31 10:25:58.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/unmkinitramfs	2020-08-31 19:59:17.000000000 -0400
+@@ -31,6 +31,8 @@
+ 
+ 	if gzip -t "$archive" >/dev/null 2>&1 ; then
+ 		gzip -c -d "$archive"
++	elif zstd -q -c -t "$archive" >/dev/null 2>&1 ; then
++		zstd -q -c -d "$archive"
+ 	elif xzcat -t "$archive" >/dev/null 2>&1 ; then
+ 		xzcat "$archive"
+ 	elif lz4cat -t < "$archive" >/dev/null 2>&1 ; then

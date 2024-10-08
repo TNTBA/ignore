@@ -1,0 +1,25 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/lib/dpkg/methods/apt/setup	2021-04-19 12:41:13.000000000 -0400
++++ /media/mks/armbi_root/usr/lib/dpkg/methods/apt/setup	2023-05-25 10:11:37.000000000 -0400
+@@ -30,8 +30,8 @@
+ 
+ my @known_types           = ('deb');
+ my @known_access         = ('http', 'ftp', 'file');
+-my @typical_distributions = ('stable', 'unstable', 'testing', 'non-US');
+-my @typical_components    = ('main', 'contrib', 'non-free');
++my @typical_distributions = ('stable', 'unstable', 'testing');
++my @typical_components    = ('main', 'contrib', 'non-free', 'non-free-firmware');
+ 
+ my %known_access           = map {($_,$_)} @known_access;
+ my %typical_distributions  = map {($_,$_)} @typical_distributions;
+@@ -118,9 +118,9 @@
+   }
+ 
+   $type         = 'deb';
+-  $urn          = "http://http.us.debian.org/debian" unless $urn;
++  $urn          = "http://deb.debian.org/debian" unless $urn;
+   $distribution = "stable" unless $distribution;
+-  $components   = "main contrib non-free" unless $components;
++  $components   = "main contrib non-free non-free-firmware" unless $components;
+ 
+     
+   $rec->{'Type'} = 'deb';

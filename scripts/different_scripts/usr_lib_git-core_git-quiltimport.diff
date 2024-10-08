@@ -1,0 +1,29 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/lib/git-core/git-quiltimport	2023-02-23 10:14:14.000000000 -0500
++++ /media/mks/armbi_root/usr/lib/git-core/git-quiltimport	2023-02-28 04:25:32.000000000 -0500
+@@ -8,6 +8,7 @@
+ author=       author name and email address for patches without any
+ patches=      path to the quilt patches
+ series=       path to the quilt series file
++keep-non-patch Pass -b to git mailinfo
+ "
+ SUBDIRECTORY_ON=Yes
+ . git-sh-setup
+@@ -32,6 +33,9 @@
+ 		shift
+ 		QUILT_SERIES="$1"
+ 		;;
++	--keep-non-patch)
++		MAILINFO_OPT="-b"
++		;;
+ 	--)
+ 		shift
+ 		break;;
+@@ -98,7 +102,7 @@
+ 		continue
+ 	fi
+ 	echo $patch_name
+-	git mailinfo "$tmp_msg" "$tmp_patch" \
++	git mailinfo $MAILINFO_OPT "$tmp_msg" "$tmp_patch" \
+ 		<"$QUILT_PATCHES/$patch_name" >"$tmp_info" || exit 3
+ 	test -s "$tmp_patch" || {
+ 		echo "Patch is empty.  Was it split wrong?"

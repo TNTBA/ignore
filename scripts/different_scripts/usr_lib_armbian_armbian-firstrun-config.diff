@@ -1,0 +1,48 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/lib/armbian/armbian-firstrun-config	2022-07-21 02:12:25.000000000 -0400
++++ /media/mks/armbi_root/usr/lib/armbian/armbian-firstrun-config	2023-12-12 11:04:09.000000000 -0500
+@@ -69,35 +69,9 @@
+ 		#-----------------------------------------------------------------------------
+ 		# Set Network
+ 		if [[ $FR_net_change_defaults == 1 ]]; then
+-			# - Get 1st index of available wlan and eth adapters
+-			local fp_ifconfig_tmp='/tmp/.ifconfig'
+-			ifconfig -a | sed 's/[ \t].*//;/^\(lo\|\|bond0\|sit0\|ip6tnl0\)$/d' > "$fp_ifconfig_tmp" #export to file, should be quicker in loop than calling ifconfig each time.
+-
+-			# find eth[0-9]
+-			for ((i=0; i<=9; i++))
+-			do
+-				if (( $(cat "$fp_ifconfig_tmp" | grep -ci -m1 "eth$i") )); then
+-					eth_index=eth${i}
+-					break
+-				fi
+-			done
+-
+-			# Predictable Network Interface Names
+-			[[ -z $eth_index ]] && eth_index=$(cat "$fp_ifconfig_tmp" | grep -m1 "en" | cut -f1 -d":" | head -1)
+-
+-			# find wlan[0-9]
+-			for ((i=0; i<=9; i++))
+-			do
+-				if (( $(cat "$fp_ifconfig_tmp" | grep -ci -m1 "wlan$i") )); then
+-					wlan_index=wlan${i}
+-					break
+-				fi
+-			done
+-
+-			# Predictable Network Interface Names
+-			[[ -z $wlan_index ]] && wlan_index=$(cat "$fp_ifconfig_tmp" | grep -m1 "wl" | cut -f1 -d":" | head -1)
+-
+-			rm "$fp_ifconfig_tmp"
++			# - Get name of 1st available ethernet and wifi adapter
++			eth_index="$(nmcli d | grep ethernet | cut -d ' ' -f 1 | head -n 1)"
++			wlan_index="$(nmcli d | grep wifi | cut -d ' ' -f 1 | head -n 1)"
+ 
+ 			# for static IP we only append settings
+ 			if [[ $FR_net_use_static == 1 ]]; then
+@@ -137,4 +111,4 @@
+ 
+ do_firstrun_automated_user_configuration
+ 
+-exit 0
+\ No newline at end of file
++exit 0

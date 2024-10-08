@@ -1,0 +1,52 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/lib/armbian/armbian-firstrun	2022-07-21 02:12:25.000000000 -0400
++++ /media/mks/armbi_root/usr/lib/armbian/armbian-firstrun	2023-12-12 11:04:09.000000000 -0500
+@@ -52,11 +52,14 @@
+ 	# add unique installation id to the image release file
+ 	sed '1s/^/IMAGE_UUID=/' /proc/sys/kernel/random/uuid >> /etc/armbian-image-release
+ 
++	# disable passing locale environment via ssh
++	sed -e '/AcceptEnv LANG/ s/^#*/#/' -i /etc/ssh/sshd_config
++
+ 	# SSH Keys creation
+ 	rm -f /etc/ssh/ssh_host*
+ 	read entropy_before </proc/sys/kernel/random/entropy_avail
+ 	dpkg-reconfigure openssh-server >/dev/null 2>&1
+-	service sshd restart
++	service ssh restart
+ 	read entropy_after </proc/sys/kernel/random/entropy_avail
+ 	echo -e "\n### [firstrun] Recreated SSH keys (entropy: ${entropy_before} ${entropy_after})" >>${Log}
+ 
+@@ -81,7 +84,7 @@
+ 	case $LINUXFAMILY in
+ 		sun7i|sun8i)
+ 			# set some mac address for BT
+-			[[ -n $(lsmod | egrep "dhd|brcmfmac" ) ]] && \
++			[[ -n $(lsmod | grep -E "dhd|brcmfmac" ) ]] && \
+ 				(MACADDR=$(printf '43:29:B1:%02X:%02X:%02X\n' $[RANDOM%256] $[RANDOM%256] $[RANDOM%256]) ; \
+ 				sed -i "s/^MAC_ADDR=.*/MAC_ADDR=${MACADDR}/" /etc/default/brcm40183 ;\
+ 				sed -i "s/^MAC_ADDR=.*/MAC_ADDR=${MACADDR}/" /etc/default/ap6212 \
+@@ -114,12 +117,9 @@
+ 			ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+ 			systemctl restart systemd-networkd
+ 			;;
+-		odroidc1)
+-			if [[ -f /boot/boot.ini ]]; then
+-				get_random_mac
+-				sed  -i '/setenv rootfstype "ext4"/a setenv ethaddr "'$MACADDR'"' /boot/boot.ini
+-			fi
+-			;;
++		x86|arm64)
++			[[ -n "$(dmesg | grep "No NVIDIA GPU found")" ]] && sudo apt-get -y -qq purge nvidia-dkms-510 nvidia-driver-510 nvidia-settings nvidia-common >> /dev/null
++		;;
+ 		*)
+ 
+ 	esac
+@@ -127,7 +127,7 @@
+ 	# varios temporary hardware workarounds
+ 	[[ $LINUXFAMILY == rk3399 || $LINUXFAMILY == rockchip64 ]] && [[ $BOARD != helios64 && $BOARD != khadas-edge ]] && set_fixed_mac
+ 	[[ $BRANCH == dev && $LINUXFAMILY == rockchip ]] && set_fixed_mac
+-	[[ $BRANCH == current && $LINUXFAMILY == odroidc1 ]] && set_fixed_mac
++	[[ $LINUXFAMILY == meson ]] && set_fixed_mac
+ 	[[ $LINUXFAMILY == meson64 ]] && set_fixed_mac
+ 	systemctl disable armbian-firstrun
+ 	exit 0

@@ -1,0 +1,44 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/savelog	2019-01-21 16:12:11.000000000 -0500
++++ /media/mks/armbi_root/usr/bin/savelog	2023-07-28 19:46:35.000000000 -0400
+@@ -173,7 +173,7 @@
+ 	exit 2
+ fi
+ 
+-if [ -n "$COMPRESS" ] && [ -z "`which $COMPRESS`"  ]; then
++if [ -n "$COMPRESS" ] && [ -z "$(command -v $COMPRESS)"  ]; then
+        echo "$prog: Compression binary not available, please make sure '$COMPRESS' is installed" 1>&2
+        exit 2
+ fi
+@@ -279,13 +279,13 @@
+ 	if [ -f "$newname.0" ]; then
+ 		if [ -z "$COMPRESS" ]; then
+ 			newfile="$newname.1"
+-			mv -- "$newname.0" "$newfile"
++			mv -f -- "$newname.0" "$newfile"
+ 		else
+ 			newfile="$newname.1$DOT_Z"
+ #			$COMPRESS $COMPRESS_OPTS < $newname.0 > $newfile
+ #			rm -f $newname.0
+ 			$COMPRESS $COMPRESS_OPTS "$newname.0"
+-			mv -- "$newname.0$DOT_Z" "$newfile"
++			mv -f -- "$newname.0$DOT_Z" "$newfile"
+ 		fi
+ 		fixfile "$newfile"
+ 	fi
+@@ -329,14 +329,14 @@
+ 	if [ -f "$filename" ]; then
+ 		if [ -n "$filenew" ]; then
+ 			if ln -f -- "$filename" "$newfilename"; then
+-				mv -- "$filename.new" "$filename"
++				mv -f -- "$filename.new" "$filename"
+ 			else
+ 				echo "Error hardlinking $filename to $newfilename" >&2
+ 				exitcode=8
+ 				continue
+ 			fi
+ 		else
+-			mv -- "$filename" "$newfilename"
++			mv -f -- "$filename" "$newfilename"
+ 		fi
+ 	fi
+ 	[ ! -f "$newfilename" ] && touch -- "$newfilename"

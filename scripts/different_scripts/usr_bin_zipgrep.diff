@@ -1,0 +1,10 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/zipgrep	2021-01-10 10:12:00.000000000 -0500
++++ /media/mks/armbi_root/usr/bin/zipgrep	2023-02-19 13:02:00.000000000 -0500
+@@ -44,6 +44,7 @@
+   opt="-$opt"
+ fi
+ 
++sts=0
+ status_grep_global=1
+ IFS='
+ '

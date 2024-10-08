@@ -1,0 +1,53 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/ldd	2022-03-15 18:48:49.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/ldd	2024-04-30 17:07:28.000000000 -0400
+@@ -1,5 +1,5 @@
+-#! /bin/bash
+-# Copyright (C) 1996-2018 Free Software Foundation, Inc.
++#!/bin/bash
++# Copyright (C) 1996-2022 Free Software Foundation, Inc.
+ # This file is part of the GNU C Library.
+ 
+ # The GNU C Library is free software; you can redistribute it and/or
+@@ -14,7 +14,7 @@
+ 
+ # You should have received a copy of the GNU Lesser General Public
+ # License along with the GNU C Library; if not, see
+-# <http://www.gnu.org/licenses/>.
++# <https://www.gnu.org/licenses/>.
+ 
+ 
+ # This is the `ldd' command, which lists what shared libraries are
+@@ -34,11 +34,11 @@
+ while test $# -gt 0; do
+   case "$1" in
+   --vers | --versi | --versio | --version)
+-    echo 'ldd (Debian GLIBC 2.28-10+deb10u1) 2.28'
++    echo 'ldd (Debian GLIBC 2.36-9+deb12u7) 2.36'
+     printf $"Copyright (C) %s Free Software Foundation, Inc.
+ This is free software; see the source for copying conditions.  There is NO
+ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+-" "2018"
++" "2022"
+     printf $"Written by %s and %s.
+ " "Roland McGrath" "Ulrich Drepper"
+     exit 0
+@@ -154,8 +154,8 @@
+     ret=1
+     for rtld in ${RTLDLIST}; do
+       if test -x $rtld; then
+-	dummy=`$rtld 2>&1` 
+-	if test $? = 127; then
++	dummy=`$rtld --version 2>&1`
++	if test $? = 0; then
+ 	  verify_out=`${rtld} --verify "$file"`
+ 	  ret=$?
+ 	  case $ret in
+@@ -168,7 +168,7 @@
+     1)
+       # This can be a non-ELF binary or no binary at all.
+       nonelf "$file" || {
+-	echo $"	not a dynamic executable"
++	echo $"	not a dynamic executable" >&2
+ 	result=1
+       }
+       ;;

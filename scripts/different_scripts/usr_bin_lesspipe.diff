@@ -1,0 +1,103 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/lesspipe	2018-05-07 04:13:35.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/lesspipe	2024-05-02 14:30:51.000000000 -0400
+@@ -25,6 +25,7 @@
+ #    $2  filename that was created during LESSOPEN
+ 
+ TMPDIR=${TMPDIR:-/tmp}
++CONFIGDIR=${XDG_CONFIG_HOME:-~/.config}
+ BASENAME=`basename $0`
+ LESSFILE=lessfile
+ 
+@@ -48,33 +49,42 @@
+ 	# generate filename for possible use by lesspipe
+ 	umask 077
+ 	if [ $BASENAME = $LESSFILE ]; then
+-		TMPFILE=`tempfile -d $TMPDIR -p lessf`
++		TMPFILE=`mktemp -p $TMPDIR lessfXXXXXX`
+ 		if [ -z "$TMPFILE" ]; then
+-			echo >&2 "Could not find essential program 'tempfile'. Exiting"
+-      exit 1
++			echo >&2 "TMPFILE variable is empty. Exiting"
++		exit 1
+ 		fi
+ 	fi
+ 
+ 	(
+-		# possibly redirect stdout to a file for lessfile
+-		if [ $BASENAME = $LESSFILE ]; then exec > $TMPFILE; fi
+-
+ 		# Allow for user defined filters
+-		#if [ -x ~/.lessfilter -a -O ~/.lessfilter ]; then
+-		if [ -x ~/.lessfilter ]; then
+-			~/.lessfilter "$1"
+-			if [ $? -eq 0 ]; then
+-				if [ $BASENAME = $LESSFILE ]; then
++		USERFILTER=
++		if [ -x "$CONFIGDIR/lessfilter" ]; then
++			USERFILTER="$CONFIGDIR/lessfilter"
++		elif [ -x ~/.lessfilter ]; then
++			USERFILTER=~/.lessfilter
++		fi
++		if [ -n "$USERFILTER" ]; then
++			if [ $BASENAME = $LESSFILE ]; then
++				"$USERFILTER" "$1" > $TMPFILE
++				if [ $? -eq 0 ]; then
+ 					if [ -s $TMPFILE ]; then
+ 						echo $TMPFILE
+ 					else
+ 						rm -f $TMPFILE
+ 					fi
++					exit 0
++				else
++					rm -f $TMPFILE
+ 				fi
+-				exit 0
++			else
++				"$USERFILTER" "$1" && exit 0
+ 			fi
+ 		fi
+ 
++		# possibly redirect stdout to a file for lessfile
++		if [ $BASENAME = $LESSFILE ]; then exec > $TMPFILE; fi
++
+ 		# Decode file for less
+ 		case `echo "$1" | tr '[:upper:]' '[:lower:]'` in
+ 			*.a)
+@@ -222,6 +232,14 @@
+ 				fi
+ 				;;
+ 
++			*.tar.zst|*.tzst)
++				if [ -x "`which zstd`" ]; then
++					zstd -qdc "$1" | tar tfvv -
++				else
++					echo "No zstd available"
++				fi
++				;;
++
+ 			*.whl)
+ 				if [ -x "`which unzip`" ]; then
+ 					unzip -p "$1" '*.dist-info/METADATA' | sed '/^$/q'
+@@ -239,6 +257,14 @@
+ 				fi
+ 				;;
+ 
++			*.zst)
++				if [ -x "`which zstd`" ]; then
++					zstd -qdc "$1"
++				else
++					echo "No zstd available"
++				fi
++				;;
++
+ 			# Note that this is out of alpha order so that we don't catch
+ 			# the gzipped tar files.
+ 			*.gz|*.z|*.dz)
+@@ -284,6 +310,7 @@
+ 		if [ -n "$BASH" ]; then
+ 			if [ ! -O "$2" ]; then
+ 				echo "Error in deleting $2" > /dev/tty
++				exit 1
+ 			fi
+ 		fi
+ 

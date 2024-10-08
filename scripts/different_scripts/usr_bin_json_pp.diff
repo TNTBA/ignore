@@ -1,0 +1,92 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/json_pp	2020-07-21 15:27:00.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/json_pp	2023-11-25 15:59:54.000000000 -0500
+@@ -1,11 +1,12 @@
+ #!/usr/bin/perl
+     eval 'exec /usr/bin/perl -S $0 ${1+"$@"}'
+-	if $running_under_some_shell;
++	if 0; # ^ Run only under a shell
+ #!/usr/bin/perl
+ 
+ BEGIN { pop @INC if $INC[-1] eq '.' }
+ use strict;
+ use Getopt::Long;
++use Encode ();
+ 
+ use JSON::PP ();
+ 
+@@ -13,7 +14,7 @@
+ 
+ my %allow_json_opt = map { $_ => 1 } qw(
+     ascii latin1 utf8 pretty indent space_before space_after relaxed canonical allow_nonref
+-    allow_singlequote allow_barekey allow_bignum loose escape_slash
++    allow_singlequote allow_barekey allow_bignum loose escape_slash indent_length
+ );
+ 
+ 
+@@ -34,13 +35,28 @@
+ 
+ $json_opt = '' if $json_opt eq '-';
+ 
+-my @json_opt = grep { $allow_json_opt{ $_ } or die "'$_' is not a valid json option" } split/,/, $json_opt;
++my %json_opt;
++for my $opt (split /,/, $json_opt) {
++    my ($key, $value) = split /=/, $opt, 2;
++    $value = 1 unless defined $value;
++    die "'$_' is not a valid json option" unless $allow_json_opt{$key};
++    $json_opt{$key} = $value;
++}
+ 
+ my %F = (
+    'json' => sub {
+       my $json = JSON::PP->new;
+-      $json->$_() for @json_opt;
+-      $json->decode( $_ );
++      my $enc =
++         /^\x00\x00\x00/s  ? "utf-32be"
++       : /^\x00.\x00/s     ? "utf-16be"
++       : /^.\x00\x00\x00/s ? "utf-32le"
++       : /^.\x00.\x00/s    ? "utf-16le"
++       :                     "utf-8";
++      for my $key (keys %json_opt) {
++        next if $key eq 'utf8';
++        $json->$key($json_opt{$key});
++      }
++      $json->decode( Encode::decode($enc, $_) );
+    },
+    'eval' => sub {
+         my $v = eval "no strict;\n#line 1 \"input\"\n$_";
+@@ -54,7 +70,10 @@
+    'null' => sub { "" },
+    'json' => sub {
+       my $json = JSON::PP->new->utf8;
+-      $json->$_() for @json_opt;
++      for my $key (keys %json_opt) {
++        $json->$key($json_opt{$key});
++      }
++      $json->canonical if $json_opt{pretty};
+       $json->encode( $_ );
+    },
+    'dumper' => sub {
+@@ -76,8 +95,11 @@
+ $T{$opt_to}
+    or die "$opt_from: not a valid toformat\n";
+ 
+-local $/;
+-$_ = <STDIN>;
++{
++  local $/;
++  binmode STDIN;
++  $_ = <STDIN>;
++}
+ 
+ $_ = $F{$opt_from}->();
+ $_ = $T{$opt_to}->();
+@@ -155,7 +177,7 @@
+ Acceptable options are:
+ 
+     ascii latin1 utf8 pretty indent space_before space_after relaxed canonical allow_nonref
+-    allow_singlequote allow_barekey allow_bignum loose escape_slash
++    allow_singlequote allow_barekey allow_bignum loose escape_slash indent_length
+ 
+ Multiple options must be separated by commas:
+ 

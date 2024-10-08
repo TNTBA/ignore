@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/zsh5	2022-02-13 11:11:47.000000000 -0500
++++ /media/mks/armbi_root/usr/bin/zsh5	2022-02-25 05:40:02.000000000 -0500
+@@ -15,7 +15,7 @@
+ 
+     echo ""
+     echo "    ####"
+-    echo "    ####  $0 is deprecated, please switch to /bin/zsh${static} (or /usr/bin/zsh)"
++    echo "    ####  $0 is deprecated, please switch to /bin/zsh${static} (or /usr/bin/zsh${static})"
+     if [[ "$1" == "-l" || "$0" == -* ]]; then
+         echo '    ####  Use "chsh -s '"/bin/zsh${static}"'" to change your login shell'
+     fi

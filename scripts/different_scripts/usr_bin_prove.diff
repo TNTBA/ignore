@@ -1,0 +1,19 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/prove	2020-07-21 15:27:00.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/prove	2023-11-25 15:59:54.000000000 -0500
+@@ -1,6 +1,6 @@
+ #!/usr/bin/perl
+     eval 'exec /usr/bin/perl -S $0 ${1+"$@"}'
+-	if $running_under_some_shell;
++	if 0; # ^ Run only under a shell
+ #!/usr/bin/perl -w
+ 
+ BEGIN { pop @INC if $INC[-1] eq '.' }
+@@ -210,7 +210,7 @@
+ 
+ =item C<all>
+ 
+-Run all tests in normal order. Multple options may be specified, so to
++Run all tests in normal order. Multiple options may be specified, so to
+ run all tests with the failures from last time first:
+ 
+     $ prove -b --state=failed,all,save

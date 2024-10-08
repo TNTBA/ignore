@@ -1,0 +1,31 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/lib/git-core/git-difftool--helper	2023-02-23 10:14:14.000000000 -0500
++++ /media/mks/armbi_root/usr/lib/git-core/git-difftool--helper	2023-02-28 04:25:32.000000000 -0500
+@@ -61,6 +61,9 @@
+ 		export BASE
+ 		eval $GIT_DIFFTOOL_EXTCMD '"$LOCAL"' '"$REMOTE"'
+ 	else
++		initialize_merge_tool "$merge_tool"
++		# ignore the error from the above --- run_merge_tool
++		# will diagnose unusable tool by itself
+ 		run_merge_tool "$merge_tool"
+ 	fi
+ }
+@@ -71,7 +74,7 @@
+ 	then
+ 		merge_tool="$GIT_DIFF_TOOL"
+ 	else
+-		merge_tool="$(get_merge_tool)" || exit
++		merge_tool="$(get_merge_tool)"
+ 	fi
+ fi
+ 
+@@ -79,6 +82,9 @@
+ then
+ 	LOCAL="$1"
+ 	REMOTE="$2"
++	initialize_merge_tool "$merge_tool"
++	# ignore the error from the above --- run_merge_tool
++	# will diagnose unusable tool by itself
+ 	run_merge_tool "$merge_tool" false
+ else
+ 	# Launch the merge tool on each path provided by 'git diff'

@@ -1,0 +1,54 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/xzmore	2022-04-11 10:51:17.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/xzmore	2023-02-12 15:22:50.000000000 -0500
+@@ -15,6 +15,7 @@
+ # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ # GNU General Public License for more details.
+ 
++
+ #SET_PATH - This line is a placeholder to ease patching this script.
+ 
+ # Instead of unsetting XZ_OPT, just make sure that xz will use file format
+@@ -22,16 +23,16 @@
+ # specified via XZ_OPT.
+ xz='xz --format=auto'
+ 
+-version='xzmore (XZ Utils) 5.2.4'
++version='xzmore (XZ Utils) 5.4.1'
+ 
+ usage="Usage: ${0##*/} [OPTION]... [FILE]...
+ Like 'more', but operate on the uncompressed contents of xz compressed FILEs.
+ 
+-Report bugs to <lasse.collin@tukaani.org>."
++Report bugs to <xz@tukaani.org>."
+ 
+ case $1 in
+-	--help)    echo "$usage" || exit 2; exit;;
+-	--version) echo "$version" || exit 2; exit;;
++	--help)    printf '%s\n' "$usage" || exit 2; exit;;
++	--version) printf '%s\n' "$version" || exit 2; exit;;
+ esac
+ 
+ oldtty=`stty -g 2>/dev/null`
+@@ -49,9 +50,9 @@
+ 
+ if test $# = 0; then
+ 	if test -t 0; then
+-		echo "$usage"; exit 1
++		printf '%s\n' "$usage"; exit 1
+ 	else
+-		$xz -cdfq | eval "${PAGER:-more}"
++		$xz -cdfqQ | eval "${PAGER:-more}"
+ 	fi
+ else
+ 	FIRST=1
+@@ -68,8 +69,8 @@
+ 			esac
+ 		fi
+ 		if test "$ANS" != 's'; then
+-			echo "------> $FILE <------"
+-			$xz -cdfq -- "$FILE" | eval "${PAGER:-more}"
++			printf '%s\n' "------> $FILE <------"
++			$xz -cdfqQ -- "$FILE" | eval "${PAGER:-more}"
+ 		fi
+ 		if test -t 1; then
+ 			FIRST=0

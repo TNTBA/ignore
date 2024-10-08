@@ -1,0 +1,108 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/usb-devices	2019-02-24 07:55:34.000000000 -0500
++++ /media/mks/armbi_root/usr/bin/usb-devices	2024-01-24 16:32:47.000000000 -0500
+@@ -1,5 +1,5 @@
+-#!/bin/bash
+-# SPDX-License-Identifier: GPL-2.0+
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0-or-later
+ #
+ # Copyright (c) 2009 Greg Kroah-Hartman <greg@kroah.com>
+ # Copyright (c) 2009 Randy Dunlap <rdunlap@xenotime.net>
+@@ -14,7 +14,7 @@
+ }
+ 
+ class_decode() {
+-	local class=$1		# v4: in hex
++	class=$1		# v4: in hex
+ 
+ 	case $class in
+ 	"00") echo ">ifc " ;;
+@@ -31,6 +31,9 @@
+ 	"0d") echo "c-sec" ;;
+ 	"0e") echo "video" ;;
+ 	"0f") echo "perhc" ;;
++	"10") echo "av   " ;;
++	"11") echo "blbrd" ;;
++	"12") echo "bridg" ;;
+ 	"dc") echo "diagd" ;;
+ 	"e0") echo "wlcon" ;;
+ 	"ef") echo "misc " ;;
+@@ -41,24 +44,36 @@
+ }
+ 
+ print_endpoint() {
+-	local eppath=$1
++	eppath=$1
+ 
+ 	addr=`cat $eppath/bEndpointAddress`
+ 	attr=`cat $eppath/bmAttributes`
+ 	dir=`cat $eppath/direction`
++    if [ "$dir" = in ]; then
++        dir=I
++    elif [ "$dir" = out ]; then
++        dir=O
++    elif [ "$dir" = both ]; then
++        dir=B
++    fi
+ 	eptype=`cat $eppath/type`
++    if [ "$eptype" = Control ]; then
++        eptype="Ctrl"
++    elif [ "$eptype" = Interrupt ]; then
++        eptype="Int."
++    fi
+ 	maxps_hex="0x`cat $eppath/wMaxPacketSize`"
+ 	# Extract MaxPS size (bits 0-10) and multiplicity values (bits 11-12)
+-	maxps=`printf "%4i*%s\n" $(($maxps_hex & 0x7ff)) \
+-				$((1 + (($maxps_hex >> 11) & 0x3)))`
++	maxps=$((`printf "%4i*%s\n" $(($maxps_hex & 0x7ff)) \
++                $((1 + (($maxps_hex >> 11) & 0x3)))`))
+ 	interval=`cat $eppath/interval`
+ 
+-	printf "E:  Ad=%s(%s) Atr=%s(%s) MxPS=%s Ivl=%s\n" \
++	printf "E:  Ad=%s(%s) Atr=%s(%s) MxPS=%4s Ivl=%s\n" \
+ 		$addr $dir $attr $eptype "$maxps" $interval
+ }
+ 
+ print_interface() {
+-	local ifpath=$1
++	ifpath=$1
+ 
+ 	ifnum=`cat $ifpath/bInterfaceNumber`
+ 	altset=`cat $ifpath/bAlternateSetting`
+@@ -73,13 +88,13 @@
+ 		driver="(none)"
+ 	fi
+ 	classname=`class_decode $class`
+-	printf "I:  If#=%2s Alt=%2i #EPs=%2i Cls=%s(%s) Sub=%s Prot=%s Driver=%s\n" \
+-		0x${ifnum#0} ${altset#0} ${numeps#0} $class "$classname" $subclass \
++	printf "I:  If#=%2i Alt=%2i #EPs=%2i Cls=%s(%s) Sub=%s Prot=%s Driver=%s\n" \
++		0x${ifnum#0} ${altset#0} 0x${numeps#0} $class "$classname" $subclass \
+ 		$protocol $driver
+ 
+ 	for endpoint in $ifpath/ep_??
+ 	do
+-		if [ -L $endpoint ]; then	# v4: verify endpoint exists
++		if [ -L $endpoint ] || [ -d $endpoint ]; then	# v4: verify endpoint exists
+ 			print_endpoint $endpoint
+ 		fi
+ 	done
+@@ -94,8 +109,8 @@
+ 	[ -d $devpath ] || return
+ 	cd $devpath
+ 
+-	local busnum=`cat busnum`
+-	local devnum=`cat devnum`
++	busnum=`cat busnum`
++	devnum=`cat devnum`
+ 
+ 	if [ $level -gt 0 ]; then
+ 		port=$((${devpath##*[-.]} - 1))
+@@ -144,7 +159,7 @@
+ 		print_interface $devpath/$interface
+ 	done
+ 
+-	local devcount=0
++	devcount=0
+ 	for subdev in $busnum-*
+ 	do
+ 		echo "$subdev" | grep -Eq "^$busnum-[0-9]+(\.[0-9]+)*$" \

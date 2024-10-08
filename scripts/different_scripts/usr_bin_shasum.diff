@@ -1,0 +1,34 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/shasum	2018-11-01 08:48:38.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/shasum	2023-03-01 12:00:51.000000000 -0500
+@@ -2,10 +2,10 @@
+ 
+ 	## shasum: filter for computing SHA digests (ref. sha1sum/md5sum)
+ 	##
+-	## Copyright (C) 2003-2018 Mark Shelor, All Rights Reserved
++	## Copyright (C) 2003-2023 Mark Shelor, All Rights Reserved
+ 	##
+-	## Version: 6.02
+-	## Fri Apr 20 16:25:30 MST 2018
++	## Version: 6.04
++	## Sat Feb 25 12:00:50 PM MST 2023
+ 
+ 	## shasum SYNOPSIS adapted from GNU Coreutils sha1sum. Add
+ 	## "-a" option for algorithm selection,
+@@ -97,7 +97,7 @@
+ 
+ =head1 AUTHOR
+ 
+-Copyright (C) 2003-2018 Mark Shelor <mshelor@cpan.org>.
++Copyright (C) 2003-2023 Mark Shelor <mshelor@cpan.org>.
+ 
+ =head1 SEE ALSO
+ 
+@@ -107,7 +107,7 @@
+ 
+ END_OF_POD
+ 
+-my $VERSION = "6.02";
++my $VERSION = "6.04";
+ 
+ sub usage {
+ 	my($err, $msg) = @_;

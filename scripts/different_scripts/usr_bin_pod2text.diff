@@ -1,0 +1,71 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/pod2text	2020-07-21 15:27:00.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/pod2text	2023-11-25 15:59:54.000000000 -0500
+@@ -2,16 +2,12 @@
+     eval 'exec /usr/bin/perl -S $0 ${1+"$@"}'
+         if $running_under_some_shell;
+ 
+-# pod2text -- Convert POD data to formatted ASCII text.
+-#
+-# Copyright 1999, 2000, 2001, 2004, 2006, 2008, 2010, 2012, 2013, 2014, 2015,
+-#     2016, 2017 Russ Allbery <rra@cpan.org>
+-#
+-# This program is free software; you may redistribute it and/or modify it
+-# under the same terms as Perl itself.
++# Convert POD data to formatted ASCII text.
+ #
+ # The driver script for Pod::Text, Pod::Text::Termcap, and Pod::Text::Color,
+ # invoked by perldoc -t among other things.
++#
++# SPDX-License-Identifier: GPL-1.0-or-later OR Artistic-1.0-Perl
+ 
+ use 5.006;
+ use strict;
+@@ -40,10 +36,8 @@
+ my $stdin;
+ @ARGV = map { $_ eq '-' && !$stdin++ ? ('--', $_) : $_ } @ARGV;
+ 
+-# Parse our options.  Use the same names as Pod::Text for simplicity, and
+-# default to sentence boundaries turned off for compatibility.
++# Parse our options.  Use the same names as Pod::Text for simplicity.
+ my %options;
+-$options{sentence} = 0;
+ Getopt::Long::config ('bundling');
+ GetOptions (\%options, 'alt|a', 'code', 'color|c', 'errors=s', 'help|h',
+             'indent|i=i', 'loose|l', 'margin|left-margin|m=i', 'nourls',
+@@ -304,25 +298,25 @@
+ 
+ =back
+ 
+-=head1 SEE ALSO
+-
+-L<Pod::Text>, L<Pod::Text::Color>, L<Pod::Text::Overstrike>,
+-L<Pod::Text::Termcap>, L<Pod::Simple>, L<perlpod(1)>
+-
+-The current version of this script is always available from its web site at
+-L<http://www.eyrie.org/~eagle/software/podlators/>.  It is also part of the
+-Perl core distribution as of 5.6.0.
+-
+ =head1 AUTHOR
+ 
+ Russ Allbery <rra@cpan.org>.
+ 
+ =head1 COPYRIGHT AND LICENSE
+ 
+-Copyright 1999, 2000, 2001, 2004, 2006, 2008, 2010, 2012, 2013, 2014, 2015,
+-2016, 2017 Russ Allbery <rra@cpan.org>
++Copyright 1999-2001, 2004, 2006, 2008, 2010, 2012-2019 Russ Allbery
++<rra@cpan.org>
+ 
+ This program is free software; you may redistribute it and/or modify it
+ under the same terms as Perl itself.
+ 
++=head1 SEE ALSO
++
++L<Pod::Text>, L<Pod::Text::Color>, L<Pod::Text::Overstrike>,
++L<Pod::Text::Termcap>, L<Pod::Simple>, L<perlpod(1)>
++
++The current version of this script is always available from its web site at
++L<https://www.eyrie.org/~eagle/software/podlators/>.  It is also part of the
++Perl core distribution as of 5.6.0.
++
+ =cut

@@ -1,0 +1,32 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/lib/armbian/armbian-apt-updates	2022-07-21 02:12:25.000000000 -0400
++++ /media/mks/armbi_root/usr/lib/armbian/armbian-apt-updates	2023-12-12 11:04:09.000000000 -0500
+@@ -34,6 +34,7 @@
+ [[ "$((apt-get upgrade -s -qq) 2>&1)" == *"Unmet dependencies"* ]] && exit 0
+ 
+ myfile="/var/cache/apt/archives/updates.number"
++myfiles="/var/cache/apt/archives/updates.list"
+ 
+ # update procedure
+ DISTRO=$(lsb_release -c | cut -d ":" -f 2 |  tr -d '[:space:]') && DISTRO=${DISTRO,,}
+@@ -41,6 +42,7 @@
+ # run around the packages
+ upgrades=0
+ security_upgrades=0
++
+ while IFS= read -r LINE; do
+         # increment the upgrade counter
+         (( upgrades++ ))
+@@ -50,9 +52,13 @@
+ 
+ cat >|${myfile} <<EOT
+ NUM_UPDATES="${upgrades}"
++NUM_UPDATES_ONHOLD="$(dpkg --list | grep ^hi | grep $(uname -r) | wc -l)"
+ NUM_SECURITY_UPDATES="${security_upgrades}"
+ DATE="$(date +"%Y-%m-%d %H:%M")"
+ EOT
+ 
++# store packages list
++dpkg --list | grep ^hi | grep $(uname -r) | awk '{ print $2 }' >| ${myfiles}
++
+ exit 0
+ 

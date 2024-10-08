@@ -1,0 +1,42 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/sensible-pager	2018-03-12 06:17:53.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/sensible-pager	2023-01-14 11:28:42.000000000 -0500
+@@ -1,17 +1,28 @@
+ #!/bin/sh
++# Copyright 2007 Jari Aalto; Released under GNU GPL v2 or any later version
+ 
+ # Prevent recursive loops, where these values are set to this script
+-p="$(which sensible-pager)"
+-[ "$(which $PAGER || true)" = "$p" ] && PAGER=
++p="$(command -v "$0")"
++[ -n "$PAGER" ] && [ "$(command -v "$PAGER" || true)" = "$p" ] && PAGER=
+ 
+-${PAGER:-pager} "$@"
+-ret="$?"
+-if [ "$ret" -eq 126 ] || [ "$ret" -eq 127 ]; then
+-more "$@"
+-ret="$?"
+-	if [ "$ret" -eq 126 ] || [ "$ret" -eq 127 ]; then
++IsError()
++{
++	# Operating system command not found
++	[ "$1" -ne 126 ] && [ $1 -ne 127 ]
++}
++
++Run()
++{
++	"$@"
++	ret=$?
++	IsError "$ret"
++}
++
++Run ${PAGER:-pager} "$@" ||
++Run more "$@" ||
++{
+ 		echo "Couldn't find a pager!" 1>&2
+ 		echo "Set the \$PAGER environment variable to your desired pager." 1>&2
+-		exit 1
+-	fi
+-fi
++		exit 1;
++}
++exit "$ret"
