@@ -1,0 +1,31 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/gzexe	2022-04-15 14:16:55.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/gzexe	2022-04-09 22:22:26.000000000 -0400
+@@ -13,7 +13,7 @@
+ # On Ultrix, /bin/sh is too buggy, change the first line to: #!/bin/sh5
+ 
+ 
+-# Copyright (C) 1998, 2002, 2004, 2006-2007, 2010-2018 Free Software
++# Copyright (C) 1998, 2002, 2004, 2006-2007, 2010-2022 Free Software
+ # Foundation, Inc.
+ # Copyright (C) 1993 Jean-loup Gailly
+ 
+@@ -36,8 +36,8 @@
+ '
+ IFS=" $tab$nl"
+ 
+-version='gzexe (gzip) 1.9
+-Copyright (C) 2007, 2011-2017 Free Software Foundation, Inc.
++version='gzexe (gzip) 1.12
++Copyright (C) 2007, 2011-2018 Free Software Foundation, Inc.
+ This is free software.  You may redistribute copies of it under the terms of
+ the GNU General Public License <https://www.gnu.org/licenses/gpl.html>.
+ There is NO WARRANTY, to the extent permitted by law.
+@@ -146,7 +146,7 @@
+   if test $decomp -eq 0; then
+     (cat <<'EOF' &&
+ #!/bin/sh
+-skip=44
++skip=49
+ 
+ tab='	'
+ nl='

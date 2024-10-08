@@ -1,0 +1,28 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/etc/cron.weekly/man-db	2019-02-10 07:11:20.000000000 -0500
++++ /media/mks/armbi_root/etc/cron.weekly/man-db	2023-03-12 18:23:59.000000000 -0400
+@@ -9,10 +9,15 @@
+     exit 0
+ fi
+ 
++# This should be set by cron, but apparently isn't always; see
++# https://bugs.debian.org/209185.  Add fallbacks so that start-stop-daemon
++# can be found.
++export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
++
+ iosched_idle=
+ # Don't try to change I/O priority in a vserver or OpenVZ.
+-if ! egrep -q '(envID|VxID):.*[1-9]' /proc/self/status && \
+-   ([ ! -d /proc/vz ] || [ -d /proc/bc ]); then
++if ! grep -Eq '(envID|VxID):.*[1-9]' /proc/self/status && \
++   { [ ! -d /proc/vz ] || [ -d /proc/bc ]; }; then
+     iosched_idle='--iosched idle'
+ fi
+ 
+@@ -25,6 +30,7 @@
+ if [ -x /usr/bin/mandb ]; then
+     # --pidfile /dev/null so it always starts; mandb isn't really a daemon,
+     # but we want to start it like one.
++    # shellcheck disable=SC2086
+     start-stop-daemon --start --pidfile /dev/null \
+ 		      --startas /usr/bin/mandb --oknodo --chuid man \
+ 		      $iosched_idle \

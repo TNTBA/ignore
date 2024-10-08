@@ -1,0 +1,9 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/etc/init.d/procps	2018-05-31 05:42:46.000000000 -0400
++++ /media/mks/armbi_root/etc/init.d/procps	2022-12-19 01:06:38.000000000 -0500
+@@ -30,5 +30,6 @@
+ 	return $STATUS
+ }
+ 
++do_reload() { call do_start_cmd; }
+ do_stop() { return 0; }
+ do_status() { return 0; }

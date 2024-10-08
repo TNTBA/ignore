@@ -1,0 +1,30 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/etc/cron.daily/sysstat	2019-04-06 03:18:26.000000000 -0400
++++ /media/mks/armbi_root/etc/cron.daily/sysstat	2022-12-04 16:23:25.000000000 -0500
+@@ -2,17 +2,21 @@
+ # Generate a daily summary of process accounting.  Since this will probably
+ # get kicked off in the morning, it is run against the previous day data.
+ 
+-#  our configuration file
++set -e
++
++# Our configuration file
+ DEFAULT=/etc/default/sysstat
+-#  default settings, overriden in the above file
++# Default settings, overridden in the above file
+ ENABLED=false
+ 
+-[ ! -x /usr/lib/sysstat/sa2 ] && exit 0
++# Skip in favour of systemd timer
++[ ! -d /run/systemd/system ] || exit 0
++
++[ -x /usr/lib/sysstat/sa2 ] || exit 0
+ 
+-# read our config
+-[ -r "$DEFAULT" ] && . "$DEFAULT" 
++# Read our config
++[ -r "$DEFAULT" ] && . "$DEFAULT"
+ 
+ [ "$ENABLED" = "true" ]  || exit 0
+ 
+ exec /usr/lib/sysstat/sa2 -A
+-

@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/bzdiff	2019-07-10 15:17:52.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/bzdiff	2022-09-18 20:04:12.000000000 -0400
+@@ -58,7 +58,7 @@
+ 			      exit 1
+ 			}
+                         bzip2 -cdfq "$2" > "$tmp"
+-                        bzip2 -cdfq "$1" | $comp "$OPTIONS" - "$tmp"
++                        bzip2 -cdfq "$1" | $comp $OPTIONS - "$tmp"
+                         STAT="$?"
+ 			/bin/rm -f "$tmp";;
+ 

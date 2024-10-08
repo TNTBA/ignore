@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/etc/init.d/x11-common	2016-11-23 02:30:35.000000000 -0500
++++ /media/mks/armbi_root/etc/init.d/x11-common	2021-08-18 06:58:20.000000000 -0400
+@@ -22,7 +22,7 @@
+ 
+ do_restorecon () {
+   # Restore file security context (SELinux).
+-  if which restorecon >/dev/null 2>&1; then
++  if command -v restorecon >/dev/null 2>&1; then
+     restorecon "$1"
+   fi
+ }

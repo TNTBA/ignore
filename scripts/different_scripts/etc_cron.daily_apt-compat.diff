@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/etc/cron.daily/apt-compat	2021-04-19 12:41:13.000000000 -0400
++++ /media/mks/armbi_root/etc/cron.daily/apt-compat	2023-05-25 10:11:37.000000000 -0400
+@@ -18,7 +18,7 @@
+     #       1 (false)   System is not on main power
+     #       255 (false) Power status could not be determined
+     # Desktop systems always return 255 it seems
+-    if which on_ac_power >/dev/null 2>&1; then
++    if command -v on_ac_power >/dev/null; then
+         if on_ac_power; then
+             :
+         elif [ $? -eq 1 ]; then

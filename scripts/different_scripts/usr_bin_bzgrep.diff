@@ -1,0 +1,26 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/bzgrep	2019-07-10 15:17:52.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/bzgrep	2022-09-18 20:04:12.000000000 -0400
+@@ -93,6 +93,7 @@
+ 
+ res=0
+ for i do
++  if test -f "$i"; then :; else if test -f "$i.bz2"; then i="$i.bz2"; fi; fi
+   bzip2 -cdfq -- "$i" |
+     if test $files_with_matches -eq 1; then
+       $grep $opt "$pat" > /dev/null && printf "%s\n" "$i"
+@@ -103,12 +104,12 @@
+     else
+       i=$(echo "$i" | sed -e 's/[\\|&]/\\&/g')
+       if test $with_filename -eq 1; then
+-	sed_script="s|^[^:]*:|${i}:|"
++        sed_script="s|^[^:]*:|${i}:|"
+       else
+-	sed_script="s|^|${i}:|"
++        sed_script="s|^|${i}:|"
+       fi
+       # Hack adapted from GPLed code at
+-      # http://home.comcast.net/~j.p.h/cus-faq-2
++      # https://groups.google.com/forum/#!original/comp.unix.shell/x1345iu10eg/Nn1n-1r1uU0J
+       # Has the same effect as the following two lines of bash:
+       #
+       # $grep $opt "$pat" | sed "$sed_script"

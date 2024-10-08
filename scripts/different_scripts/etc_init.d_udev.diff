@@ -1,0 +1,7 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/etc/init.d/udev	2021-07-08 09:00:48.000000000 -0400
++++ /media/mks/armbi_root/etc/init.d/udev	2023-09-20 08:13:32.000000000 -0400
+@@ -253,4 +253,3 @@
+ esac
+ 
+ exit 0
+-

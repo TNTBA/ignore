@@ -1,0 +1,578 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/decode-dimms	2018-12-04 14:37:48.000000000 -0500
++++ /media/mks/armbi_root/usr/bin/decode-dimms	2023-01-31 10:05:09.000000000 -0500
+@@ -5,7 +5,7 @@
+ # Copyright 1998, 1999 Philip Edelbrock <phil@netroedge.com>
+ # modified by Christian Zuckschwerdt <zany@triq.net>
+ # modified by Burkart Lingner <burkart@bollchen.de>
+-# Copyright (C) 2005-2017  Jean Delvare <jdelvare@suse.de>
++# Copyright (C) 2005-2020  Jean Delvare <jdelvare@suse.de>
+ #
+ #    This program is free software; you can redistribute it and/or modify
+ #    it under the terms of the GNU General Public License as published by
+@@ -22,9 +22,12 @@
+ #    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ #    MA 02110-1301 USA.
+ #
+-#
+-# The eeprom driver must be loaded (unless option -x is used). For kernels
+-# older than 2.6.0, the eeprom driver can be found in the lm-sensors package.
++# A kernel driver must be loaded (unless option -x is used). Up to DDR3,
++# you need either the at24 driver (in the kernel tree since v2.6.27) or
++# the legacy eeprom driver (in the kernel tree since v2.6.0). For kernels
++# older than 2.6.0, the eeprom driver can be found in the lm-sensors 2
++# package. For DDR4, you need the ee1004 driver (in the kernel tree since
++# kernel v4.20).
+ #
+ # References:
+ # PC SDRAM Serial Presence
+@@ -43,14 +46,11 @@
+ use File::Basename;
+ use vars qw($opt_html $opt_bodyonly $opt_side_by_side $opt_merge
+ 	    $opt_igncheck $use_sysfs $use_hexdump $sbs_col_width
+-	    @vendors %decode_callback $revision @dimm $current %hexdump_cache);
++	    @vendors %decode_callback @dimm $current %hexdump_cache);
+ 
+ use constant LITTLEENDIAN	=> "little-endian";
+ use constant BIGENDIAN		=> "big-endian";
+-
+-$revision = '$Revision$ ($Date$)';
+-$revision =~ s/\$\w+: (.*?) \$/$1/g;
+-$revision =~ s/ \([^()]*\)//;
++use constant I2C_TOOLS_VER	=> "4.3";
+ 
+ @vendors = (
+ ["AMD", "AMI", "Fairchild", "Fujitsu",
+@@ -58,7 +58,7 @@
+  "Intel", "I.T.T.", "Intersil", "Monolithic Memories",
+  "Mostek", "Freescale (former Motorola)", "National", "NEC",
+  "RCA", "Raytheon", "Conexant (Rockwell)", "Seeq",
+- "NXP (former Signetics, Philips Semi.)", "Synertek", "Texas Instruments", "Toshiba",
++ "NXP (former Signetics, Philips Semi.)", "Synertek", "Texas Instruments", "Kioxia Corporation (former Toshiba Memory Corporation)",
+  "Xicor", "Zilog", "Eurotechnique", "Mitsubishi",
+  "Lucent (AT&T)", "Exel", "Atmel", "STMicroelectronics (former SGS/Thomson)",
+  "Lattice Semi.", "NCR", "Wafer Scale Integration", "IBM",
+@@ -70,10 +70,10 @@
+  "Thinking Machine", "Thomson CSF", "Integrated CMOS (Vertex)", "Honeywell",
+  "Tektronix", "Oracle Corporation (former Sun Microsystems)", "Silicon Storage Technology", "ProMos/Mosel Vitelic",
+  "Infineon (former Siemens)", "Macronix", "Xerox", "Plus Logic",
+- "SunDisk", "Elan Circuit Tech.", "European Silicon Str.", "Apple Computer",
++ "Western Digital Technologies (former SanDisk Corporation)", "Elan Circuit Tech.", "European Silicon Str.", "Apple Computer",
+  "Xilinx", "Compaq", "Protocol Engines", "SCI",
+  "Seiko Instruments", "Samsung", "I3 Design System", "Klic",
+- "Crosspoint Solutions", "Alliance Semiconductor", "Tandem", "Hewlett-Packard",
++ "Crosspoint Solutions", "Alliance Memory Inc", "Tandem", "Hewlett-Packard",
+  "Integrated Silicon Solutions", "Brooktree", "New Media", "MHS Electronic",
+  "Performance Semi.", "Winbond Electronic", "Kawasaki Steel", "Bright Micro",
+  "TECMAR", "Exar", "PCMCIA", "LG Semi (former Goldstar)",
+@@ -92,7 +92,7 @@
+  "DATARAM", "United Microelec Corp.", "TCSI", "Smart Modular",
+  "Hughes Aircraft", "Lanstar Semiconductor", "Qlogic", "Kingston",
+  "Music Semi", "Ericsson Components", "SpaSE", "Eon Silicon Devices",
+- "Programmable Micro Corp", "DoD", "Integ. Memories Tech.", "Corollary Inc.",
++ "Integrated Silicon Solution (ISSI) (former Programmable Micro Corp)", "DoD", "Integ. Memories Tech.", "Corollary Inc.",
+  "Dallas Semiconductor", "Omnivision", "EIV(Switzerland)", "Novatel Wireless",
+  "Zarlink (former Mitel)", "Clearpoint", "Cabletron", "STEC (former Silicon Technology)",
+  "Vanguard", "Hagiwara Sys-Com", "Vantis", "Celestica",
+@@ -273,9 +273,9 @@
+  "PhotoFast Global Inc.", "InnoDisk Corporation", "Muscle Power", "Energy Micro", "Innofidei",
+  "CopperGate Communications", "Holtek Semiconductor Inc.", "Myson Century, Inc.", "FIDELIX",
+  "Red Digital Cinema", "Densbits Technology", "Zempro", "MoSys", "Provigent", "Triad Semiconductor, Inc."],
+-["Siklu Communication Ltd.", "A Force Manufacturing Ltd.", "Strontium", "Abilis Systems", "Siglead, Inc.",
++["Siklu Communication Ltd.", "A Force Manufacturing Ltd.", "Strontium", "ALi Corp (former Abilis Systems)", "Siglead, Inc.",
+  "Ubicom, Inc.", "Unifosa Corporation", "Stretch, Inc.", "Lantiq Deutschland GmbH", "Visipro",
+- "EKMemory", "Microelectronics Institute ZTE", "Cognovo Ltd.", "Carry Technology Co. Ltd.", "Nokia",
++ "EKMemory", "Microelectronics Institute ZTE", "u-blox AG (former Cognovo Ltd)", "Carry Technology Co. Ltd.", "Nokia",
+  "King Tiger Technology", "Sierra Wireless", "HT Micron", "Albatron Technology Co. Ltd.",
+  "Leica Geosystems AG", "BroadLight", "AEXEA", "ClariPhy Communications, Inc.", "Green Plug",
+  "Design Art Networks", "Mach Xtreme Technology Ltd.", "ATO Solutions Co. Ltd.", "Ramsta",
+@@ -307,13 +307,13 @@
+  "AcSiP Technology Corporation", "Idea! Electronic Systems", "Gowe Technology Co. Ltd",
+  "Hermes Testing Solutions Inc.", "Positivo BGH", "Intelligence Silicon Technology"],
+ ["3D PLUS", "Diehl Aerospace", "Fairchild", "Mercury Systems",
+- "Sonics Inc.", "GE Intelligent Platforms GmbH & Co.", "Shenzhen Jinge Information Co. Ltd",
++ "Sonics Inc.", "Emerson Automation Solutions (former ICC/GE Intelligent Platforms)", "Shenzhen Jinge Information Co. Ltd",
+  "SCWW", "Silicon Motion Inc.", "Anurag", "King Kong",
+  "FROM30 Co. Ltd", "Gowin Semiconductor Corp", "Fremont Micro Devices Ltd",
+  "Ericsson Modems", "Exelis", "Satixfy Ltd", "Galaxy Microsystems Ltd",
+  "Gloway International Co. Ltd", "Lab", "Smart Energy Instruments",
+- "Approved Memory Corporation", "Axell Corporation", "ISD Technology Limited",
+- "Phytium", "Xi'an SinoChip Semiconductor", "Ambiq Micro", "eveRAM Technology Inc.",
++ "Approved Memory Corporation", "Axell Corporation", "Essencore Limited (former ISD Technology Limited)",
++ "Phytium", "Xi’an UniIC Semiconductors Co Ltd (former Xi'an SinoChip Semiconductor)", "Ambiq Micro", "eveRAM Technology Inc.",
+  "Infomax", "Butterfly Network Inc.", "Shenzhen City Gcai Electronics",
+  "Stack Devices Corporation", "ADK Media Group", "TSP Global Co. Ltd",
+  "HighX", "Shenzhen Elicks Technology", "ISSI/Chingis", "Google Inc.",
+@@ -323,14 +323,14 @@
+  "Nuvoton", "Korea Uhbele International Group Ltd", "Ikegami Tsushinki Co. Ltd",
+  "RelChip Inc.", "Baikal Electronics", "Nemostech Inc.",
+  "Memorysolution GmbH", "Silicon Integrated Systems Corporation",
+- "Xiede", "Multilaser Components", "Flash Chi", "Jone",
++ "Xiede", "BRC (former Multilaser Components)", "Flash Chi", "Jone",
+  "GCT Semiconductor Inc.", "Hong Kong Zetta Device Technology",
+  "Unimemory Technology(s) Pte Ltd", "Cuso", "Kuso",
+  "Uniquify Inc.", "Skymedi Corporation", "Core Chance Co. Ltd",
+  "Tekism Co. Ltd", "Seagate Technology PLC", "Hong Kong Gaia Group Co. Limited",
+  "Gigacom Semiconductor LLC", "V2 Technologies", "TLi", "Neotion",
+  "Lenovo", "Shenzhen Zhongteng Electronic Corp. Ltd", "Compound Photonics",
+- "Cognimem Technologies Inc.", "Shenzhen Pango Microsystems Co. Ltd",
++ "In2H2 Inc (former Cognimem Technologies Inc)", "Shenzhen Pango Microsystems Co. Ltd",
+  "Vasekey", "Cal-Comp Industria de Semicondutores", "Eyenix Co. Ltd",
+  "Heoriady", "Accelerated Memory Production Inc.", "INVECAS Inc.",
+  "AP Memory", "Douqi Technology", "Etron Technology Inc.",
+@@ -371,7 +371,7 @@
+  "Pegasus Semiconductor (Shanghai) Co", "Mythic Inc", "Elmos Semiconductor AG",
+  "Kllisre", "Shenzhen Winconway Technology", "Shenzhen Xingmem Technology Corp",
+  "Gold Key Technology Co Ltd", "Habana Labs Ltd", "Hoodisk Electronics Co Ltd",
+- "SemsoTai (HK) Technology Co Ltd", "OM Nanotech Pvt. Ltd",
++ "SemsoTai (SZ) Technology Co Ltd", "OM Nanotech Pvt. Ltd",
+  "Shenzhen Zhifeng Weiye Technology", "Xinshirui (Shenzhen) Electronics Co",
+  "Guangzhou Zhong Hao Tian Electronic", "Shenzhen Longsys Electronics Co Ltd",
+  "Deciso B.V.", "Puya Semiconductor (Shenzhen)", "Shenzhen Veineda Technology Co Ltd",
+@@ -390,12 +390,12 @@
+  "PsiKick", "Netac Technology Co Ltd", "PCCOOLER", "Jiangsu Huacun Electronic Technology",
+  "Shenzhen Micro Innovation Industry", "Beijing Tongfang Microelectronics Co",
+  "XZN Storage Technology", "ChipCraft Sp. z.o.o.", "ALLFLASH Technology Limited"],
+-["Foerd Technology Co Ltd", "KingSpec", "Codasip Ltd", "SL Link Co Ltd",
++["Foerd Technology Co Ltd", "KingSpec", "Codasip GmbH", "SL Link Co Ltd",
+  "Shenzhen Kefu Technology Co Limited", "Shenzhen ZST Electronics Technology",
+  "Kyokuto Electronic Inc", "Warrior Technology", "TRINAMIC Motion Control GmbH & Co",
+  "PixelDisplay Inc", "Shenzhen Futian District Bo Yueda Elec", "Richtek Power",
+  "Shenzhen LianTeng Electronics Co Ltd", "AITC Memory", "UNIC Memory Technology Co Ltd",
+- "Shenzhen Huafeng Science Technology", "Innotron Memory Co Ltd",
++ "Shenzhen Huafeng Science Technology", "CXMT (former Innotron Memory Co Ltd)",
+  "Guangzhou Xinyi Heng Computer Trading Firm", "SambaNova Systems", "V-GEN",
+  "Jump Trading", "Ampere Computing", "Shenzhen Zhongshi Technology Co Ltd",
+  "Shenzhen Zhongtian Bozhong Technology", "Tri-Tech International",
+@@ -415,9 +415,88 @@
+  "Shenzhen Farasia Science Technology", "Efinix Inc", "Hua Nan San Xian Technology Co Ltd",
+  "Goldtech Electronics Co Ltd", "Shanghai Han Rong Microelectronics Co",
+  "Shenzhen Zhongguang Yunhe Trading", "Smart Shine(QingDao) Microelectronics",
+- "Thermaltake Technology Co Ltd", "Shenzhen O'Yang Maile Technology Ltd", "UPMEM"]
++ "Thermaltake Technology Co Ltd", "Shenzhen O'Yang Maile Technology Ltd", "UPMEM",
++ "Chun Well Technology Holding Limited", "Astera Labs Inc", "Winconway",
++ "Advantech Co Ltd", "Chengdu Fengcai Electronic Technology", "The Boeing Company",
++ "Blaize Inc", "Ramonster Technology Co Ltd", "Wuhan Naonongmai Technology Co Ltd",
++ "Shenzhen Hui ShingTong Technology", "Yourlyon", "Fabu Technology",
++ "Shenzhen Yikesheng Technology Co Ltd", "NOR-MEM", "Cervoz Co Ltd",
++ "Bitmain Technologies Inc", "Facebook Inc", "Shenzhen Longsys Electronics Co Ltd",
++ "Guangzhou Siye Electronic Technology", "Silergy", "Adamway",
++ "PZG", "Shenzhen King Power Electronics", "Guangzhou ZiaoFu Tranding Co Ltd",
++ "Shenzhen SKIHOTAR Semiconductor", "PulseRain Technology", "Seeker Technology Limited",
++ "Shenzhen OSCOO Tech Co Ltd", "Shenzhen Yze Technology Co Ltd",
++ "Shenzhen Jieshuo Electronic Commerce", "Gazda", "Hua Wei Technology Co Ltd",
++ "Esperanto Technologies", "JinSheng Electronic (Shenzhen) Co Ltd",
++ "Shenzhen Shi Bolunshuai Technology", "Shanghai Rei Zuan Information Tech",
++ "Fraunhofer IIS", "Kandou Bus SA", "Acer", "Artmem Technology Co Ltd",
++ "Gstar Semiconductor Co Ltd", "ShineDisk", "Shenzhen CHN Technology Co Ltd",
++ "UnionChip Semiconductor Co Ltd", "Tanbassh", "Shenzhen Tianyu Jieyun Intl Logistics",
++ "MCLogic Inc", "Eorex Corporation", "Arm Technology (China) Co Ltd", "Lexar Co Limited",
++ "QinetiQ Group PLC", "Exascend", "Hong Kong Hyunion Electronics Co Ltd",
++ "Shenzhen Banghong Electronics Co Ltd", "MBit Wireless Inc", "Hex Five Security Inc",
++ "ShenZhen Juhor Precision Tech Co Ltd", "Shenzhen Reeinno Technology Co Ltd"],
++["ABIT Electronics (Shenzhen) Co Ltd", "Semidrive", "MyTek Electronics Corp",
++ "Wxilicon Technology Co Ltd", "Shenzhen Meixin Electronics Ltd", "Ghost Wolf",
++ "LiSion Technologies Inc", "Power Active Co Ltd", "Pioneer High Fidelity Taiwan Co. Ltd",
++ "LuoSilk", "Shenzhen Chuangshifeida Technology", "Black Sesame Technologies Inc",
++ "Jiangsu Xinsheng Intelligent Technology", "MLOONG", "Quadratica LLC",
++ "Anpec Electronics", "Xi’an Morebeck Semiconductor Tech Co", "Kingbank Technology Co Ltd",
++ "ITRenew Inc", "Shenzhen Eaget Innovation Tech Ltd", "Jazer",
++ "Xiamen Semiconductor Investment Group", "Guangzhou Longdao Network Tech Co",
++ "Shenzhen Futian SEC Electronic Market", "Allegro Microsystems LLC",
++ "Hunan RunCore Innovation Technology", "C-Corsa Technology",
++ "Zhuhai Chuangfeixin Technology Co Ltd", "Beijing InnoMem Technologies Co Ltd",
++ "YooTin", "Shenzhen Pengxiong Technology Co Ltd", "Dongguan Yingbang Commercial Trading Co",
++ "Shenzhen Ronisys Electronics Co Ltd", "Hongkong Xinlan Guangke Co Ltd",
++ "Apex Microelectronics Co Ltd", "Beijing Hongda Jinming Technology Co Ltd",
++ "Ling Rui Technology (Shenzhen) Co Ltd", "Hongkong Hyunion Electronics Co Ltd",
++ "Starsystems Inc", "Shenzhen Yingjiaxun Industrial Co Ltd",
++ "Dongguan Crown Code Electronic Commerce", "Monolithic Power Systems Inc",
++ "WuHan SenNaiBo E-Commerce Co Ltd", "Hangzhou Hikstorage Technology Co",
++ "Shenzhen Goodix Technology Co Ltd", "Aigo Electronic Technology Co Ltd",
++ "Hefei Konsemi Storage Technology Co Ltd", "Cactus Technologies Limited",
++ "DSIN", "Blu Wireless Technology", "Nanjing UCUN Technology Inc",
++ "Acacia Communications", "Beijinjinshengyihe Technology Co Ltd", "Zyzyx",
++ "T-HEAD Semiconductor Co Ltd", "Shenzhen Hystou Technology Co Ltd", "Syzexion",
++ "Kembona", "Qingdao Thunderobot Technology Co Ltd", "Morse Micro",
++ "Shenzhen Envida Technology Co Ltd", "UDStore Solution Limited", "Shunlie",
++ "Shenzhen Xin Hong Rui Tech Ltd", "Shenzhen Yze Technology Co Ltd",
++ "Shenzhen Huang Pu He Xin Technology", "Xiamen Pengpai Microelectronics Co Ltd",
++ "JISHUN", "Shenzhen WODPOSIT Technology Co", "Unistar", "UNICORE Electronic (Suzhou) Co Ltd",
++ "Axonne Inc", "Shenzhen SOVERECA Technology Co", "Dire Wolf", "Whampoa Core Technology Co Ltd",
++ "CSI Halbleiter GmbH", "ONE Semiconductor", "SimpleMachines Inc",
++ "Shenzhen Chengyi Qingdian Electronic", "Shenzhen Xinlianxin Network Technology",
++ "Vayyar Imaging Ltd", "Paisen Network Technology Co Ltd",
++ "Shenzhen Fengwensi Technology Co Ltd", "Caplink Technology Limited", "JJT Solution Co Ltd",
++ "HOSIN Global Electronics Co Ltd", "Shenzhen KingDisk Century Technology", "SOYO",
++ "DIT Technology Co Ltd", "iFound", "Aril Computer Company", "ASUS",
++ "Shenzhen Ruiyingtong Technology Co", "HANA Micron", "RANSOR", "Axiado Corporation",
++ "Tesla Corporation", "Pingtouge (Shanghai) Semiconductor Co", "S3Plus Technologies SA",
++ "Integrated Silicon Solution Israel Ltd", "GreenWaves Technologies", "NUVIA Inc",
++ "Guangzhou Shuvrwine Technology Co", "Shenzhen Hangshun Chip Technology",
++ "Chengboliwei Electronic Business", "Kowin Memory Technology Co Ltd", "Euronet Technology Inc",
++ "SCY", "Shenzhen Xinhongyusheng Electrical", "PICOCOM", "Shenzhen Toooogo Memory Technology",
++ "VLSI Solution", "Costar Electronics Inc", "Shenzhen Huatop Technology Co Ltd",
++ "Inspur Electronic Information Industry", "Shenzhen Boyuan Computer Technology",
++ "Beijing Welldisk Electronics Co Ltd", "Suzhou EP Semicon Co Ltd",
++ "Zhejiang Dahua Memory Technology", "Virtu Financial", "Datotek International Co Ltd",
++ "Telecom and Microelectronics Industries", "Echo Technology Ltd", "APEX-INFO",
++ "Yingpark", "Shenzhen Bigway Tech Co Ltd"],
++["Beijing Haawking Technology Co Ltd", "Open HW Group", "JHICC", "ncoder AG",
++ "ThinkTech Information Technology Co", "Shenzhen Chixingzhe Technology Co Ltd",
++ "Skywalker", "Shenzhen Kaizhuoyue Electronics Co Ltd",
++ "Shenzhen YC Storage Technology Co Ltd", "Shenzhen Chixingzhe Technology Co",
++ "Wink Semiconductor (Shenzhen) Co Ltd", "AISTOR", "Palma Ceia SemiDesign",
++ "EM Microelectronic-Marin SA", "Shenzhen Monarch Memory Technology"]
+ );
+ 
++# Validate the vendors array, it's so easy to get wrong
++# All pages but the last should be full
++for (my $page = 0; $page < @vendors - 1; $page++) {
++	die "Unexpected number of vendor names in page $page" unless @{$vendors[$page]} == 126;
++}
++
+ $use_sysfs = -d '/sys/bus';
+ 
+ # We consider that no data was written to this area of the SPD EEPROM if
+@@ -741,7 +820,7 @@
+ 	return join ", ", @edc;
+ }
+ 
+-# Parameter: EEPROM bytes 0-127 (using 3-62)
++# Parameter: EEPROM bytes 0-127 (using 3-62 and 126-127)
+ sub decode_sdr_sdram($)
+ {
+ 	my $bytes = shift;
+@@ -1000,6 +1079,9 @@
+ 	$temp = (($bytes->[35] & 0x7f) >> 4) + ($bytes->[35] & 0xf) * 0.1;
+ 	printl_cond(($bytes->[35] & 0xf) <= 9, "Data Signal Hold Time",
+ 		    (($bytes->[35] >> 7) ? -$temp : $temp) . " ns");
++
++# Last 2 bytes (126-127) are reserved, Intel used them as an extension
++	decode_intel_spec_freq($bytes);
+ }
+ 
+ sub as_ddr($$)
+@@ -1040,7 +1122,7 @@
+ 	$pcclk += 100 if ($pcclk % 100) >= 50; # Round properly
+ 	$pcclk = $pcclk - ($pcclk % 100);
+ 	$ddrclk = int ($ddrclk);
+-	printl("Maximum module speed", "$ddrclk MHz (PC${pcclk})");
++	printl("Maximum module speed", "$ddrclk MT/s (PC${pcclk})");
+ 
+ #size computation
+ 	my $k = 0;
+@@ -1293,7 +1375,7 @@
+ 	# Round down to comply with Jedec
+ 	$pcclk = $pcclk - ($pcclk % 100);
+ 	$ddrclk = int ($ddrclk);
+-	printl("Maximum module speed", "$ddrclk MHz (PC2-${pcclk})");
++	printl("Maximum module speed", "$ddrclk MT/s (PC2-${pcclk})");
+ 
+ #size computation
+ 	my $k = 0;
+@@ -1551,7 +1633,25 @@
+ use constant DDR3_CLOCKED	=> 3;
+ use constant DDR3_LOAD_REDUCED	=> 4;
+ 
+-# Parameter: EEPROM bytes 0-127 (using 3-76)
++sub ddr3_adjust_ctime($$)
++{
++	my ($ctime, $ftb) = @_;
++	my $ii;
++
++	# Starting with DDR3-1866, vendors may start approximating the
++	# minimum cycle time. Try to guess what they really meant so
++	# that the reported speed matches the standard.
++	for ($ii = 7; $ii < 15; $ii++) {
++		if ($ctime > 7.5/$ii - $ftb/1000 && $ctime < 7.5/$ii + $ftb/1000) {
++			$ctime = 7.5/$ii;
++			last;
++		}
++	}
++
++	return $ctime;
++}
++
++# Parameter: EEPROM bytes 0-127 (using 1-68)
+ sub decode_ddr3_sdram($)
+ {
+ 	my $bytes = shift;
+@@ -1577,6 +1677,10 @@
+ 		{ type => "32b-SO-DIMM",	width => "67.6 mm",	family => DDR3_UNBUFFERED },
+ 	);
+ 
++# SPD revision
++	printl_cond($bytes->[1] != 0xff, "SPD Revision",
++		    ($bytes->[1] >> 4) . "." . ($bytes->[1] & 0xf));
++
+ 	printl("Module Type", ($bytes->[3] <= $#module_types) ?
+ 					$module_types[$bytes->[3]]->{type} :
+ 					sprintf("Reserved (0x%.2X)", $bytes->[3]));
+@@ -1593,15 +1697,7 @@
+ 	prints("Memory Characteristics");
+ 
+ 	$ctime = ddr3_mtb_ftb($bytes->[12], $bytes->[34], $mtb, $ftb);
+-	# Starting with DDR3-1866, vendors may start approximating the
+-	# minimum cycle time. Try to guess what they really meant so
+-	# that the reported speed matches the standard.
+-	for ($ii = 7; $ii < 15; $ii++) {
+-		if ($ctime > 7.5/$ii - $ftb/1000 && $ctime < 7.5/$ii + $ftb/1000) {
+-			$ctime = 7.5/$ii;
+-			last;
+-		}
+-	}
++	$ctime = ddr3_adjust_ctime($ctime, $ftb);
+ 
+ 	my $ddrclk = 2 * (1000 / $ctime);
+ 	my $tbits = 1 << (($bytes->[8] & 7) + 3);
+@@ -1609,7 +1705,7 @@
+ 	# Round down to comply with Jedec
+ 	$pcclk = $pcclk - ($pcclk % 100);
+ 	$ddrclk = int ($ddrclk);
+-	printl("Maximum module speed", "$ddrclk MHz (PC3-${pcclk})");
++	printl("Maximum module speed", "$ddrclk MT/s (PC3-${pcclk})");
+ 
+ # Size computation
+ 
+@@ -1629,7 +1725,8 @@
+ 
+ 	printl("SDRAM Device Width", (1 << (($bytes->[7] & 7) + 2))." bits");
+ 
+-	printl("Bus Width Extension", ($bytes->[8] & 24)." bits");
++	printl("Primary Bus Width", (8 << ($bytes->[8] & 7))." bits");
++	printl_cond($bytes->[8] & 24, "Bus Width Extension", ($bytes->[8] & 24)." bits");
+ 
+ 	my $taa;
+ 	my $trcd;
+@@ -1727,6 +1824,12 @@
+ 		($bytes->[32] & 128) ? "Yes" : "No");
+ 	printl("SDRAM Device Type", ddr3_device_type($bytes->[33]));
+ 
++	my @mac = ("Untested",
++		   "700 K", "600 K", "500 K", "400 K", "300 K", "200 K",
++		   undef, "Unlimited");
++	my $mac = $bytes->[41] & 0x0f;
++	printl_cond(defined $mac[$mac], "Maximum Activate Count (MAC)", $mac[$mac]);
++
+ 	# Following bytes are type-specific, so don't continue if type
+ 	# isn't known.
+ 	return if $bytes->[3] == 0 || $bytes->[3] > $#module_types;
+@@ -1860,7 +1963,9 @@
+ 	prints("Memory Characteristics");
+ 
+ 	$ctime = ddr4_mtb_ftb($bytes->[18], $bytes->[125], $mtb, $ftb);
++	$ctime = ddr3_adjust_ctime($ctime, $ftb);
+ 	$ctime_max = ddr4_mtb_ftb($bytes->[19], $bytes->[124], $mtb, $ftb);
++	$ctime_max = ddr3_adjust_ctime($ctime_max, $ftb);
+ 
+ 	my $ddrclk = 2 * (1000 / $ctime);
+ 	my $tbits = 8 << ($bytes->[13] & 7);
+@@ -1868,7 +1973,7 @@
+ 	# Round down to comply with Jedec
+ 	$pcclk = $pcclk - ($pcclk % 100);
+ 	$ddrclk = int ($ddrclk);
+-	printl("Maximum module speed", "$ddrclk MHz (PC4-${pcclk})");
++	printl("Maximum module speed", "$ddrclk MT/s (PC4-${pcclk})");
+ 
+ # Size computation
+ 	my $sdram_width = 4 << ($bytes->[12] & 0x07);
+@@ -1891,6 +1996,7 @@
+ 	printl("Ranks", $ranks);
+ 	printl_cond($ranks > 1, "Rank Mix",
+ 		    $bytes->[12] & 0x40 ? "Asymmetrical" : "Symmetrical");
++	printl("Primary Bus Width", (8 << ($bytes->[13] & 7))." bits");
+ 	printl_cond($bytes->[13] & 0x18, "Bus Width Extension", ($bytes->[13] & 0x18)." bits");
+ 
+ 	my $taa;
+@@ -1988,7 +2094,7 @@
+ 		   "700 K", "600 K", "500 K", "400 K", "300 K", "200 K",
+ 		   undef, "Unlimited");
+ 	my $mac = $bytes->[7] & 0x0f;
+-	printl_cond(defined $mac[$mac], "Maximum Activate Count", $mac[$mac]);
++	printl_cond(defined $mac[$mac], "Maximum Activate Count (MAC)", $mac[$mac]);
+ 
+ 	my $ppr = $bytes->[9] >> 6;
+ 	printl("Post Package Repair",
+@@ -2071,6 +2177,7 @@
+ 	"DDR SDRAM"	=> \&decode_ddr_sdram,
+ 	"DDR2 SDRAM"	=> \&decode_ddr2_sdram,
+ 	"DDR3 SDRAM"	=> \&decode_ddr3_sdram,
++	"LPDDR3 SDRAM"	=> \&decode_ddr3_sdram,
+ 	"DDR4 SDRAM"	=> \&decode_ddr4_sdram,
+ 	"DDR4E SDRAM"	=> \&decode_ddr4_sdram,
+ 	"LPDDR4 SDRAM"	=> \&decode_ddr4_sdram,
+@@ -2335,9 +2442,13 @@
+ sub readspd($$$)
+ {
+ 	my ($offset, $size, $dimm_i) = @_;
+-	my @bytes;
++	my (@bytes, $read);
+ 	if ($use_hexdump) {
+ 		@bytes = read_hexdump($dimm_i);
++		if (@bytes < $offset + $size) {
++			print STDERR "WARNING: Dump file $dimm_i is truncated\n";
++			$size = @bytes - $offset;
++		}
+ 		return @bytes[$offset..($offset + $size - 1)];
+ 	} elsif ($use_sysfs) {
+ 		# Kernel 2.6 with sysfs
+@@ -2346,9 +2457,12 @@
+ 		binmode HANDLE;
+ 		sysseek(HANDLE, $offset, SEEK_SET)
+ 			or die "Cannot seek $dimm_i/eeprom";
+-		sysread(HANDLE, my $eeprom, $size)
+-			or die "Cannot read $dimm_i/eeprom";
++		$read = sysread(HANDLE, my $eeprom, $size)
++				or die "Cannot read $dimm_i/eeprom";
+ 		close HANDLE;
++		if ($read < $size) {
++			print STDERR "WARNING: $dimm_i/eeprom is smaller than expected\n";
++		}
+ 		@bytes = unpack("C*", $eeprom);
+ 	} else {
+ 		# Kernel 2.4 with procfs
+@@ -2503,17 +2617,22 @@
+ 
+ sub get_dimm_list
+ {
+-	my (@dirs, $dir, $opened, $file, @files);
++	my (@drivers, $driver, $dir, $opened, $file, @files);
+ 
+ 	if ($use_sysfs) {
+-		@dirs = ('/sys/bus/i2c/drivers/eeprom',
+-			 '/sys/bus/i2c/drivers/at24',
+-			 '/sys/bus/i2c/drivers/ee1004');	# DDR4
++		@drivers = ('eeprom',
++			    'at24',
++			    'ee1004');	# DDR4
+ 	} else {
+-		@dirs = ('/proc/sys/dev/sensors');
++		@drivers = ('eeprom');
++		$dir = '/proc/sys/dev/sensors';
+ 	}
+ 
+-	foreach $dir (@dirs) {
++	foreach $driver (@drivers) {
++		if ($use_sysfs) {
++			$dir = "/sys/bus/i2c/drivers/$driver";
++		}
++
+ 		next unless opendir(local *DIR, $dir);
+ 		$opened++;
+ 		while (defined($file = readdir(DIR))) {
+@@ -2523,7 +2642,7 @@
+ 				next unless -d "$dir/$file";
+ 
+ 				# Device name must be eeprom (driver eeprom)
+-				# or spd (driver at24)
++				# spd (driver at24) or ee1004 (driver ee1004)
+ 				my $attr = sysfs_device_attribute("$dir/$file", "name");
+ 				next unless defined $attr &&
+ 					    ($attr eq "eeprom" ||
+@@ -2533,14 +2652,15 @@
+ 				next unless $file =~ /^eeprom-/;
+ 			}
+ 			push @files, { eeprom => "$file",
+-				       file => "$dir/$file" };
++				       file => "$dir/$file",
++				       driver => "$driver" };
+ 		}
+ 		close(DIR);
+ 	}
+ 
+ 	if (!@files) {
+ 		if (!$opened) {
+-			print STDERR "No EEPROM found, try loading the eeprom or at24 module\n";
++			print STDERR "No EEPROM found, try loading the eeprom, at24 or or ee1004 module\n";
+ 			exit;
+ 		} else {
+ 			print STDERR "No EEPROM found, the kernel probably does not support your hardware.\n";
+@@ -2555,6 +2675,7 @@
+ # Each hash has the following keys:
+ #  * eeprom: Name of the eeprom data file
+ #  * file: Full path to the eeprom data file
++#  * driver: Driver used to retrieve the data (undef for dump files)
+ #  * bytes: The EEPROM data (array)
+ #  * is_rambus: Whether this is a RAMBUS DIMM or not (boolean)
+ #  * chk_label: The label to display for the checksum or CRC
+@@ -2601,7 +2722,7 @@
+ 	      "<body>\n";
+ }
+ 
+-printc("decode-dimms version $revision");
++printc("decode-dimms version ".I2C_TOOLS_VER);
+ printh('Memory Serial Presence Detect Decoder',
+ 'By Philip Edelbrock, Christian Zuckschwerdt, Burkart Lingner,
+ Jean Delvare, Trent Piepho and others');
+@@ -2621,6 +2742,7 @@
+ 				printl("Guessing DIMM is in", "bank $dimm_num");
+ 			}
+ 		}
++		printl("Kernel driver used", $dimm[$current]->{driver});
+ 	}
+ 
+ # Decode first 3 bytes (0-2)
+@@ -2644,11 +2766,14 @@
+ 		printl("Total number of bytes in EEPROM", $spd_size);
+ 
+ 		# If there's more data than what we've read, let's
+-		# read it now.  DDR3 will need this data.
++		# read it now.  DDR3 and DDR4 will need this data.
+ 		if ($spd_used > @bytes) {
+ 			push (@bytes,
+ 			      readspd(@bytes, $spd_used - @bytes,
+ 				      $dimm[$current]->{file}));
++			if (@bytes < $spd_used) {
++				print STDERR "WARNING: Fewer data bytes available (".(scalar @bytes).") than needed ($spd_used)\n";
++			}
+ 		}
+ 	}
+ 
+@@ -2667,6 +2792,7 @@
+ 			"DDR4 SDRAM", "Reserved",	# 12, 13
+ 			"DDR4E SDRAM", "LPDDR3 SDRAM",	# 14, 15
+ 			"LPDDR4 SDRAM", "LPDDR4X SDRAM", # 16, 17
++			"DDR5 SDRAM", "LPDDR5 SDRAM",	# 18, 19
+ 		);
+ 		if ($bytes[2] < @type_list) {
+ 			$type = $type_list[$bytes[2]];
+@@ -2678,29 +2804,29 @@
+ 	$decode_callback{$type}->(\@bytes)
+ 		if exists $decode_callback{$type};
+ 
+-	if ($type eq "DDR3 SDRAM") {
++	if ($type eq "DDR3 SDRAM" ||
++	    $type eq "LPDDR3 SDRAM") {
+ 		# Decode DDR3-specific manufacturing data in bytes
+ 		# 117-149
+-		decode_ddr3_mfg_data(\@bytes)
++		if (@bytes >= 150) {
++			decode_ddr3_mfg_data(\@bytes)
++		}
+ 	} elsif ($type eq "DDR4 SDRAM" ||
+ 		 $type eq "DDR4E SDRAM" ||
+ 		 $type eq "LPDDR4 SDRAM" ||
+ 		 $type eq "LPDDR4X SDRAM") {
+ 		# Decode DDR4-specific manufacturing data in bytes
+ 		# 320-383
+-		decode_ddr4_mfg_data(\@bytes)
++		if (@bytes >= 384) {
++			decode_ddr4_mfg_data(\@bytes);
++		} elsif (!$use_hexdump && $dimm[$current]->{driver} ne "ee1004") {
++			print STDERR "HINT: You should be using the ee1004 driver instead of the $dimm[$current]->{driver} driver\n";
++		}
+ 	} else {
+ 		# Decode next 35 bytes (64-98, common to most
+ 		# memory types)
+ 		decode_manufacturing_information(\@bytes);
+ 	}
+-
+-# Next 27 bytes (99-125) are manufacturer specific, can't decode
+-
+-# Last 2 bytes (126-127) are reserved, Intel used them as an extension
+-	if ($type eq "SDR SDRAM") {
+-		decode_intel_spec_freq(\@bytes);
+-	}
+ }
+ 
+ # Side-by-side output format is only possible if all DIMMs have a similar

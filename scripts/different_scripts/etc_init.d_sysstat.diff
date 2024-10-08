@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/etc/init.d/sysstat	2019-04-06 03:18:26.000000000 -0400
++++ /media/mks/armbi_root/etc/init.d/sysstat	2022-12-04 16:23:25.000000000 -0500
+@@ -29,7 +29,7 @@
+ # ...overridden in the configuration file
+ test -r "$DEFAULT" && . "$DEFAULT"
+ 
+-set -e 
++set -e
+ status=0
+ 
+ . /lib/lsb/init-functions

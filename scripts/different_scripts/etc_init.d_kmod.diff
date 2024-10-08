@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/etc/init.d/kmod	2019-02-09 17:35:56.000000000 -0500
++++ /media/mks/armbi_root/etc/init.d/kmod	2022-12-09 17:58:43.000000000 -0500
+@@ -18,7 +18,7 @@
+ [ -f /etc/default/rcS ] && . /etc/default/rcS
+ . /lib/lsb/init-functions
+ 
+-PATH='/sbin:/bin'
++PATH='/usr/sbin:/usr/bin:/sbin:/bin'
+ 
+ case "$1" in
+   start)

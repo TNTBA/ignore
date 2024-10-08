@@ -1,0 +1,39 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/etc/network/if-up.d/ifenslave	2016-09-27 08:23:58.000000000 -0400
++++ /media/mks/armbi_root/etc/network/if-up.d/ifenslave	2021-10-16 17:19:29.000000000 -0400
+@@ -21,27 +21,27 @@
+ 
+ # This stanza is designed to workaround a bug in wpa_supplicant, when used with bonding :
+ 
+-# wpa_supplicant expects wifi authentication packets on the bond interface, but also sends wifi authentication packets on the bond interface.
+-# If the active interface is not the wifi interface at the time wpa_supplicant tries to authenticate, the wifi AP won't receive anything, causing the authentication to fail.
++# wpa_supplicant expects Wi-Fi authentication packets on the bond interface, but also sends Wi-Fi authentication packets on the bond interface.
++# If the active interface is not the Wi-Fi interface at the time wpa_supplicant tries to authenticate, the Wi-Fi AP won't receive anything, causing the authentication to fail.
+ 
+-# In order for the wifi authentication to succeed, one needs to give a chance to the wifi interface to send authentication packets.
+-# "bond-give-a-chance 10" will set the wifi interface as the primary interface for 10 seconds, then restore the previous primary interface.
+-# This is supposed to be enough to give a chance to wifi to authenticate properly.
++# In order for the Wi-Fi authentication to succeed, one needs to give a chance to the Wi-Fi interface to send authentication packets.
++# "bond-give-a-chance 10" will set the Wi-Fi interface as the primary interface for 10 seconds, then restore the previous primary interface.
++# This is supposed to be enough to give a chance to Wi-Fi to authenticate properly.
+ 
+ if [ "$IF_BOND_GIVE_A_CHANCE" ] ; then
+-	read primary < "/sys/class/net/$IFACE/master/bonding/primary"
++	read -r primary < "/sys/class/net/$IFACE/master/bonding/primary"
+ 	# Set the temporary primary.
+ 	sysfs primary "$IFACE"
+ 
+ 	# Wait for the link to be setup, but not longer that $IF_BOND_GIVE_A_CHANGE seconds.
+ 	while [ "$IF_BOND_GIVE_A_CHANCE" -gt 0 ] ; do
+-		if ip link show $IFACE | grep -sq 'state UP'; then
++		if ip link show "$IFACE" | grep -sq 'state UP'; then
+ 			break
+ 		fi
+ 		sleep 1
+-		IF_BOND_GIVE_A_CHANCE=`expr $IF_BOND_GIVE_A_CHANCE - 1`
++		IF_BOND_GIVE_A_CHANCE=$((IF_BOND_GIVE_A_CHANCE - 1))
+ 	done
+-		
++
+ 	# Restore the previous primary.
+ 	sysfs primary "$primary"
+ fi

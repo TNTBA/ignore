@@ -1,0 +1,8 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/dtdiff	2021-01-27 13:53:55.000000000 -0500
++++ /media/mks/armbi_root/usr/bin/dtdiff	2023-01-03 01:52:09.000000000 -0500
+@@ -1,4 +1,5 @@
+ #! /bin/bash
++# SPDX-License-Identifier: GPL-2.0-or-later
+ 
+ # This script uses the bash <(...) extension.
+ # If you want to change this to work with a generic /bin/sh, make sure

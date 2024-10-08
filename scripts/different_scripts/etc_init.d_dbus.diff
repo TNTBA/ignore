@@ -1,0 +1,16 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/etc/init.d/dbus	2020-07-05 12:10:45.000000000 -0400
++++ /media/mks/armbi_root/etc/init.d/dbus	2023-09-16 06:03:58.000000000 -0400
+@@ -67,6 +67,13 @@
+ 
+   create_machineid
+ 
++  # Force libnss-systemd to avoid trying to communicate via D-Bus, which
++  # is never going to work well from within dbus-daemon. systemd
++  # special-cases this internally, but we might need to do the same when
++  # booting with sysvinit if libnss-systemd is still installed.
++  # (Workaround for #940971)
++  export SYSTEMD_NSS_BYPASS_BUS=1
++
+   log_daemon_msg "Starting $DESC" "$NAME"
+   start-stop-daemon --start --quiet --pidfile $PIDFILE \
+     --exec $DAEMON -- --system $PARAMS

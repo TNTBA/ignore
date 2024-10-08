@@ -1,0 +1,86 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/enc2xs	2020-07-21 15:27:00.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/enc2xs	2023-11-25 15:59:54.000000000 -0500
+@@ -1,6 +1,6 @@
+ #!/usr/bin/perl
+     eval 'exec /usr/bin/perl -S $0 ${1+"$@"}'
+-	if $running_under_some_shell;
++	if 0; # ^ Run only under a shell
+ #!./perl
+ BEGIN {
+     # @INC poking  no longer needed w/ new MakeMaker and Makefile.PL's
+@@ -14,7 +14,7 @@
+ use Getopt::Std;
+ use Config;
+ my @orig_ARGV = @ARGV;
+-our $VERSION  = do { my @r = (q$Revision: 2.21 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
++our $VERSION  = do { my @r = (q$Revision: 2.24 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
+ 
+ # These may get re-ordered.
+ # RAW is a do_now as inserted by &enter
+@@ -147,6 +147,7 @@
+ $opt{M} and make_makefile_pl($opt{M}, @ARGV);
+ $opt{C} and make_configlocal_pm($opt{C}, @ARGV);
+ $opt{v} ||= $ENV{ENC2XS_VERBOSE};
++$opt{q} ||= $ENV{ENC2XS_NO_COMMENTS};
+ 
+ sub verbose {
+     print STDERR @_ if $opt{v};
+@@ -251,7 +252,12 @@
+ END
+   }
+ 
+-  if ($cname =~ /(\w+)\.xs$/)
++  if ($cname =~ /\.c$/i && $Config{ccname} eq "gcc")
++   {
++    print C qq(#pragma GCC diagnostic ignored "-Wc++-compat"\n);
++   }
++
++  if ($cname =~ /\.xs$/i)
+    {
+     print C "#define PERL_NO_GET_CONTEXT\n";
+     print C "#include <EXTERN.h>\n";
+@@ -261,15 +267,15 @@
+   print C "#include \"encode.h\"\n\n";
+ 
+  }
+-elsif ($cname =~ /\.enc$/)
++elsif ($cname =~ /\.enc$/i)
+  {
+   $doEnc = 1;
+  }
+-elsif ($cname =~ /\.ucm$/)
++elsif ($cname =~ /\.ucm$/i)
+  {
+   $doUcm = 1;
+  }
+-elsif ($cname =~ /\.pet$/)
++elsif ($cname =~ /\.pet$/i)
+  {
+   $doPet = 1;
+  }
+@@ -917,24 +923,7 @@
+ }
+ 
+ my @uname;
+-sub char_names
+-{
+- my $s = do "unicore/Name.pl";
+- die "char_names: unicore/Name.pl: $!\n" unless defined $s;
+- pos($s) = 0;
+- while ($s =~ /\G([0-9a-f]+)\t([0-9a-f]*)\t(.*?)\s*\n/igc)
+-  {
+-   my $name = $3;
+-   my $s = hex($1);
+-   last if $s >= 0x10000;
+-   my $e = length($2) ? hex($2) : $s;
+-   for (my $i = $s; $i <= $e; $i++)
+-    {
+-     $uname[$i] = $name;
+-#    print sprintf("U%04X $name\n",$i);
+-    }
+-  }
+-}
++sub char_names{} # cf. https://rt.cpan.org/Ticket/Display.html?id=132471
+ 
+ sub output_ucm_page
+ {

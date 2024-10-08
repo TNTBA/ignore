@@ -1,0 +1,8 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/etc/kernel/postinst.d/initramfs-tools	2019-02-05 22:48:49.000000000 -0500
++++ /media/mks/armbi_root/etc/kernel/postinst.d/initramfs-tools	2020-08-31 19:59:17.000000000 -0400
+@@ -33,4 +33,4 @@
+ 
+ # we're good - create initramfs.  update runs do_bootloader
+ # shellcheck disable=SC2086
+-INITRAMFS_TOOLS_KERNEL_HOOK=1 update-initramfs -c -k "${version}" ${bootopt} >&2
++update-initramfs -c -k "${version}" ${bootopt} >&2

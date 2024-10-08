@@ -1,0 +1,55 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/dpkg-scanpackages	2022-05-24 07:40:09.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/dpkg-scanpackages	2023-05-10 22:04:01.000000000 -0400
+@@ -20,7 +20,7 @@
+ use warnings;
+ use strict;
+ 
+-use Getopt::Long qw(:config posix_default bundling no_ignorecase);
++use Getopt::Long qw(:config posix_default bundling_values no_ignorecase);
+ use List::Util qw(none);
+ use File::Find;
+ 
+@@ -44,15 +44,16 @@
+ my %overridden;
+ my @checksums;
+ 
+-my %options = (help            => sub { usage(); exit 0; },
+-	       version         => sub { version(); exit 0; },
+-	       type            => undef,
+-	       arch            => undef,
+-	       hash            => undef,
+-	       multiversion    => 0,
+-	       'extra-override'=> undef,
+-               medium          => undef,
+-	      );
++my %options = (
++    help            => sub { usage(); exit 0; },
++    version         => sub { version(); exit 0; },
++    type            => undef,
++    arch            => undef,
++    hash            => undef,
++    multiversion    => 0,
++    'extra-override' => undef,
++    medium          => undef,
++);
+ 
+ my @options_spec = (
+     'help|?',
+@@ -80,7 +81,7 @@
+   -m, --multiversion       allow multiple versions of a single package.
+   -e, --extra-override <file>
+                            use extra override file.
+-  -M, --medium <medium>    add X-Medium field for dselect multicd access method
++  -M, --medium <medium>    add X-Medium field for dselect media access method
+   -?, --help               show this help message.
+       --version            show the version.
+ "), $Dpkg::PROGNAME;
+@@ -264,7 +265,7 @@
+ load_override($override) if defined $override;
+ load_override_extra($options{'extra-override'}) if defined $options{'extra-override'};
+ 
+-my @missingover=();
++my @missingover = ();
+ 
+ my $records_written = 0;
+ for my $p (sort keys %packages) {

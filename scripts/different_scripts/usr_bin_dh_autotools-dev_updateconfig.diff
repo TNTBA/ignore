@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/dh_autotools-dev_updateconfig	2018-02-24 11:00:57.000000000 -0500
++++ /media/mks/armbi_root/usr/bin/dh_autotools-dev_updateconfig	2022-01-31 09:43:17.000000000 -0500
+@@ -23,7 +23,7 @@
+ dh_autotools-dev_restoreconfig.
+ 
+ 
+-dh_autotools-dev_updateconfig replaces all occurances of B<config.sub> and B<config.guess>
++dh_autotools-dev_updateconfig replaces all occurrences of B<config.sub> and B<config.guess>
+ in the source tree by the up-to-date versions found in the autotools-dev package.
+ The original files are backed up under the names B<config.sub.dh-orig> and
+ B<config.guess.dh-orig>.

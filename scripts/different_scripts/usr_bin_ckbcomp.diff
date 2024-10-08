@@ -1,0 +1,168 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/ckbcomp	2019-08-15 10:11:30.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/ckbcomp	2023-05-21 17:30:42.000000000 -0400
+@@ -34,6 +34,7 @@
+ ########### ARGUMENTS ###############################################
+ 
+ my $charmap;
++my $compose_charmap;
+ my $acm;
+ 
+ my $verbosity = 0;
+@@ -76,6 +77,12 @@
+ 	    }
+ 	    $charmap = $ARGV[0];
+ 	    shift @ARGV;
++	} elsif (/^ccharmap$/) {
++	    if ($compose_charmap) {
++		die "$0: No more than one -ccharmap option is allowed\n";
++	    }
++	    $compose_charmap = $ARGV[0];
++	    shift @ARGV;
+ 	} elsif (/^v(erbose)?$/) {
+ 	    if ($verbosity) {
+ 		die "$0: No more than one -verbose option is allowed\n";
+@@ -137,6 +144,7 @@
+ Where legal args are:
+ -?,-help            Print this message
+ -charmap <name>     Specifies the encoding to use
++-ccharmap <name>    Specifies the encoding to use for compose sequences
+ -I<dir>             Add <dir> to list of directories to be used
+ -keycodes <name>    Specifies keycodes component name
+ -symbols <name>     Specifies symbols component name
+@@ -181,7 +189,7 @@
+     }
+ }
+ 
+-$rules = 'xorg' if (! $rules);
++$rules = 'base' if (! $rules);
+ $model = 'pc104' if (! $model);
+ $backspace = $freebsd ? 'bs' : 'del' if (! $backspace);
+ 
+@@ -2511,28 +2519,28 @@
+          'SunFA_Circum' => 'dead_circumflex', # Is this recognised by X ?
+          'dead_tilde' => 'dead_tilde',
+          'SunFA_Tilde' => 'dead_tilde',
+-         'dead_breve' => 'dead_breve',
++         'dead_breve' => 'dead_kbreve',
+          'dead_diaeresis' => 'dead_diaeresis',
+          'SunFA_Diaeresis' => 'dead_diaeresis', # Is this recognised by X ?
+-         'dead_doubleacute' => 'dead_doubleacute',
+-         'dead_caron' => 'dead_caron',
++         'dead_doubleacute' => 'dead_kdoubleacute',
++         'dead_caron' => 'dead_kcaron',
+          'dead_V' => 'dead_caron', # Is this correct?
+          'dead_cedilla' => 'dead_cedilla',
+          'SunFA_Cedilla' => 'dead_cedilla', # Is this recognised by X ?
+-         'dead_ogonek' => 'dead_ogonek',
++         'dead_ogonek' => 'dead_kogonek',
++         'dead_macron' => 'dead_macron',
++         'dead_abovedot' => 'dead_abovedot',
++         'dead_abovering' => 'dead_abovering',
++         'dead_stroke' => 'dead_stroke',
++         'dead_belowdot' => 'dead_belowdot',
++         'dead_hook' => 'dead_hook',
++         'dead_belowcomma' => 'dead_belowcomma',
++         'dead_currency' => 'dead_currency',
++         'dead_doublegrave' => 'dead_doublegrave',
++         'dead_invertedbreve' => 'dead_invertedbreve',
++         'dead_iota' => 'dead_iota',
++         'dead_horn' => 'dead_horn',
+ # Dead symbols with no support in the kernel
+-         'dead_macron' => '005f',         # underscore
+-         'dead_abovedot' => '002e',       # period
+-         'dead_abovering' => '00b0',      # degree
+-         'dead_stroke' => '002d',         # hyphen
+-         'dead_belowdot' => '0323',       # ???? Vietnamese or Romanian cedilla
+-         'dead_hook' => '0309',           # ???? Vietnamese
+-         'dead_belowcomma' => 'VoidSymbol',
+-         'dead_currency' => 'VoidSymbol',
+-         'dead_doublegrave' => 'VoidSymbol',
+-         'dead_invertedbreve' => 'VoidSymbol',
+-         'dead_iota' => '03b9',           # ???? Greek
+-         'dead_horn' => '031b',           # ???? Greek
+          'dead_psili' => 'VoidSymbol',    # ???? Greek
+          'dead_dasia' => 'VoidSymbol',    # ???? Greek
+ # Modifiers
+@@ -3252,9 +3260,7 @@
+ 
+ ########### COMPUTE ARCH ###########################################
+ 
+-if ($keycodes =~ /(^|\+|\|)macintosh\(old\)($|\+|\|)/) {
+-    $arch = 'macintosh';
+-} elsif ($keycodes =~ /(^|\+|\|)ataritt(\([^\)]*\))?($|\+|\|)/) {
++if ($keycodes =~ /(^|\+|\|)ataritt(\([^\)]*\))?($|\+|\|)/) {
+     $arch = 'ataritt';
+ } elsif ($keycodes =~ /(^|\+|\|)amiga(\([^\)]*\))?($|\+|\|)/) {
+     $arch = 'amiga';
+@@ -3743,6 +3749,22 @@
+ 	    warning "Can not find \"$block\" in \"$file\".\n";
+ 	    xkb_block_list ($file_type, '');
+ 	}
++
++	# Patch the Greek symbols. See Bug#1026986 and http://kbdlayout.info/kbdhe :
++	# - xkb-data makes shift-w a SIGMA, which is not that useful.
++	# - On the other hand, the kernel doesn't support double-dead-keys, and it
++	# is common usage to make shift-w a dead-acute-diaeresis (here encoded
++	# as dead_breve)
++	if ($file eq "gr") {
++		my $code = $keycodes_table{'AD02'}[0];
++		if (defined $code) {
++			my $symbol = $symbols_table{$code}[$base_group][1];
++			if ($symbol eq "Greek_SIGMA") {
++				$symbols_table{$code}[$base_group][1] = "dead_breve";
++			}
++		}
++	}
++
+ 	$stream = $oldstream;
+ 	$filename = $oldfilename;
+ 	$method = $oldmethod;
+@@ -3837,7 +3859,7 @@
+     }
+     if (defined $kernelkeysym) {
+ 	my $uni = hex ($kernelkeysym);
+-	if (defined $forbidden{$uni}) {
++	if ($uni > 0xFFFF || defined $forbidden{$uni}) {
+             if ($verbosity >= 8) {
+                 warning "Forbidden Unicode \"U+$kernelkeysym\"\n";
+             }
+@@ -4378,7 +4400,7 @@
+ 		my $u = ord (uc (pack ("U", $v)));
+ 		my $c = ($v == $l ? $u : $l);
+ 		$capsvector[$mask] = $1 ."U+". sprintf ("%04x", $c);
+-		if ($v != $c && $v gt 0x7f) {
++		if ($v != $c && $v > 0x7f) {
+ 		    $broken_caps = 1;
+ 		}
+ 	    }
+@@ -4784,10 +4806,14 @@
+ 
+ print $KEYMAP;
+ 
++if (!$compose_charmap && $charmap) {
++    $compose_charmap = $charmap;
++}
++
+ if ($freebsd) {
+-    if ($charmap) {
+-        my $file1 = "/etc/console-setup/dkey.${charmap}.inc";
+-        my $file2 = "$installdir/etc/console-setup/dkey.${charmap}.inc";
++    if ($compose_charmap) {
++        my $file1 = "/etc/console-setup/dkey.${compose_charmap}.inc";
++        my $file2 = "$installdir/etc/console-setup/dkey.${compose_charmap}.inc";
+         if (-f $file1) {
+             system("cat $file1");
+         } elsif (-f $file2) {
+@@ -4797,9 +4823,9 @@
+ } else {
+     print "strings as usual\n";
+ 
+-    if ($charmap) {
+-        my $file1 = "/etc/console-setup/compose.${charmap}.inc";
+-        my $file2 = "$installdir/etc/console-setup/compose.${charmap}.inc";
++    if ($compose_charmap) {
++        my $file1 = "/etc/console-setup/compose.${compose_charmap}.inc";
++        my $file2 = "$installdir/etc/console-setup/compose.${compose_charmap}.inc";
+         if (-f $file1) {
+             system("cat $file1");
+         } elsif (-f $file2) {

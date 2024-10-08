@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/etc/init.d/keyboard-setup.sh	2016-10-09 19:23:23.000000000 -0400
++++ /media/mks/armbi_root/etc/init.d/keyboard-setup.sh	2022-07-18 08:25:02.000000000 -0400
+@@ -43,7 +43,7 @@
+ 	    fi
+ 	    ;;
+         *)
+-            echo 'Usage: /etc/init.d/keyboard-setup {start|reload|restart|force-reload|stop|status}'
++            echo 'Usage: /etc/init.d/keyboard-setup.sh {start|reload|restart|force-reload|stop|status}'
+             exit 3
+             ;;
+     esac

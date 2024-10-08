@@ -1,0 +1,29 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/dpkg-vendor	2022-05-24 07:40:09.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/dpkg-vendor	2023-05-10 22:04:01.000000000 -0400
+@@ -89,26 +89,20 @@
+ }
+ 
+ if ($action eq 'is') {
+-
+     exit(0) if lc($param) eq lc($info->{'Vendor'});
+     exit(1);
+-
+ } elsif ($action eq 'derives-from') {
+-
+     exit(0) if lc($param) eq lc($info->{'Vendor'});
+     while (defined($info) && exists $info->{'Parent'}) {
+         $info = get_vendor_info($info->{'Parent'});
+         exit(0) if lc($param) eq lc($info->{'Vendor'});
+     }
+     exit(1);
+-
+ } elsif ($action eq 'query') {
+-
+     if (exists $info->{$param}) {
+         print $info->{$param} . "\n";
+         exit(0);
+     } else {
+         exit(1);
+     }
+-
+ }

@@ -1,0 +1,29 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/etc/init.d/sudo	2021-01-20 06:56:07.000000000 -0500
++++ /media/mks/armbi_root/etc/init.d/sudo	2023-06-27 07:45:00.000000000 -0400
+@@ -22,15 +22,17 @@
+ 	# make sure privileges don't persist across reboots
+ 	# if the /run/sudo directory doesn't exist, let's create it with the
+ 	# correct permissions and SELinux label
+-	if [ -d /run/sudo ]
+-	then
+-                find /run/sudo -exec touch -d @0 '{}' \;
+-	else
+-		mkdir /run/sudo /run/sudo/ts
+-		chown root:root /run/sudo /run/sudo/ts
+-		chmod 0711 /run/sudo
+-		chmod 0700 /run/sudo/ts
+-		[ -x /sbin/restorecon ] && /sbin/restorecon /run/sudo /run/sudo/ts
++        if ! [ -d /run/systemd/system ] ; then
++	        if [ -d /run/sudo ]
++	        then
++                        find /run/sudo -exec touch -d @0 '{}' \;
++	        else
++	        	mkdir /run/sudo /run/sudo/ts
++	        	chown root:root /run/sudo /run/sudo/ts
++	        	chmod 0711 /run/sudo
++	        	chmod 0700 /run/sudo/ts
++	        	[ -x /sbin/restorecon ] && /sbin/restorecon /run/sudo /run/sudo/ts
++	        fi
+ 	fi
+ 	;;
+   stop|reload|restart|force-reload|status)

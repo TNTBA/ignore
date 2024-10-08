@@ -1,0 +1,100 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/etc/init.d/smartmontools	2018-08-08 11:47:52.000000000 -0400
++++ /media/mks/armbi_root/etc/init.d/smartmontools	2019-10-09 20:34:55.000000000 -0400
+@@ -12,7 +12,7 @@
+ # Required-Start:    $syslog $remote_fs
+ # Required-Stop:     $syslog $remote_fs
+ # Default-Start:     2 3 4 5
+-# Default-Stop:      1
++# Default-Stop:      0 1 6
+ # Short-Description: SMART monitoring daemon
+ ### END INIT INFO
+ 
+@@ -42,21 +42,12 @@
+   log_action_end_msg 0
+ }
+ 
+-check_start_smartd_option() {
+-  if [ ! "$start_smartd" = "yes" ]; then
+-    [ "$VERBOSE" = "yes" ] && log_warning_msg "Not starting S.M.A.R.T. daemon smartd, disabled via /etc/default/smartmontools"
+-    return 1
+-  else
+-    return 0
+-  fi
+-}
+-
+ running_pid()
+ {
+     # Check if a given process pid's cmdline matches a given name
+     pid=$1
+     name=$2
+-    [ -z "$pid" ] && return 1 
++    [ -z "$pid" ] && return 1
+     [ ! -d /proc/$pid ] &&  return 1
+     cmd=`cat /proc/$pid/cmdline | tr "\000" "\n"|head -n 1 |cut -d : -f 1`
+     # Is this the expected child?
+@@ -79,22 +70,19 @@
+ case "$1" in
+   start)
+         [ -n "$enable_smart" ] && enable_smart
+-	if check_start_smartd_option; then
+-
+-	    log_daemon_msg "Starting S.M.A.R.T. daemon" "smartd"
+-	    if running; then
+-	        log_progress_msg "already running"
+-	        log_end_msg 0
+-	        exit 0
+-	    fi
+-	    rm -f $PIDFILE
+-	    if start-stop-daemon --start --quiet --pidfile $PIDFILE \
+-	                --exec $DAEMON -- $smartd_opts; then 
+-	        log_end_msg 0
+-	    else
+-	        log_end_msg 1
+-	        RET=1
+-	    fi
++	log_daemon_msg "Starting S.M.A.R.T. daemon" "smartd"
++	if running; then
++	    log_progress_msg "already running"
++	    log_end_msg 0
++	    exit 0
++	fi
++	rm -f $PIDFILE
++	if start-stop-daemon --start --quiet --pidfile $PIDFILE \
++	            --exec $DAEMON -- $smartd_opts; then
++	    log_end_msg 0
++	else
++	    log_end_msg 1
++	    RET=1
+ 	fi
+ 	;;
+   stop)
+@@ -111,19 +99,17 @@
+ 	    log_end_msg 1
+ 	    RET=1
+ 	fi
+-	  ;;
++	;;
+   restart)
+-	if check_start_smartd_option; then
+-	    log_daemon_msg "Restarting S.M.A.R.T. daemon" "smartd"
+-	    start-stop-daemon --stop --quiet --oknodo --retry 30 --pidfile $PIDFILE
+-	    rm -f $PIDFILE
+-	    if start-stop-daemon --start --quiet --pidfile $PIDFILE \
+-	                --exec $DAEMON -- $smartd_opts; then 
+-	        log_end_msg 0
+-	    else
+-	        log_end_msg 1
+-	        RET=1
+-	    fi
++	log_daemon_msg "Restarting S.M.A.R.T. daemon" "smartd"
++	start-stop-daemon --stop --quiet --oknodo --retry 30 --pidfile $PIDFILE
++	rm -f $PIDFILE
++	if start-stop-daemon --start --quiet --pidfile $PIDFILE \
++	            --exec $DAEMON -- $smartd_opts; then
++	    log_end_msg 0
++	else
++	    log_end_msg 1
++	    RET=1
+ 	fi
+         ;;
+   status)

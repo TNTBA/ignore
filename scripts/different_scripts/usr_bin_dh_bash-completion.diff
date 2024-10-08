@@ -1,0 +1,79 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/dh_bash-completion	2019-02-11 18:36:02.000000000 -0500
++++ /media/mks/armbi_root/usr/bin/dh_bash-completion	2021-08-28 11:26:00.000000000 -0400
+@@ -33,6 +33,60 @@
+ 
+ =cut
+ 
++# This helper function tries to determine (using some poor man's
++# heuristics) whether $file (its first and only argument) is a
++# filelist containing a list of files to be installed by us, or a
++# bash-completion script, which should itself be installed.
++#
++# If we're dealing with a filelist, return 1.  Otherwise, return 0.
++sub is_filelist {
++	# The file to be checked.
++	my ($file) = @_;
++
++	open (DH_FILE, '<', $file) || error("cannot read $file: $!");
++
++	while (<DH_FILE>) {
++		# Get rid of lines containing just spaces or comments.
++		chomp;
++		s/^\s++//;
++		next if /^#/;
++		s/\s++$//;
++
++		# We always ignore/permit empty lines
++		next if $_ eq '';
++
++		# This is the heart of the script.  Here, we check for some
++		# well-known idioms on bash scripts, and try to determine if
++		# they're present in the file we're examining.  We assume that
++		# if they are, then this means the file is a bash-completion
++		# script.
++		#
++		# The regexes check:
++		#
++		# - If we're calling the bash function "complete", which is a
++		#   pretty common thing to do in bash-completion scripts, or
++		#
++		# - If we're using the $(program) way of executing a program.
++		#   We don't take into account multi-line statements.  Or
++		#
++		# - If we're calling the bash function "compgen", which is
++		#   also a pretty common thing that bash-completion scripts
++		#   do.  Or
++		#
++		# - If we see an "if...then" construction in the file.  We
++		#   take into account multi-line statements.
++		if (/(^|[|&;])\s*complete.*-[A-Za-z].*/
++			|| /\$\(.*\)/
++			|| /\s*compgen.*-[A-Za-z].*/
++			|| /\s*if.*;.*then/s) {
++			return 0;
++		}
++	}
++
++	# If we reached the end, this is not a bash-completion script.
++	return 1;
++}
++
+ init();
+ 
+ my $srcdir = '.';
+@@ -53,6 +107,15 @@
+ 	if ($completions) {
+ 		install_dir($bc_dir);
+ 
++		# Invoke our heuristic function to try and determine
++		# if we're dealing with a filelist or with a
++		# bash-completion script.
++		if (!is_filelist($completions)) {
++			verbose_print "detected $completions as a bash-completion script";
++			install_file($completions, "$bc_dir/$package");
++			next PKG
++		}
++
+ 		# try parsing a list of files
+ 		@install = filedoublearray($completions);
+ 		foreach my $set (@install) {

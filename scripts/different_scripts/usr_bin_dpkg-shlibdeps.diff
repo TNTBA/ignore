@@ -1,0 +1,78 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/dpkg-shlibdeps	2022-05-24 07:40:09.000000000 -0400
++++ /media/mks/armbi_root/usr/bin/dpkg-shlibdeps	2023-05-10 22:04:01.000000000 -0400
+@@ -161,7 +161,7 @@
+ my $fields = $control->get_source();
+ my $bd_value = deps_concat($fields->{'Build-Depends'}, $fields->{'Build-Depends-Arch'});
+ my $build_deps = deps_parse($bd_value, build_dep => 1, reduce_restrictions => 1);
+-error(g_('error occurred while parsing %s'), 'Build-Depends/Build-Depends-Arch')
++error(g_('cannot parse %s field'), 'Build-Depends/Build-Depends-Arch')
+     unless defined $build_deps;
+ 
+ my %dependencies;
+@@ -172,7 +172,8 @@
+ my %global_soname_used;
+ my %global_soname_needed;
+ 
+-# Symfile and objdump caches
++# Cached data.
++my %shlibs_cache;
+ my %symfile_cache;
+ my %objdump_cache;
+ my %symfile_has_soname_cache;
+@@ -435,8 +436,9 @@
+     foreach my $soname (@sonames) {
+ 	# Adjust minimal version of dependencies with information
+ 	# extracted from build-dependencies
+-	my $dev_pkg = $symfile->get_field($soname, 'Build-Depends-Package');
+-	if (defined $dev_pkg) {
++        my $dev_pkgs = $symfile->get_field($soname, 'Build-Depends-Packages') //
++                       $symfile->get_field($soname, 'Build-Depends-Package');
++        foreach my $dev_pkg (split /[,\s]+/, $dev_pkgs // '') {
+             debug(1, "Updating dependencies of $soname with build-dependencies");
+ 	    my $minver = get_min_version_from_deps($build_deps, $dev_pkg);
+ 	    if (defined $minver) {
+@@ -704,11 +706,15 @@
+ 
+ sub split_soname {
+     my $soname = shift;
+-    if ($soname =~ /^(.*)\.so\.(.*)$/) {
++
++    if ($soname =~ /^(.+)\.so\.(.+)$/) {
++        # Shared library with stable <name>.so.<version> format.
+ 	return wantarray ? ($1, $2) : 1;
+-    } elsif ($soname =~ /^(.*)-(\d.*)\.so$/) {
++    } elsif ($soname =~ /^(.+)-(\d.*)\.so$/) {
++        # Shared library/module with unstable <name>-<version>.so format.
+ 	return wantarray ? ($1, $2) : 1;
+     } else {
++        # Something else.
+ 	return wantarray ? () : 0;
+     }
+ }
+@@ -716,6 +722,10 @@
+ sub extract_from_shlibs {
+     my ($soname, $shlibfile) = @_;
+ 
++    if (exists $shlibs_cache{$shlibfile}{$soname}) {
++        return $shlibs_cache{$shlibfile}{$soname};
++    }
++
+     my $shlibs_re = qr{
+         ^\s*
+         (?:(\S+):\s+)?              # Optional type
+@@ -733,6 +743,7 @@
+     unless (defined $libname) {
+ 	warning(g_("can't extract name and version from library name '%s'"),
+ 	        $soname);
++        $shlibs_cache{$shlibfile}{$soname} = undef;
+ 	return;
+     }
+     # Open shlibs file
+@@ -764,6 +775,7 @@
+ 	}
+     }
+     close($shlibs_fh);
++    $shlibs_cache{$shlibfile}{$soname} = $dep;
+     return $dep;
+ }
+ 

@@ -1,0 +1,24 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/etc/initramfs/post-update.d/99-uboot	2022-07-21 02:12:25.000000000 -0400
++++ /media/mks/armbi_root/etc/initramfs/post-update.d/99-uboot	2023-12-12 11:04:09.000000000 -0500
+@@ -1,10 +1,17 @@
+-#!/bin/sh
++#!/bin/sh -e
+ 
+ . /etc/armbian-release
+ 
+-echo "update-initramfs: Converting to u-boot format" >&2
+ tempname="/boot/uInitrd-$1"
+-mkimage -A $INITRD_ARCH -O linux -T ramdisk -C gzip -n uInitrd -d $2 $tempname > /dev/null
++echo "update-initramfs: Armbian: Converting to u-boot format: ${tempname}" >&2
++mkimage -A $INITRD_ARCH -O linux -T ramdisk -C gzip -n uInitrd -d $2 $tempname
++
++echo "update-initramfs: Armbian: Symlinking ${tempname} to /boot/uInitrd" >&2
++ln -sfv $(basename $tempname) /boot/uInitrd || {
++	echo "update-initramfs: Symlink failed, moving ${tempname} to /boot/uInitrd" >&2
++	mv -v $tempname /boot/uInitrd
++}
++
++echo "update-initramfs: Armbian: done." >&2
+ 
+-ln -sf $(basename $tempname) /boot/uInitrd > /dev/null 2>&1 || mv $tempname /boot/uInitrd
+ exit 0

@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/bison.yacc	2019-02-05 00:27:28.000000000 -0500
++++ /media/mks/armbi_root/usr/bin/bison.yacc	2022-09-18 17:52:06.000000000 -0400
+@@ -8,7 +8,7 @@
+ # package by hand; see doc/relocatable-maint.texi (in Gnulib) for
+ # details.
+ #
+-# Copyright (C) 2003-2019 Free Software Foundation, Inc.
++# Copyright (C) 2003-2021 Free Software Foundation, Inc.
+ #
+ # This program is free software: you can redistribute it and/or modify
+ # it under the terms of the GNU General Public License as published by

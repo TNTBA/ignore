@@ -1,0 +1,42 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/usr/bin/f2py3	2019-03-02 11:30:12.000000000 -0500
++++ /media/mks/armbi_root/usr/bin/f2py3	2023-02-08 22:54:23.000000000 -0500
+@@ -1,12 +1,33 @@
+ #!/usr/bin/python3
+-# EASY-INSTALL-ENTRY-SCRIPT: 'numpy==1.16.2','console_scripts','f2py3.7'
+-__requires__ = 'numpy==1.16.2'
++# EASY-INSTALL-ENTRY-SCRIPT: 'numpy==1.24.2','console_scripts','f2py3.11'
+ import re
+ import sys
+-from pkg_resources import load_entry_point
++
++# for compatibility with easy_install; see #2198
++__requires__ = 'numpy==1.24.2'
++
++try:
++    from importlib.metadata import distribution
++except ImportError:
++    try:
++        from importlib_metadata import distribution
++    except ImportError:
++        from pkg_resources import load_entry_point
++
++
++def importlib_load_entry_point(spec, group, name):
++    dist_name, _, _ = spec.partition('==')
++    matches = (
++        entry_point
++        for entry_point in distribution(dist_name).entry_points
++        if entry_point.group == group and entry_point.name == name
++    )
++    return next(matches).load()
++
++
++globals().setdefault('load_entry_point', importlib_load_entry_point)
++
+ 
+ if __name__ == '__main__':
+     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+-    sys.exit(
+-        load_entry_point('numpy==1.16.2', 'console_scripts', 'f2py3.7')()
+-    )
++    sys.exit(load_entry_point('numpy==1.24.2', 'console_scripts', 'f2py3.11')())
