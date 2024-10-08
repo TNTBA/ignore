@@ -1,0 +1,33 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/logrotate.postrm	2018-08-28 18:21:11.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/logrotate.postrm	2022-12-14 13:16:50.000000000 -0500
+@@ -4,27 +4,18 @@
+   rm -rf /var/lib/logrotate
+ fi
+ 
+-# Automatically added by dh_installsystemd/11.3.5
+-if [ -d /run/systemd/system ]; then
++# Automatically added by dh_installsystemd/13.11.3
++if [ "$1" = remove ] && [ -d /run/systemd/system ] ; then
+ 	systemctl --system daemon-reload >/dev/null || true
+ fi
+ # End automatically added section
+-# Automatically added by dh_installsystemd/11.3.5
+-if [ "$1" = "remove" ]; then
+-	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+-		deb-systemd-helper mask 'logrotate.timer' >/dev/null || true
+-	fi
+-fi
+-
++# Automatically added by dh_installsystemd/13.11.3
+ if [ "$1" = "purge" ]; then
+ 	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+ 		deb-systemd-helper purge 'logrotate.timer' >/dev/null || true
+-		deb-systemd-helper unmask 'logrotate.timer' >/dev/null || true
+ 	fi
+ fi
+ # End automatically added section
+ 
+ 
+ exit 0
+-
+-

@@ -1,0 +1,207 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/openssh-server.postinst	2020-01-31 15:55:34.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/openssh-server.postinst	2024-06-22 15:38:08.000000000 -0400
+@@ -5,7 +5,6 @@
+ db_version 2.0
+ 
+ action="$1"
+-oldversion="$2"
+ 
+ umask 022
+ 
+@@ -16,10 +15,9 @@
+ 	[ -f /etc/ssh/sshd_config ] || return
+ 
+ 	# TODO: actually only one '=' allowed after option
+-	perl -lne '
+-		s/[[:space:]]+/ /g; s/[[:space:]]+$//;
+-		print if s/^[[:space:]]*'"$option"'[[:space:]=]+//i' \
+-	   /etc/ssh/sshd_config
++	sed -E -n -e 's/[[:space:]]+/ /g' -e 's/[[:space:]]+$//' \
++		-e 's/^[[:space:]]*'"$option"'[[:space:]=]+//Ip' \
++		/etc/ssh/sshd_config
+ }
+ 
+ 
+@@ -47,10 +45,10 @@
+ 
+ 	if echo "$hostkeys" | grep -x "$file" >/dev/null && \
+ 	   [ ! -f "$file" ] ; then
+-		echo -n $msg
++		printf %s "$msg"
+ 		ssh-keygen -q -f "$file" -N '' "$@"
+ 		echo
+-		if which restorecon >/dev/null 2>&1; then
++		if command -v restorecon >/dev/null 2>&1; then
+ 			restorecon "$file" "$file.pub"
+ 		fi
+ 		ssh-keygen -l -f "$file.pub"
+@@ -92,8 +90,8 @@
+ 	password_authentication="$RET"
+ 
+ 	trap cleanup EXIT
+-	new_config="$(tempfile)"
+-	cp -a /usr/share/openssh/sshd_config "$new_config"
++	new_config="$(mktemp)"
++	cp -aZ /usr/share/openssh/sshd_config "$new_config"
+ 	if [ "$permit_root_login" != true ]; then
+ 		sed -i 's/^#*PermitRootLogin .*/PermitRootLogin yes/' \
+ 			"$new_config"
+@@ -102,20 +100,13 @@
+ 		sed -i 's/^#PasswordAuthentication .*/PasswordAuthentication no/' \
+ 			"$new_config"
+ 	fi
+-	mkdir -p /etc/ssh
++	mkdir -pZ /etc/ssh
+ 	ucf --three-way --debconf-ok \
+ 		--sum-file /usr/share/openssh/sshd_config.md5sum \
+ 		"$new_config" /etc/ssh/sshd_config
+ 	ucfr openssh-server /etc/ssh/sshd_config
+ }
+ 
+-fix_statoverride() {
+-# Remove an erronous override for sshd (we should have overridden ssh)
+-	if dpkg-statoverride --list /usr/sbin/sshd >/dev/null; then
+-		dpkg-statoverride --remove /usr/sbin/sshd
+-	fi
+-}
+-
+ setup_sshd_user() {
+ 	if ! getent passwd sshd >/dev/null; then
+ 		adduser --quiet --system --no-create-home --home /run/sshd --shell /usr/sbin/nologin sshd
+@@ -125,29 +116,7 @@
+ if [ "$action" = configure ]; then
+ 	create_sshdconfig
+ 	create_keys
+-	fix_statoverride
+ 	setup_sshd_user
+-	# Renamed to /etc/ssh/moduli in 2.9.9 (!)
+-	if dpkg --compare-versions "$2" lt-nl 1:4.7p1-1; then
+-	    rm -f /etc/ssh/primes
+-	fi
+-	if dpkg --compare-versions "$2" lt-nl 1:5.5p1-6; then
+-	    rm -f /run/sshd/.placeholder
+-	fi
+-	if dpkg --compare-versions "$2" lt-nl 1:6.5p1-2 && \
+-	   deb-systemd-helper debian-installed ssh.socket && \
+-	   deb-systemd-helper --quiet was-enabled ssh.service && \
+-	   deb-systemd-helper --quiet was-enabled ssh.socket; then
+-	    # 1:6.5p1-1 mistakenly left both ssh.service and ssh.socket
+-	    # enabled.
+-	    deb-systemd-helper disable ssh.socket >/dev/null || true
+-	fi
+-	if dpkg --compare-versions "$2" lt-nl 1:6.5p1-3 && \
+-	   [ -d /run/systemd/system ]; then
+-	    # We must stop the sysvinit-controlled sshd before we can
+-	    # restart it under systemd.
+-	    start-stop-daemon --stop --quiet --oknodo --pidfile /run/sshd.pid --exec /usr/sbin/sshd || true
+-	fi
+ 	if dpkg --compare-versions "$2" lt-nl 1:7.9p1-5 && \
+ 	   [ -f /etc/ssh/moduli.dpkg-bak ]; then
+ 	    # Handle /etc/ssh/moduli being moved from openssh-client to
+@@ -158,11 +127,42 @@
+ 	    # which we now move back into place.
+ 	    mv /etc/ssh/moduli.dpkg-bak /etc/ssh/moduli
+ 	fi
++	if dpkg --compare-versions "$2" lt-nl 1:9.1p1-1~ && \
++	   deb-systemd-helper --quiet was-enabled ssh.socket && \
++	   [ -d /run/systemd/system ]
++	then
++		# migrate to systemd socket activation.
++		systemctl unmask ssh.service
++		systemctl disable ssh.service
++	fi
+ fi
+ 
+-# Automatically added by dh_systemd_enable/12.1.1
++# Automatically added by dh_runit/2.15.2
++# Unlike postrm, I can be sure, that runit-helper is present on
++# postinst.
++if [ -z "${DPKG_ROOT:-}" ] ; then
++    NAME='ssh' ENABLE='yes' ONUPGRADE='restart' /lib/runit-helper/runit-helper postinst "$@"
++fi
++# End automatically added section
++# Automatically added by dh_installdeb/13.11.4
++dpkg-maintscript-helper rm_conffile /etc/network/if-up.d/openssh-server 1:7.9p1-1\~ -- "$@"
++# End automatically added section
++# Automatically added by dh_installinit/13.11.4
+ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+-	# This will only remove masks created by d-s-h on package removal.
++	if [ -z "${DPKG_ROOT:-}" ] && [ -x "/etc/init.d/ssh" ]; then
++		update-rc.d ssh defaults >/dev/null
++		if [ -n "$2" ]; then
++			_dh_action=restart
++		else
++			_dh_action=start
++		fi
++		invoke-rc.d --skip-systemd-native ssh $_dh_action || exit 1
++	fi
++fi
++# End automatically added section
++# Automatically added by dh_installsystemd/13.11.4
++if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
++	# The following line should be removed in trixie or trixie+1
+ 	deb-systemd-helper unmask 'ssh.service' >/dev/null || true
+ 
+ 	# was-enabled defaults to true, so new installations run enable.
+@@ -177,10 +177,23 @@
+ 	fi
+ fi
+ # End automatically added section
+-# Automatically added by dh_systemd_enable/12.1.1
++# Automatically added by dh_installsystemd/13.11.4
++if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
++	if [ -d /run/systemd/system ]; then
++		systemctl --system daemon-reload >/dev/null || true
++		if [ -n "$2" ]; then
++			_dh_action=restart
++		else
++			_dh_action=start
++		fi
++		deb-systemd-invoke $_dh_action 'rescue-ssh.target' 'ssh.service' >/dev/null || true
++	fi
++fi
++# End automatically added section
++# Automatically added by dh_installsystemd/13.11.4
+ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+ 	if deb-systemd-helper debian-installed 'ssh.socket'; then
+-		# This will only remove masks created by d-s-h on package removal.
++		# The following line should be removed in trixie or trixie+1
+ 		deb-systemd-helper unmask 'ssh.socket' >/dev/null || true
+ 
+ 		if deb-systemd-helper --quiet was-enabled 'ssh.socket'; then
+@@ -194,33 +207,16 @@
+ 	deb-systemd-helper update-state 'ssh.socket' >/dev/null || true
+ fi
+ # End automatically added section
+-# Automatically added by dh_systemd_start/12.1.1
++# Automatically added by dh_installsystemd/13.11.4
+ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+ 	if [ -d /run/systemd/system ]; then
+ 		systemctl --system daemon-reload >/dev/null || true
+-		deb-systemd-invoke start 'rescue-ssh.target' >/dev/null || true
+-	fi
+-fi
+-# End automatically added section
+-# Automatically added by dh_installdeb/12.1.1
+-dpkg-maintscript-helper mv_conffile /etc/pam.d/ssh /etc/pam.d/sshd 1:4.7p1-4~ -- "$@"
+-# End automatically added section
+-# Automatically added by dh_installdeb/12.1.1
+-dpkg-maintscript-helper rm_conffile /etc/init/ssh.conf 1:7.5p1-6~ -- "$@"
+-# End automatically added section
+-# Automatically added by dh_installdeb/12.1.1
+-dpkg-maintscript-helper rm_conffile /etc/network/if-up.d/openssh-server 1:7.9p1-1~ -- "$@"
+-# End automatically added section
+-# Automatically added by dh_installinit/12.1.1
+-if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+-	if [ -x "/etc/init.d/ssh" ]; then
+-		update-rc.d ssh defaults >/dev/null
+ 		if [ -n "$2" ]; then
+ 			_dh_action=restart
+ 		else
+ 			_dh_action=start
+ 		fi
+-		invoke-rc.d ssh $_dh_action || exit 1
++		deb-systemd-invoke $_dh_action 'ssh.socket' >/dev/null || true
+ 	fi
+ fi
+ # End automatically added section

@@ -1,0 +1,23 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/packagekit.postrm	2019-03-02 16:02:38.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/packagekit.postrm	2023-05-28 13:00:10.000000000 -0400
+@@ -14,12 +14,15 @@
+ 
+ fi
+ 
+-# Automatically added by dh_installdeb/12.1.1
+-dpkg-maintscript-helper rm_conffile /etc/PackageKit/events/post-transaction.d/README 1.0.1-1 -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/PackageKit/events/pre-transaction.d/README 1.0.1-1 -- "$@"
++# Automatically added by dh_installsystemduser/13.11.4
++if [ "$1" = "purge" ]; then
++	if [ -z "${DPKG_ROOT:-}" ] && [ -x "/usr/bin/deb-systemd-helper" ] ; then
++		deb-systemd-helper --user purge 'pk-debconf-helper.socket' >/dev/null || true
++	fi
++fi
+ # End automatically added section
+-# Automatically added by dh_installsystemd/12.1.1
+-if [ -d /run/systemd/system ]; then
++# Automatically added by dh_installsystemd/13.11.4
++if [ "$1" = remove ] && [ -d /run/systemd/system ] ; then
+ 	systemctl --system daemon-reload >/dev/null || true
+ fi
+ # End automatically added section

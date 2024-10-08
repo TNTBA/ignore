@@ -1,0 +1,17 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/python3-pkg-resources.postinst	2019-02-09 08:36:03.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/python3-pkg-resources.postinst	2023-01-27 01:49:44.000000000 -0500
+@@ -1,11 +1,11 @@
+ #!/bin/sh
+ set -e
+ 
+-# Automatically added by dh_python3:
+-if which py3compile >/dev/null 2>&1; then
++# Automatically added by dh_python3
++if command -v py3compile >/dev/null 2>&1; then
+ 	py3compile -p python3-pkg-resources 
+ fi
+-if which pypy3compile >/dev/null 2>&1; then
++if command -v pypy3compile >/dev/null 2>&1; then
+ 	pypy3compile -p python3-pkg-resources  || true
+ fi
+ 

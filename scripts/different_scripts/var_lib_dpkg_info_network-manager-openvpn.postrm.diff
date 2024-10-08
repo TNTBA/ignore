@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/network-manager-openvpn.postrm	2019-02-26 13:46:32.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/network-manager-openvpn.postrm	2023-01-11 17:28:39.000000000 -0500
+@@ -9,8 +9,4 @@
+     rm -rf /var/lib/openvpn/chroot
+ fi
+ 
+-# Automatically added by dh_installdeb/12.1.1
+-dpkg-maintscript-helper rm_conffile /etc/NetworkManager/VPN/nm-openvpn-service.name 1.2.8-3\~ -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/nm-openvpn-service.conf 1.8.8-2\~ -- "$@"
+-# End automatically added section
+ 

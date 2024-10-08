@@ -1,0 +1,30 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/packagekit.postinst	2019-03-02 16:02:38.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/packagekit.postinst	2023-05-28 13:00:10.000000000 -0400
+@@ -13,9 +13,24 @@
+ 			   org.freedesktop.PackageKit.SuggestDaemonQuit || true
+ fi
+ 
+-# Automatically added by dh_installdeb/12.1.1
+-dpkg-maintscript-helper rm_conffile /etc/PackageKit/events/post-transaction.d/README 1.0.1-1 -- "$@"
+-dpkg-maintscript-helper rm_conffile /etc/PackageKit/events/pre-transaction.d/README 1.0.1-1 -- "$@"
++# Automatically added by dh_installsystemduser/13.11.4
++if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
++	if [ -z "${DPKG_ROOT:-}" ] ; then
++		# The following line should be removed in trixie or trixie+1
++		deb-systemd-helper --user unmask 'pk-debconf-helper.socket' >/dev/null || true
++
++		# was-enabled defaults to true, so new installations run enable.
++		if deb-systemd-helper --quiet --user was-enabled 'pk-debconf-helper.socket' ; then
++			# Enables the unit on first installation, creates new
++			# symlinks on upgrades if the unit file has changed.
++			deb-systemd-helper --user enable 'pk-debconf-helper.socket' >/dev/null || true
++		else
++			# Update the statefile to add new symlinks (if any), which need to be
++			# cleaned up on purge. Also remove old symlinks.
++			deb-systemd-helper --user update-state 'pk-debconf-helper.socket' >/dev/null || true
++		fi
++	fi
++fi
+ # End automatically added section
+ 
+ 

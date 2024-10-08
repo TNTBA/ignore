@@ -1,0 +1,34 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/pciutils.postrm	2016-11-30 01:53:07.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/pciutils.postrm	2023-01-17 18:50:53.000000000 -0500
+@@ -1,21 +1,21 @@
+-#! /bin/sh
++#!/bin/sh
+ # postrm script for pciutils
+ 
+ set -e
+ 
+ case "$1" in
+ purge)
+-	for ext in new neww old
+-	do
+-		rm -f /usr/share/misc/pci.ids.$ext
+-	done
+-	;;
++  for ext in new neww old
++  do
++    rm -f /usr/share/misc/pci.ids.$ext
++  done
++  ;;
+ remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+-	;;
++  ;;
+ *)
+-	echo "postrm called with unknown argument \`$1'" >&2
+-	exit 1
+-	;;
++  echo "postrm called with unknown argument '$1'" >&2
++  exit 1
++  ;;
+ esac
+ 
+ 

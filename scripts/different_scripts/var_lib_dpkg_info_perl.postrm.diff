@@ -1,0 +1,12 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/perl.postrm	2020-07-21 15:27:00.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/perl.postrm	2023-11-25 15:59:54.000000000 -0500
+@@ -1,6 +1,5 @@
+ #!/bin/sh
+-
+ set -e
+-
+-dpkg-maintscript-helper rm_conffile \
+-    /etc/perl/sitecustomize.pl 5.26.0~rc1-2~ perl -- "$@"
++# Automatically added by dh_installdeb/13.11.4
++dpkg-maintscript-helper rm_conffile /etc/perl/sitecustomize.pl 5.26.0\~rc1-2\~ perl -- "$@"
++# End automatically added section

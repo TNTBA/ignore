@@ -1,0 +1,17 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/python3-six.postinst	2018-12-10 05:47:02.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/python3-six.postinst	2022-07-28 05:48:20.000000000 -0400
+@@ -1,11 +1,11 @@
+ #!/bin/sh
+ set -e
+ 
+-# Automatically added by dh_python3:
+-if which py3compile >/dev/null 2>&1; then
++# Automatically added by dh_python3
++if command -v py3compile >/dev/null 2>&1; then
+ 	py3compile -p python3-six 
+ fi
+-if which pypy3compile >/dev/null 2>&1; then
++if command -v pypy3compile >/dev/null 2>&1; then
+ 	pypy3compile -p python3-six  || true
+ fi
+ 

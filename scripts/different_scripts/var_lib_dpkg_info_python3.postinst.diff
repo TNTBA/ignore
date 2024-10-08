@@ -1,0 +1,30 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/python3.postinst	2019-03-26 06:25:14.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/python3.postinst	2023-04-09 06:18:11.000000000 -0400
+@@ -17,11 +17,11 @@
+ 
+ 	oldv=$(echo $2 | sed 's/^\(...\).*/\1/')
+ 	if [ "$DEBIAN_FRONTEND" != noninteractive ]; then
+-	    echo "running python rtupdate hooks for python3.7..."
++	    echo "running python rtupdate hooks for python3.11..."
+ 	fi
+ 	for hook in /usr/share/python3/runtime.d/*.rtupdate; do
+ 	    [ -x $hook ] || continue
+-	    if ! $hook rtupdate python$oldv python3.7; then
++	    if ! $hook rtupdate python$oldv python3.11; then
+ 	        hb=$(basename $hook .rtupdate)
+ 	        echo >&2 "error running python rtupdate hook $hb"
+ 	        errors=yes
+@@ -30,11 +30,11 @@
+ 	[ -z "$errors" ] || exit 4
+ 
+ 	if [ "$DEBIAN_FRONTEND" != noninteractive ]; then
+-	    echo "running python post-rtupdate hooks for python3.7..."
++	    echo "running python post-rtupdate hooks for python3.11..."
+ 	fi
+ 	for hook in /usr/share/python3/runtime.d/*.rtupdate; do
+ 	    [ -x $hook ] || continue
+-	    if ! $hook post-rtupdate python$oldv python3.7; then
++	    if ! $hook post-rtupdate python$oldv python3.11; then
+ 	        hb=$(basename $hook .rtupdate)
+ 	        echo >&2 "error running python post-rtupdate hook $hb"
+ 	        errors=yes

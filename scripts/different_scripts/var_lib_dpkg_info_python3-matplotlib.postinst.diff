@@ -1,0 +1,20 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/python3-matplotlib.postinst	2018-12-20 19:00:46.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/python3-matplotlib.postinst	2023-01-31 08:57:11.000000000 -0500
+@@ -1,12 +1,12 @@
+ #!/bin/sh
+ set -e
+ 
+-# Automatically added by dh_python3:
+-if which py3compile >/dev/null 2>&1; then
+-	py3compile -p python3-matplotlib 
++# Automatically added by dh_python3
++if command -v py3compile >/dev/null 2>&1; then
++	py3compile -p python3-matplotlib:arm64 
+ fi
+-if which pypy3compile >/dev/null 2>&1; then
+-	pypy3compile -p python3-matplotlib  || true
++if command -v pypy3compile >/dev/null 2>&1; then
++	pypy3compile -p python3-matplotlib:arm64  || true
+ fi
+ 
+ # End automatically added section

@@ -1,0 +1,19 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/screen.postrm	2021-02-20 15:59:38.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/screen.postrm	2023-01-08 22:56:37.000000000 -0500
+@@ -13,12 +13,11 @@
+   rmdir -p --ignore-fail-on-non-empty /lib/systemd/system
+ fi
+ 
+-if [ "$1" = disappear ]; then
+-  remove-shell /usr/bin/screen || true
++# Automatically added by dh_installinit/13.11.4
++if [ "$1" = "remove" ] && [ -x "/etc/init.d/screen-cleanup" ] ; then
++	chmod -x "/etc/init.d/screen-cleanup" >/dev/null || true
+ fi
+-
+-# Automatically added by dh_installinit/12.1.1
+-if [ "$1" = "purge" ] ; then
++if [ -z "${DPKG_ROOT:-}" ] && [ "$1" = "purge" ] ; then
+ 	update-rc.d screen-cleanup remove >/dev/null
+ fi
+ # End automatically added section

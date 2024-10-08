@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/locales.postrm	2022-03-15 18:48:49.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/locales.postrm	2024-04-30 17:07:28.000000000 -0400
+@@ -10,7 +10,7 @@
+     	;;
+ esac
+ 
+-# Automatically added by dh_installdebconf/12.1.1
++# Automatically added by dh_installdebconf/13.11.4
+ if [ "$1" = purge ] && [ -e /usr/share/debconf/confmodule ]; then
+ 	. /usr/share/debconf/confmodule
+ 	db_purge

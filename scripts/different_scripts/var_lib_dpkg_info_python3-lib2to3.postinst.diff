@@ -1,0 +1,34 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/python3-lib2to3.postinst	2019-03-26 03:58:04.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/python3-lib2to3.postinst	2023-05-02 09:34:18.000000000 -0400
+@@ -2,7 +2,7 @@
+ 
+ set -e
+ 
+-versions="3.7"
++versions="3.11"
+ 
+ case "$1" in
+   configure)
+@@ -23,7 +23,21 @@
+ 	find /usr/lib/python3.6/lib2to3 -name __pycache__ | xargs -r rm -rf
+ 	find /usr/lib/python3.6/lib2to3 -empty -type d -delete || true
+ 	find /usr/lib/python3.6 -maxdepth 0 -empty -type d -delete || true
+-
++    fi
++    if [ -n "$2" ] && dpkg --compare-versions $2 lt 3.8.3-2~; then
++	find /usr/lib/python3.7/lib2to3 -name __pycache__ | xargs -r rm -rf
++	find /usr/lib/python3.7/lib2to3 -empty -type d -delete || true
++	find /usr/lib/python3.7 -maxdepth 0 -empty -type d -delete || true
++    fi
++    if [ -n "$2" ] && dpkg --compare-versions $2 lt 3.9.1-2~; then
++	find /usr/lib/python3.8/lib2to3 -name __pycache__ 2>/dev/null | xargs -r rm -rf
++	find /usr/lib/python3.8/lib2to3 -empty -type d -delete 2>/dev/null || true
++	find /usr/lib/python3.8 -maxdepth 0 -empty -type d -delete 2>/dev/null || true
++    fi
++    if [ -n "$2" ] && dpkg --compare-versions $2 lt 3.10.8-1~; then
++	find /usr/lib/python3.9/lib2to3 -name __pycache__ 2>/dev/null | xargs -r rm -rf
++	find /usr/lib/python3.9/lib2to3 -empty -type d -delete 2>/dev/null || true
++	find /usr/lib/python3.9 -maxdepth 0 -empty -type d -delete 2>/dev/null || true
+     fi
+ esac
+ 

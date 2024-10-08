@@ -1,0 +1,11 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/locales.postinst	2022-03-15 18:48:49.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/locales.postinst	2024-04-30 17:07:28.000000000 -0400
+@@ -58,7 +58,7 @@
+     fi
+ 
+     # Update requested locales if locales-all is not installed
+-    if dpkg-query -W -f='${db:Status-Abbrev}' locales-all 2>/dev/null | grep -q '^i' ; then
++    if [ "$(dpkg-query -W -f='${db:Status-Want}' locales-all 2>/dev/null)" = 'install' ] ; then
+         echo "locales-all installed, skipping locales generation"
+     else
+         locale-gen

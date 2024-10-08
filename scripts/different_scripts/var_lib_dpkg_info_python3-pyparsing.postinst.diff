@@ -1,0 +1,17 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/python3-pyparsing.postinst	2018-02-25 15:32:31.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/python3-pyparsing.postinst	2022-12-14 17:08:10.000000000 -0500
+@@ -1,9 +1,12 @@
+ #!/bin/sh
+ set -e
+ 
+-# Automatically added by dh_python3:
+-if which py3compile >/dev/null 2>&1; then
++# Automatically added by dh_python3
++if command -v py3compile >/dev/null 2>&1; then
+ 	py3compile -p python3-pyparsing 
+ fi
++if command -v pypy3compile >/dev/null 2>&1; then
++	pypy3compile -p python3-pyparsing  || true
++fi
+ 
+ # End automatically added section

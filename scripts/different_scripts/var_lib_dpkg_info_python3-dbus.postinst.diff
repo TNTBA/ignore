@@ -1,0 +1,20 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/python3-dbus.postinst	2019-01-29 03:49:02.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/python3-dbus.postinst	2023-01-31 05:22:15.000000000 -0500
+@@ -1,12 +1,12 @@
+ #!/bin/sh
+ set -e
+ 
+-# Automatically added by dh_python3:
+-if which py3compile >/dev/null 2>&1; then
+-	py3compile -p python3-dbus 
++# Automatically added by dh_python3
++if command -v py3compile >/dev/null 2>&1; then
++	py3compile -p python3-dbus:arm64 
+ fi
+-if which pypy3compile >/dev/null 2>&1; then
+-	pypy3compile -p python3-dbus  || true
++if command -v pypy3compile >/dev/null 2>&1; then
++	pypy3compile -p python3-dbus:arm64  || true
+ fi
+ 
+ # End automatically added section

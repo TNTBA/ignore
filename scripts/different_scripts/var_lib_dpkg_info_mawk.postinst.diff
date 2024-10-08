@@ -1,0 +1,21 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/mawk.postinst	2012-03-23 16:15:00.000000000 -0400
++++ /media/mks/armbi_root/var/lib/dpkg/info/mawk.postinst	2022-06-17 11:35:26.000000000 -0400
+@@ -1,10 +1,10 @@
+ #!/bin/sh
+-
+ set -e
+-
+-update-alternatives --quiet --install /usr/bin/awk awk /usr/bin/mawk 5 \
+-  --slave /usr/share/man/man1/awk.1.gz awk.1.gz /usr/share/man/man1/mawk.1.gz \
+-  --slave /usr/bin/nawk nawk /usr/bin/mawk \
+-  --slave /usr/share/man/man1/nawk.1.gz nawk.1.gz /usr/share/man/man1/mawk.1.gz
+-
+-
++# Automatically added by dh_installalternatives/13.7.1
++if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ]; then
++        update-alternatives --install /usr/bin/awk awk /usr/bin/mawk 5 \
++            --slave /usr/share/man/man1/awk.1.gz awk.1.gz /usr/share/man/man1/mawk.1.gz \
++            --slave /usr/bin/nawk nawk /usr/bin/mawk \
++            --slave /usr/share/man/man1/nawk.1.gz nawk.1.gz /usr/share/man/man1/mawk.1.gz
++fi
++# End automatically added section

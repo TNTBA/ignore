@@ -1,0 +1,15 @@
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/var/lib/dpkg/info/man-db.config	2019-02-10 07:14:20.000000000 -0500
++++ /media/mks/armbi_root/var/lib/dpkg/info/man-db.config	2023-03-12 18:23:59.000000000 -0400
+@@ -1,10 +1,12 @@
+ #! /bin/sh
+ set -e
+ 
++# shellcheck disable=SC1091
+ . /usr/share/debconf/confmodule
+ db_version 2.0
+ 
+ db_input medium man-db/install-setuid || true
++# shellcheck disable=SC2119
+ db_go
+ 
+ exit 0
