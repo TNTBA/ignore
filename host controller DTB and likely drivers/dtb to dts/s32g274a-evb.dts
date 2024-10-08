@@ -1,0 +1,144 @@
+/dts-v1/;
+
+/ {
+	compatible = "nxp,s32g274a-evb\0nxp,s32g2";
+	interrupt-parent = <0x01>;
+	#address-cells = <0x02>;
+	#size-cells = <0x02>;
+	model = "NXP S32G2 Evaluation Board (S32G-VNP-EVB)";
+
+	cpus {
+		#address-cells = <0x01>;
+		#size-cells = <0x00>;
+
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a53";
+			reg = <0x00>;
+			enable-method = "psci";
+			next-level-cache = <0x02>;
+			phandle = <0x04>;
+		};
+
+		cpu@1 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a53";
+			reg = <0x01>;
+			enable-method = "psci";
+			next-level-cache = <0x02>;
+			phandle = <0x05>;
+		};
+
+		cpu@100 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a53";
+			reg = <0x100>;
+			enable-method = "psci";
+			next-level-cache = <0x03>;
+			phandle = <0x06>;
+		};
+
+		cpu@101 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a53";
+			reg = <0x101>;
+			enable-method = "psci";
+			next-level-cache = <0x03>;
+			phandle = <0x07>;
+		};
+
+		l2-cache0 {
+			compatible = "cache";
+			phandle = <0x02>;
+		};
+
+		l2-cache1 {
+			compatible = "cache";
+			phandle = <0x03>;
+		};
+	};
+
+	pmu {
+		compatible = "arm,cortex-a53-pmu";
+		interrupts = <0x01 0x07 0x04>;
+	};
+
+	timer {
+		compatible = "arm,armv8-timer";
+		interrupts = <0x01 0x0d 0x08 0x01 0x0e 0x08 0x01 0x0b 0x08 0x01 0x0a 0x08>;
+	};
+
+	firmware {
+
+		psci {
+			compatible = "arm,psci-1.0";
+			method = "smc";
+		};
+	};
+
+	soc {
+		compatible = "simple-bus";
+		#address-cells = <0x01>;
+		#size-cells = <0x01>;
+		ranges = <0x00 0x00 0x00 0x80000000>;
+
+		serial@401c8000 {
+			compatible = "nxp,s32g2-linflexuart\0fsl,s32v234-linflexuart";
+			reg = <0x401c8000 0x3000>;
+			interrupts = <0x00 0x52 0x01>;
+			status = "okay";
+			phandle = <0x08>;
+		};
+
+		serial@401cc000 {
+			compatible = "nxp,s32g2-linflexuart\0fsl,s32v234-linflexuart";
+			reg = <0x401cc000 0x3000>;
+			interrupts = <0x00 0x53 0x01>;
+			status = "disabled";
+			phandle = <0x09>;
+		};
+
+		serial@402bc000 {
+			compatible = "nxp,s32g2-linflexuart\0fsl,s32v234-linflexuart";
+			reg = <0x402bc000 0x3000>;
+			interrupts = <0x00 0x54 0x01>;
+			status = "disabled";
+			phandle = <0x0a>;
+		};
+
+		interrupt-controller@50800000 {
+			compatible = "arm,gic-v3";
+			reg = <0x50800000 0x10000 0x50880000 0x80000 0x50400000 0x2000 0x50410000 0x2000 0x50420000 0x2000>;
+			interrupts = <0x01 0x09 0x04>;
+			interrupt-controller;
+			#interrupt-cells = <0x03>;
+			phandle = <0x01>;
+		};
+	};
+
+	aliases {
+		serial0 = "/soc/serial@401c8000";
+	};
+
+	chosen {
+		stdout-path = "serial0:115200n8";
+	};
+
+	memory@80000000 {
+		device_type = "memory";
+		reg = <0x00 0x80000000 0x00 0x80000000 0x08 0x80000000 0x00 0x80000000>;
+	};
+
+	__symbols__ {
+		cpu0 = "/cpus/cpu@0";
+		cpu1 = "/cpus/cpu@1";
+		cpu2 = "/cpus/cpu@100";
+		cpu3 = "/cpus/cpu@101";
+		cluster0_l2 = "/cpus/l2-cache0";
+		cluster1_l2 = "/cpus/l2-cache1";
+		uart0 = "/soc/serial@401c8000";
+		uart1 = "/soc/serial@401cc000";
+		uart2 = "/soc/serial@402bc000";
+		gic = "/soc/interrupt-controller@50800000";
+	};
+};
