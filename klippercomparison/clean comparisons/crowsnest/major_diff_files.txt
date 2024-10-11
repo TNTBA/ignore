@@ -1,4 +1,0 @@
-libs/core.sh (5 blocks different)
-libs/v4l2_control.sh (5 blocks different)
-tools/configure.sh (9 blocks different)
-README.md (5 blocks different)
