@@ -1,0 +1,279 @@
+Directory Summary for crowsnest:
+
+Identical Files:
+resources/logrotate_crowsnest
+.github/crowsnest-logo-darkmode.png
+.github/crowsnest-logo.png
+.github/ISSUE_TEMPLATE/bug_report.yml
+.github/ISSUE_TEMPLATE/feature_request.yml
+.github/ISSUE_TEMPLATE/config.yml
+.github/crowsnest-logo-lightmode.png
+.github/workflows/label-actions.yml
+.github/CODE_OF_CONDUCT.md
+ustreamer_manpage.md
+ustreamer-www/script.js
+ustreamer-www/style.css
+ustreamer-www/index.html
+LICENSE
+log-example.md
+tools/dev-helper.sh
+.editorconfig
+.git/description
+.git/hooks/commit-msg.sample
+.git/hooks/post-update.sample
+.git/hooks/pre-rebase.sample
+.git/hooks/pre-applypatch.sample
+.git/hooks/applypatch-msg.sample
+.git/hooks/pre-receive.sample
+.git/hooks/prepare-commit-msg.sample
+.git/info/exclude
+.git/refs/remotes/origin/HEAD
+.git/config
+.git/index
+
+Files with 1-4 blocks different:
+crowsnest (4 blocks different)
+libs/versioncontrol.sh (1 blocks different)
+libs/messages.sh (1 blocks different)
+libs/ustreamer.sh (2 blocks different)
+libs/hwhandler.sh (2 blocks different)
+libs/watchdog.sh (1 blocks different)
+libs/configparser.sh (4 blocks different)
+libs/logging.sh (4 blocks different)
+libs/init_stream.sh (2 blocks different)
+resources/moonraker_update.txt (1 blocks different)
+resources/crowsnest.conf (2 blocks different)
+resources/crowsnest.service (1 blocks different)
+.github/label-actions.yml (2 blocks different)
+.github/workflows/shellcheck.yml (1 blocks different)
+Makefile (1 blocks different)
+tools/uninstall.sh (2 blocks different)
+tools/install.sh (2 blocks different)
+custompios/crowsnest/start_chroot_script (2 blocks different)
+custompios/crowsnest/config (3 blocks different)
+custompios/README.md (1 blocks different)
+.gitignore (2 blocks different)
+.git/HEAD (1 blocks different)
+.git/hooks/pre-push.sample (2 blocks different)
+.git/hooks/pre-commit.sample (1 blocks different)
+.git/hooks/update.sample (2 blocks different)
+.git/hooks/fsmonitor-watchman.sample (1 blocks different)
+.git/logs/HEAD (1 blocks different)
+.git/logs/refs/heads/master (1 blocks different)
+.git/logs/refs/remotes/origin/HEAD (1 blocks different)
+.git/refs/heads/master (1 blocks different)
+.git/packed-refs (2 blocks different)
+
+Files with 5 or more blocks different:
+libs/core.sh (5 blocks different)
+libs/v4l2_control.sh (5 blocks different)
+tools/configure.sh (9 blocks different)
+README.md (5 blocks different)
+
+Files missing in the new version:
+libs/rtspsimple.sh
+resources/crowsnest-rtsp.yml
+resources/bcm2835-v4l2.conf
+bin/Makefile
+bin/rtsp-simple-server/version
+bin/rtsp-simple-server/LICENSE
+bin/rtsp-simple-server/rtsp-simple-server.yml
+bin/rtsp-simple-server/rtsp-simple-server
+bin/ustreamer/pkg/gentoo/ustreamer-9999.ebuild
+bin/ustreamer/pkg/docker/Dockerfile.arm.cross
+bin/ustreamer/pkg/docker/Dockerfile.arm.native
+bin/ustreamer/pkg/docker/Dockerfile.x64.native
+bin/ustreamer/pkg/arch/PKGBUILD
+bin/ustreamer/pkg/openwrt/Makefile
+bin/ustreamer/pkg/openwrt/files/ustreamer.init
+bin/ustreamer/pkg/openwrt/files/ustreamer.config
+bin/ustreamer/.github/FUNDING.yml
+bin/ustreamer/.github/workflows/dockerimage.yml
+bin/ustreamer/.gitattributes
+bin/ustreamer/LICENSE
+bin/ustreamer/Makefile
+bin/ustreamer/tools/make-html-h.py
+bin/ustreamer/tools/common.py
+bin/ustreamer/tools/make-jpeg-h.py
+bin/ustreamer/README.ru.md
+bin/ustreamer/python/Makefile
+bin/ustreamer/python/setup.py
+bin/ustreamer/python/src/ustreamer.c
+bin/ustreamer/linters/flake8.ini
+bin/ustreamer/linters/tox.ini
+bin/ustreamer/linters/mypy.ini
+bin/ustreamer/linters/.dockerignore
+bin/ustreamer/linters/cppcheck.h
+bin/ustreamer/linters/pylint.ini
+bin/ustreamer/linters/Dockerfile
+bin/ustreamer/.bumpversion.cfg
+bin/ustreamer/.dockerignore
+bin/ustreamer/.gitignore
+bin/ustreamer/man/ustreamer-dump.1
+bin/ustreamer/man/ustreamer.1
+bin/ustreamer/janus/Makefile
+bin/ustreamer/janus/src/rtp.c
+bin/ustreamer/janus/src/plugin.c
+bin/ustreamer/janus/src/rtp.h
+bin/ustreamer/src/libs/base64.h
+bin/ustreamer/src/libs/memsink.h
+bin/ustreamer/src/libs/process.h
+bin/ustreamer/src/libs/tools.h
+bin/ustreamer/src/libs/memsinksh.h
+bin/ustreamer/src/libs/frame.h
+bin/ustreamer/src/libs/config.h
+bin/ustreamer/src/libs/unjpeg.c
+bin/ustreamer/src/libs/memsink.c
+bin/ustreamer/src/libs/logging.h
+bin/ustreamer/src/libs/threading.h
+bin/ustreamer/src/libs/list.h
+bin/ustreamer/src/libs/unjpeg.h
+bin/ustreamer/src/libs/frame.c
+bin/ustreamer/src/libs/base64.c
+bin/ustreamer/src/libs/options.h
+bin/ustreamer/src/libs/options.c
+bin/ustreamer/src/libs/logging.c
+bin/ustreamer/src/ustreamer-dump.bin
+bin/ustreamer/src/ustreamer.bin
+bin/ustreamer/src/dump/file.c
+bin/ustreamer/src/dump/file.h
+bin/ustreamer/src/dump/main.c
+bin/ustreamer/src/Makefile
+bin/ustreamer/src/build/libs/frame.d
+bin/ustreamer/src/build/libs/unjpeg.o
+bin/ustreamer/src/build/libs/options.o
+bin/ustreamer/src/build/libs/frame.o
+bin/ustreamer/src/build/libs/memsink.o
+bin/ustreamer/src/build/libs/memsink.d
+bin/ustreamer/src/build/libs/logging.d
+bin/ustreamer/src/build/libs/base64.d
+bin/ustreamer/src/build/libs/options.d
+bin/ustreamer/src/build/libs/unjpeg.d
+bin/ustreamer/src/build/libs/logging.o
+bin/ustreamer/src/build/libs/base64.o
+bin/ustreamer/src/build/dump/file.d
+bin/ustreamer/src/build/dump/file.o
+bin/ustreamer/src/build/dump/main.d
+bin/ustreamer/src/build/dump/main.o
+bin/ustreamer/src/build/ustreamer/stream.d
+bin/ustreamer/src/build/ustreamer/encoder.d
+bin/ustreamer/src/build/ustreamer/options.o
+bin/ustreamer/src/build/ustreamer/encoders/cpu/encoder.d
+bin/ustreamer/src/build/ustreamer/encoders/cpu/encoder.o
+bin/ustreamer/src/build/ustreamer/encoders/hw/encoder.d
+bin/ustreamer/src/build/ustreamer/encoders/hw/encoder.o
+bin/ustreamer/src/build/ustreamer/device.d
+bin/ustreamer/src/build/ustreamer/encoder.o
+bin/ustreamer/src/build/ustreamer/http/path.d
+bin/ustreamer/src/build/ustreamer/http/static.o
+bin/ustreamer/src/build/ustreamer/http/unix.d
+bin/ustreamer/src/build/ustreamer/http/mime.o
+bin/ustreamer/src/build/ustreamer/http/server.o
+bin/ustreamer/src/build/ustreamer/http/path.o
+bin/ustreamer/src/build/ustreamer/http/static.d
+bin/ustreamer/src/build/ustreamer/http/mime.d
+bin/ustreamer/src/build/ustreamer/http/server.d
+bin/ustreamer/src/build/ustreamer/http/uri.d
+bin/ustreamer/src/build/ustreamer/http/bev.o
+bin/ustreamer/src/build/ustreamer/http/bev.d
+bin/ustreamer/src/build/ustreamer/http/unix.o
+bin/ustreamer/src/build/ustreamer/http/uri.o
+bin/ustreamer/src/build/ustreamer/data/blank_jpeg.o
+bin/ustreamer/src/build/ustreamer/data/index_html.d
+bin/ustreamer/src/build/ustreamer/data/index_html.o
+bin/ustreamer/src/build/ustreamer/data/blank_jpeg.d
+bin/ustreamer/src/build/ustreamer/stream.o
+bin/ustreamer/src/build/ustreamer/workers.d
+bin/ustreamer/src/build/ustreamer/main.d
+bin/ustreamer/src/build/ustreamer/main.o
+bin/ustreamer/src/build/ustreamer/blank.o
+bin/ustreamer/src/build/ustreamer/blank.d
+bin/ustreamer/src/build/ustreamer/options.d
+bin/ustreamer/src/build/ustreamer/device.o
+bin/ustreamer/src/build/ustreamer/workers.o
+bin/ustreamer/src/ustreamer/stream.h
+bin/ustreamer/src/ustreamer/blank.c
+bin/ustreamer/src/ustreamer/encoders/cpu/encoder.h
+bin/ustreamer/src/ustreamer/encoders/cpu/encoder.c
+bin/ustreamer/src/ustreamer/encoders/hw/huffman.h
+bin/ustreamer/src/ustreamer/encoders/hw/encoder.h
+bin/ustreamer/src/ustreamer/encoders/hw/encoder.c
+bin/ustreamer/src/ustreamer/encoders/omx/vcos.c
+bin/ustreamer/src/ustreamer/encoders/omx/component.h
+bin/ustreamer/src/ustreamer/encoders/omx/formatters.h
+bin/ustreamer/src/ustreamer/encoders/omx/formatters.c
+bin/ustreamer/src/ustreamer/encoders/omx/encoder.h
+bin/ustreamer/src/ustreamer/encoders/omx/encoder.c
+bin/ustreamer/src/ustreamer/encoders/omx/vcos.h
+bin/ustreamer/src/ustreamer/encoders/omx/component.c
+bin/ustreamer/src/ustreamer/http/bev.h
+bin/ustreamer/src/ustreamer/http/unix.c
+bin/ustreamer/src/ustreamer/http/uri.c
+bin/ustreamer/src/ustreamer/http/bev.c
+bin/ustreamer/src/ustreamer/http/mime.h
+bin/ustreamer/src/ustreamer/http/unix.h
+bin/ustreamer/src/ustreamer/http/server.h
+bin/ustreamer/src/ustreamer/http/systemd/systemd.h
+bin/ustreamer/src/ustreamer/http/systemd/systemd.c
+bin/ustreamer/src/ustreamer/http/server.c
+bin/ustreamer/src/ustreamer/http/static.h
+bin/ustreamer/src/ustreamer/http/path.c
+bin/ustreamer/src/ustreamer/http/static.c
+bin/ustreamer/src/ustreamer/http/path.h
+bin/ustreamer/src/ustreamer/http/uri.h
+bin/ustreamer/src/ustreamer/http/mime.c
+bin/ustreamer/src/ustreamer/data/blank_jpeg.c
+bin/ustreamer/src/ustreamer/data/blank_jpeg.h
+bin/ustreamer/src/ustreamer/data/index_html.c
+bin/ustreamer/src/ustreamer/data/blank.jpeg
+bin/ustreamer/src/ustreamer/data/index.html
+bin/ustreamer/src/ustreamer/data/index_html.h
+bin/ustreamer/src/ustreamer/workers.c
+bin/ustreamer/src/ustreamer/h264/stream.h
+bin/ustreamer/src/ustreamer/h264/encoder.h
+bin/ustreamer/src/ustreamer/h264/stream.c
+bin/ustreamer/src/ustreamer/h264/encoder.c
+bin/ustreamer/src/ustreamer/device.h
+bin/ustreamer/src/ustreamer/encoder.h
+bin/ustreamer/src/ustreamer/stream.c
+bin/ustreamer/src/ustreamer/xioctl.h
+bin/ustreamer/src/ustreamer/main.c
+bin/ustreamer/src/ustreamer/encoder.c
+bin/ustreamer/src/ustreamer/options.h
+bin/ustreamer/src/ustreamer/blank.h
+bin/ustreamer/src/ustreamer/options.c
+bin/ustreamer/src/ustreamer/workers.h
+bin/ustreamer/src/ustreamer/gpio/gpio.h
+bin/ustreamer/src/ustreamer/gpio/gpio.c
+bin/ustreamer/src/ustreamer/device.c
+bin/ustreamer/README.md
+bin/ustreamer/.editorconfig
+bin/ustreamer/.git/HEAD
+bin/ustreamer/.git/description
+bin/ustreamer/.git/hooks/commit-msg.sample
+bin/ustreamer/.git/hooks/post-update.sample
+bin/ustreamer/.git/hooks/pre-rebase.sample
+bin/ustreamer/.git/hooks/pre-push.sample
+bin/ustreamer/.git/hooks/pre-commit.sample
+bin/ustreamer/.git/hooks/pre-applypatch.sample
+bin/ustreamer/.git/hooks/applypatch-msg.sample
+bin/ustreamer/.git/hooks/update.sample
+bin/ustreamer/.git/hooks/pre-receive.sample
+bin/ustreamer/.git/hooks/prepare-commit-msg.sample
+bin/ustreamer/.git/hooks/fsmonitor-watchman.sample
+bin/ustreamer/.git/logs/HEAD
+bin/ustreamer/.git/logs/refs/heads/master
+bin/ustreamer/.git/logs/refs/remotes/origin/HEAD
+bin/ustreamer/.git/info/exclude
+bin/ustreamer/.git/refs/heads/master
+bin/ustreamer/.git/refs/remotes/origin/HEAD
+bin/ustreamer/.git/config
+bin/ustreamer/.git/objects/pack/pack-bd8e20cd7d7a263b85b077bb625a4f0b0e6b8ebd.pack
+bin/ustreamer/.git/objects/pack/pack-bd8e20cd7d7a263b85b077bb625a4f0b0e6b8ebd.idx
+bin/ustreamer/.git/ORIG_HEAD
+bin/ustreamer/.git/packed-refs
+bin/ustreamer/.git/index
+.git/objects/pack/pack-86075d8791e917f0f237b323c6090676a751634e.pack
+.git/objects/pack/pack-86075d8791e917f0f237b323c6090676a751634e.idx
+
+Total files compared: 268

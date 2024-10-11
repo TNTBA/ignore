@@ -1,0 +1,16 @@
+Differences in resources/crowsnest.service:
+
+- Lines with differences: 2 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/crowsnest/resources/crowsnest.service	2023-12-15 01:50:44.414398135 -0500
++++ /home/mks/firmware_comparison/downloads/crowsnest/resources/crowsnest.service	2024-10-08 17:45:29.818228183 -0400
+@@ -25,6 +25,6 @@
+ RemainAfterExit=Yes
+ WorkingDirectory=/home/%USER%/crowsnest
+ EnvironmentFile=%ENV%
+-ExecStart= /usr/local/bin/crowsnest $CROWSNEST_ARGS
++ExecStart=/usr/local/bin/crowsnest $CROWSNEST_ARGS
+ Restart=on-failure
+ RestartSec=5
