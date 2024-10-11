@@ -14,7 +14,7 @@ mkdir -p "$COMPARISON_DIR"
 # Components to check
 components=(
   "klipper"
-  "canboot"
+  "CanBoot"
   "crowsnest"
   "fluidd"
   "kiauh"
@@ -26,7 +26,7 @@ components=(
 # Repositories URLs
 declare -A repos=(
   ["klipper"]="https://github.com/Klipper3d/klipper.git"
-  ["canboot"]="https://github.com/Arksine/CanBoot.git"
+  ["CanBoot"]="https://github.com/Arksine/CanBoot.git"
   ["crowsnest"]="https://github.com/mainsail-crew/crowsnest.git"
   ["fluidd"]="https://github.com/fluidd-core/fluidd.git"
   ["kiauh"]="https://github.com/th33xitus/kiauh.git"
@@ -53,7 +53,7 @@ for component in "${components[@]}"; do
   fi
 
   # Proceed if the component is included or explicitly requested
-  if [[ "$included" == "yes" ]] || [[ "$component" == "canboot" || "$component" == "crowsnest" || "$component" == "fluidd" || "$component" == "kiauh" || "$component" == "klippy-env" || "$component" == "moonraker-env" ]]; then
+  if [[ "$included" == "yes" ]] || [[ "$component" == "CanBoot" || "$component" == "crowsnest" || "$component" == "fluidd" || "$component" == "kiauh" || "$component" == "klippy-env" || "$component" == "moonraker-env" ]]; then
     # Download the current version
     if [[ "$component" == "klippy-env" || "$component" == "moonraker-env" ]]; then
       # For virtual environments, set up the environment
@@ -101,10 +101,12 @@ for component in "${components[@]}"; do
       IDENTICAL_FILES="$COMPONENT_COMPARISON_DIR/identical_files.txt"
       MINOR_DIFF_FILES="$COMPONENT_COMPARISON_DIR/minor_diff_files.txt"
       MAJOR_DIFF_FILES="$COMPONENT_COMPARISON_DIR/major_diff_files.txt"
+      MISSING_IN_NEW="$COMPONENT_COMPARISON_DIR/missing_in_new.txt"
       DIRECTORY_SUMMARY="$COMPONENT_COMPARISON_DIR/directory_summary.txt"
       > "$IDENTICAL_FILES"
       > "$MINOR_DIFF_FILES"
       > "$MAJOR_DIFF_FILES"
+      > "$MISSING_IN_NEW"
       > "$DIRECTORY_SUMMARY"
 
       # Get list of files in the old and new component
@@ -159,6 +161,7 @@ for component in "${components[@]}"; do
           fi
         else
           echo "$rel_path is missing in the new version." | tee -a "$LOG_FILE"
+          echo "$rel_path" >> "$MISSING_IN_NEW"
         fi
       done
 
@@ -175,7 +178,10 @@ for component in "${components[@]}"; do
         echo "Files with 5 or more blocks different:"
         cat "$MAJOR_DIFF_FILES"
         echo ""
-        total_files=$(($(wc -l < "$IDENTICAL_FILES") + $(wc -l < "$MINOR_DIFF_FILES") + $(wc -l < "$MAJOR_DIFF_FILES")))
+        echo "Files missing in the new version:"
+        cat "$MISSING_IN_NEW"
+        echo ""
+        total_files=$(($(wc -l < "$IDENTICAL_FILES") + $(wc -l < "$MINOR_DIFF_FILES") + $(wc -l < "$MAJOR_DIFF_FILES") + $(wc -l < "$MISSING_IN_NEW")))
         echo "Total files compared: $total_files"
       } > "$DIRECTORY_SUMMARY"
 
@@ -191,3 +197,4 @@ done
 
 echo "Component comparison completed." | tee -a "$LOG_FILE"
 echo "Check the '$COMPARISON_DIR' directory for differences and '$LOG_FILE' for the log."
+
