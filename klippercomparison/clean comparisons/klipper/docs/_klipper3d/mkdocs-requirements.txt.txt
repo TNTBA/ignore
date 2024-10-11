@@ -1,0 +1,17 @@
+Differences in docs/_klipper3d/mkdocs-requirements.txt:
+
+- Lines with differences: 4 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/docs/_klipper3d/mkdocs-requirements.txt	2023-10-20 03:52:16.640163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/docs/_klipper3d/mkdocs-requirements.txt	2024-10-08 17:45:26.543216201 -0400
+@@ -1,6 +1,6 @@
+ # Python virtualenv module requirements for mkdocs
+-jinja2==3.0.3
+-mkdocs==1.2.3
++jinja2==3.1.4
++mkdocs==1.2.4
+ mkdocs-material==8.1.3
+ mkdocs-simple-hooks==0.1.3
+ mkdocs-exclude==1.0.2
