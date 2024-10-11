@@ -1,0 +1,2 @@
+scripts/flashtool.py (18 blocks different)
+src/stm32/usbfs.c (14 blocks different)
