@@ -1,0 +1,22 @@
+Differences in .gitignore:
+
+- Lines with differences: 9 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/moonraker/.gitignore	2022-07-25 05:53:30.874869214 -0400
++++ /home/mks/firmware_comparison/downloads/moonraker/.gitignore	2024-10-08 17:45:43.654277980 -0400
+@@ -3,5 +3,12 @@
+ *.py[cod]
+ *$py.class
+ .devel
+-.venv
+ 
++.venv
++venv
++start_moonraker
++*.env
++.pdm-python
++build
++dist
++share

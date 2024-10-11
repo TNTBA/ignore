@@ -1,0 +1,35 @@
+Differences in .github/workflows/test_code.yaml:
+
+- Lines with differences: 18 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/moonraker/.github/workflows/test_code.yaml	2022-07-25 05:53:30.874869214 -0400
++++ /home/mks/firmware_comparison/downloads/moonraker/.github/workflows/test_code.yaml	2024-10-08 17:45:43.654277980 -0400
+@@ -4,17 +4,17 @@
+ on: [push, pull_request]
+ jobs:
+   lint-python-code:
+-    runs-on: ubuntu-18.04
++    runs-on: ubuntu-22.04
+     steps:
+-      - uses: actions/checkout@v1
+-      - uses: ricardochaves/python-lint@v1.4.0
++      - uses: actions/checkout@v3
++      - uses: weibullguy/python-lint-plus@v1.12.0
+         with:
+           python-root-list: "moonraker scripts"
+-          use-pylint: false
+-          use-pycodestyle: true
+-          use-flake8: false
+-          use-black: false
++          virtual-env: "python-lint-plus"
++          python-version: "3.10"
++          use-flake8: true
++          flake8-version: "==6.1.0"
+           use-mypy: true
+-          use-isort: false
+-          extra-pycodestyle-options: "--ignore=E226,E301,E302,E303,W503,W504 --max-line-length=80 --max-doc-length=80"
++          mypy-version: "==1.5.1"
++          extra-flake8-options: "--ignore=E226,E301,E302,E303,W503,W504 --max-line-length=88 --max-doc-length=88"
+           extra-mypy-options: "--ignore-missing-imports --follow-imports=silent"
