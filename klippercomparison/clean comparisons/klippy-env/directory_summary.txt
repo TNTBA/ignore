@@ -1,0 +1,19 @@
+Directory Summary for klippy-env:
+
+Identical Files:
+bin/python3
+
+Files with 1-4 blocks different:
+bin/pip3 (1 blocks different)
+bin/activate.fish (2 blocks different)
+bin/can_logger.py (1 blocks different)
+bin/miniterm.py (1 blocks different)
+bin/activate (4 blocks different)
+bin/pip (1 blocks different)
+bin/can_player.py (1 blocks different)
+bin/can_viewer.py (1 blocks different)
+bin/activate.csh (1 blocks different)
+
+Files with 5 or more blocks different:
+
+Total files compared: 10

@@ -1,0 +1,27 @@
+Differences in tests/test_server.py:
+
+- Lines with differences: 12 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/moonraker/tests/test_server.py	2022-07-25 05:53:30.934869369 -0400
++++ /home/mks/firmware_comparison/downloads/moonraker/tests/test_server.py	2024-10-08 17:45:43.667278026 -0400
+@@ -6,12 +6,12 @@
+ import pathlib
+ from collections import namedtuple
+ 
+-from moonraker import CORE_COMPONENTS, Server, API_VERSION
+-from moonraker import main as servermain
+-from eventloop import EventLoop
+-from utils import ServerError
+-from confighelper import ConfigError
+-from components.klippy_apis import KlippyAPI
++from moonraker.server import CORE_COMPONENTS, Server, API_VERSION
++from moonraker.server import main as servermain
++from moonraker.eventloop import EventLoop
++from moonraker.utils import ServerError
++from moonraker.confighelper import ConfigError
++from moonraker.components.klippy_apis import KlippyAPI
+ from mocks import MockComponent, MockWebsocket
+ 
+ from typing import (

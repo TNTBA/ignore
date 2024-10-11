@@ -1,0 +1,26 @@
+Differences in scripts/set-policykit-rules.sh:
+
+- Lines with differences: 4 lines in 2 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/moonraker/scripts/set-policykit-rules.sh	2022-07-25 05:53:30.922869338 -0400
++++ /home/mks/firmware_comparison/downloads/moonraker/scripts/set-policykit-rules.sh	2024-10-08 17:45:43.667278026 -0400
+@@ -30,6 +30,8 @@
+     ACTIONS="${ACTIONS};org.freedesktop.login1.power-off-multiple-sessions"
+     ACTIONS="${ACTIONS};org.freedesktop.login1.reboot"
+     ACTIONS="${ACTIONS};org.freedesktop.login1.reboot-multiple-sessions"
++    ACTIONS="${ACTIONS};org.freedesktop.login1.halt"
++    ACTIONS="${ACTIONS};org.freedesktop.login1.halt-multiple-sessions"
+     ACTIONS="${ACTIONS};org.freedesktop.packagekit.*"
+     sudo /bin/sh -c "cat > ${RULE_FILE}" << EOF
+ [moonraker permissions]
+@@ -72,6 +74,8 @@
+          action.id == "org.freedesktop.login1.power-off-multiple-sessions" ||
+          action.id == "org.freedesktop.login1.reboot" ||
+          action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
++         action.id == "org.freedesktop.login1.halt" ||
++         action.id == "org.freedesktop.login1.halt-multiple-sessions" ||
+          action.id.startsWith("org.freedesktop.packagekit.")) &&
+         subject.user == "$USER") {
+         // Only allow processes with the "moonraker-admin" supplementary group

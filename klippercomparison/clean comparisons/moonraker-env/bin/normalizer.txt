@@ -1,0 +1,19 @@
+Differences in bin/normalizer:
+
+- Lines with differences: 4 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/moonraker-env/bin/normalizer	2022-07-25 05:57:33.908115840 -0400
++++ /home/mks/firmware_comparison/downloads/moonraker-env/bin/normalizer	2024-10-08 17:45:55.075318086 -0400
+@@ -1,8 +1,8 @@
+-#!/home/mks/moonraker-env/bin/python3
++#!/home/mks/firmware_comparison/downloads/moonraker-env/bin/python3
+ # -*- coding: utf-8 -*-
+ import re
+ import sys
+-from charset_normalizer.cli.normalizer import cli_detect
++from charset_normalizer.cli import cli_detect
+ if __name__ == '__main__':
+     sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+     sys.exit(cli_detect())

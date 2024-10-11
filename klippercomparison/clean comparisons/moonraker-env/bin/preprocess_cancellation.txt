@@ -1,0 +1,14 @@
+Differences in bin/preprocess_cancellation:
+
+- Lines with differences: 2 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/moonraker-env/bin/preprocess_cancellation	2022-07-25 05:57:27.404081013 -0400
++++ /home/mks/firmware_comparison/downloads/moonraker-env/bin/preprocess_cancellation	2024-10-08 17:45:54.171314954 -0400
+@@ -1,4 +1,4 @@
+-#!/home/mks/moonraker-env/bin/python3
++#!/home/mks/firmware_comparison/downloads/moonraker-env/bin/python3
+ # -*- coding: utf-8 -*-
+ import re
+ import sys
