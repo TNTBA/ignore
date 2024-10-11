@@ -1,0 +1,17 @@
+Differences in klippy/extras/exclude_object.py:
+
+- Lines with differences: 2 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/klippy/extras/exclude_object.py	2023-10-20 03:52:16.768163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/klippy/extras/exclude_object.py	2024-10-08 17:45:26.564216277 -0400
+@@ -234,7 +234,7 @@
+ 
+         elif current:
+             if not self.current_object:
+-                gcmd.respond_error('There is no current object to cancel')
++                raise self.gcode.error('There is no current object to cancel')
+ 
+             else:
+                 self._exclude_object(self.current_object)

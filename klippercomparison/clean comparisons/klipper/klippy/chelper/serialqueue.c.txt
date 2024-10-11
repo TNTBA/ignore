@@ -1,0 +1,24 @@
+Differences in klippy/chelper/serialqueue.c:
+
+- Lines with differences: 7 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/klippy/chelper/serialqueue.c	2023-10-20 03:52:16.744163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/klippy/chelper/serialqueue.c	2024-10-08 17:45:26.556216248 -0400
+@@ -222,12 +222,11 @@
+     pthread_mutex_lock(&sq->lock);
+ 
+     // Calculate receive sequence number
+-    uint64_t rseq = ((sq->receive_seq & ~MESSAGE_SEQ_MASK)
+-                     | (sq->input_buf[MESSAGE_POS_SEQ] & MESSAGE_SEQ_MASK));
++    uint32_t rseq_delta = ((sq->input_buf[MESSAGE_POS_SEQ] - sq->receive_seq)
++                           & MESSAGE_SEQ_MASK);
++    uint64_t rseq = sq->receive_seq + rseq_delta;
+     if (rseq != sq->receive_seq) {
+         // New sequence number
+-        if (rseq < sq->receive_seq)
+-            rseq += MESSAGE_SEQ_MASK+1;
+         if (rseq > sq->send_seq && sq->receive_seq != 1) {
+             // An ack for a message not sent?  Out of order message?
+             sq->bytes_invalid += len;

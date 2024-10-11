@@ -1,0 +1,22 @@
+Differences in klippy/extras/bed_screws.py:
+
+- Lines with differences: 7 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/klippy/extras/bed_screws.py	2023-10-20 03:52:16.756163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/klippy/extras/bed_screws.py	2024-10-08 17:45:26.556216248 -0400
+@@ -42,7 +42,12 @@
+         self.current_screw = 0
+         self.accepted_screws = 0
+     def move(self, coord, speed):
+-        self.printer.lookup_object('toolhead').manual_move(coord, speed)
++        try:
++            self.printer.lookup_object('toolhead').manual_move(coord, speed)
++        except self.printer.command_error as e:
++            self.unregister_commands()
++            self.reset()
++            raise
+     def move_to_screw(self, state, screw):
+         # Move up, over, and then down
+         self.move((None, None, self.horizontal_move_z), self.lift_speed)

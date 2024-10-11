@@ -1,0 +1,34 @@
+Differences in klippy/extras/input_shaper.py:
+
+- Lines with differences: 6 lines in 2 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/klippy/extras/input_shaper.py	2023-10-20 03:52:16.780163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/klippy/extras/input_shaper.py	2024-10-08 17:45:26.566216285 -0400
+@@ -59,7 +59,6 @@
+         return self.n, self.A, self.T
+     def update(self, gcmd):
+         self.params.update(gcmd)
+-        old_n, old_A, old_T = self.n, self.A, self.T
+         self.n, self.A, self.T = self.params.get_shaper()
+     def set_shaper_kinematics(self, sk):
+         ffi_main, ffi_lib = chelper.get_ffi()
+@@ -135,13 +134,16 @@
+             is_sk = self._get_input_shaper_stepper_kinematics(s)
+             if is_sk is None:
+                 continue
++            old_delay = ffi_lib.input_shaper_get_step_generation_window(is_sk)
+             for shaper in self.shapers:
+                 if shaper in failed_shapers:
+                     continue
+                 if not shaper.set_shaper_kinematics(is_sk):
+                     failed_shapers.append(shaper)
+             new_delay = ffi_lib.input_shaper_get_step_generation_window(is_sk)
+-            self.toolhead.note_step_generation_scan_time(self, new_delay)
++            if old_delay != new_delay:
++                self.toolhead.note_step_generation_scan_time(new_delay,
++                                                             old_delay)
+         if failed_shapers:
+             error = error or self.printer.command_error
+             raise error("Failed to configure shaper(s) %s with given parameters"

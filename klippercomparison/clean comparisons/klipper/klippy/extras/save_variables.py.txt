@@ -1,0 +1,31 @@
+Differences in klippy/extras/save_variables.py:
+
+- Lines with differences: 8 lines in 2 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/klippy/extras/save_variables.py	2024-03-15 08:49:27.680000410 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/klippy/extras/save_variables.py	2024-10-08 17:45:26.569216296 -0400
+@@ -25,8 +25,8 @@
+         varfile = configparser.ConfigParser()
+         try:
+             varfile.read(self.filename)
+-            if varfile.has_section('variables'):
+-                for name, val in varfile.items('variables'):
++            if varfile.has_section('Variables'):
++                for name, val in varfile.items('Variables'):
+                     allvars[name] = ast.literal_eval(val)
+         except:
+             msg = "Unable to parse existing variable file"
+@@ -45,9 +45,9 @@
+         newvars[varname] = value
+         # Write file
+         varfile = configparser.ConfigParser()
+-        varfile.add_section('variables')
++        varfile.add_section('Variables')
+         for name, val in sorted(newvars.items()):
+-            varfile.set('variables', name, repr(val))
++            varfile.set('Variables', name, repr(val))
+         try:
+             f = open(self.filename, "w")
+             varfile.write(f)

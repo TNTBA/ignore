@@ -1,0 +1,19 @@
+Differences in klippy/extras/heater_fan.py:
+
+- Lines with differences: 4 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/klippy/extras/heater_fan.py	2023-10-20 03:52:16.776163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/klippy/extras/heater_fan.py	2024-10-08 17:45:26.565216281 -0400
+@@ -33,9 +33,7 @@
+                 speed = self.fan_speed
+         if speed != self.last_speed:
+             self.last_speed = speed
+-            curtime = self.printer.get_reactor().monotonic()
+-            print_time = self.fan.get_mcu().estimated_print_time(curtime)
+-            self.fan.set_speed(print_time + PIN_MIN_TIME, speed)
++            self.fan.set_speed(speed)
+         return eventtime + 1.
+ 
+ def load_config_prefix(config):
