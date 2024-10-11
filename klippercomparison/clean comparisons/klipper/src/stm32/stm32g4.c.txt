@@ -1,0 +1,57 @@
+Differences in src/stm32/stm32g4.c:
+
+- Lines with differences: 14 lines in 4 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/src/stm32/stm32g4.c	2023-10-20 03:52:19.656163937 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/src/stm32/stm32g4.c	2024-10-08 17:45:26.901217515 -0400
+@@ -12,7 +12,7 @@
+ #include "internal.h" // enable_pclock
+ #include "sched.h" // sched_main
+ 
+-#define FREQ_PERIPH_DIV 1
++#define FREQ_PERIPH_DIV 2
+ #define FREQ_PERIPH (CONFIG_CLOCK_FREQ / FREQ_PERIPH_DIV)
+ 
+ // Map a peripheral address to its enable bits
+@@ -22,6 +22,12 @@
+     if (periph_base < APB2PERIPH_BASE) {
+         uint32_t pos = (periph_base - APB1PERIPH_BASE) / 0x400;
+         if (pos < 32) {
++#if defined(FDCAN2_BASE)
++            if (periph_base == FDCAN2_BASE)
++                return (struct cline){.en = &RCC->APB1ENR1,
++                                      .rst = &RCC->APB1RSTR1,
++                                      .bit = 1 << 25};
++#endif
+             return (struct cline){.en = &RCC->APB1ENR1,
+                                   .rst = &RCC->APB1RSTR1,
+                                   .bit = 1 << pos};
+@@ -98,13 +104,16 @@
+     RCC->CR |= RCC_CR_PLLON;
+ 
+     // Enable 48Mhz USB clock using clock recovery
+-    if (CONFIG_USBSERIAL) {
++    if (CONFIG_USB) {
+         RCC->CRRCR |= RCC_CRRCR_HSI48ON;
+         while (!(RCC->CRRCR & RCC_CRRCR_HSI48RDY))
+             ;
+         enable_pclock(CRS_BASE);
+         CRS->CR |= CRS_CR_AUTOTRIMEN | CRS_CR_CEN;
+     }
++
++    // Use PCLK for FDCAN
++    RCC->CCIPR = 2 << RCC_CCIPR_FDCANSEL_Pos;
+ }
+ 
+ // Main clock setup called at chip startup
+@@ -133,7 +142,7 @@
+     RCC->PLLCFGR |= RCC_PLLCFGR_PLLREN;
+ 
+     // Switch system clock to PLL
+-    RCC->CFGR = RCC_CFGR_HPRE_DIV1 | RCC_CFGR_PPRE1_DIV1 | RCC_CFGR_PPRE2_DIV1
++    RCC->CFGR = RCC_CFGR_HPRE_DIV1 | RCC_CFGR_PPRE1_DIV2 | RCC_CFGR_PPRE2_DIV2
+                 | RCC_CFGR_SW_PLL;
+     while ((RCC->CFGR & RCC_CFGR_SWS_Msk) != RCC_CFGR_SWS_PLL)
+         ;

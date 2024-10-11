@@ -1,0 +1,21 @@
+Differences in src/rp2040/spi.c:
+
+- Lines with differences: 4 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/src/rp2040/spi.c	2023-10-20 03:52:19.636163937 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/src/rp2040/spi.c	2024-10-08 17:45:26.888217467 -0400
+@@ -89,8 +89,12 @@
+ spi_prepare(struct spi_config config)
+ {
+     spi_hw_t *spi = config.spi;
++    if (spi->cr0 == config.cr0 && spi->cpsr == config.cpsr)
++        return;
++    spi->cr1 = 0;
+     spi->cr0 = config.cr0;
+     spi->cpsr = config.cpsr;
++    spi->cr1 = SPI_SSPCR1_SSE_BITS;
+ }
+ 
+ void
