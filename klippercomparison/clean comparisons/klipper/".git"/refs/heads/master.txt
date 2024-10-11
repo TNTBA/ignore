@@ -1,0 +1,11 @@
+Differences in .git/refs/heads/master:
+
+- Lines with differences: 2 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/.git/refs/heads/master	2023-10-20 03:52:16.492163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/.git/refs/heads/master	2024-10-08 17:45:26.522216123 -0400
+@@ -1 +1 @@
+-6749985302fe002a9cb5672dab9badb11e4e3c36
++96cceed23efc7a3759ecfba0a228cdcb4d5244d3

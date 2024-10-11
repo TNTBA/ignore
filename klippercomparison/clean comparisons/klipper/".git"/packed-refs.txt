@@ -1,0 +1,26 @@
+Differences in .git/packed-refs:
+
+- Lines with differences: 9 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/.git/packed-refs	2023-10-20 03:52:16.484163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/.git/packed-refs	2024-10-08 17:45:26.520216116 -0400
+@@ -1,11 +1,14 @@
+ # pack-refs with: peeled fully-peeled sorted 
+-ed6f3d83a722dbfd486533bf4fc94db2eca53607 refs/remotes/origin/gh-pages
+-6749985302fe002a9cb5672dab9badb11e4e3c36 refs/remotes/origin/master
++77789dd42a5fb7bb8dbf80878a42c8214af28d8f refs/remotes/origin/gh-pages
++96cceed23efc7a3759ecfba0a228cdcb4d5244d3 refs/remotes/origin/master
++ed97397f28eb239803e034f8d531d9e2a2602190 refs/remotes/origin/work-contribute-20231030
++c1feb47dbd10e76624681ab6f83175d5b15d0d7f refs/remotes/origin/work-heaters-20240804
+ 9dd235ab91f9a45e04daf0f1ece946214a326c57 refs/remotes/origin/work-nosmoothtemp-20230623
+-e6a75ed9108b0cfe4bdf52cc0772cafe4c05517d refs/remotes/origin/work-pwmtool-20231013
++757e8525d2b0276bc45f910159267cf57d0db39f refs/remotes/origin/work-vermsg-20240119
+ 30595b5cd7371484fa05630e46b52205feac9e72 refs/tags/v0.1.0
+ 2a964a4614d96af882736e55441937fb3d848fb7 refs/tags/v0.10.0
+ e02b725602067a2cd098a62be9a4bb10fc74a9bd refs/tags/v0.11.0
++0d67d9c45d2dc39f8b4be7d1bb54b94b2698a2b6 refs/tags/v0.12.0
+ f582a36e4df16d5709943f7df17a900c8bcc12ab refs/tags/v0.2.0
+ 3576dd6e874a946843b7e8332a6d98cf30be1930 refs/tags/v0.3.0
+ 8f1d0c2a7c49b596cb5a9a8b92b3200485049cf6 refs/tags/v0.4.0

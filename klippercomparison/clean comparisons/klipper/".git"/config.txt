@@ -1,0 +1,17 @@
+Differences in .git/config:
+
+- Lines with differences: 2 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/.git/config	2023-10-20 03:52:16.492163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/.git/config	2024-10-08 17:45:26.523216127 -0400
+@@ -4,7 +4,7 @@
+ 	bare = false
+ 	logallrefupdates = true
+ [remote "origin"]
+-	url = https://github.com/Klipper3d/klipper
++	url = https://github.com/Klipper3d/klipper.git
+ 	fetch = +refs/heads/*:refs/remotes/origin/*
+ [branch "master"]
+ 	remote = origin
