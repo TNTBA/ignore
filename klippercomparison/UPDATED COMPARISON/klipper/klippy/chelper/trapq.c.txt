@@ -1,0 +1,43 @@
+Differences in klippy/chelper/trapq.c:
+
+- Lines with differences: 9 lines in 3 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/klippy/chelper/trapq.c	2023-10-20 03:52:16.748163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/klippy/chelper/trapq.c	2024-10-08 17:45:26.556216248 -0400
+@@ -163,11 +163,10 @@
+     }
+ }
+ 
+-#define HISTORY_EXPIRE (30.0)
+-
+ // Expire any moves older than `print_time` from the trapezoid velocity queue
+ void __visible
+-trapq_finalize_moves(struct trapq *tq, double print_time)
++trapq_finalize_moves(struct trapq *tq, double print_time
++                     , double clear_history_time)
+ {
+     struct move *head_sentinel = list_first_entry(&tq->moves, struct move,node);
+     struct move *tail_sentinel = list_last_entry(&tq->moves, struct move, node);
+@@ -190,10 +189,9 @@
+     if (list_empty(&tq->history))
+         return;
+     struct move *latest = list_first_entry(&tq->history, struct move, node);
+-    double expire_time = latest->print_time + latest->move_t - HISTORY_EXPIRE;
+     for (;;) {
+         struct move *m = list_last_entry(&tq->history, struct move, node);
+-        if (m == latest || m->print_time + m->move_t > expire_time)
++        if (m == latest || m->print_time + m->move_t > clear_history_time)
+             break;
+         list_del(&m->node);
+         free(m);
+@@ -206,7 +204,7 @@
+                    , double pos_x, double pos_y, double pos_z)
+ {
+     // Flush all moves from trapq
+-    trapq_finalize_moves(tq, NEVER_TIME);
++    trapq_finalize_moves(tq, NEVER_TIME, 0);
+ 
+     // Prune any moves in the trapq history that were interrupted
+     while (!list_empty(&tq->history)) {

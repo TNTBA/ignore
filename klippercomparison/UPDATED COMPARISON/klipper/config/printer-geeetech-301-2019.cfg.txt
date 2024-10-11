@@ -1,0 +1,38 @@
+Differences in config/printer-geeetech-301-2019.cfg:
+
+- Lines with differences: 12 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/config/printer-geeetech-301-2019.cfg	2023-10-20 03:52:16.576163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/config/printer-geeetech-301-2019.cfg	2024-10-08 17:45:26.535216171 -0400
+@@ -71,25 +71,21 @@
+ pid_Ki: 2
+ pid_Kd: 210
+ 
+-[extruder1]
++[extruder_stepper e1]
++extruder:
+ step_pin: PA0
+ dir_pin: !PB6
+ enable_pin: !PA1
+ microsteps: 16
+ rotation_distance: 32
+-nozzle_diameter: 0.4
+-filament_diameter: 1.75
+-shared_heater: extruder
+ 
+-[extruder2]
++[extruder_stepper e2]
++extruder:
+ step_pin: PB2
+ dir_pin: !PB11
+ enable_pin: !PC4
+ microsteps: 16
+ rotation_distance: 32
+-nozzle_diameter: 0.4
+-filament_diameter: 1.75
+-shared_heater: extruder
+ 
+ [heater_bed]
+ heater_pin: PB1

@@ -1,0 +1,35 @@
+Differences in config/printer-lulzbot-mini1-2016.cfg:
+
+- Lines with differences: 6 lines in 3 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/config/printer-lulzbot-mini1-2016.cfg	2023-10-20 03:52:16.580163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/config/printer-lulzbot-mini1-2016.cfg	2024-10-08 17:45:26.535216171 -0400
+@@ -125,7 +125,7 @@
+ scale: 2.0
+ cycle_time: .000030
+ hardware_pwm: True
+-static_value: 1.300
++value: 1.300
+ 
+ [output_pin stepper_z_current]
+ pin: PL4
+@@ -133,7 +133,7 @@
+ scale: 2.0
+ cycle_time: .000030
+ hardware_pwm: True
+-static_value: 1.630
++value: 1.630
+ 
+ [output_pin stepper_e_current]
+ pin: PL5
+@@ -141,7 +141,7 @@
+ scale: 2.0
+ cycle_time: .000030
+ hardware_pwm: True
+-static_value: 1.250
++value: 1.250
+ 
+ [static_digital_output stepper_config]
+ # Microstepping pins

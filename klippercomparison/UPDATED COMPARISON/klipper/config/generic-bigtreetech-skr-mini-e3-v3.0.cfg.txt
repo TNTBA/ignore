@@ -1,0 +1,21 @@
+Differences in config/generic-bigtreetech-skr-mini-e3-v3.0.cfg:
+
+- Lines with differences: 3 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/config/generic-bigtreetech-skr-mini-e3-v3.0.cfg	2023-10-20 03:52:16.540163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/config/generic-bigtreetech-skr-mini-e3-v3.0.cfg	2024-10-08 17:45:26.529216149 -0400
+@@ -85,11 +85,10 @@
+ tx_pin: PC10
+ uart_address: 3
+ run_current: 0.650
+-stealthchop_threshold: 999999
+ 
+ [heater_bed]
+ heater_pin: PC9
+-sensor_type: ATC Semitec 104GT-2
++sensor_type: EPCOS 100K B57560G104F
+ sensor_pin: PC4
+ control: pid
+ pid_Kp: 54.027

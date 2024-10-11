@@ -1,0 +1,20 @@
+Differences in test/configs/stm32f031.config:
+
+- Lines with differences: 8 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/test/configs/stm32f031.config	2023-10-20 03:52:19.664163937 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/test/configs/stm32f031.config	2024-10-08 17:45:26.901217515 -0400
+@@ -1,5 +1,9 @@
+-# Base config file for STM32F031 boards
++# Base config file for STM32F031x4 (16KB) boards with serial on PA14/PA15
+ CONFIG_MACH_STM32=y
+ CONFIG_MACH_STM32F031=y
+-CONFIG_WANT_GPIO_BITBANGING=n
++CONFIG_LOW_LEVEL_OPTIONS=y
++CONFIG_STM32_SERIAL_USART2_ALT_PA15_PA14=y
++CONFIG_STM32_CLOCK_REF_INTERNAL=y
++CONFIG_STM32_FLASH_START_0000=y
+ CONFIG_WANT_DISPLAYS=n
++CONFIG_WANT_GPIO_BITBANGING=n

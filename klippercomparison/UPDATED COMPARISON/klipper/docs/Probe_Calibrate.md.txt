@@ -1,0 +1,17 @@
+Differences in docs/Probe_Calibrate.md:
+
+- Lines with differences: 2 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/docs/Probe_Calibrate.md	2023-10-20 03:52:16.628163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/docs/Probe_Calibrate.md	2024-10-08 17:45:26.543216201 -0400
+@@ -64,7 +64,7 @@
+ the XY probe offset calibration described above.
+ 
+ Once the manual probe tool starts, follow the steps described at
+-["the paper test"](Bed_Level.md#the-paper-test)) to determine the
++["the paper test"](Bed_Level.md#the-paper-test) to determine the
+ actual distance between the nozzle and bed at the given location. Once
+ those steps are complete one can `ACCEPT` the position and save the
+ results to the config file with:

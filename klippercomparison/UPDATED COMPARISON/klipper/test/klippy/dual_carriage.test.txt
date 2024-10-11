@@ -1,0 +1,27 @@
+Differences in test/klippy/dual_carriage.test:
+
+- Lines with differences: 8 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/test/klippy/dual_carriage.test	2023-10-20 03:52:19.668163937 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/test/klippy/dual_carriage.test	2024-10-08 17:45:26.901217515 -0400
+@@ -17,6 +17,18 @@
+ SET_DUAL_CARRIAGE CARRIAGE=0
+ G1 X20 F6000
+ 
++# Save dual carriage state
++SAVE_DUAL_CARRIAGE_STATE
++
++G1 X50 F6000
++
++# Go back to alternate carriage
++SET_DUAL_CARRIAGE CARRIAGE=1
++G1 X170 F6000
++
++# Restore dual carriage state
++RESTORE_DUAL_CARRIAGE_STATE
++
+ # Test changing extruders
+ G1 X5
+ T1

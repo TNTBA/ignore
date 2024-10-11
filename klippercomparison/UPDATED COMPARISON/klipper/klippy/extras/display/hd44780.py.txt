@@ -1,0 +1,17 @@
+Differences in klippy/extras/display/hd44780.py:
+
+- Lines with differences: 2 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/klippy/extras/display/hd44780.py	2023-10-20 03:52:16.764163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/klippy/extras/display/hd44780.py	2024-10-08 17:45:26.556216248 -0400
+@@ -8,7 +8,7 @@
+ 
+ BACKGROUND_PRIORITY_CLOCK = 0x7fffffff00000000
+ LINE_LENGTH_DEFAULT=20
+-LINE_LENGTH_OPTIONS={16:16, 20:20}
++LINE_LENGTH_OPTIONS=[16, 20]
+ 
+ TextGlyphs = { 'right_arrow': b'\x7e' }
+ 

@@ -1,0 +1,40 @@
+Differences in scripts/spi_flash/spi_flash.py:
+
+- Lines with differences: 23 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/scripts/spi_flash/spi_flash.py	2023-10-20 03:52:19.560163937 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/scripts/spi_flash/spi_flash.py	2024-10-08 17:45:26.888217467 -0400
+@@ -74,20 +74,19 @@
+     return ttyname, ttyname
+ 
+ def check_need_convert(board_name, config):
+-    if board_name.lower().startswith('mks-robin-e3'):
+-        # we need to convert this file
+-        robin_util = os.path.join(
+-            fatfs_lib.KLIPPER_DIR, "scripts/update_mks_robin.py")
+-        klipper_bin = config['klipper_bin_path']
+-        robin_bin = os.path.join(
++    conv_script = config.get("conversion_script")
++    if conv_script is None:
++        return
++    conv_util = os.path.join(fatfs_lib.KLIPPER_DIR, conv_script)
++    klipper_bin = config['klipper_bin_path']
++    dest_bin = os.path.join(
+             os.path.dirname(klipper_bin),
+             os.path.basename(config['firmware_path']))
+-        cmd = "%s %s %s %s" % (sys.executable, robin_util, klipper_bin,
+-                               robin_bin)
+-        output("Converting Klipper binary to MKS Robin format...")
+-        os.system(cmd)
+-        output_line("Done")
+-        config['klipper_bin_path'] = robin_bin
++    cmd = "%s %s %s %s" % (sys.executable, conv_util, klipper_bin, dest_bin)
++    output("Converting Klipper binary to custom format...")
++    os.system(cmd)
++    output_line("Done")
++    config['klipper_bin_path'] = dest_bin
+ 
+ 
+ ###########################################################

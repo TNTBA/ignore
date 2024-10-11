@@ -1,0 +1,16 @@
+Differences in config/printer-anycubic-4maxpro-2.0-2021.cfg:
+
+- Lines with differences: 1 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/config/printer-anycubic-4maxpro-2.0-2021.cfg	2023-10-20 03:52:16.564163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/config/printer-anycubic-4maxpro-2.0-2021.cfg	2024-10-08 17:45:26.532216160 -0400
+@@ -126,7 +126,6 @@
+ kinematics: cartesian
+ max_velocity: 150
+ max_accel: 3000
+-max_accel_to_decel: 1500
+ max_z_velocity: 7
+ max_z_accel: 50
+ square_corner_velocity: 5

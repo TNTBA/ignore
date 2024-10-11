@@ -1,0 +1,17 @@
+Differences in scripts/flash_usb.py:
+
+- Lines with differences: 2 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/scripts/flash_usb.py	2023-10-20 03:52:19.548163937 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/scripts/flash_usb.py	2024-10-08 17:45:26.877217426 -0400
+@@ -198,7 +198,7 @@
+     # We need one level up to get access to busnum/devnum files
+     usbdir = os.path.dirname(devpath)
+     enter_bootloader(device)
+-    wait_path(usbdir)
++    wait_path(usbdir + "/busnum")
+     with open(usbdir + "/busnum") as f:
+         bus = f.read().strip()
+     with open(usbdir + "/devnum") as f:

@@ -1,0 +1,19 @@
+Differences in config/printer-creality-cr6se-2021.cfg:
+
+- Lines with differences: 3 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/config/printer-creality-cr6se-2021.cfg	2023-10-20 03:52:16.568163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/config/printer-creality-cr6se-2021.cfg	2024-10-08 17:45:26.533216164 -0400
+@@ -98,6 +98,10 @@
+ speed: 2.0
+ samples: 5
+ 
++[safe_z_home]
++home_xy_position: 117, 117
++z_hop: 10
++
+ [filament_switch_sensor filament_sensor]
+ pause_on_runout: true
+ switch_pin: ^!PA7

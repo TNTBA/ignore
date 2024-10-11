@@ -1,0 +1,21 @@
+Differences in klippy/extras/manual_stepper.py:
+
+- Lines with differences: 5 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/klipper/klippy/extras/manual_stepper.py	2023-10-20 03:52:16.780163936 -0400
++++ /home/mks/firmware_comparison/downloads/klipper/klippy/extras/manual_stepper.py	2024-10-08 17:45:26.566216285 -0400
+@@ -67,9 +67,10 @@
+                           0., cruise_v, accel)
+         self.next_cmd_time = self.next_cmd_time + accel_t + cruise_t + accel_t
+         self.rail.generate_steps(self.next_cmd_time)
+-        self.trapq_finalize_moves(self.trapq, self.next_cmd_time + 99999.9)
++        self.trapq_finalize_moves(self.trapq, self.next_cmd_time + 99999.9,
++                                  self.next_cmd_time + 99999.9)
+         toolhead = self.printer.lookup_object('toolhead')
+-        toolhead.note_kinematic_activity(self.next_cmd_time)
++        toolhead.note_mcu_movequeue_activity(self.next_cmd_time)
+         if sync:
+             self.sync_print_time()
+     def do_homing_move(self, movepos, speed, accel, triggered, check_trigger):
