@@ -1,0 +1,193 @@
+#!/bin/bash
+
+# Define paths
+OLD_FIRMWARE_ROOT="/media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067"
+OLD_COMPONENTS_DIR="$OLD_FIRMWARE_ROOT/home/mks"
+DOWNLOAD_DIR="$HOME/firmware_comparison/downloads"
+COMPARISON_DIR="$HOME/firmware_comparison/comparisons"
+LOG_FILE="$HOME/firmware_comparison/comparison_log.txt"
+
+# Create necessary directories
+mkdir -p "$DOWNLOAD_DIR"
+mkdir -p "$COMPARISON_DIR"
+
+# Components to check
+components=(
+  "klipper"
+  "canboot"
+  "crowsnest"
+  "fluidd"
+  "kiauh"
+  "klippy-env"
+  "moonraker"
+  "moonraker-env"
+)
+
+# Repositories URLs
+declare -A repos=(
+  ["klipper"]="https://github.com/Klipper3d/klipper.git"
+  ["canboot"]="https://github.com/Arksine/CanBoot.git"
+  ["crowsnest"]="https://github.com/mainsail-crew/crowsnest.git"
+  ["fluidd"]="https://github.com/fluidd-core/fluidd.git"
+  ["kiauh"]="https://github.com/th33xitus/kiauh.git"
+  ["moonraker"]="https://github.com/Arksine/moonraker.git"
+)
+
+# Clear the log file
+> "$LOG_FILE"
+
+echo "Starting component comparison..." | tee -a "$LOG_FILE"
+
+for component in "${components[@]}"; do
+  echo "Processing $component..." | tee -a "$LOG_FILE"
+
+  # Check if the component is included in the old firmware
+  if [ -d "$OLD_COMPONENTS_DIR/$component" ]; then
+    echo "$component is included in the old firmware." | tee -a "$LOG_FILE"
+    included="yes"
+    OLD_COMPONENT_PATH="$OLD_COMPONENTS_DIR/$component"
+  else
+    echo "$component is not included in the old firmware." | tee -a "$LOG_FILE"
+    included="no"
+    OLD_COMPONENT_PATH=""
+  fi
+
+  # Proceed if the component is included or explicitly requested
+  if [[ "$included" == "yes" ]] || [[ "$component" == "canboot" || "$component" == "crowsnest" || "$component" == "fluidd" || "$component" == "kiauh" || "$component" == "klippy-env" || "$component" == "moonraker-env" ]]; then
+    # Download the current version
+    if [[ "$component" == "klippy-env" || "$component" == "moonraker-env" ]]; then
+      # For virtual environments, set up the environment
+      echo "Setting up virtual environment for $component..." | tee -a "$LOG_FILE"
+      # Ensure python3-venv is installed
+      sudo apt-get install -y python3-venv
+      # Create virtual environment
+      ENV_DIR="$DOWNLOAD_DIR/$component"
+      python3 -m venv "$ENV_DIR"
+      # Activate and install requirements if available
+      source "$ENV_DIR/bin/activate"
+      if [ "$component" == "klippy-env" ]; then
+        if [ -d "$DOWNLOAD_DIR/klipper" ]; then
+          pip install -r "$DOWNLOAD_DIR/klipper/scripts/klippy-requirements.txt"
+        else
+          echo "Klipper source not found for $component requirements." | tee -a "$LOG_FILE"
+        fi
+      elif [ "$component" == "moonraker-env" ]; then
+        if [ -d "$DOWNLOAD_DIR/moonraker" ]; then
+          pip install -r "$DOWNLOAD_DIR/moonraker/scripts/moonraker-requirements.txt"
+        else
+          echo "Moonraker source not found for $component requirements." | tee -a "$LOG_FILE"
+        fi
+      fi
+      deactivate
+    else
+      # Clone the repository
+      REPO_URL="${repos[$component]}"
+      if [ -z "$REPO_URL" ]; then
+        echo "No repository URL found for $component. Skipping download." | tee -a "$LOG_FILE"
+        continue
+      fi
+      git clone "$REPO_URL" "$DOWNLOAD_DIR/$component"
+    fi
+
+    # Compare with old firmware if included
+    if [[ "$included" == "yes" ]] && [ -n "$OLD_COMPONENT_PATH" ]; then
+      echo "Comparing $component..." | tee -a "$LOG_FILE"
+
+      # Set comparison directory for this component
+      COMPONENT_COMPARISON_DIR="$COMPARISON_DIR/$component"
+      mkdir -p "$COMPONENT_COMPARISON_DIR"
+
+      # Initialize summary files
+      IDENTICAL_FILES="$COMPONENT_COMPARISON_DIR/identical_files.txt"
+      MINOR_DIFF_FILES="$COMPONENT_COMPARISON_DIR/minor_diff_files.txt"
+      MAJOR_DIFF_FILES="$COMPONENT_COMPARISON_DIR/major_diff_files.txt"
+      DIRECTORY_SUMMARY="$COMPONENT_COMPARISON_DIR/directory_summary.txt"
+      > "$IDENTICAL_FILES"
+      > "$MINOR_DIFF_FILES"
+      > "$MAJOR_DIFF_FILES"
+      > "$DIRECTORY_SUMMARY"
+
+      # Get list of files in the old and new component
+      OLD_FILES=$(find "$OLD_COMPONENT_PATH" -type f)
+      for old_file in $OLD_FILES; do
+        # Compute relative path
+        rel_path="${old_file#$OLD_COMPONENT_PATH/}"
+        new_file="$DOWNLOAD_DIR/$component/$rel_path"
+
+        # Check if the file exists in the new version
+        if [ -f "$new_file" ]; then
+          # Perform diff and count differences
+          diff_output=$(diff -u "$old_file" "$new_file")
+          diff_lines=$(echo "$diff_output" | grep -c '^[+-][^+-]')
+          diff_blocks=$(echo "$diff_output" | grep -c '^@@')
+
+          if [ "$diff_lines" -eq 0 ]; then
+            # Files are identical
+            echo "$rel_path" >> "$IDENTICAL_FILES"
+          elif [ "$diff_blocks" -le 4 ]; then
+            # Files have 1-4 blocks of differences
+            echo "$rel_path ($diff_blocks blocks different)" >> "$MINOR_DIFF_FILES"
+            # Save detailed diff
+            diff_file_dir="$COMPONENT_COMPARISON_DIR/$(dirname "$rel_path")"
+            mkdir -p "$diff_file_dir"
+            diff_file="$diff_file_dir/$(basename "$rel_path").txt"
+            {
+              echo "Differences in $rel_path:"
+              echo ""
+              echo "- Lines with differences: $diff_lines lines in $diff_blocks blocks"
+              echo ""
+              echo "Detailed Differences:"
+              echo ""
+              diff -u "$old_file" "$new_file"
+            } > "$diff_file"
+          else
+            # Files have more than 4 blocks of differences
+            echo "$rel_path ($diff_blocks blocks different)" >> "$MAJOR_DIFF_FILES"
+            # Save detailed diff
+            diff_file_dir="$COMPONENT_COMPARISON_DIR/$(dirname "$rel_path")"
+            mkdir -p "$diff_file_dir"
+            diff_file="$diff_file_dir/$(basename "$rel_path").txt"
+            {
+              echo "Differences in $rel_path:"
+              echo ""
+              echo "- Lines with differences: $diff_lines lines in $diff_blocks blocks"
+              echo ""
+              echo "Detailed Differences:"
+              echo ""
+              diff -u "$old_file" "$new_file"
+            } > "$diff_file"
+          fi
+        else
+          echo "$rel_path is missing in the new version." | tee -a "$LOG_FILE"
+        fi
+      done
+
+      # Generate directory summary
+      {
+        echo "Directory Summary for $component:"
+        echo ""
+        echo "Identical Files:"
+        cat "$IDENTICAL_FILES"
+        echo ""
+        echo "Files with 1-4 blocks different:"
+        cat "$MINOR_DIFF_FILES"
+        echo ""
+        echo "Files with 5 or more blocks different:"
+        cat "$MAJOR_DIFF_FILES"
+        echo ""
+        total_files=$(($(wc -l < "$IDENTICAL_FILES") + $(wc -l < "$MINOR_DIFF_FILES") + $(wc -l < "$MAJOR_DIFF_FILES")))
+        echo "Total files compared: $total_files"
+      } > "$DIRECTORY_SUMMARY"
+
+    else
+      echo "Skipping comparison for $component as it is not included in the old firmware." | tee -a "$LOG_FILE"
+    fi
+  else
+    echo "Skipping $component as it is neither included in the old firmware nor specified for download." | tee -a "$LOG_FILE"
+  fi
+
+  echo "----------------------------------------" | tee -a "$LOG_FILE"
+done
+
+echo "Component comparison completed." | tee -a "$LOG_FILE"
+echo "Check the '$COMPARISON_DIR' directory for differences and '$LOG_FILE' for the log."
