@@ -1,0 +1,33 @@
+Differences in src/Kconfig:
+
+- Lines with differences: 7 lines in 3 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/CanBoot/src/Kconfig	2023-08-12 06:18:51.900709110 -0400
++++ /home/mks/firmware_comparison/downloads/CanBoot/src/Kconfig	2024-10-08 17:45:28.585223681 -0400
+@@ -1,6 +1,6 @@
+ # Main Kconfig settings
+ 
+-VERSION := $(shell, git describe --tags --long --always --dirty 2> /dev/null)
++VERSION := $(shell, ./scripts/make-version.sh 2> /dev/null)
+ 
+ mainmenu "Katapult Configuration $(VERSION)"
+ 
+@@ -73,7 +73,7 @@
+     default y if CANSERIAL || USBCANBUS
+ config CANBUS_FREQUENCY
+     int "CAN bus speed" if LOW_LEVEL_OPTIONS && CANBUS
+-    default 500000
++    default 1000000
+ config CANBUS_FILTER
+     bool
+     default y if CANSERIAL
+@@ -120,3 +120,7 @@
+ config HAVE_CHIPID
+     bool
+     default n
++
++config KATAPULT_VERSION
++    string
++    default "$(VERSION)"
