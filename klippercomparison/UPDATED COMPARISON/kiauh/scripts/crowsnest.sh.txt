@@ -1,0 +1,17 @@
+Differences in scripts/crowsnest.sh:
+
+- Lines with differences: 2 lines in 1 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/kiauh/scripts/crowsnest.sh	2023-12-15 01:08:34.853257048 -0500
++++ /home/mks/firmware_comparison/downloads/kiauh/scripts/crowsnest.sh	2024-10-08 17:45:33.575241837 -0400
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env bash
+ 
+ #=======================================================================#
+-# Copyright (C) 2020 - 2023 Dominik Willner <th33xitus@gmail.com>       #
++# Copyright (C) 2020 - 2024 Dominik Willner <th33xitus@gmail.com>       #
+ #                                                                       #
+ # This file is part of KIAUH - Klipper Installation And Update Helper   #
+ # https://github.com/dw-0/kiauh                                         #
