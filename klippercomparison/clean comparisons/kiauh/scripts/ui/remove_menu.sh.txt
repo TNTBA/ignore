@@ -1,0 +1,63 @@
+Differences in scripts/ui/remove_menu.sh:
+
+- Lines with differences: 33 lines in 3 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/kiauh/scripts/ui/remove_menu.sh	2023-12-15 01:08:34.865257048 -0500
++++ /home/mks/firmware_comparison/downloads/kiauh/scripts/ui/remove_menu.sh	2024-10-08 17:45:33.588241884 -0400
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env bash
+ 
+ #=======================================================================#
+-# Copyright (C) 2020 - 2023 Dominik Willner <th33xitus@gmail.com>       #
++# Copyright (C) 2020 - 2024 Dominik Willner <th33xitus@gmail.com>       #
+ #                                                                       #
+ # This file is part of KIAUH - Klipper Installation And Update Helper   #
+ # https://github.com/dw-0/kiauh                                         #
+@@ -17,20 +17,21 @@
+   hr
+   echo -e "| ${yellow}INFO: Configurations and/or any backups will be kept!${white} |"
+   hr
+-  echo -e "| Firmware & API:           | 3rd Party Webinterface:   |"
+-  echo -e "|  1) [Klipper]             |  8) [OctoPrint]           |"
+-  echo -e "|  2) [Moonraker]           |                           |"
+-  echo -e "|                           | Webcam Streamer:          |"
+-  echo -e "| Klipper Webinterface:     |  9) [Crowsnest]           |"
+-  echo -e "|  3) [Mainsail]            | 10) [MJPG-Streamer]       |"
+-  echo -e "|  4) [Mainsail-Config]     |                           |"
+-  echo -e "|  5) [Fluidd]              | Other:                    |"
+-  echo -e "|  6) [Fluidd-Config]       | 11) [PrettyGCode]         |"
+-  echo -e "|                           | 12) [Telegram Bot]        |"
+-  echo -e "| Touchscreen GUI:          | 13) [Obico for Klipper]   |"
+-  echo -e "|  7) [KlipperScreen]       | 14) [OctoEverywhere]      |"
++  echo -e "| Firmware & API:           | Webcam Streamer:          |"
++  echo -e "|  1) [Klipper]             |  9) [Crowsnest]           |"
++  echo -e "|  2) [Moonraker]           | 10) [MJPG-Streamer]       |"
++  echo -e "|                           |                           |"
++  echo -e "| Klipper Webinterface:     | Other:                    |"
++  echo -e "|  3) [Mainsail]            | 11) [PrettyGCode]         |"
++  echo -e "|  4) [Mainsail-Config]     | 12) [Telegram Bot]        |"
++  echo -e "|  5) [Fluidd]              | 13) [Obico for Klipper]   |"
++  echo -e "|  6) [Fluidd-Config]       | 14) [OctoEverywhere]      |"
+   echo -e "|                           | 15) [Mobileraker]         |"
+-  echo -e "|                           | 16) [NGINX]               |"
++  echo -e "| Touchscreen GUI:          | 16) [NGINX]               |"
++  echo -e "|  7) [KlipperScreen]       | 17) [OctoApp]             |"
++  echo -e "|                           | 18) [Spoolman]            |"
++  echo -e "| 3rd Party Webinterface:   |                           |"
++  echo -e "|  8) [OctoPrint]           |                           |"
+   back_footer
+ }
+ 
+@@ -73,6 +74,10 @@
+         do_action "remove_mobileraker" "remove_ui";;
+       16)
+         do_action "remove_nginx" "remove_ui";;
++      17)
++        do_action "remove_octoapp" "remove_ui";;
++      18)
++        do_action "remove_spoolman" "remove_ui";;
+       B|b)
+         clear; main_menu; break;;
+       *)

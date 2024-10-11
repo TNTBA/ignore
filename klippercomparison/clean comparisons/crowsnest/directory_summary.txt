@@ -1,0 +1,73 @@
+Directory Summary for crowsnest:
+
+Identical Files:
+resources/logrotate_crowsnest
+.github/crowsnest-logo-darkmode.png
+.github/crowsnest-logo.png
+.github/ISSUE_TEMPLATE/bug_report.yml
+.github/ISSUE_TEMPLATE/feature_request.yml
+.github/ISSUE_TEMPLATE/config.yml
+.github/crowsnest-logo-lightmode.png
+.github/workflows/label-actions.yml
+.github/CODE_OF_CONDUCT.md
+ustreamer_manpage.md
+ustreamer-www/script.js
+ustreamer-www/style.css
+ustreamer-www/index.html
+LICENSE
+log-example.md
+tools/dev-helper.sh
+.editorconfig
+.git/description
+.git/hooks/commit-msg.sample
+.git/hooks/post-update.sample
+.git/hooks/pre-rebase.sample
+.git/hooks/pre-applypatch.sample
+.git/hooks/applypatch-msg.sample
+.git/hooks/pre-receive.sample
+.git/hooks/prepare-commit-msg.sample
+.git/info/exclude
+.git/refs/remotes/origin/HEAD
+.git/config
+.git/index
+
+Files with 1-4 blocks different:
+crowsnest (4 blocks different)
+libs/versioncontrol.sh (1 blocks different)
+libs/messages.sh (1 blocks different)
+libs/ustreamer.sh (2 blocks different)
+libs/hwhandler.sh (2 blocks different)
+libs/watchdog.sh (1 blocks different)
+libs/configparser.sh (4 blocks different)
+libs/logging.sh (4 blocks different)
+libs/init_stream.sh (2 blocks different)
+resources/moonraker_update.txt (1 blocks different)
+resources/crowsnest.conf (2 blocks different)
+resources/crowsnest.service (1 blocks different)
+.github/label-actions.yml (2 blocks different)
+.github/workflows/shellcheck.yml (1 blocks different)
+Makefile (1 blocks different)
+tools/uninstall.sh (2 blocks different)
+tools/install.sh (2 blocks different)
+custompios/crowsnest/start_chroot_script (2 blocks different)
+custompios/crowsnest/config (3 blocks different)
+custompios/README.md (1 blocks different)
+.gitignore (2 blocks different)
+.git/HEAD (1 blocks different)
+.git/hooks/pre-push.sample (2 blocks different)
+.git/hooks/pre-commit.sample (1 blocks different)
+.git/hooks/update.sample (2 blocks different)
+.git/hooks/fsmonitor-watchman.sample (1 blocks different)
+.git/logs/HEAD (1 blocks different)
+.git/logs/refs/heads/master (1 blocks different)
+.git/logs/refs/remotes/origin/HEAD (1 blocks different)
+.git/refs/heads/master (1 blocks different)
+.git/packed-refs (2 blocks different)
+
+Files with 5 or more blocks different:
+libs/core.sh (5 blocks different)
+libs/v4l2_control.sh (5 blocks different)
+tools/configure.sh (9 blocks different)
+README.md (5 blocks different)
+
+Total files compared: 64

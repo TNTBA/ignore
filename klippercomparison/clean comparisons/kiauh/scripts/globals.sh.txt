@@ -1,0 +1,31 @@
+Differences in scripts/globals.sh:
+
+- Lines with differences: 10 lines in 2 blocks
+
+Detailed Differences:
+
+--- /media/mks/5dcae443-0796-4029-ae6c-bf5bd2a37067/home/mks/kiauh/scripts/globals.sh	2023-12-15 01:08:34.853257048 -0500
++++ /home/mks/firmware_comparison/downloads/kiauh/scripts/globals.sh	2024-10-08 17:45:33.575241837 -0400
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env bash
+ 
+ #=======================================================================#
+-# Copyright (C) 2020 - 2023 Dominik Willner <th33xitus@gmail.com>       #
++# Copyright (C) 2020 - 2024 Dominik Willner <th33xitus@gmail.com>       #
+ #                                                                       #
+ # This file is part of KIAUH - Klipper Installation And Update Helper   #
+ # https://github.com/dw-0/kiauh                                         #
+@@ -83,4 +83,13 @@
+   MOBILERAKER_DIR="${HOME}/mobileraker_companion"
+   MOBILERAKER_REPO="https://github.com/Clon1998/mobileraker_companion.git"
+ 
++  #=============== OCTOAPP ================#
++  OCTOAPP_ENV="${HOME}/octoapp-env"
++  OCTOAPP_DIR="${HOME}/octoapp"
++  OCTOAPP_REPO="https://github.com/crysxd/OctoApp-Plugin.git"
++
++  #=============== Spoolman ================#
++  SPOOLMAN_DIR="${HOME}/Spoolman"
++  SPOOLMAN_DB_DIR="${HOME}/.local/share/spoolman"
++  SPOOLMAN_REPO="https://api.github.com/repos/Donkie/Spoolman/releases/latest"
+ }

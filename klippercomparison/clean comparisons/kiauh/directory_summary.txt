@@ -1,0 +1,93 @@
+Directory Summary for kiauh:
+
+Identical Files:
+.shellcheckrc
+resources/example.printer.cfg
+resources/moonraker.conf
+resources/upstreams.conf
+resources/common_vars.conf
+resources/moonraker-telegram-bot.service
+resources/klipper.service
+resources/klipper.env
+resources/moonraker-telegram-bot.env
+resources/shell_command.cfg
+resources/fluidd
+resources/screenshots/rpi_imager1.png
+resources/screenshots/kiauh.png
+resources/screenshots/rpi_imager2.png
+resources/mainsail
+resources/autocommit.sh
+resources/mjpg-streamer/webcam.txt
+resources/mjpg-streamer/webcamd.service
+resources/mjpg-streamer/webcamd
+resources/moonraker.service
+resources/moonraker.env
+.github/ISSUE_TEMPLATE/bug_report.yml
+.github/ISSUE_TEMPLATE/feature_request.yml
+.github/ISSUE_TEMPLATE/config.yml
+docs/gcode_shell_command.md
+LICENSE
+.git/HEAD
+.git/description
+.git/hooks/commit-msg.sample
+.git/hooks/post-update.sample
+.git/hooks/pre-rebase.sample
+.git/hooks/pre-applypatch.sample
+.git/hooks/applypatch-msg.sample
+.git/hooks/pre-receive.sample
+.git/hooks/prepare-commit-msg.sample
+.git/info/exclude
+.git/refs/remotes/origin/HEAD
+.git/config
+.git/index
+
+Files with 1-4 blocks different:
+resources/gcode_shell_command.py (4 blocks different)
+.github/FUNDING.yml (1 blocks different)
+docs/changelog.md (2 blocks different)
+scripts/crowsnest.sh (1 blocks different)
+scripts/moonraker.sh (2 blocks different)
+scripts/backup.sh (3 blocks different)
+scripts/mjpg-streamer.sh (1 blocks different)
+scripts/mobileraker.sh (3 blocks different)
+scripts/nginx.sh (1 blocks different)
+scripts/moonraker-telegram-bot.sh (1 blocks different)
+scripts/fluidd.sh (2 blocks different)
+scripts/octoeverywhere.sh (1 blocks different)
+scripts/switch_klipper_repo.sh (1 blocks different)
+scripts/klipper.sh (1 blocks different)
+scripts/ui/backup_menu.sh (3 blocks different)
+scripts/ui/install_menu.sh (3 blocks different)
+scripts/ui/advanced_menu.sh (1 blocks different)
+scripts/ui/settings_menu.sh (1 blocks different)
+scripts/ui/general_ui.sh (1 blocks different)
+scripts/ui/remove_menu.sh (3 blocks different)
+scripts/ui/main_menu.sh (4 blocks different)
+scripts/globals.sh (2 blocks different)
+scripts/klipperscreen.sh (1 blocks different)
+scripts/upload_log.sh (1 blocks different)
+scripts/obico.sh (1 blocks different)
+scripts/flash_klipper.sh (1 blocks different)
+scripts/pretty_gcode.sh (1 blocks different)
+scripts/octoprint.sh (1 blocks different)
+scripts/gcode_shell_command.sh (1 blocks different)
+scripts/rollback.sh (1 blocks different)
+scripts/mainsail.sh (2 blocks different)
+.gitignore (1 blocks different)
+kiauh.sh (4 blocks different)
+.git/hooks/pre-push.sample (2 blocks different)
+.git/hooks/pre-commit.sample (1 blocks different)
+.git/hooks/update.sample (2 blocks different)
+.git/hooks/fsmonitor-watchman.sample (1 blocks different)
+.git/logs/HEAD (1 blocks different)
+.git/logs/refs/heads/master (1 blocks different)
+.git/logs/refs/remotes/origin/HEAD (1 blocks different)
+.git/refs/heads/master (1 blocks different)
+.git/packed-refs (1 blocks different)
+
+Files with 5 or more blocks different:
+scripts/utilities.sh (6 blocks different)
+scripts/ui/update_menu.sh (6 blocks different)
+README.md (5 blocks different)
+
+Total files compared: 84
